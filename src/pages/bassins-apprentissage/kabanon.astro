@@ -1,15 +1,25 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Card from "../../components/Card.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'Aube";
+const description = "";
+const pageImageUrl = "/images/page-title/page_kabanon-bassins.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'aube" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
-	<main><h1>Kabanon des écuries de l'aube</h1></main>
+	<PageTitle
+		pageTitle="Kabanon des écuries de l'aube"
+		pageImageUrl={pageImageUrl}
+		pageImageAlt="Bassin du Kabanon des écuries de l'aube à Saint-Marc-Jaumegarde"
+	/>
+	<main><h1>Kabanon des écuries de l'Aube</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {

@@ -1,15 +1,21 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Card from "../../components/Card.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Notre bassin d'apprentissage à Plan Form";
+const description = "";
+const pageImageUrl = "/images/page-title/page_planform-bassins.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
-	<main><h1>Aquabecool</h1></main>
+	<PageTitle pageTitle="Planform" pageImageUrl={pageImageUrl} pageImageAlt="Bassin de Planform à Cabriès" />
+	<main><h1>Plan Form</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {

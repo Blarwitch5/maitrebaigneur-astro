@@ -1,14 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Qui sommes-nous ?";
+const description = "";
+const pageImageUrl = "/images/page-title/page_quisommesnous.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Qui nous sommes" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
+	<PageTitle pageTitle="Qui sommes-nous ?" pageImageUrl={pageImageUrl} pageImageAlt="Maître-Baigneur apprenant un garçon à nager" />
 	<main><h1>Qui sommes-nous ?</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {

@@ -1,15 +1,26 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Card from "../../components/Card.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Cours de natation";
+const description = "";
+const pageImageUrl = "/images/page-title/page_natation.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Cours de natation" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
+	<PageTitle
+		pageTitle="Cours de natation"
+		pageImageUrl={pageImageUrl}
+		pageImageAlt="Petite fille avec lunettes de natation nageant sous l'eau tout sourire"
+	/>
+
 	<main><h1>Cours de natation</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {

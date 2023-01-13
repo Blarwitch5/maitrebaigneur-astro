@@ -1,23 +1,67 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SkipToContent from "../components/ui/SkipToContent.astro";
+import Main from "@components/Main.astro";
+import Header from "@components/Header.astro";
+import Hero from "@components/widgets/Hero.astro";
+import Footer from "@components/Footer.astro";
+import GoToTop from "@components/ui/GoToTop.astro";
+import Section from "@components/Section.astro";
+import Forces from "@components/widgets/Forces.astro";
+import Services from "@components/widgets/Services.astro";
+import Partners from "@components/widgets/Partners.astro";
+import BookingCta from "@components/widgets/BookingCta.astro";
+// import Lifeguards from "@components/widgets/Lifeguards.astro";
+import PoolsCta from "@components/widgets/PoolsCta.astro";
+import Testimonials from "@components/widgets/Testimonials.astro";
+import Faq from "@components/widgets/Faq.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	url: string;
+}
+const page = {
+	title: "Maître-Baigneur - Vos cours de natation à Aix-en-Provence",
+	description:
+		"Maître-Baigneur est une association qui vous propose des leçons de natation, des cours de bébé nageur ainsi que de la surveillance aquatique de vos événements.",
+	url: "https://maitrebaigneur.com/",
+};
 ---
 
-<Layout title="Maître-Baigneur | Cours de natation à Aix-en-Provence" descritpion="">
+<BaseLayout title={page.title} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
-	<main><h1>Hello</h1></main>
-	<Footer />
-</Layout>
+	<Main>
+		<Hero ariaLabel="Bannière Maître-Baigneur, apprendre à nager à Aix-en-Provence" />
+		<Section class="services" ariaLabel="Liste des prestations proposées par Maître-Baigneur">
+			<Services />
+		</Section>
+		<Section class="forces" backgroundColor="var(--color-bg-light)" ariaLabel="Les atouts de Maître-Baigneur">
+			<Forces />
+		</Section>
+		<Section class="booking-cta" backgroundColor="var(--color-primary)" ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance">
+			<BookingCta />
+		</Section>
+		<Section class="faq" ariaLabel="Réponses aux questions fréquentes">
+			<Faq />
+		</Section>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
+		<!-- <Section class="lifeguards">
+			<Lifeguards />
+		</Section> -->
+		<Section class="pools-cta" backgroundColor="var(--color-bg-light-alt)" ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur">
+			<PoolsCta />
+		</Section>
+		<Section class="testimonials" ariaLabel="Liste d'avis de clients">
+			<Testimonials />
+		</Section>
+		<Section class="partners" ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur">
+			<Partners />
+		</Section>
+		<GoToTop />
+	</Main>
+	<Footer />
+</BaseLayout>
+
+<style lang="scss"></style>

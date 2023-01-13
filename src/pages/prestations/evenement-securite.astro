@@ -1,15 +1,21 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import Card from "../../components/Card.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Événements et sécurité";
+const description = "";
+const pageImageUrl = "/images/page-title/page_surveillance.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Surveillance et sécurité de vos événements" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
+	<PageTitle pageTitle="Événements & Sécurité" pageImageUrl={pageImageUrl} pageImageAlt="Couple de mariés se jettant à l'eau dans une piscine" />
 	<main><h1>Événements et sécurité</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {

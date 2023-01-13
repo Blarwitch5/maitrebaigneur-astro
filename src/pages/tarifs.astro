@@ -1,14 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+//data
+const title = "Maître-Baigneur | Nos tarifs";
+const description = "";
+const pageImageUrl = "/images/page-title/page_tarifs.jpg";
 ---
 
-<Layout title="Maître-Baigneur | Tous nos tarifs" descritpion="">
+<BaseLayout title={title} descritpion={description}>
 	<Header />
-	<main><h1>Tarifs</h1></main>
+	<PageTitle
+		pageTitle="Tarifs"
+		pageImageUrl={pageImageUrl}
+		pageImageAlt="Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main"
+	/>
+	<main><h1>Nos tarifs</h1></main>
 	<Footer />
-</Layout>
+</BaseLayout>
 
 <style>
 	main {
