@@ -1,0 +1,54 @@
+---
+import Swiper from "@components/ui/swiper/Swiper.astro";
+import SwiperSlide from "@components/ui/swiper/SwiperSlide.astro";
+
+const swiperParameters = {
+	// Optional parameters
+	loop: true,
+	autoplay: { delay: 1000 },
+};
+const reviews = [
+	{
+		name: "Yahia BEN AMMAR",
+		review: "Super maître nageur, très professionnel et très pédagogue, je le recommande vivement.",
+		score: 5,
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5,
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5,
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5,
+	},
+];
+---
+
+<div class="container">
+	<h3 class="testimonials-title">Ils parlent de nous</h3>
+	<p class="testimonials-desc">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, molestias quaerat? Repellendus perspiciatis voluptatem, cupiditate corrupti excepturi
+		quod voluptates eum deserunt deleniti nesciunt ea error, fugit accusantium quo aspernatur amet.
+	</p>
+</div>
+<Swiper class="reviews">
+	{
+		reviews.map((review) => (
+			<SwiperSlide>
+				{" "}
+				<div class="review">
+					<div class="review__name">{review.name}</div>
+					<div class="review__review">{review.review}</div>
+					<div class="review__score">{review.score}</div>
+				</div>
+			</SwiperSlide>
+		))
+	}
+</Swiper>

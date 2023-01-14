@@ -1,0 +1,180 @@
+---
+import site from "@assets/data/services.json";
+const { services } = site;
+---
+
+<div class="container">
+	<h2 class="services-title">Nos prestations aquatiques</h2>
+	<p class="services-desc">
+		L'équipe de Maître-Baigneur vous propose diverses activités autour du milieu aquatique, de l’apprentissage de la natation à la surveillance de vos
+		événements, en passant par des cours de bébé nageur ou encore nos aquaversaires.
+	</p>
+	<div class="services-grid">
+		{
+			services.map((service) => (
+				<div
+					class={`service ${service.name
+						.replace(/\s|_|\(|\)/g, "-")
+						.normalize("NFD")
+						.replace(/\p{Diacritic}/gu, "")
+						.toLowerCase()}`}
+				>
+					<a href={service.link} class="service-link">
+						<h3 class="service-title">{service.name}</h3>
+						<img class="service-img" src={service.image.src} alt={service.image.alt} />
+					</a>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<style lang="scss">
+	.services-title {
+		text-align: center;
+	}
+	.services-desc {
+		margin-block: 4rem 4rem;
+	}
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		grid-gap: 2rem;
+		transition: all 0.3s ease-in-out;
+
+		@media screen and (max-width: 576px) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(4, 1fr);
+			grid-gap: 1rem;
+		}
+
+		.service {
+			position: relative;
+			border-radius: 25px;
+			overflow: hidden;
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+			transition: all 0.3s ease-in-out;
+			min-height: 9rem;
+
+			&:hover {
+				transition: all 0.3s ease-in-out;
+				transform: scale(1.03) rotate(-2deg);
+				z-index: 9;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				background-color: hsla(var(--link-color-primary-hsl), 0.3);
+			}
+
+			//services grid
+			&:first-child {
+				grid-column: 1 / span 2;
+				grid-row: 1 / span 2;
+
+				@media screen and (max-width: 576px) {
+					grid-column: 1 / -1;
+					grid-row: 1 / span 1;
+				}
+
+				.service-title::before {
+					-webkit-mask-image: url("/images/icons/swimmer.svg");
+					mask-image: url("/images/icons/swimmer.svg");
+				}
+			}
+			&:nth-child(2) {
+				grid-column: 3 / span 2;
+				grid-row: 2 / span 2;
+
+				@media screen and (max-width: 576px) {
+					grid-column: 1 / -1;
+					grid-row: 2 / span 1;
+				}
+
+				.service-title::before {
+					-webkit-mask-image: url("/images/icons/baby.svg");
+					mask-image: url("/images/icons/baby.svg");
+				}
+			}
+			&:nth-child(3) {
+				grid-column: 3 / span 2;
+				grid-row: 1 / span 1;
+
+				@media screen and (max-width: 576px) {
+					grid-column: 1 / -1;
+					grid-row: 3 / span 1;
+				}
+
+				.service-title::before {
+					-webkit-mask-image: url("/images/icons/aquaversaire.svg");
+					mask-image: url("/images/icons/aquaversaire.svg");
+				}
+			}
+			&:nth-child(4) {
+				grid-column: 1 / span 2;
+				grid-row: 3 / span 1;
+
+				@media screen and (max-width: 576px) {
+					grid-column: 1 / -1;
+					grid-row: 4 / span 1;
+				}
+
+				.service-title::before {
+					-webkit-mask-image: url("/images/icons/event.svg");
+					mask-image: url("/images/icons/event.svg");
+				}
+			}
+
+			&-link {
+				text-decoration: none;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+			}
+
+			&-title {
+				color: var(--color-white);
+				font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
+				margin: 3rem 0 0 0;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+
+				&::before {
+					content: "";
+					display: block;
+					width: 3.5rem;
+					height: 3.5rem;
+					position: absolute;
+					top: -3.5rem;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 1;
+					background-color: var(--color-white);
+					mask-repeat: no-repeat;
+					mask-position: center;
+					mask-size: 3.5rem;
+				}
+			}
+			&-img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: -1;
+			}
+		}
+	}
+</style>

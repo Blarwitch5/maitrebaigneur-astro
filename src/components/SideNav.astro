@@ -1,0 +1,132 @@
+---
+import CloseBtn from "@components/header/CloseBtn.astro";
+import Socials from "@components/Socials.astro";
+import Buttons from "@components/ui/Buttons.astro";
+
+//data
+const logo = {
+	src: "/images/logo.svg",
+	width: 200,
+	height: 200,
+	alt: "Logo Maître-Baigneur",
+};
+const secondaryNav = [
+	{ link: "/prestations/cours-de-natation", name: "Cours de natation", classes: "" },
+	{ link: "/prestations/cours-bebe-nageur", name: "Cours bébé nageur", classes: "" },
+	{ link: "/prestations/aquaversaire", name: "Aquaversaire", classes: "" },
+	{ link: "/prestations/evenement-securite", name: "Événements & Sécurité", classes: "" },
+	{ link: "/bassins-apprentissage", name: "Nos bassins d'apprentissage", classes: "" },
+	{ link: "/bassins-apprentissage/aquabecool", name: "Aquabecool", classes: "" },
+	{ link: "/bassins-apprentissage/plan-form", name: "Plan Form", classes: "" },
+	{ link: "/bassins-apprentissage/set-club", name: "Set Club", classes: "" },
+	{ link: "/bassins-apprentissage/kabanon", name: "Kabanon des écuries de l'aube", classes: "" },
+	{ link: "/bassins-apprentissage/kinemouv", name: "Kinémouv'", classes: "" },
+	{ link: "/bassins-apprentissage/domicile", name: "Domicile", classes: "" },
+	{ link: "/qui-sommes-nous", name: "Qui sommes-nous ?", classes: "" },
+	{ link: "/tarifs", name: "Tarifs", classes: "" },
+	{ link: "/contact", name: "Nous contacter", classes: "" },
+	{ link: "https://user.clicrdv.com/maitre-baigneur", name: "Réservation", classes: "", target: "_blank" },
+];
+---
+
+<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
+	<img src={logo.src} alt={logo.alt} class="logo" />
+	<ul class="navbar-nav" role="menubar" aria-label="Menu de navigation">
+		{
+			secondaryNav.map((item) => (
+				<li class="nav-item" role="none">
+					<Buttons tabindex="0" role="menuitem" class={`nav-link ${item.classes}`} href={item.link} target={item.target}>
+						{item.name}
+					</Buttons>
+				</li>
+			))
+		}
+	</ul>
+	<Socials iconVersion="light" />
+	<!-- close button -->
+	<CloseBtn />
+</nav>
+
+<style lang="scss">
+	.sidenav {
+		height: 100vh;
+		overflow-y: hidden;
+		width: 50%;
+		position: fixed;
+		z-index: 999;
+		right: 0;
+		top: 0;
+		background-color: var(--color-primary);
+		overflow-x: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		transition: transform 0.3s linear;
+		transform: translateX(100%);
+
+		&[data-state="opened"] {
+			transform: translateX(0);
+		}
+		&[data-state="closed"] {
+			transform: translateX(100%);
+		}
+
+		@media screen and (max-width: 992px) {
+			width: 75%;
+		}
+		@media screen and (max-width: 768px) {
+			width: 100%;
+		}
+	}
+	.logo {
+		position: absolute;
+		bottom: -25%;
+		right: -25%;
+		transform: translate(25%, 25%);
+		width: 130%;
+		max-width: 800px;
+		transform: rotate(-25deg);
+		opacity: 0.1;
+	}
+	.navbar-nav {
+		position: relative;
+		list-style-type: none;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 0;
+		width: calc(100% - 2rem);
+
+		.nav-item {
+			text-align: center;
+			a {
+				color: var(--color-white);
+				text-decoration: none;
+			}
+			flex: 0 0 100%;
+
+			// &:not(:nth-last-of-type(-n + 2)),
+			// &:not(:nth-child(-n + 2)) {
+			// 	flex: 0 0 100%;
+			// }
+			// &:nth-last-of-type(-n + 2),
+			// &:nth-child(-n + 2) {
+			// 	display: inline-block;
+			// 	max-width: 50%;
+			// }
+		}
+	}
+
+	.nav-link {
+	}
+	.close-btn {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+		text-decoration: none;
+		color: var(--color-white);
+	}
+</style>

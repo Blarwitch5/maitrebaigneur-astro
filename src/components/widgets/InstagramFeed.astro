@@ -1,0 +1,62 @@
+---
+// define headers
+let myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+let url = "https://v1.nocodeapi.com/blarwitch/instagram/qpCDBVXQHdyGuFVH";
+
+// make the request
+const response = await fetch(url, {
+	method: "get",
+	headers: myHeaders,
+	redirect: "follow",
+});
+
+//number of images to display
+const numImages = 4;
+// get the response data
+const data = await response.json();
+// get the media data
+const instagramMedia = data.data;
+// filter the media data to only 6 images
+const instagramImages = instagramMedia.filter((media) => media.media_type === "IMAGE").slice(0, numImages);
+---
+
+<div class="instagram-grid">
+	{
+		instagramImages.map((image) => (
+			<a href={image.permalink} target="_blank" rel="noreferrer">
+				<img src={image.media_url} alt={image.caption} />
+			</a>
+		))
+	}
+</div>
+
+<style lang="scss">
+	.instagram-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 8rem);
+		grid-template-rows: repeat(2, 6rem);
+		grid-gap: var(--space-2xs);
+		align-items: stretch;
+
+		@media screen and (max-width: 1024px) {
+			grid-template-columns: repeat(4, minmax(6rem, 1fr));
+			grid-template-rows: repeat(1, minmax(8rem, 1fr));
+		}
+		@media screen and (max-width: 768px) {
+			justify-content: center;
+			grid-template-rows: repeat(1, minmax(6rem, 1fr));
+		}
+		@media screen and (max-width: 576px) {
+			grid-template-columns: repeat(2, minmax(6rem, 1fr));
+			grid-template-rows: repeat(2, 6rem);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 0.5rem;
+		}
+	}
+</style>

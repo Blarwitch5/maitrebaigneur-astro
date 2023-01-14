@@ -1,0 +1,173 @@
+---
+import Copyright from "@components/footer/Copyright.astro";
+import Socials from "@components/Socials.astro";
+import Buttons from "@components/ui/Buttons.astro";
+import InstagramFeed from "./widgets/InstagramFeed.astro";
+import { Icon } from "astro-icon";
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-sections">
+			<div class="col brand">
+				<img class="logo" src="/images/logo.svg" alt="Logo Maître-Baigneur" />
+				<p class="slogan">"...Le bonheur du baigneur..."</p>
+				<ul class="info">
+					<li>
+						<Buttons href="tel:+33677007584" label="Appeler Maître-Baigneur au 06 77 00 75 84">
+							<span class="icon">
+								<Icon name="call" />
+							</span>
+							+33 6 00 75 84
+						</Buttons>
+					</li>
+					<li>
+						<Buttons href="mailto:contact@maitrebaigneur.com" label="écrire un mail à contact@maitrebaigneur.com">
+							<span class="icon"> <Icon name="mail" /></span>contact@maitrebaigneur.com
+						</Buttons>
+					</li>
+					<li><span class="icon"> <Icon name="location" /></span>Aix-en-Provence et ses alentours</li>
+				</ul>
+				<Socials iconVersion="light" />
+			</div>
+
+			<div class="col services">
+				<h3 class="title">Nos prestations</h3>
+				<ul>
+					<li><Buttons href="/prestations/cours-de-natation" label="Cours de natation">Cours de natation</Buttons></li>
+					<li><Buttons href="/prestations/cours-bebe-nageur" label="Cours bébé nageur">Cours bébé nageur</Buttons></li>
+					<li><Buttons href="/prestations/aquaversaire" label="Aquaversaire">Aquaversaire</Buttons></li>
+					<li><Buttons href="/prestations/evenement-securite" label="Événements et sécurité">Événements et sécurité</Buttons></li>
+				</ul>
+			</div>
+			<div class="col useful-links">
+				<h3 class="title">Besoin d'aide ?</h3>
+				<ul>
+					<li><Buttons href="/contact" label="Contactez-nous">Contactez-nous</Buttons></li>
+					<li><Buttons href="https://user.clicrdv.com/maitre-baigneur" label="Réservation de cours">Réservation de cours</Buttons></li>
+					<li><Buttons href="/mentions-legales" label="Mentions légales">Mentions légales</Buttons></li>
+				</ul>
+			</div>
+			<div class="col insta">
+				<h3 class="title">Flux Instagram</h3>
+				<!-- <InstagramFeed /> -->
+			</div>
+		</div>
+		<Copyright />
+	</div>
+</footer>
+
+<style lang="scss">
+	footer {
+		margin-top: 100px;
+		background-color: var(--color-primary);
+		color: var(--color-white);
+		position: relative;
+
+		&* {
+			color: inherit;
+		}
+		.title {
+			font-size: var(--fs-medium);
+			margin-bottom: var(--space-m);
+			@media screen and (max-width: 576px) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.footer-sections {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			gap: var(--space-m);
+
+			.col {
+				&.brand {
+					grid-column: 1 / span 6;
+					text-align: center;
+					margin-top: -125px;
+					display: flex;
+					flex-direction: column;
+					gap: var(--space-s);
+					margin-bottom: 2rem;
+				}
+				&.insta {
+					text-align: center;
+					grid-column: 5 / span 2;
+					@media screen and (max-width: 1024px) {
+						grid-column: 1 / span 6;
+					}
+				}
+				&.services {
+					grid-column: 1 / span 2;
+
+					@media screen and (max-width: 1024px) {
+						grid-column: 1 / span 3;
+					}
+				}
+				&.useful-links {
+					grid-column: 3 / span 2;
+
+					@media screen and (max-width: 1024px) {
+						grid-column: 4 / span 3;
+					}
+				}
+				&.services,
+				&.useful-links {
+					ul {
+						text-align: left;
+					}
+					@media screen and (max-width: 576px) {
+						text-align: center;
+						grid-column: 1 / span 6;
+					}
+				}
+			}
+
+			.logo {
+				max-height: 250px;
+				background-color: transparent;
+			}
+			.slogan {
+				margin-block: -2rem 0;
+				font-family: var(--ff-pacifico);
+				font-size: var(--fs-large);
+			}
+			.info {
+				padding: 0;
+				list-style: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--space-m);
+
+				@media screen and (max-width: 992px) {
+					flex-direction: column;
+					gap: var(--space-xs);
+				}
+				& > * {
+					margin: 0;
+				}
+
+				& > li {
+					display: flex;
+					flex-wrap: nowrap;
+					align-items: center;
+					gap: var(--space-xs);
+
+					.btn {
+						display: flex;
+						flex-wrap: nowrap;
+						align-items: center;
+						justify-content: center;
+						gap: var(--space-xs);
+					}
+					.icon {
+						display: block;
+						width: 1.8rem;
+						height: 1.8rem;
+					}
+				}
+			}
+		}
+	}
+</style>

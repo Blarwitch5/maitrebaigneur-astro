@@ -1,0 +1,106 @@
+---
+import SideNav from "@components/SideNav.astro";
+import ToggleBtn from "@components/header/ToggleBtn.astro";
+import Brand from "@components/header/Brand.astro";
+import Buttons from "@components/ui/Buttons.astro";
+
+const nav = [
+	{ link: "/prestations/cours-de-natation", name: "Cours de natation", style: "with-icon icon-swimmer", responsive: "hidden-md" },
+	{ link: "/prestations/cours-bebe-nageur", name: "Cours bébé nageur", style: "with-icon icon-baby", responsive: "hidden-md" },
+	{ link: "/tarifs", name: "Tarifs", style: "btn btn-outline", responsive: "hidden-md" },
+	// { link: "/contact", name: "Contact", style: "btn btn-icon", responsive: "" },
+];
+---
+
+<header id="header" class="header">
+	<nav class="navbar">
+		<!-- Logo -->
+		<Brand />
+		<!-- Navigation menu -->
+		<ul class="navbar-nav" role="menubar" aria-label="Barre de menu">
+			<!-- Navigation links -->
+			{
+				nav.map((item) => (
+					<li role="none" class={`nav-item ${item.responsive}`}>
+						<Buttons href={item.link} tabindex="0" class={`nav-link ${item.style}`} customIcon role="menuitem">
+							{item.name}
+						</Buttons>
+					</li>
+				))
+			}
+			<!-- menu button -->
+			<li role="none" class="nav-item nav-item--icon">
+				<ToggleBtn />
+			</li>
+		</ul>
+		<!-- Side menu -->
+		<SideNav />
+	</nav>
+</header>
+
+<style lang="scss">
+	header {
+		position: fixed;
+		top: 0;
+		left: 0px;
+		width: 100%;
+		z-index: 10;
+		opacity: 1;
+		visibility: visible;
+		transition: all 0.3s ease-in-out;
+		max-height: 80px;
+
+		&*a {
+			text-decoration: none;
+		}
+
+		&.active {
+			.navbar {
+				background-color: var(--color-white);
+				color: var(--color-primary);
+
+				border-radius: 100vw;
+				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+
+				.navbar-nav {
+					padding: 0.5rem;
+					color: var(--color-primary);
+
+					& * {
+						color: inherit;
+					}
+				}
+			}
+		}
+	}
+	.navbar {
+		margin-top: 1rem;
+		margin-inline: 2rem;
+		padding-inline: 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: var(--color-white);
+
+		@media screen and (max-width: 992px) {
+			padding-inline: 0;
+		}
+		@media screen and (max-width: 768px) {
+			margin-inline: 1rem;
+		}
+
+		.navbar-nav {
+			display: flex;
+			list-style-type: none;
+			align-items: center;
+			gap: 1rem;
+			padding: 0;
+			margin: 0;
+			color: var(--color-white);
+
+			& * {
+				color: inherit;
+			}
+		}
+	}
+</style>

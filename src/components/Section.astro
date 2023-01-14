@@ -1,0 +1,15 @@
+---
+const { class: className, backgroundColor, ariaLabel } = Astro.props;
+---
+
+<section class:list={["", className]} aria-label={ariaLabel} tabindex="0">
+	<slot />
+</section>
+
+<style define:vars={{ backgroundColor }} scoped>
+	section {
+		padding-block: 4rem;
+		padding-inline: 0;
+		background-color: var(--backgroundColor);
+	}
+</style>

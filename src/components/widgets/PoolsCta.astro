@@ -1,0 +1,83 @@
+---
+import Swiper from "@components/ui/swiper/Swiper.astro";
+import SwiperSlide from "@components/ui/swiper/SwiperSlide.astro";
+import Buttons from "@components/ui/Buttons.astro";
+
+const swiperParameters = {
+	// Optional parameters
+	loop: true,
+	autoplay: { delay: 1000 },
+};
+---
+
+<div class="container pools-content">
+	<h3 class="pools-content-title">Des cours de natation, d’accord, mais où ?</h3>
+	<p class="pools-content-desc">Nous opérons aussi bien à domicile que dans nos bassins d’apprentissage</p>
+	<Buttons href="/bassins-apprentissage" class={`pools-content-btn`} regular>Découvrir tous nos bassins</Buttons>
+
+	<div class="container-fluid">
+		<Swiper class="pools-swiper">
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+			<SwiperSlide>
+				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
+			</SwiperSlide>
+		</Swiper>
+	</div>
+</div>
+<style lang="scss">
+	.pools-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&-title {
+			margin-bottom: 0;
+		}
+		&-btn {
+			padding: 0.5rem 1.2rem;
+		}
+	}
+	.swiper {
+		width: 100%;
+		height: 400px;
+		margin-block: 2rem;
+
+		&-slide {
+			overflow: hidden;
+			margin-inline: 1.5rem;
+			display: flex;
+			align-items: center;
+
+			&:nth-child(even) {
+				img {
+					height: 75%;
+				}
+			}
+		}
+
+		* img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 20px;
+		}
+	}
+</style>

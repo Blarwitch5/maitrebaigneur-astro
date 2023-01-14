@@ -1,0 +1,30 @@
+<button id="toggleBtn" class="toggle" aria-controls="side-navigation" aria-expanded="false">
+	<span class="visually-hidden">Menu</span>
+	<svg aria-hidden="true" class="toggle-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
+		><path
+			clip-rule="evenodd"
+			d="M10.667 16a2.667 2.667 0 1 1-5.334 0 2.667 2.667 0 0 1 5.334 0ZM18.667 16a2.667 2.667 0 1 1-5.334 0 2.667 2.667 0 0 1 5.334 0ZM26.667 16a2.667 2.667 0 1 1-5.334 0 2.667 2.667 0 0 1 5.334 0Z"
+			stroke="currentColor"
+			stroke-width="1.5"
+			stroke-linecap="round"
+			stroke-linejoin="round"></path>
+	</svg>
+</button>
+
+<style lang="scss">
+	.toggle {
+		cursor: pointer;
+		transition: transform 0.15s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 0;
+		background: transparent;
+		color: currentColor;
+
+		&:hover {
+			transform: rotate(90deg);
+			transition: transform 0.3s ease;
+		}
+	}
+</style>

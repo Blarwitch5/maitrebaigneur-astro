@@ -1,0 +1,101 @@
+---
+import Socials from "@components/Socials.astro";
+import Breadcrumbs from "@components/ui/Breadcrumbs.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
+
+interface Props {
+	pageTitle: string;
+	pageImageUrl: string;
+	pageImageAlt: string;
+}
+const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
+---
+
+<section class="page-title">
+	<Waves />
+	<div class="container">
+		<div class="page-title-img">
+			<img src={pageImageUrl} alt={pageImageUrl} />
+		</div>
+		<div class="page-title-content">
+			<h1 class="page-title-title">{pageTitle}</h1>
+			<div class="breadcrumbs">
+				<Breadcrumbs />
+			</div>
+		</div>
+		<div class="socials-wrapper">
+			<Socials iconVersion="light" />
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.page-title {
+		height: 40vh;
+		min-height: 425px;
+		width: 100%;
+		position: relative;
+		padding-bottom: 2rem;
+
+		&-img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: hsla(var(--link-color-black-hsl), 0.5);
+			}
+
+			img {
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	.page-title-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 2rem);
+		text-align: center;
+		color: var(--color-white);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.page-title-title {
+		color: #fff;
+		font-size: var(--fs-xxlarge);
+		span {
+			display: block;
+			font-weight: 100;
+			font-size: 3rem;
+		}
+	}
+	.page-title-cta {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.socials-wrapper {
+		position: absolute;
+		bottom: 2rem;
+		right: 2rem;
+		z-index: 9;
+	}
+</style>
