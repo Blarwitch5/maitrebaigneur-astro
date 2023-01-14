@@ -8,6 +8,7 @@ const { class: className, backgroundColor, ariaLabel } = Astro.props;
 
 <style define:vars={{ backgroundColor }} scoped>
 	section {
+		position: relative;
 		padding-block: 4rem;
 		padding-inline: 0;
 		background-color: var(--backgroundColor);
