@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Section from "@components/Section.astro";
 
 //data
 const title = "Maître-Baigneur | Qui sommes-nous ?";
@@ -13,7 +14,47 @@ const pageImageUrl = "/images/page-title/page_quisommesnous.jpg";
 <BaseLayout title={title} descritpion={description}>
 	<Header />
 	<PageTitle pageTitle="Qui sommes-nous ?" pageImageUrl={pageImageUrl} pageImageAlt="Maître-Baigneur apprenant un garçon à nager" />
-	<main><h1>Qui sommes-nous ?</h1></main>
+	<main>
+		<h1>Qui sommes-nous ?</h1>
+		<Section class="forces" ariaLabel="Maître-Baigneur en trois mots">
+			<ul>
+				<li>
+					<h2>Collaboration</h2>
+					<p>Maître-Baigneur est une collaboration d’entrepreneurs qui vous propose diverses activités aquatiques.</p>
+				</li>
+				<li>
+					<h2>Pédagogie</h2>
+					<p>
+						C’est la synergie de maîtres nageurs partageant les mêmes valeurs pédagogiques afin d’assurer la cohérence et l’harmonisation de leurs
+						pratiques.
+					</p>
+				</li>
+				<li>
+					<h2>Sécurité</h2>
+					<p>Nos maîtres nageurs sont tous diplômés d’État et à jour de leur révision de secourisme.</p>
+				</li>
+			</ul>
+		</Section>
+		<Section class="principle" ariaLabel="La philosophie Maître-Baigneur" />
+
+		<Section class="quote" ariaLabel="Le mot du directeur Quentin Vander Meulen">
+			<h2>Le mot du patron</h2>
+			<div>
+				<img src="/images/hero.jpg" alt="Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur" />
+				<blockquote>
+					<p>
+						Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait
+						mon métier : athlète de haut niveau, joueur professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin
+						d’inventer ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond, celui d’allier mes différentes expériences et de
+						transmettre mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité.
+					</p>
+					<footer>
+						<cite>Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur</cite>
+					</footer>
+				</blockquote>
+			</div>
+		</Section>
+	</main>
 	<Footer />
 </BaseLayout>
 
