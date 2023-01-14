@@ -1,11 +1,8 @@
 ---
-interface Props {
-	position?: string;
-}
-const { position } = Astro.props;
+const { atTopOfSection } = Astro.props;
 ---
 
-<div class="waves">
+<div class:list={["waves", { top: atTopOfSection }]}>
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
 		<path
 			class="shape-fill"
@@ -34,6 +31,12 @@ const { position } = Astro.props;
 		direction: ltr;
 		transform: rotate(180deg);
 		z-index: 1;
+
+		&.top {
+			top: 0;
+			bottom: unset;
+			transform: rotate(0deg);
+		}
 
 		svg {
 			width: calc(100% + 1.3px);
