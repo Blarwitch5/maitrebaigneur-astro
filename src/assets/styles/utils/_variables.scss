@@ -1,0 +1,69 @@
+//colors
+:root,
+[data-theme="default"] {
+    /** Primary color */
+    --link-color-primary-h: 207;
+    --link-color-primary-s: 97%;
+    --link-color-primary-l: 13%;
+    --link-color-primary-hsl: var(--link-color-primary-h), var(--link-color-primary-s), var(--link-color-primary-l);
+    --color-primary: hsl(var(--link-color-primary-hsl));
+
+    /** secondary color */
+    --link-color-secondary-h: 204;
+    --link-color-secondary-s: 100%;
+    --link-color-secondary-l: 49%;
+    --link-color-secondary-hsl: var(--link-color-secondary-h), var(--link-color-secondary-s),
+        var(--link-color-secondary-l);
+    --color-secondary: hsl(var(--link-color-secondary-hsl));
+
+    /** txt color */
+    --link-color-txt-h: 0;
+    --link-color-txt-s: 0%;
+    --link-color-txt-l: 7%;
+    --link-color-txt-hsl: var(--link-color-txt-h), var(--link-color-txt-s), var(--link-color-txt-l);
+    --color-txt: hsl(var(--link-color-txt-hsl));
+
+    /** bg-light color */
+    --link-color-bg-light-h: 201;
+    --link-color-bg-light-s: 100%;
+    --link-color-bg-light-l: 97%;
+    --link-color-bg-light-hsl: var(--link-color-bg-light-h), var(--link-color-bg-light-s), var(--link-color-bg-light-l);
+    --color-bg-light: hsl(var(--link-color-bg-light-hsl));
+
+    /** bg-light-alt color */
+    --link-color-bg-light-alt-h: 60;
+    --link-color-bg-light-alt-s: 28%;
+    --link-color-bg-light-alt-l: 92%;
+    --link-color-bg-light-alt-hsl: var(--link-color-bg-light-alt-h), var(--link-color-bg-light-alt-s),
+        var(--link-color-bg-light-alt-l);
+    --color-bg-light-alt: hsl(var(--link-color-bg-light-alt-hsl));
+
+    /** white color */
+    --link-color-white-h: 0;
+    --link-color-white-s: 0%;
+    --link-color-white-l: 100%;
+    --link-color-white-hsl: var(--link-color-white-h), var(--link-color-white-s), var(--link-color-white-l);
+    --color-white: hsl(var(--link-color-white-hsl));
+    --color-white-a25: hsla(var(--link-color-white-h), var(--link-color-white-s), var(--link-color-white-l), 0.25);
+    --color-white-a50: hsla(var(--link-color-white-h), var(--link-color-white-s), var(--link-color-white-l), 0.5);
+    --color-white-a75: hsla(var(--link-color-white-h), var(--link-color-white-s), var(--link-color-white-l), 0.75);
+
+    /** black color */
+    --link-color-black-h: 0;
+    --link-color-black-s: 0%;
+    --link-color-black-l: 0%;
+    --link-color-black-hsl: var(--link-color-black-h), var(--link-color-black-s), var(--link-color-black-l);
+    --color-black: hsl(var(--link-color-black-hsl));
+    --color-black-a25: hsla(var(--link-color-black-h), var(--link-color-black-s), var(--link-color-black-l), 0.25);
+    --color-black-a50: hsla(var(--link-color-black-h), var(--link-color-black-s), var(--link-color-black-l), 0.5);
+    --color-black-a75: hsla(var(--link-color-black-h), var(--link-color-black-s), var(--link-color-black-l), 0.75);
+
+    //alert colors
+    --color-success: #5aecc1;
+    --color-info: #cbe8e7;
+    --color-error: #e16f5c;
+
+    --border-radius: 100vw;
+}
+
+$standard-animation-time: 0.3s;

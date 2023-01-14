@@ -1,0 +1,52 @@
+//smooth scrolling
+html {
+    scroll-behavior: smooth;
+    font-family: "Raleway", sans-serif;
+    background-color: var(--color-white);
+    font-size: var(--fs-base);
+}
+section {
+    padding: 2rem;
+}
+//fallback for img loading
+*img:not(.logo) {
+    background-color: var(--color-bg-light);
+    color: var(--color-primary);
+}
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+.hidden {
+    display: none;
+}
+.hidden-xs {
+    @media (max-width: 30.625) {
+        display: none !important;
+    }
+}
+.hidden-sm {
+    @media (max-width: 48rem) {
+        display: none !important;
+    }
+}
+.hidden-md {
+    @media (max-width: 62rem) {
+        display: none !important;
+    }
+}
+.hidden-lg {
+    @media (max-width: 64rem) {
+        display: none !important;
+    }
+}
+.hidden-xl {
+    @media (min-width: 75.063rem) {
+        display: none !important;
+    }
+}

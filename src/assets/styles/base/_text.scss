@@ -1,0 +1,53 @@
+:root {
+    /** Fonts Family */
+    //imported in Elementor
+    --ff-cinzel: "Cinzel", serif;
+    --ff-raleway: "Raleway", sans-serif;
+    --ff-pacifico: "Pacifico", cursive;
+
+    /** Font size */
+    --fs-base: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+    --fs-xsmall: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    --fs-small: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+    --fs-medium: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+    --fs-large: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+    --fs-xlarge: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+    --fs-xxlarge: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-primary);
+    margin-block: 0 2rem;
+}
+h1 {
+    font-size: var(--fs-xxlarge);
+    font-weight: 800;
+}
+h2 {
+    font-size: var(--fs-xlarge);
+    font-weight: 700;
+}
+h3 {
+    font-size: var(--fs-large);
+    font-weight: 600;
+}
+h4 {
+    font-size: var(--fs-medium);
+    font-weight: 500;
+}
+h5 {
+    font-size: var(--fs-small);
+    font-weight: 500;
+}
+h6 {
+    font-size: var(--fs-xsmall);
+    font-weight: 500;
+}
+p {
+    font-size: var(--fs-base);
+    font-weight: 400;
+}

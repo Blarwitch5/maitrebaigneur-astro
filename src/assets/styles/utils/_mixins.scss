@@ -1,0 +1,51 @@
+/** 
+ * Text shortening
+ */
+/* Default line-clamp is 1 */
+@mixin text-shorten($numLines: 1) {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @supports (-webkit-line-clamp: $numLines) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $numLines;
+    -webkit-box-orient: vertical;
+  }
+}
+//usage: @include text-shorten(3);
+
+/**
+* Positionning
+*/
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null, $z-index: initial) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+//usage:   @include position(absolute, 60px, 0, 0, 0, 10);
+
+//links style
+@mixin linkStyle($color) {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline;
+  padding-bottom: 0px;
+  transition: all 0.3s linear;
+  background: linear-gradient(to bottom, $color 0%, $color 98%);
+  background-size: 0px 1px;
+  background-repeat: no-repeat;
+  background-position: left 100%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-size: 100% 1px;
+  }
+}
