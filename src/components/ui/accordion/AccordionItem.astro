@@ -23,15 +23,23 @@ const { header } = Astro.props;
 		</div>
 	</div>
 </li>
-<hr />
 
 <style lang="scss" is:global>
 	.accordion-item,
-	.accordion-header,
-	hr {
+	.accordion-header {
 		width: 100%;
 		max-width: 800px;
 		margin: auto;
+	}
+	.accordion-item {
+		border-bottom: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
+		border-left: none;
+		border-right: none;
+		border-top: none;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
 	}
 	.accordion-title {
 		margin-block: 2rem;
@@ -75,20 +83,12 @@ const { header } = Astro.props;
 		padding: 0 1rem 1.5rem 1rem;
 	}
 	.is-active {
+		padding-bottom: 1rem;
+
 		.accordion-panel {
 			visibility: visible;
 			height: auto;
 			transition: height 0.3s ease-in-out, visibility 0s 0s;
-		}
-	}
-	hr {
-		border-top: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
-		border-left: none;
-		border-right: none;
-		border-bottom: none;
-
-		&:last-of-type {
-			display: none;
 		}
 	}
 </style>
