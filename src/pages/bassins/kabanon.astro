@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Main from "@components/Main.astro";
 
 //data
 const title = "Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'Aube";
@@ -17,15 +18,11 @@ const pageImageUrl = "/images/page-title/page_kabanon-bassins.jpg";
 		pageImageUrl={pageImageUrl}
 		pageImageAlt="Bassin du Kabanon des écuries de l'aube à Saint-Marc-Jaumegarde"
 	/>
-	<main><h1>Kabanon des écuries de l'Aube</h1></main>
+	<Main><h1>Kabanon des écuries de l'Aube</h1></Main>
 	<Footer />
 </BaseLayout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;

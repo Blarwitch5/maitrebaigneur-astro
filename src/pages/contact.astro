@@ -9,6 +9,7 @@ import PageTitle from "@components/header/PageTitle.astro";
 import Section from "@components/Section.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Main from "@components/Main.astro";
+import Container from "@components/Container.astro";
 
 //data
 const title = "Maître-Baigneur | Nous contacter";
@@ -22,14 +23,14 @@ const pageImageUrl = "/images/page-title/page_contact.jpg";
 	<Main>
 		<PageTitle pageTitle="Nous Contacter" pageImageUrl={pageImageUrl} pageImageAlt="Garçon sous l'eau tenant un téléphone près de son oreille" />
 		<Section class="form" ariaLabel="Formulaire de contact">
-			<div class="container">
+			<Container>
 				<h2 class="section-title">Pour nous contacter, c'est par ici !</h2>
 				<p>
 					Vous souhaitez réserver des cours de natation à domicile ? Un aquaversaire ? Un mariage ou autre ? Ou tout simplement nous faire part de
 					votre expérience Maître-Baigneur ? <p>Vous êtes au bon endroit, n'hésitez pas à nous écrire quelques lignes, nous les lirons toutes !</p>
 				</p>
 				<Form />
-			</div>
+			</Container>
 		</Section>
 		<Footer />
 	</Main>

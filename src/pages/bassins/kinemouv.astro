@@ -3,25 +3,22 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Main from "@components/Main.astro";
 
 //data
-const title = "Maître-Baigneur | Notre bassin d'apprentissage à Plan Form";
+const title = "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'";
 const description = "";
-const pageImageUrl = "/images/page-title/page_planform-bassins.jpg";
+const pageImageUrl = "/images/page-title/fallback.jpg";
 ---
 
 <BaseLayout title={title} descritpion={description}>
 	<Header />
-	<PageTitle pageTitle="Planform" pageImageUrl={pageImageUrl} pageImageAlt="Bassin de Planform à Cabriès" />
-	<main><h1>Plan Form</h1></main>
+	<PageTitle pageTitle="Kinémouv'" pageImageUrl={pageImageUrl} pageImageAlt="Bassin du Kabanon des écuries de l'aube à Saint-Marc-Jaumegarde" />
+	<Main><h1>Kinémouv'</h1></Main>
 	<Footer />
 </BaseLayout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;

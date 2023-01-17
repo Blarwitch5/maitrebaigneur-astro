@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Section from "@components/Section.astro";
+import Main from "@components/Main.astro";
 
 //data
 const title = "Maître-Baigneur | Qui sommes-nous ?";
@@ -14,7 +15,7 @@ const pageImageUrl = "/images/page-title/page_quisommesnous.jpg";
 <BaseLayout title={title} descritpion={description}>
 	<Header />
 	<PageTitle pageTitle="Qui sommes-nous ?" pageImageUrl={pageImageUrl} pageImageAlt="Maître-Baigneur apprenant un garçon à nager" />
-	<main>
+	<Main>
 		<h1>Qui sommes-nous ?</h1>
 		<Section class="forces" ariaLabel="Maître-Baigneur en trois mots">
 			<ul>
@@ -54,15 +55,11 @@ const pageImageUrl = "/images/page-title/page_quisommesnous.jpg";
 				</blockquote>
 			</div>
 		</Section>
-	</main>
+	</Main>
 	<Footer />
 </BaseLayout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;

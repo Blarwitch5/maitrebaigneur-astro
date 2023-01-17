@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Main from "@components/Main.astro";
 
 //data
 const title = "Maître-Baigneur | Mentions légales";
@@ -13,8 +14,6 @@ const pageImageUrl = "/images/page-title/page_legal.jpg";
 <BaseLayout title={title} descritpion={description}>
 	<Header />
 	<PageTitle pageTitle="Mentions légales" pageImageUrl={pageImageUrl} pageImageAlt="Bassin du Set Club à Aix-en-Provence" />
-	<main><h1>Mentions légales</h1></main>
+	<Main><h1>Mentions légales</h1></Main>
 	<Footer />
 </BaseLayout>
-
-<style></style>
