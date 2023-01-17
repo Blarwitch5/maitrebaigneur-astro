@@ -87,11 +87,13 @@ paths.forEach((text: string, index: number) => {
 			&:last-child {
 				a {
 					text-decoration: none;
+					font-weight: bold;
 				}
 			}
 		}
 		&-link {
 			color: inherit;
+			font-size: 0.9em;
 		}
 	}
 </style>
@@ -99,5 +101,5 @@ paths.forEach((text: string, index: number) => {
 	const list = document.querySelector(".breadcrumbs-items"); //select the list
 	const lastChild = list.lastElementChild; //get the last child of the list
 	const firstChildOfLastChild = lastChild.firstElementChild; // get the first child of the last child
-	firstChildOfLastChild.setAttribute("aria-current", "location"); // add aria-current the link of current page
+	firstChildOfLastChild.setAttribute("aria-current", "page"); // add aria-current the link of current page
 </script>
