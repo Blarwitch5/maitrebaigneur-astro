@@ -3,7 +3,7 @@
 	<span></span>
 </button>
 
-<style lang="scss" scoped>
+<style lang="scss">
 	.gototop-btn {
 		display: none;
 		position: fixed;
@@ -13,44 +13,109 @@
 		right: 30px;
 		z-index: 99;
 		border: none;
-		background-color: red;
-		color: white;
 		cursor: pointer;
 		padding: 15px;
 		border-radius: 100vw;
 		font-size: 18px;
-		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 
-		&:hover {
-			  background-color: #555; /* Add a dark-grey background on hover */
+		&.light {
+			background-color: var(--color-bg-light);
+			color: black;
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-bg-light-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-bg-light-hsl), 0.3);
+
+			&:hover {
+				  background-color: #555; /* Add a dark-grey background on hover */
+			}
+		}
+		&.dark {
+			background-color: var(--color-primary);
+			color: white;
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+
+			&:hover {
+				  background-color: #555; /* Add a dark-grey background on hover */
+			}
 		}
 	}
 </style>
-<script is:inline>
-	// Get the button by getting the element with the id "gototopBtn"
+<script>
+	// Get the "back to top" button
 	const gototopBtn = document.getElementById("gototopBtn");
-	// Add an event listener to the button that will call the topFunction when clicked
+	// When the user clicks on the button, scroll to the top of the document
 	gototopBtn.addEventListener("click", topFunction);
-	// Add an event listener to the window that will call the scrollFunction when the window is scrolled
+	// Get the main element
+	let main = document.querySelector("main");
+	// Get all the sections inside the main element
+	let sections = main.querySelectorAll("section");
+	// Get the footer element
+	let footer = document.querySelector("footer");
+
 	window.addEventListener("scroll", function () {
 		scrollFunction();
 	});
-
-	// Function that will be called when the window is scrolled
+	window.addEventListener("scroll", function () {
+		// Get all sections
+		let allSections = [...sections, footer];
+		// Loop through all sections
+		for (let i = 0; i < allSections.length; i++) {
+			// Get the section
+			let section = allSections[i];
+			// Get the section's rectangle
+			let sectionRect = section.getBoundingClientRect();
+			// Get the button's rectangle
+			let buttonRect = gototopBtn.getBoundingClientRect();
+			// If the button's top is inside the section's rectangle, get the background color
+			if (buttonRect.bottom >= sectionRect.top && buttonRect.bottom <= sectionRect.bottom) {
+				// Get the background color
+				let bgColor = window.getComputedStyle(section).getPropertyValue("background-color");
+				// Get the color's RGB values
+				let color;
+				if (bgColor.includes("rgba(")) {
+					color = /rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/g.exec(bgColor);
+				} else {
+					color = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/g.exec(bgColor);
+				}
+				// Get the RGB values
+				let r = color[1],
+					g = color[2],
+					b = color[3];
+				// Check the brightness
+				const brightness = isLight(r, g, b);
+				// If the brightness is light, add the light class to the button
+				if (brightness) {
+					gototopBtn.classList.remove("light");
+					gototopBtn.classList.add("dark");
+					// If the brightness is dark, add the dark class to the button
+				} else {
+					gototopBtn.classList.remove("dark");
+					gototopBtn.classList.add("light");
+				}
+			}
+		}
+	});
+	// A function that returns a boolean value based on whether
+	// the combination of RGB values is considered light or not.
+	// The function takes three parameters: r, g, and b.
+	function isLight(r: number, g: number, b: number): boolean {
+		// Calculate brightness based on the RGB values
+		// RGB values range from 0 to 255
+		let brightness = (r * 299 + g * 587 + b * 114) / 1000;
+		// Return true if the brightness is above 128
+		return brightness > 128 || brightness === 0;
+	}
+	// When the user scrolls down 20px from the top of the document, show the button
 	function scrollFunction() {
-		// If the vertical scroll position of the document is more than 20 pixels
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			// Show the button
+		// Get the current scroll position of the page
+		var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+		// If the current scroll position is greater than 20px, show the button
+		if (scroll > 20) {
 			gototopBtn.style.display = "block";
 		} else {
-			// Hide the button
 			gototopBtn.style.display = "none";
 		}
 	}
-
-	// Function that will be called when the gototopBtn is clicked
 	function topFunction() {
-		// Set the vertical scroll position of the document to 0 pixels
+		// This function scrolls the body to the top of the page
 		document.body.scrollTop = 0; // For Safari
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	}
