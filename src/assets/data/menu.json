@@ -1,0 +1,76 @@
+{
+	"links": {
+		"home": {
+			"href": "/",
+			"title": "Accueil"
+		},
+		"services": {
+			"href": "/prestations",
+			"title": "Prestations",
+			"children": {
+				"swimming-lessons": {
+					"href": "/prestations/cours-de-natation",
+					"title": "Cours de natation"
+				},
+				"baby-swimming": {
+					"href": "/prestations/cours-bebe-nageur",
+					"title": "Cours bébé nageur"
+				},
+				"aquaversary": {
+					"href": "/prestations/aquaversaire",
+					"title": "Aquaversaire"
+				},
+				"events": {
+					"href": "/prestations/evenements-securite",
+					"title": "Événements & Sécurité"
+				}
+			}
+		},
+		"pools": {
+			"href": "/bassins",
+			"title": "Bassins",
+			"children": {
+				"domicile": {
+					"href": "/bassins/domicile",
+					"title": "Domicile"
+				},
+				"aquabecool": {
+					"href": "/bassins/aquabecool",
+					"title": "Aquabecool"
+				},
+				"planForm": {
+					"href": "/bassins/plan-form",
+					"title": "Plan Form"
+				},
+				"setClub": {
+					"href": "/bassins/set-club",
+					"title": "Set Club"
+				},
+				"kabanon": {
+					"href": "/bassins/kabanon",
+					"title": "Kabanon des écuries de l'aube"
+				},
+				"kinemouv": {
+					"href": "/bassins/kinemouv",
+					"title": "Kinemouv'"
+				}
+			}
+		},
+		"prices": {
+			"href": "/tarifs",
+			"title": "Tarifs"
+		},
+		"about": {
+			"href": "/qui-sommes-nous",
+			"title": "Qui sommes-nous ?"
+		},
+		"contact": {
+			"href": "/contact",
+			"title": "Contact"
+		},
+		"legalNotice": {
+			"href": "/mentions-legales",
+			"title": "Mentions légales"
+		}
+	}
+}
