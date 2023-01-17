@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Pools from "@components/widgets/Pools.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 //data
 const title = "Maître-Baigneur | Nos bassins d'apprentissage";
@@ -12,19 +16,26 @@ const pageImageUrl = "/images/page-title/fallback.jpg";
 
 <BaseLayout title={title} descritpion={description}>
 	<Header />
-	<PageTitle pageTitle="Bassins d'apprentissage" pageImageUrl={pageImageUrl} pageImageAlt="Vue sur des pieds trempants dans l'eau d'une piscine" />
-	<main><h1>Nos bassins d'apprentissage</h1></main>
-	<Footer />
-</BaseLayout>
+	<Main>
+		<PageTitle pageTitle="Bassins d'apprentissage" pageImageUrl={pageImageUrl} pageImageAlt="Vue sur des pieds trempants dans l'eau d'une piscine" />
+		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
+			<Container>
+				<h1>Nos bassins d'apprentissage</h1>
+				<Pools />
+			</Container>
+		</Section>
+		<Footer />
+	</Main>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
+	<style>
+		main {
+			margin: auto;
+			padding: 1.5rem;
+		}
+		h1 {
+			font-size: 3rem;
+			font-weight: 800;
+			margin: 0;
+		}
+	</style>
+</BaseLayout>

@@ -2,6 +2,7 @@
 import Swiper from "@components/ui/swiper/Swiper.astro";
 import SwiperSlide from "@components/ui/swiper/SwiperSlide.astro";
 import Buttons from "@components/ui/Buttons.astro";
+import Container from "@components/Container.astro";
 
 const swiperParameters = {
 	// Optional parameters
@@ -10,12 +11,12 @@ const swiperParameters = {
 };
 ---
 
-<div class="container pools-content">
-	<h3 class="pools-content-title">Des cours de natation, d’accord, mais où ?</h3>
-	<p class="pools-content-desc">Nous opérons aussi bien à domicile que dans nos bassins d’apprentissage</p>
-	<Buttons href="/bassins-apprentissage" class={`pools-content-btn`} regular>Découvrir tous nos bassins</Buttons>
+<Container className="pools__content">
+	<h3 class="pools__title">Des cours de natation, d’accord, mais où ?</h3>
+	<p class="pools__desc">Nous opérons aussi bien à domicile que dans nos bassins d’apprentissage</p>
+	<Buttons href="/bassins-apprentissage" class={`pools__btn`} regular>Découvrir tous nos bassins</Buttons>
 
-	<div class="container-fluid">
+	<Container fullWidth>
 		<Swiper class="pools-swiper">
 			<SwiperSlide>
 				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
@@ -39,14 +40,16 @@ const swiperParameters = {
 				<img src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
 			</SwiperSlide>
 		</Swiper>
-	</div>
-</div>
+	</Container>
+</Container>
 <style lang="scss">
-	.pools-content {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	.pools {
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
 
 		&-title {
 			margin-bottom: 0;

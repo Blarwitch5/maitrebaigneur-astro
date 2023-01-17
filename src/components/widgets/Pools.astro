@@ -1,47 +1,41 @@
 ---
-import site from "@assets/data/services.json";
-const { services } = site;
-
-import Container from "@components/Container.astro";
+import site from "@assets/data/pools.json";
+const { pools } = site;
 ---
 
-<Container>
-	<h2 class="services-title">Nos prestations aquatiques</h2>
-	<p class="services-desc">
-		L'équipe de Maître-Baigneur vous propose diverses activités autour du milieu aquatique, de l’apprentissage de la natation à la surveillance de vos
-		événements, en passant par des cours de bébé nageur ou encore nos aquaversaires.
-	</p>
-	<div class="services-grid">
-		{
-			services.map((service) => (
-				<div
-					class={`service ${service.name
-						.replace(/\s|_|\(|\)/g, "-")
-						.normalize("NFD")
-						.replace(/\p{Diacritic}/gu, "")
-						.toLowerCase()}`}
-				>
-					<a href={service.link} class="service__link">
-						<h3 class="service__title">{service.name}</h3>
-						<img class="service__img" src={service.image.src} alt={service.image.alt} />
-					</a>
-				</div>
-			))
-		}
-	</div>
-</Container>
+<h2 class="pools__title">Nos bassins d'apprentissage</h2>
+<p class="pools__desc">
+	L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en bassins d’apprentissage. Nous sommes heureux de vous présenter les
+	établissements avec lesquels nous collaborons pour vous offrir une expérience de qualité dans un cadre magnifique.
+</p>
+<div class="pools__grid">
+	{
+		pools.map((pool) => (
+			<article
+				class={`service ${pool.name
+					.replace(/\s|_|\(|\)/g, "-")
+					.normalize("NFD")
+					.replace(/\p{Diacritic}/gu, "")
+					.toLowerCase()}`}
+			>
+				<a href={pool.link} class="pool__link">
+					<h3 class="pool__title">{pool.name}</h3>
+					<img class="pool__img" src={pool.image.src} alt={pool.image.alt} />
+					<span class="ppol__location">{pool.location}</span>
+				</a>
+			</article>
+		))
+	}
+</div>
 
 <style lang="scss">
-	.services-title {
+	.pools__title {
 		text-align: center;
 	}
-	.services-desc {
-		margin-block: 4rem 4rem;
-	}
-	.services-grid {
+	.pools__grid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(8, 1fr);
+		grid-template-rows: repeat(6, 1fr);
 		grid-gap: 2rem;
 		transition: all 0.3s ease-in-out;
 
@@ -51,7 +45,7 @@ import Container from "@components/Container.astro";
 			grid-gap: 1rem;
 		}
 
-		.service {
+		.pool {
 			position: relative;
 			border-radius: 25px;
 			overflow: hidden;
@@ -76,7 +70,7 @@ import Container from "@components/Container.astro";
 				background-color: hsla(var(--link-color-primary-hsl), 0.3);
 			}
 
-			//services grid
+			//pools grid
 			&:first-child {
 				grid-column: 1 / span 2;
 				grid-row: 1 / span 2;
@@ -86,7 +80,7 @@ import Container from "@components/Container.astro";
 					grid-row: 1 / span 1;
 				}
 
-				.service__title::before {
+				.pool-title::before {
 					-webkit-mask-image: url("/images/icons/swimmer.svg");
 					mask-image: url("/images/icons/swimmer.svg");
 				}
@@ -100,7 +94,7 @@ import Container from "@components/Container.astro";
 					grid-row: 2 / span 1;
 				}
 
-				.service__title::before {
+				.pool-title::before {
 					-webkit-mask-image: url("/images/icons/baby.svg");
 					mask-image: url("/images/icons/baby.svg");
 				}
@@ -114,7 +108,7 @@ import Container from "@components/Container.astro";
 					grid-row: 3 / span 1;
 				}
 
-				.service__title::before {
+				.pool-title::before {
 					-webkit-mask-image: url("/images/icons/aquaversaire.svg");
 					mask-image: url("/images/icons/aquaversaire.svg");
 				}
@@ -128,7 +122,7 @@ import Container from "@components/Container.astro";
 					grid-row: 4 / span 1;
 				}
 
-				.service__title::before {
+				.pool-title::before {
 					-webkit-mask-image: url("/images/icons/event.svg");
 					mask-image: url("/images/icons/event.svg");
 				}

@@ -5,11 +5,12 @@ import Buttons from "@components/ui/Buttons.astro";
 import InstagramFeed from "./widgets/InstagramFeed.astro";
 import { Icon } from "astro-icon";
 import Waves from "@components//ui/shapes/Waves.astro";
+import Container from "@components/Container.astro";
 ---
 
 <footer class="footer">
 	<Waves atTopOfSection />
-	<div class="container">
+	<Container>
 		<div class="footer-sections">
 			<div class="col brand">
 				<img class="logo" width="300px" height="250px" src="/images/logo.svg" alt="Logo Maître-Baigneur" />
@@ -20,7 +21,7 @@ import Waves from "@components//ui/shapes/Waves.astro";
 							<span class="icon">
 								<Icon name="call" />
 							</span>
-							+33 6 00 75 84
+							+33 6 77 00 75 84
 						</Buttons>
 					</li>
 					<li>
@@ -56,7 +57,7 @@ import Waves from "@components//ui/shapes/Waves.astro";
 			</div>
 		</div>
 		<Copyright />
-	</div>
+	</Container>
 </footer>
 
 <style lang="scss">

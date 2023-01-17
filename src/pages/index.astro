@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import SkipToContent from "../components/ui/SkipToContent.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
 import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Hero from "@components/widgets/Hero.astro";
@@ -40,7 +40,7 @@ const page = {
 		<Section class="forces" backgroundColor="var(--color-bg-light)" ariaLabel="Les atouts de Maître-Baigneur">
 			<Forces />
 		</Section>
-		<Section class="booking-cta" backgroundColor="var(--color-primary)" ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance">
+		<Section class="booking" backgroundColor="var(--color-primary)" ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance">
 			<BookingCta />
 		</Section>
 		<Section class="faq" ariaLabel="Réponses aux questions fréquentes">
@@ -50,7 +50,7 @@ const page = {
 		<!-- <Section class="lifeguards">
 			<Lifeguards />
 		</Section> -->
-		<Section class="pools-cta" backgroundColor="var(--color-bg-light-alt)" ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur">
+		<Section class="pools" backgroundColor="var(--color-bg-light-alt)" ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur">
 			<PoolsCta />
 		</Section>
 		<Section class="testimonials" ariaLabel="Liste d'avis de clients">
@@ -63,5 +63,3 @@ const page = {
 	</Main>
 	<Footer />
 </BaseLayout>
-
-<style lang="scss"></style>

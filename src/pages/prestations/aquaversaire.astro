@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@components/Main.astro";
+
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
@@ -12,13 +14,15 @@ const pageImageUrl = "/images/page-title/page_aquaversaire.jpg";
 
 <BaseLayout title={title} descritpion={description}>
 	<Header />
-	<PageTitle
-		pageTitle="Aquaversaire"
-		pageImageUrl={pageImageUrl}
-		pageImageAlt="Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire"
-	/>
+	<Main>
+		<PageTitle
+			pageTitle="Aquaversaire"
+			pageImageUrl={pageImageUrl}
+			pageImageAlt="Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire"
+		/>
 
-	<main><h1>Aquaversaire</h1></main>
+		<h1>Aquaversaire</h1>
+	</Main>
 	<Footer />
 </BaseLayout>
 
