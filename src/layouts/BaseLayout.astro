@@ -11,6 +11,48 @@ const { title, description } = Astro.props;
 
 import "sanitize.css";
 import "../assets/styles/main.scss";
+
+//differents geotag for the ddifferent pools, default is aix-en-provence (10KM acurancy)
+let region: string, placename: string, position: string, icbm: string;
+const currentPage = new URL(Astro.request.url).pathname as string;
+switch (true) {
+	case currentPage.endsWith("aquabecool"):
+		console.log("aquabecool");
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.512775;5.437376";
+		icbm = "43.512775, 5.437376";
+		break;
+	case currentPage.endsWith("kabanon"):
+		region = "FR-13";
+		placename = "Saint-Marc-Jaumegarde";
+		position = "43.541368;5.502705";
+		icbm = "43.541368, 5.502705";
+		break;
+	case currentPage.endsWith("kinemouv"):
+		region = "FR-13";
+		placename = "Pertuis";
+		position = "43.681747;5.50601";
+		icbm = "43.681747, 5.50601";
+		break;
+	case currentPage.endsWith("plan-form"):
+		region = "FR-13";
+		placename = "Cabri&egrave;s";
+		position = "43.4264974;5.3643899";
+		icbm = "43.4264974, 5.3643899";
+		break;
+	case currentPage.endsWith("set-club"):
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.535356;5.393444";
+		icbm = "43.535356, 5.393444";
+		break;
+	default:
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.5;5.4";
+		icbm = "43.5, 5.4";
+}
 ---
 
 <!DOCTYPE html>
@@ -22,11 +64,8 @@ import "../assets/styles/main.scss";
 		<meta name="description" content={description} />
 		<title>{title}</title>
 
-		<!-- CSS Reset -->
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" /> -->
-
 		<!-- GEOTAG -->
-		<GeoTag />
+		<GeoTag region={region} placename={placename} position={position} icbm={icbm} />
 		<!-- /GEOTAG -->
 
 		<!-- FAVICON -->
