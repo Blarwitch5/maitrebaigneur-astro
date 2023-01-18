@@ -29,40 +29,39 @@ const secondaryNav = [
 ];
 ---
 
-<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
-	<img src={logo.src} alt={logo.alt} class="logo" />
-	<ul class="navbar-nav" role="menubar" aria-label="Menu de navigation">
-		{
-			secondaryNav.map((item) => (
-				<li class="nav-item" role="none">
-					<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.link} target={item.target}>
-						{item.name}
-					</Buttons>
-				</li>
-			))
-		}
-	</ul>
-	<Socials iconVersion="light" />
-	<!-- close button -->
-	<CloseBtn />
-</nav>
+<div id="modal" class="modal">
+	<div class="modal__content">
+		<img src={logo.src} alt={logo.alt} class="logo" width="200px" />
+		<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
+			<ul class="navbar-nav" role="menubar" aria-label="Menu de navigation">
+				{
+					secondaryNav.map((item) => (
+						<li class="nav-item" role="none">
+							<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.link} target={item.target}>
+								{item.name}
+							</Buttons>
+						</li>
+					))
+				}
+			</ul>
+			<Socials iconVersion="light" />
+		</nav>
+		<!-- close button -->
+		<CloseBtn />
+	</div>
+</div>
 
 <style lang="scss">
-	.sidenav {
-		height: 100vh;
-		overflow-y: hidden;
+	.modal {
+		height: 100%;
+		overflow: hidden;
 		width: 50%;
 		position: fixed;
 		z-index: 999;
 		right: 0;
 		top: 0;
 		background-color: var(--color-primary);
-		overflow-x: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-
+		padding-block: 3rem 2rem;
 		transition: transform 0.3s linear;
 		transform: translateX(100%);
 
@@ -79,6 +78,18 @@ const secondaryNav = [
 		@media screen and (max-width: 768px) {
 			width: 100%;
 		}
+
+		&__content {
+			height: 100%;
+			overflow-y: scroll;
+			display: grid;
+		}
+	}
+	.sidenav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 	}
 	.logo {
 		position: absolute;
@@ -98,6 +109,7 @@ const secondaryNav = [
 		align-items: center;
 		padding: 0;
 		width: calc(100% - 2rem);
+		margin-inline: auto;
 
 		.nav-item {
 			text-align: center;

@@ -2,7 +2,7 @@
 const toggleBtn = document.getElementById("toggleBtn");
 const closeBtn = document.getElementById("closeBtn");
 const header = document.getElementById("header");
-const sidenav = document.getElementById("side-navigation");
+const sidenav = document.getElementById("modal");
 const body = document.querySelector("body");
 
 // Get the previous scroll position

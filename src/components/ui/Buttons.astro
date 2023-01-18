@@ -12,7 +12,7 @@ const Tag = href ? "a" : "button";
 ---
 
 <Tag
-	class:list={[`btn ${regular && `btn-regular`} ${outline && `btn-outline`}`, className]}
+	class:list={[`btn ${regular && `btn__regular`} ${outline && `btn__outline`}`, className]}
 	href={href}
 	target={`${newTab ? "_blank" : ``}`}
 	rel={`${newTab ? "noopener noreferrer" : ``}`}
@@ -28,7 +28,7 @@ const Tag = href ? "a" : "button";
 		color: inherit;
 		width: fit-content;
 
-		&.btn-outline {
+		&.btn__outline {
 			color: currentColor;
 			border-radius: var(--border-radius);
 			background: none;
@@ -80,7 +80,7 @@ const Tag = href ? "a" : "button";
 				}
 			}
 		}
-		&-regular {
+		&__regular {
 			background-color: var(--color-primary);
 			color: var(--color-white);
 			transition: all 0.3s ease-in-out;
@@ -99,7 +99,7 @@ const Tag = href ? "a" : "button";
 		}
 		&-icon {
 		}
-		&-outline-inverted {
+		&__outline--inverted {
 			color: var(--color-primary);
 			border-radius: var(--border-radius);
 			background: none;

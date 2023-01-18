@@ -47,18 +47,18 @@ paths.forEach((text: string, index: number) => {
 ---
 
 <nav aria-label="Fil d'Arianne" class={mainClass}>
-	<ol class={`${mainClass}-items`}>
+	<ol class={`${mainClass}__items`}>
 		{
 			parts.map(({ text, ...attrs }, index, array) => (
-				<li class={`${mainClass}-item`}>
+				<li class={`${mainClass}__item`}>
 					{Astro.slots.has("index") && index === 0 && (
-						<a {...attrs} class={`${mainClass}-link`}>
+						<a {...attrs} class={`${mainClass}__link`}>
 							<slot name="index" />
 						</a>
 					)}
 
 					{(!Astro.slots.has("index") || (Astro.slots.has("index") && index !== 0)) && (
-						<a {...attrs} class={`${mainClass}-link`}>
+						<a {...attrs} class={`${mainClass}__link`}>
 							{text}
 						</a>
 					)}
@@ -74,14 +74,14 @@ paths.forEach((text: string, index: number) => {
 	.breadcrumbs {
 		color: var(--color-white);
 
-		&-items {
+		&__items {
 			display: flex;
 			flex-wrap: wrap;
 			padding: 0;
 			margin: 0;
 			list-style: none;
 		}
-		&-item {
+		&__item {
 			font-weight: 200;
 
 			&:last-child {
@@ -91,14 +91,14 @@ paths.forEach((text: string, index: number) => {
 				}
 			}
 		}
-		&-link {
+		&__link {
 			color: inherit;
 			font-size: 0.9em;
 		}
 	}
 </style>
 <script>
-	const list = document.querySelector(".breadcrumbs-items"); //select the list
+	const list = document.querySelector(".breadcrumbs__items"); //select the list
 	const lastChild = list.lastElementChild; //get the last child of the list
 	const firstChildOfLastChild = lastChild.firstElementChild; // get the first child of the last child
 	firstChildOfLastChild.setAttribute("aria-current", "page"); // add aria-current the link of current page

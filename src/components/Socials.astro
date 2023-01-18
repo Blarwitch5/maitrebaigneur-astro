@@ -26,7 +26,7 @@ const { iconVersion } = Astro.props;
 			<li>
 				<a
 					href={social.link}
-					class="social-link"
+					class="socials__link"
 					title={`Visitez notre page ${social.title}`}
 					target="_blank"
 					rel="noopener"
@@ -47,7 +47,7 @@ const { iconVersion } = Astro.props;
 		gap: 1rem;
 
 		//social icons commun style
-		.social-link {
+		&__link {
 			border-radius: 50%;
 			width: 3rem;
 			height: 3rem;
@@ -79,7 +79,7 @@ const { iconVersion } = Astro.props;
 		}
 		//if bg is dark
 		&.light {
-			.social-link {
+			.socials__link {
 				background-color: hsla(var(--link-color-white-hsl), 0.1);
 				border-radius: 50%;
 				width: 3rem;
@@ -117,7 +117,7 @@ const { iconVersion } = Astro.props;
 		}
 		//if bg is light
 		&.dark {
-			.social-link {
+			.socials__link {
 				background-color: hsla(var(--link-color-primary-hsl), 0.1);
 				box-shadow: inset 0 0 0px 1px hsla(var(--link-color-primary-hsl), 0.2);
 				color: var(--color-primary);

@@ -15,13 +15,13 @@ const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
 <section class="page-title">
 	<Waves />
 	<div class="container">
-		<div class="page-title-img">
+		<div class="page-title__img">
 			<img src={pageImageUrl} alt={pageImageAlt} />
 		</div>
-		<div class="page-title-content">
-			<h1 class="page-title-title">{pageTitle}</h1>
+		<div class="page-title__content">
+			<h1 class="page-title__title">{pageTitle}</h1>
 			<Breadcrumbs indexText={"accueil"}>
-				<span slot="separator" class="breadcrumbs-separator" aria-hidden="true">
+				<span slot="separator" class="breadcrumbs__separator" aria-hidden="true">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"
@@ -51,7 +51,7 @@ const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
 		position: relative;
 		padding-bottom: 2rem;
 
-		&-img {
+		&__img {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -77,34 +77,34 @@ const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
 				width: 100%;
 			}
 		}
-	}
-	.page-title-content {
-		position: absolute;
-		bottom: 7rem;
-		left: 50%;
-		transform: translateX(-50%);
-		width: calc(100% - 2rem);
-		text-align: center;
-		color: var(--color-white);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.page-title-title {
-		color: #fff;
-		font-size: var(--fs-xxlarge);
-		margin-bottom: 0;
-		span {
-			display: block;
-			font-weight: 100;
-			font-size: 3rem;
+		&__content {
+			position: absolute;
+			bottom: 7rem;
+			left: 50%;
+			transform: translateX(-50%);
+			width: calc(100% - 2rem);
+			text-align: center;
+			color: var(--color-white);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
-	}
-	.page-title-cta {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
+		&__title {
+			color: #fff;
+			font-size: var(--fs-xxlarge);
+			margin-bottom: 0;
+			span {
+				display: block;
+				font-weight: 100;
+				font-size: 3rem;
+			}
+		}
+		&__cta {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
 	}
 
 	.socials-wrapper {
