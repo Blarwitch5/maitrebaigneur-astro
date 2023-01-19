@@ -5,59 +5,66 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Section from "@components/Section.astro";
 import Main from "@components/Main.astro";
+import Container from "@components/Container.astro";
+import Qualities from "@components/widgets/Qualities.astro";
 
 //data
-const title = "Maître-Baigneur | Qui sommes-nous ?";
-const description = "";
-const pageImageUrl = "/images/page-title/page_quisommesnous.jpg";
+const title: string = "Maître-Baigneur | Qui sommes-nous ?";
+const description: string = "";
+const pageImageUrl: string = "/images/page-title/page_quisommesnous.jpg";
 ---
 
 <BaseLayout title={title} descritpion={description}>
 	<Header />
 	<PageTitle pageTitle="Qui sommes-nous ?" pageImageUrl={pageImageUrl} pageImageAlt="Maître-Baigneur apprenant un garçon à nager" />
 	<Main>
-		<h1>Qui sommes-nous ?</h1>
-		<Section class="forces" ariaLabel="Maître-Baigneur en trois mots">
-			<ul>
-				<li>
-					<h2>Collaboration</h2>
-					<p>Maître-Baigneur est une collaboration d’entrepreneurs qui vous propose diverses activités aquatiques.</p>
-				</li>
-				<li>
-					<h2>Pédagogie</h2>
-					<p>
-						C’est la synergie de maîtres nageurs partageant les mêmes valeurs pédagogiques afin d’assurer la cohérence et l’harmonisation de leurs
-						pratiques.
-					</p>
-				</li>
-				<li>
-					<h2>Sécurité</h2>
-					<p>Nos maîtres nageurs sont tous diplômés d’État et à jour de leur révision de secourisme.</p>
-				</li>
-			</ul>
+		<Section class="qualities" ariaLabel="Maître-Baigneur en trois mots">
+			<Qualities />
 		</Section>
-		<Section class="principle" ariaLabel="La philosophie Maître-Baigneur" />
+		<Section class="principle" ariaLabel="La philosophie Maître-Baigneur">
+			<Container>
+				<img src="/images/hero.jpg" alt="Maître-Baigneur en action" />
+				<h2>La philosophie Maître-Baigneur</h2>
+				<h3>Nager en groupe</h3>
+				<p>
+					Notre pédagogie de cours en petit groupe permet aux élèves de développer l’esprit d’équipe et de compétition, la solidarité grâce à
+					l’entraide et le respect mutuel. De plus, travailler entre élèves à l’avantage de renforcer la confiance en soi et de favoriser son
+					autonomie.
+				</p>
+				<p>
+					Apprendre à être en sécurité dans l’eau est une nécessité pour tous les élèves. En effet, plusieurs études ont prouvé que les jeunes enfants
+					qui nagent ont une capacité cognitive accrue, des compétences sociales ainsi qu’une coordination plus développée.
+				</p>
+				<p>Ces valeurs sont essentielles, elles leur serviront en dehors de la piscine et pour le reste de leur vie.</p>
+				<p>Arrêter le processus d’apprentissage fera perdre les acquis à un jeune enfant entraînant une régression brutale.</p><p>
+					Nager toute l’année améliorera sa condition physique en général.
+				</p>
+			</Container>
+		</Section>
 
 		<Section class="quote" ariaLabel="Le mot du directeur Quentin Vander Meulen">
-			<h2>Le mot du patron</h2>
-			<div>
-				<img src="/images/hero.jpg" alt="Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur" />
-				<blockquote>
-					<p>
-						Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait
-						mon métier : athlète de haut niveau, joueur professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin
-						d’inventer ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond, celui d’allier mes différentes expériences et de
-						transmettre mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité.
-					</p>
-					<footer>
-						<cite>Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur</cite>
-					</footer>
-				</blockquote>
-			</div>
+			<Container>
+				<h2 class="quote__title">Le mot du patron</h2>
+				<div>
+					<img class="quote__img" src="/images/hero.jpg" alt="Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur" />
+					<blockquote>
+						<p>
+							Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait
+							mon métier : athlète de haut niveau, joueur professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin
+							d’inventer ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond, celui d’allier mes différentes expériences et
+							de transmettre mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute
+							sécurité.
+						</p>
+						<footer>
+							<cite>Quentin Vander Meulen, Fondateur et directeur de Maître-Baigneur</cite>
+						</footer>
+					</blockquote>
+				</div>
+			</Container>
 		</Section>
 	</Main>
-	<Footer />
 </BaseLayout>
+<Footer />
 
 <style>
 	h1 {

@@ -1,37 +1,35 @@
 ---
-import Waves from "@components/ui/shapes/Waves.astro";
-import Container from "@components/Container.astro";
 import { Icon } from "astro-icon";
+import Container from "@components/Container.astro";
 
-const forces = [
+const qualities = [
 	{
-		name: "Amusant",
-		txt: "Nous mettons à disposition du matériel ludique et pédagogique afin d’apprendre en s’amusant. ",
-		icon: "fun",
+		name: "Collaboration",
+		txt: "Maître-Baigneur est une collaboration d’entrepreneurs qui vous propose diverses activités aquatiques. ",
+		icon: "collaboration",
 	},
 	{
-		name: "Expertise",
-		txt: "Tous nos maîtres-baigneurs sont diplômés d’État.",
-		icon: "diploma",
+		name: "Pédagogie",
+		txt: "C’est la synergie de maîtres nageurs partageant les mêmes valeurs pédagogiques afin d’assurer la cohérence et l’harmonisation de leurs pratiques.",
+		icon: "pedagogy",
 	},
 	{
-		name: "Pour tous",
-		txt: "À partir de 3ans, que vous soyez débutant ou confirmé, nous vous proposons des cours adaptés à votre niveau.",
-		icon: "group",
+		name: "Sécurité",
+		txt: "Nos maîtres nageurs sont tous diplômés d’État et à jour de leur révision de secourisme.",
+		icon: "safety",
 	},
 ];
 ---
 
-<Waves atTopOfSection />
 <Container>
-	<h2 class="forces__title">Pourquoi apprendre à nager avec Maître-Baigneur ?</h2>
-	<ul class="forces__list">
+	<h2 class="qualities__title">Pourquoi apprendre à nager avec Maître-Baigneur ?</h2>
+	<ul class="qualities__list">
 		{
-			forces.map((force) => (
-				<li class="force">
-					<Icon name={force.icon} class="force__icon" />
-					<h3 class="force__title">{force.name}</h3>
-					<p class="force__txt">{force.txt}</p>
+			qualities.map((quality) => (
+				<li class="quality">
+					<Icon name={quality.icon} class="quality__icon" />
+					<h3 class="quality__title">{quality.name}</h3>
+					<p class="quality__txt">{quality.txt}</p>
 				</li>
 			))
 		}
@@ -39,9 +37,12 @@ const forces = [
 </Container>
 
 <style lang="scss">
-	.forces {
+	.qualities {
 		&__title {
-			text-align: left;
+			text-align: center;
+			@media screen and (max-width: 768px) {
+				text-align: left;
+			}
 		}
 		&__list {
 			display: grid;
@@ -55,7 +56,7 @@ const forces = [
 				grid-row: auto;
 			}
 
-			.force {
+			.quality {
 				color: var(--color-primary);
 				display: grid;
 				justify-content: center;
@@ -73,9 +74,16 @@ const forces = [
 					width: 100px;
 					height: 100px;
 					margin: 0 auto;
+					padding: 1rem;
 					background-size: contain;
 					background-repeat: no-repeat;
 					background-position: center;
+					fill: blue;
+
+					path,
+					g {
+						fill: blue;
+					}
 
 					@media screen and (max-width: 768px) {
 						grid-row: 1 / span 2;
