@@ -25,7 +25,7 @@ const instagramImages = instagramMedia.filter((media) => media.media_type === "I
 	{
 		instagramImages.map((image) => (
 			<a href={image.permalink} target="_blank" rel="noreferrer">
-				<img src={image.media_url} alt={image.caption} />
+				<img loading="lazy" src={image.media_url} alt={image.caption} />
 			</a>
 		))
 	}

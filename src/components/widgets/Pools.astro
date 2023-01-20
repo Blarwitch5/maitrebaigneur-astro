@@ -20,7 +20,7 @@ const { pools } = site;
 			>
 				<a href={pool.link} class="pool__link">
 					<h3 class="pool__title">{pool.name}</h3>
-					<img class="pool__img" src={pool.image.src} alt={pool.image.alt} />
+					<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
 					<span class="pool__location">{pool.location}</span>
 				</a>
 			</article>

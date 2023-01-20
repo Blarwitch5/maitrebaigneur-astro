@@ -1,0 +1,66 @@
+---
+import Container from "@components/Container.astro";
+
+const title: string = "Le mot du patron";
+const creator: string = "Quentin Vander Meulen";
+const role: string = "Fondateur et directeur de Maître-Baigneur";
+---
+
+<Container>
+	<h2 class="quote__title">{title}</h2>
+	<div class="quote__content">
+		<img class="quote__img" src="/images/hero.jpg" alt={`${creator} - ${role}`} width="600" height="600" />
+		<blockquote>
+			<p>
+				Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait mon
+				métier : athlète de haut niveau, joueur professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin d’inventer ma
+				pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond, celui d’allier mes différentes expériences et de transmettre mon
+				savoir au travers d’une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité.
+			</p>
+			<footer>
+				<cite>
+					<span class="quote__author">{creator}</span>
+					{role}
+				</cite>
+			</footer>
+		</blockquote>
+	</div>
+</Container>
+
+<style lang="scss">
+	.quote {
+		&__title {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+		&__content {
+			display: flex;
+			gap: var(--space-l);
+			align-items: center;
+
+			& > * {
+				flex: 1 1 0;
+			}
+		}
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			clip-path: url("/images/blob.svg#shapePath");
+
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		&__author {
+			display: block;
+			font-family: var(--ff-pacifico);
+			font-weight: bold;
+		}
+		blockquote {
+			p {
+				text-align: justify !important;
+			}
+		}
+	}
+</style>

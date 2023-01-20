@@ -1,0 +1,38 @@
+---
+import Container from "@components/Container.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
+---
+
+<Container>
+	<Waves atTopOfSection={true} />
+	<img loading="lazy" class="pedagogy__img" src="/images/hero.jpg" alt="Maître-Baigneur en action" />
+	<div class="pedagogy__content">
+		<h2>La philosophie Maître-Baigneur</h2>
+		<h3>Nager en groupe</h3>
+		<p>
+			Notre pédagogie de cours en petit groupe permet aux élèves de développer l’esprit d’équipe et de compétition, la solidarité grâce à l’entraide
+			et le respect mutuel. De plus, travailler entre élèves à l’avantage de renforcer la confiance en soi et de favoriser son autonomie.
+		</p>
+		<p>
+			Apprendre à être en sécurité dans l’eau est une nécessité pour tous les élèves. En effet, plusieurs études ont prouvé que les jeunes enfants qui
+			nagent ont une capacité cognitive accrue, des compétences sociales ainsi qu’une coordination plus développée.
+		</p>
+		<p>Ces valeurs sont essentielles, elles leur serviront en dehors de la piscine et pour le reste de leur vie.</p>
+		<p>Arrêter le processus d’apprentissage fera perdre les acquis à un jeune enfant entraînant une régression brutale.</p><p>
+			Nager toute l’année améliorera sa condition physique en général.
+		</p>
+	</div>
+	<Waves />
+</Container>
+<style lang="scss">
+	.pedagogy {
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&__content {
+			padding: 2rem;
+		}
+	}
+</style>

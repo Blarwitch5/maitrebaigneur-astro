@@ -23,7 +23,7 @@ import Container from "@components/Container.astro";
 				>
 					<a href={service.link} class="service__link">
 						<h3 class="service__title">{service.name}</h3>
-						<img class="service__img" src={service.image.src} alt={service.image.alt} />
+						<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
 					</a>
 				</div>
 			))
