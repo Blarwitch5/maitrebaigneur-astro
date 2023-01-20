@@ -6,6 +6,12 @@ import InstagramFeed from "./widgets/InstagramFeed.astro";
 import { Icon } from "astro-icon";
 import Waves from "@components//ui/shapes/Waves.astro";
 import Container from "@components/Container.astro";
+
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const services = siteLinks.services;
+const footerMenu = siteLinks.footerMenu;
 ---
 
 <footer class="footer">
@@ -37,18 +43,29 @@ import Container from "@components/Container.astro";
 			<div class="col services">
 				<h3 class="title">Nos prestations</h3>
 				<ul>
-					<li><Buttons href="/prestations/cours-de-natation" label="Cours de natation">Cours de natation</Buttons></li>
-					<li><Buttons href="/prestations/cours-bebe-nageur" label="Cours bébé nageur">Cours bébé nageur</Buttons></li>
-					<li><Buttons href="/prestations/aquaversaire" label="Aquaversaire">Aquaversaire</Buttons></li>
-					<li><Buttons href="/prestations/evenement-securite" label="Événements et sécurité">Événements et sécurité</Buttons></li>
+					{
+						services.map((service) => (
+							<li>
+								<Buttons href={service.href} label={service.name}>
+									{service.name}
+								</Buttons>
+							</li>
+						))
+					}
 				</ul>
 			</div>
 			<div class="col useful-links">
 				<h3 class="title">Besoin d'aide ?</h3>
 				<ul>
-					<li><Buttons href="/contact" label="Contactez-nous">Contactez-nous</Buttons></li>
-					<li><Buttons href="https://user.clicrdv.com/maitre-baigneur" label="Réservation de cours">Réservation de cours</Buttons></li>
-					<li><Buttons href="/mentions-legales" label="Mentions légales">Mentions légales</Buttons></li>
+					{
+						footerMenu.map((item) => (
+							<li>
+								<Buttons href={item.href} label={item.name} target={item.target}>
+									{item.name}
+								</Buttons>
+							</li>
+						))
+					}
 				</ul>
 			</div>
 			<div class="col insta">

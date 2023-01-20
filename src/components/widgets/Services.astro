@@ -1,6 +1,8 @@
 ---
-import site from "@assets/data/services.json";
-const { services } = site;
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const services = siteLinks.services;
 
 import Container from "@components/Container.astro";
 ---
@@ -21,7 +23,7 @@ import Container from "@components/Container.astro";
 						.replace(/\p{Diacritic}/gu, "")
 						.toLowerCase()}`}
 				>
-					<a href={service.link} class="service__link">
+					<a href={service.href} class="service__link">
 						<h3 class="service__title">{service.name}</h3>
 						<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
 					</a>

@@ -1,4 +1,14 @@
-<meta name="geo.region" content="FR-13" />
-<meta name="geo.placename" content="Aix-en-Provence" />
-<meta name="geo.position" content="43.5;5.4" />
-<meta name="ICBM" content="43.5, 5.4" />
+---
+export interface Props {
+	region: string;
+	placename: string;
+	position: string;
+	icbm: string;
+}
+const { region, placename, position, icbm } = Astro.props;
+---
+
+<meta name="geo.region" content={region} />
+<meta name="geo.placename" content={placename} />
+<meta name="geo.position" content={position} />
+<meta name="ICBM" content={icbm} />

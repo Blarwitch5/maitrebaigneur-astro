@@ -14,7 +14,7 @@ const Tag = href ? "a" : "button";
 <Tag
 	class:list={[`btn ${regular && `btn__regular`} ${outline && `btn__outline`}`, className]}
 	href={href}
-	target={`${newTab ? "_blank" : ``}`}
+	target={`${newTab ? "_blank" : `_self`}`}
 	rel={`${newTab ? "noopener noreferrer" : ``}`}
 	{...rest}
 >

@@ -1,0 +1,160 @@
+{
+	"siteLinks": {
+		"primary": [
+			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation", "style": "with-icon icon-swimmer", "responsive": "hidden-md" },
+			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur", "style": "with-icon icon-baby", "responsive": "hidden-md" },
+			{ "href": "/tarifs", "name": "Tarifs", "style": "btn btn-outline", "responsive": "hidden-md" }
+		],
+		"secondary": [
+			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation" },
+			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur" },
+			{ "href": "/prestations/aquaversaire", "name": "Aquaversaire" },
+			{ "href": "/prestations/evenement-securite", "name": "Événements & Sécurité" },
+			{ "href": "/bassins", "name": "Nos bassins d'apprentissage" },
+			{ "href": "/bassins/aquabecool", "name": "Aquabecool" },
+			{ "href": "/bassins/plan-form", "name": "Plan Form" },
+			{ "href": "/bassins/set-club", "name": "Set Club" },
+			{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
+			{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
+			{ "href": "/bassins/domicile", "name": "Domicile" },
+			{ "href": "/qui-sommes-nous", "name": "Qui sommes-nous ?" },
+			{ "href": "/tarifs", "name": "Tarifs" },
+			{ "href": "/contact", "name": "Nous contacter" },
+			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "target": "_blank" }
+		],
+		"services": [
+			{
+				"name": "Cours de natation",
+				"href": "/prestations/cours-de-natation",
+				"image": {
+					"src": "/images/services/natation.jpg",
+					"alt": "Fillette nageant sous l'eau en souriant"
+				},
+				"icon": "swimmer",
+
+				"pageTitleImage": {
+					"src": "/images/services/natation-page.jpg",
+					"alt": "Fillette nageant sous l'eau en souriant"
+				}
+			},
+			{
+				"name": "Cours bébé nageur",
+				"href": "/prestations/cours-bebe-nageur",
+				"image": {
+					"src": "/images/services/bebe-nageur.jpg",
+					"alt": "Bébé nageur sous l'eau"
+				},
+				"icon": "baby",
+				"pageTitleImage": {
+					"src": "/images/services/bebe-nageur-page.jpg",
+					"alt": "Bébé nageur sous l'eau"
+				}
+			},
+			{
+				"name": "Aquaversaire",
+				"href": "/prestations/aquaversaire",
+				"image": {
+					"src": "/images/services/aquaversaire.jpg",
+					"alt": "Groupes d'enfants s'amusant dans une piscine"
+				},
+				"icon": "aquaversaire",
+				"pageTitleImage": {
+					"src": "/images/services/aquaversaire-page.jpg",
+					"alt": "Groupes d'enfants s'amusant dans une piscine"
+				}
+			},
+			{
+				"name": "Surveillance",
+				"href": "/prestations/evenement-securite",
+				"image": {
+					"src": "/images/services/surveillance.jpg",
+					"alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+				},
+				"icon": "event",
+				"pageTitleImage": {
+					"src": "/images/services/surveillance-page.jpg",
+					"alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+				}
+			}
+		],
+		"pools": [
+			{
+				"name": "Domicile",
+				"href": "/bassins/domicile",
+				"image": {
+					"src": "/images/pools/domicile.jpg",
+					"alt": "Bassin à domicile"
+				},
+				"location": ""
+			},
+			{
+				"name": "Set Club",
+				"href": "/bassins/set-club",
+				"image": {
+					"src": "/images/pools/bebe-nageur.jpg",
+					"alt": "Bassin du Set Club"
+				},
+				"location": "Aix Ouest"
+			},
+			{
+				"name": "Aquabecool",
+				"href": "/bassins/aquabecool",
+				"image": {
+					"src": "/images/pools/aquabecool.jpg",
+					"alt": "Bassin de Aquabecool"
+				},
+				"location": "Aix Sud"
+			},
+			{
+				"name": "Kabanon des écuries de l'aube",
+				"href": "/bassins/kabanon",
+				"image": {
+					"src": "/images/pools/kabanon.jpg",
+					"alt": "Bassin du Kabanon des écuries de l'aube"
+				},
+				"location": "Saint-Marc-Jaumegarde"
+			},
+			{
+				"name": "Kinémouv'",
+				"href": "/bassins/kinemouv",
+				"image": {
+					"src": "/images/pools/kinemouv.jpg",
+					"alt": "Bassin de Kinémouv"
+				},
+				"location": "Pertuis"
+			},
+			{
+				"name": "Plan Form",
+				"href": "/bassins/planform",
+				"image": {
+					"src": "/images/pools/planform.jpg",
+					"alt": "Bassin de Plan Form"
+				},
+				"location": "Cabriès"
+			}
+		],
+		"footerMenu": [
+			{
+				"href": "/contact",
+				"name": "Contactez-nous"
+			},
+			{
+				"href": "https://user.clicrdv.com/maitre-baigneur",
+				"name": "Réserver un cours",
+				"target": "_blank"
+			},
+			{
+				"href": "/tarifs",
+				"name": "Tarifs"
+			},
+			{
+				"href": "/mentions-legales",
+				"name": "Mentions légales"
+			},
+			{
+				"href": "/plan-du-site",
+				"name": "Plan du site"
+			}
+		]
+	}
+}

@@ -4,12 +4,10 @@ import ToggleBtn from "@components/header/ToggleBtn.astro";
 import Brand from "@components/header/Brand.astro";
 import Buttons from "@components/ui/Buttons.astro";
 
-const nav = [
-	{ link: "/prestations/cours-de-natation", name: "Cours de natation", style: "with-icon icon-swimmer", responsive: "hidden-md" },
-	{ link: "/prestations/cours-bebe-nageur", name: "Cours bébé nageur", style: "with-icon icon-baby", responsive: "hidden-md" },
-	{ link: "/tarifs", name: "Tarifs", style: "btn btn-outline", responsive: "hidden-md" },
-	// { link: "/contact", name: "Contact", style: "btn btn-icon", responsive: "" },
-];
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const nav = siteLinks.primary;
 ---
 
 <header id="header" class="header">
@@ -22,7 +20,7 @@ const nav = [
 			{
 				nav.map((item) => (
 					<li role="none" class={`nav-item ${item.responsive}`}>
-						<Buttons href={item.link} tabindex="0" class={`nav-link ${item.style}`} customIcon role="menuitem">
+						<Buttons href={item.href} tabindex="0" class={`nav-link ${item.style}`} customIcon role="menuitem">
 							{item.name}
 						</Buttons>
 					</li>

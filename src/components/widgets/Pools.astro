@@ -1,6 +1,8 @@
 ---
-import site from "@assets/data/pools.json";
-const { pools } = site;
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const pools = siteLinks.pools;
 ---
 
 <h2 class="pools__title">Nos bassins d'apprentissage</h2>
@@ -18,7 +20,7 @@ const { pools } = site;
 					.replace(/\p{Diacritic}/gu, "")
 					.toLowerCase()}`}
 			>
-				<a href={pool.link} class="pool__link">
+				<a href={pool.href} class="pool__link">
 					<h3 class="pool__title">{pool.name}</h3>
 					<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
 					<span class="pool__location">{pool.location}</span>
