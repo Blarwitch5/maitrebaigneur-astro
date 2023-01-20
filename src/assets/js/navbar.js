@@ -37,7 +37,10 @@ closeBtn.addEventListener("click", () => {
 // 		}
 // 	}
 // });
-
+//on page load check if the page is already scrolled, if so add active class to header
+window.addEventListener("load", function () {
+	addRemoveHeaderClassOnScroll(window.scrollY);
+});
 // Add event listener to the window for scroll events
 window.addEventListener("scroll", function () {
 	// Get the current scroll position
@@ -50,15 +53,21 @@ window.addEventListener("scroll", function () {
 		header.style.top = "-80px";
 	}
 	// If the current scroll position is greater than 150, add the class "active" to the header element
-	if (currentScrollPos > 150) {
-		header.classList.add("active");
-	} else {
-		header.classList.remove("active");
-	}
+	addRemoveHeaderClassOnScroll(currentScrollPos);
+
 	// Set the previous scroll position to the current scroll position
 	prevScrollpos = currentScrollPos;
 });
-
+// Function to add or remove the class "active" from the header element
+function addRemoveHeaderClassOnScroll(scroll) {
+	if (scroll > 150) {
+		// Add class "active" to the header
+		header.classList.add("active");
+	} else {
+		// Remove class "active" from the header
+		header.classList.remove("active");
+	}
+}
 // Function to open the menu
 function openMenu() {
 	// If the menu is open, close it
