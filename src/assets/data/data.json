@@ -91,7 +91,7 @@
 				"name": "Set Club",
 				"href": "/bassins/set-club",
 				"image": {
-					"src": "/images/pools/bebe-nageur.jpg",
+					"src": "/images/pools/setclub.jpg",
 					"alt": "Bassin du Set Club"
 				},
 				"location": "Aix Ouest"
@@ -118,7 +118,7 @@
 				"name": "Kinémouv'",
 				"href": "/bassins/kinemouv",
 				"image": {
-					"src": "/images/pools/kinemouv.jpg",
+					"src": "/images/pools/fallback.jpg",
 					"alt": "Bassin de Kinémouv"
 				},
 				"location": "Pertuis"
