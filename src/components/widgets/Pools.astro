@@ -1,33 +1,40 @@
 ---
 import site from "@assets/data/data.json";
+import Container from "@components/Container.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
-<h2 class="pools__title">Nos bassins d'apprentissage</h2>
-<p class="pools__desc">
-	L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en bassins d’apprentissage. Nous sommes heureux de vous présenter les
-	établissements avec lesquels nous collaborons pour vous offrir une expérience de qualité dans un cadre magnifique.
-</p>
-<div class="pools__grid">
-	{
-		pools.map((pool) => (
-			<article
-				class={`pool ${pool.name
-					.replace(/\s|_|\(|\)/g, "-")
-					.normalize("NFD")
-					.replace(/\p{Diacritic}/gu, "")
-					.toLowerCase()}`}
-			>
-				<a href={pool.href} class="pool__link">
-					<h3 class="pool__title">{pool.name}</h3>
-					<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
-					<span class="pool__location">{pool.location}</span>
-				</a>
-			</article>
-		))
-	}
+<Container>
+	<h2 class="pools__title">Nos bassins d'apprentissage</h2>
+	<p class="pools__desc">
+		L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en bassins d’apprentissage. Nous sommes heureux de vous présenter les
+		établissements avec lesquels nous collaborons pour vous offrir une expérience de qualité dans un cadre magnifique.
+	</p>
+</Container>
+<div class="pools__grid hs">
+	<div class="hs__wrapper full no-scrollbar">
+		{
+			pools.map((pool) => (
+				<article
+					class={`pool hs__item ${pool.name
+						.replace(/\s|_|\(|\)/g, "-")
+						.normalize("NFD")
+						.replace(/\p{Diacritic}/gu, "")
+						.toLowerCase()}`}
+				>
+					<a href={pool.href} class="pool__link">
+						<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
+						<div class="pool__info">
+							<h3 class="pool__title">{pool.name}</h3>
+							<span class="pool__location">{pool.location}</span>
+						</div>
+					</a>
+				</article>
+			))
+		}
+	</div>
 </div>
 
 <style lang="scss">
@@ -35,27 +42,21 @@ const pools = siteLinks.pools;
 		text-align: center;
 	}
 	.pools__grid {
-		display: grid;
-		grid-template-columns: repeat(8, 1fr);
-		grid-template-rows: repeat(2, 400px);
-		grid-gap: 2rem;
-		transition: all 0.3s ease-in-out;
-
-		@media screen and (max-width: 576px) {
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(4, 1fr);
-			grid-gap: 1rem;
-		}
-
 		.pool {
 			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 1.5rem;
 			border-radius: 25px;
 			overflow: hidden;
 			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 			transition: all 0.3s ease-in-out;
-			min-height: 9rem;
+			width: 100%;
 
 			&:hover {
+				transform: translateY(-0.5rem);
 				// transition: all 0.3s ease-in-out;
 				// transform: scale(1.03) rotate(-2deg);
 				// z-index: 9;
@@ -73,30 +74,29 @@ const pools = siteLinks.pools;
 			}
 
 			//pools grid
-			&:first-child {
-				grid-column: 1 / span 4;
-				grid-row: 1 / span 1;
-			}
-			&:nth-child(2) {
-				grid-column: 1 / span 2;
-				grid-row: 2 / span 1;
-			}
-			&:nth-child(3) {
-				grid-column: 3 / span 2;
-				grid-row: 2 / span 1;
-			}
-			&:nth-child(4) {
-				grid-column: 5 / span 2;
-				grid-row: 1 / span 1;
-			}
-			&:nth-child(5) {
-				grid-column: 7 / span 2;
-				grid-row: 1 / span 1;
-			}
-			&:nth-child(6) {
-				grid-column: 5 / span 4;
-				grid-row: 2 / span 1;
-			}
+			// &:first-child {
+			// 	grid-row-end: span 2;
+
+			// 	@media screen and (max-width: 768px) {
+			// 		grid-column-end: span 2;
+			// 		grid-row-end: unset;
+			// 	}
+			// }
+			// &:nth-child(4) {
+			// 	grid-column: 2;
+			// 	grid-row: 3 / 5;
+
+			// 	@media screen and (max-width: 768px) {
+			// 		grid-row: unset;
+			// 		grid-column-start: unset;
+			// 		grid-column-end: span 2;
+			// 	}
+			// }
+			// &:nth-child(n) {
+			// 	@media screen and (max-width: 576px) {
+			// 		grid-column-end: span 2;
+			// 	}
+			// }
 
 			&__link {
 				text-decoration: none;
@@ -106,41 +106,115 @@ const pools = siteLinks.pools;
 				height: 100%;
 				width: 100%;
 				text-align: center;
-			}
-
-			&__title {
-				color: var(--color-white);
-				font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
-				margin: 3rem 0 0 0;
-				display: flex;
-				flex-direction: column;
-				position: relative;
 
 				&::before {
 					content: "";
-					display: block;
-					width: 3.5rem;
-					height: 3.5rem;
 					position: absolute;
-					top: -3.5rem;
-					left: 50%;
-					transform: translateX(-50%);
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
 					z-index: 1;
-					background-color: var(--color-white);
-					mask-repeat: no-repeat;
-					mask-position: center;
-					mask-size: 3.5rem;
+					background-color: hsla(var(--link-color-primary-hsl), 0.3);
+				}
+			}
+			&__info {
+				position: absolute;
+				z-index: 2;
+				padding: var(--space-xs);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			&__title {
+				color: var(--color-white);
+				font-size: var(--fs-medium);
+				margin: 0;
+				position: relative;
+			}
+			&__location {
+				position: absolute;
+				bottom: -1rem;
+				background: hsla(var(--link-color-white-hsl), 0.7);
+				padding: 0.1rem 1rem;
+				border-radius: 100vh;
+				color: var(--color-primary);
+				font-family: var(--ff-pacifico);
+				font-size: var(--fs-base);
+
+				&:empty {
+					padding: 0;
 				}
 			}
 			&__img {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
+				display: flex;
 				height: 100%;
+				width: 100%;
 				object-fit: cover;
-				z-index: -1;
+
+				// transition: all 300ms ease;
+				// transform: scale(1);
+				// transform-origin: center;
 			}
+			// &:hover {
+			// 	.pool__img {
+			// 		transition: all 300ms ease;
+			// 		transform: scale(1.05);
+			// 		transform-origin: center;
+			// 	}
+			// }
+		}
+	}
+
+	//horizontal scroll section css
+	.hs {
+		display: grid;
+		align-content: start;
+		overflow-y: scroll;
+
+		& > * {
+			grid-column: 2 / -2;
+		}
+		& > .full {
+			grid-column: 1 / -1;
+			padding-block: 2rem;
+		}
+		&__wrapper {
+			display: grid;
+			grid-gap: var(--space-m);
+			grid-template-columns: 10px;
+			grid-template-rows: minmax(250px, 1fr);
+			grid-auto-flow: column;
+			grid-auto-columns: minmax(calc(30% - var(--space-m) * 2), calc(350px - var(--space-xs) * 2));
+			overflow-x: scroll;
+			scroll-snap-type: x proximity;
+			-webkit-overflow-scrolling: touch;
+			@media screen and (max-width: 1024px) {
+				grid-auto-columns: 35vw;
+			}
+			@media screen and (max-width: 768px) {
+				grid-auto-columns: 55vw;
+			}
+			@media screen and (max-width: 576px) {
+				grid-auto-columns: 75vw;
+			}
+			&::before,
+			&::after {
+				content: "";
+				width: var(--space-xs);
+			}
+			&.no-scrollbar {
+				scrollbar-width: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+			&.no-scrollbar::-webkit-scrollbar {
+				display: none;
+			}
+		}
+		&__item {
+			scroll-snap-align: center;
 		}
 	}
 </style>
