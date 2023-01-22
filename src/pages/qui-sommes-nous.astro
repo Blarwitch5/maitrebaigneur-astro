@@ -9,15 +9,24 @@ import Qualities from "@components/widgets/Qualities.astro";
 import Pedagogy from "@components/widgets/Pedagogy.astro";
 import CreatorQuote from "@components/widgets/CreatorQuote.astro";
 
+import SkipToContent from "@components/ui/SkipToContent.astro";
+
 //data
-const title: string = "Maître-Baigneur | Qui sommes-nous ?";
-const description: string = "";
-const pageImageUrl: string = "/images/page-title/page_quisommesnous.jpg";
+
+const page = {
+	metaTitle: "Maître-Baigneur | Qui sommes-nous ?",
+	description: "",
+	title: "Qui sommes-nous ?",
+	imageUrl: "/images/page-title/page_quisommesnous.jpg",
+	imageAlt: "Maître-Baigneur apprenant un garçon à nager",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle="Qui sommes-nous ?" pageImageUrl={pageImageUrl} pageImageAlt="Maître-Baigneur apprenant un garçon à nager" />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+
 	<Main>
 		<Section class="qualities" ariaLabel="Maître-Baigneur en trois mots">
 			<Qualities />

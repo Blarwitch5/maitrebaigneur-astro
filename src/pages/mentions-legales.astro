@@ -5,15 +5,24 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 
+import SkipToContent from "@components/ui/SkipToContent.astro";
+
 //data
-const title = "Maître-Baigneur | Mentions légales";
-const description = "";
-const pageImageUrl = "/images/page-title/page_legal.jpg";
+
+const page = {
+	metaTitle: "Maître-Baigneur | Mentions légales",
+	description: "",
+	title: "Mentions légales",
+	imageUrl: "/images/page-title/page_legal.jpg",
+	imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle="Mentions légales" pageImageUrl={pageImageUrl} pageImageAlt="Bassin du Set Club à Aix-en-Provence" />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+
 	<Main><h1>Mentions légales</h1></Main>
 	<Footer />
 </BaseLayout>

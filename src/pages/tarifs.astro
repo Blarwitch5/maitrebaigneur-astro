@@ -6,20 +6,25 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 
+import SkipToContent from "@components/ui/SkipToContent.astro";
+
 //data
-const title = "Maître-Baigneur | Nos tarifs";
-const description = "";
-const pageImageUrl = "/images/page-title/page_tarifs.jpg";
+
+const page = {
+	metaTitle: "Maître-Baigneur |  Nos tarifs",
+	description: "",
+	title: " Nos tarifs",
+	imageUrl: "/images/page-title/page_tarifs.jpg",
+	imageAlt: "Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+
 	<Main>
-		<PageTitle
-			pageTitle="Tarifs"
-			pageImageUrl={pageImageUrl}
-			pageImageAlt="Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main"
-		/>
 		<h1>Nos tarifs</h1>
 	</Main>
 	<Footer />

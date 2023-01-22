@@ -6,17 +6,25 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Pools from "@components/widgets/Pools.astro";
 import Section from "@components/Section.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
-const title = "Maître-Baigneur | Nos bassins d'apprentissage";
-const description = "";
-const pageImageUrl = "/images/page-title/fallback.jpg";
+
+const page = {
+	metaTitle: "Maître-Baigneur | Bassins d'apprentissage",
+	description: "",
+	title: "Bassins d'apprentissage",
+	imageUrl: "/images/page-title/fallback.jpg",
+	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+
 	<Main>
-		<PageTitle pageTitle="Bassins d'apprentissage" pageImageUrl={pageImageUrl} pageImageAlt="Vue sur des pieds trempants dans l'eau d'une piscine" />
 		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
 			<Pools />
 		</Section>

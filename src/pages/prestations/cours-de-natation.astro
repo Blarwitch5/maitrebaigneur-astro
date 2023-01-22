@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@components/Main.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
 
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -10,18 +11,20 @@ import PageTitle from "@components/header/PageTitle.astro";
 const title = "Maître-Baigneur | Cours de natation";
 const description = "";
 const pageImageUrl = "/images/page-title/page_natation.jpg";
+const page = {
+	metaTitle: "Maître-Baigneur | Cours de natation",
+	description: "",
+	title: "Cours de natation",
+	imageUrl: "/images/page-title/page_natation.jpg",
+	imageAlt: "Petite fille avec lunettes de natation nageant sous l'eau tout sourire",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
-
-	<Main>
-		<PageTitle
-			pageTitle="Cours de natation"
-			pageImageUrl={pageImageUrl}
-			pageImageAlt="Petite fille avec lunettes de natation nageant sous l'eau tout sourire"
-		/><h1>Cours de natation</h1>
-	</Main>
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<Main><h1>Cours de natation</h1></Main>
 	<Footer />
 </BaseLayout>
 

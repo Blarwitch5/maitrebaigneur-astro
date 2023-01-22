@@ -1,26 +1,28 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Main from "@components/Main.astro";
-
+import SkipToContent from "@components/ui/SkipToContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 
 //data
-const title = "Maître-Baigneur | Aquaversaire";
-const description = "";
-const pageImageUrl = "/images/page-title/page_aquaversaire.jpg";
+
+const page = {
+	metaTitle: "Maître-Baigneur | Aquaversaire",
+	description: "",
+	title: "Aquaversaire",
+	imageUrl: "/images/page-title/page_aquaversaire.jpg",
+	imageAlt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
-	<Main>
-		<PageTitle
-			pageTitle="Aquaversaire"
-			pageImageUrl={pageImageUrl}
-			pageImageAlt="Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire"
-		/>
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
 
+	<Main>
 		<h1>Aquaversaire</h1>
 	</Main>
 	<Footer />

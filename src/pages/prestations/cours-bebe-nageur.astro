@@ -4,17 +4,23 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
-const title = "Maître-Baigneur | Cours bébé nageur";
-const description = "";
-const pageImageUrl = "/images/page-title/page_bebenageur.jpg";
+const page = {
+	metaTitle: "Maître-Baigneur | Cours bébé nageur",
+	description: "",
+	title: "Cours bébé nageur",
+	imageUrl: "/images/page-title/page_bebenageur.jpg",
+	imageAlt: "Garçon en bas âge nageant sous l'eau ",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
 	<Header />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
 	<Main>
-		<PageTitle pageTitle="Cours bébé nageur" pageImageUrl={pageImageUrl} pageImageAlt="Garçon en bas âge nageant sous l'eau " />
 		<h1>Cours bébé nageur</h1>
 	</Main>
 	<Footer />
