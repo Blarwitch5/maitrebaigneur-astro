@@ -4,16 +4,23 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
-const title = "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'";
-const description = "";
-const pageImageUrl = "/images/page-title/fallback.jpg";
+const page = {
+	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'",
+	description: "",
+	title: "Kinémouv'",
+	imageUrl: "/images/page-title/fallback.jpg",
+	imageAlt: "Bassin Kinémouv' à Pertuis",
+};
 ---
 
-<BaseLayout title={title} descritpion={description}>
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
+
 	<Header />
-	<PageTitle pageTitle="Kinémouv'" pageImageUrl={pageImageUrl} pageImageAlt="Bassin du Kabanon des écuries de l'aube à Saint-Marc-Jaumegarde" />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
 	<Main><h1>Kinémouv'</h1></Main>
 	<Footer />
 </BaseLayout>
