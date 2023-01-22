@@ -1,9 +1,19 @@
 {
 	"siteLinks": {
 		"primary": [
-			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation", "style": "with-icon icon-swimmer", "responsive": "hidden-md" },
-			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur", "style": "with-icon icon-baby", "responsive": "hidden-md" },
-			{ "href": "/tarifs", "name": "Tarifs", "style": "btn btn-outline", "responsive": "hidden-md" }
+			{
+				"href": "/prestations/cours-de-natation",
+				"name": "Cours de natation",
+				"classes": "with-icon icon-swimmer",
+				"responsive": "hidden-md"
+			},
+			{
+				"href": "/prestations/cours-bebe-nageur",
+				"name": "Cours bébé nageur",
+				"classes": "with-icon icon-baby",
+				"responsive": "hidden-md"
+			},
+			{ "href": "/tarifs", "name": "Tarifs", "classes": "btn btn__outline", "responsive": "hidden-md" }
 		],
 		"secondary": [
 			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation" },
@@ -136,24 +146,29 @@
 		"footerMenu": [
 			{
 				"href": "/contact",
-				"name": "Contactez-nous"
+				"name": "Contactez-nous",
+				"classes": "btn"
 			},
 			{
 				"href": "https://user.clicrdv.com/maitre-baigneur",
 				"name": "Réserver un cours",
-				"target": "_blank"
+				"target": "_blank",
+				"classes": "btn"
 			},
 			{
 				"href": "/tarifs",
-				"name": "Tarifs"
+				"name": "Tarifs",
+				"classes": "btn"
 			},
 			{
 				"href": "/mentions-legales",
-				"name": "Mentions légales"
+				"name": "Mentions légales",
+				"classes": "btn"
 			},
 			{
 				"href": "/plan-du-site",
-				"name": "Plan du site"
+				"name": "Plan du site",
+				"classes": "btn"
 			}
 		]
 	}
