@@ -1,20 +1,21 @@
 ---
 import Socials from "@components/Socials.astro";
+import Buttons from "@components/ui/Buttons.astro";
 import Link from "@components/ui/Link.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 
 const { ariaLabel } = Astro.props;
 ---
 
-<section role="region" class="hero" aria-label={ariaLabel}>
+<section id="hero" role="region" class="hero" aria-label={ariaLabel}>
 	<div class="hero-img">
 		<img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" />
 	</div>
 	<div class="hero-content">
 		<h1 class="hero-title">Apprendre à nager <span>à Aix-en-Provence</span></h1>
 		<div class="hero-cta">
-			<Link href="/contact" class="btn btn-outline-inverted" text="Contactez-nous">Contactez-nous</Link>
-			<Link href="https://user.clicrdv.com/maitre-baigneur" class="hero-button btn btn-outline" text="Contactez-nous">Je réserve mon cours</Link>
+			<Buttons href="/contact" class="btn btn__outline--inverted" text="Contactez-nous">Contactez-nous</Buttons>
+			<Buttons href="/contact" class="hero-button btn btn__outline" outline text="Je réserve mon cours">Je réserve mon cours</Buttons>
 		</div>
 	</div>
 	<div class="socials__wrapper">
@@ -30,11 +31,12 @@ const { ariaLabel } = Astro.props;
 		min-height: 550px;
 
 		&-img {
-			position: absolute;
+			position: fixed;
 			top: 0;
 			bottom: 0;
 			left: 0;
 			right: 0;
+
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -110,4 +112,68 @@ const { ariaLabel } = Astro.props;
 			transform: translateX(50%);
 		}
 	}
+	.bubble {
+		position: absolute;
+		bottom: 0;
+
+		border-radius: 50%;
+		background-image: radial-gradient(hsla(var(--link-color-white-hsl), 0.3) 60%, hsla(var(--link-color-white-hsl), 1) 80%);
+		will-change: top, left;
+		transform: translateX(-50%);
+		animation-name: float;
+		animation-timing-function: ease-out;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 20%;
+			right: 25%;
+			width: 33%;
+			height: 33%;
+			border: 2px solid;
+			border-color: hsla(var(--link-color-white-hsl), 0.8) transparent transparent transparent;
+			border-radius: 50%;
+			transform: rotate(45deg);
+		}
+	}
+	/* animation pour faire remonter les bulles */
+	@keyframes float {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-100%);
+		}
+	}
 </style>
+<script scoped>
+	//récupération de la div dans laquelle l'effet sera créé
+	var container = document.getElementById("hero");
+
+	//fonction pour créer les bulles
+	function createBubble() {
+		//création de l'élément div pour la bulle
+		var bubble = document.createElement("div");
+		bubble.classList.add("bubble");
+
+		//ajout des propriétés CSS pour la taille, la position et le mouvement aléatoire
+		var size = Math.random() * 40 + 20; //taille aléatoire entre 20 et 60
+		bubble.style.width = size + "px";
+		bubble.style.height = size + "px";
+		bubble.style.left = Math.random() * 100 + "%"; //position aléatoire sur l'axe horizontal
+		bubble.style.animationDuration = Math.random() * 2 + 3 + "s"; //durée de l'animation aléatoire entre 3 et 5 secondes
+
+		//ajout de la bulle à la div container
+		container.appendChild(bubble);
+
+		//suppression de la bulle après l'animation
+		setTimeout(function () {
+			bubble.remove();
+		}, 3000); //3000ms = 3s
+	}
+
+	//boucle pour créer plusieurs bulles
+	for (var i = 0; i < 10; i++) {
+		setTimeout(createBubble, Math.random() * 3000); //délai aléatoire entre la création de chaque bulle
+	}
+</script>

@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Section from "@components/Section.astro";
 
 //data
 const page = {
@@ -21,7 +22,23 @@ const page = {
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
 	<Main>
-		<h1>Cours bébé nageur</h1>
+		<Section class="baby-swimmer" ariaLabel="Informations concernant la section bébé nageur">
+			<div class="container">
+				<h2>Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?</h2>
+				<p>
+					Dans une eau chaude, avec des jeux à profusion… Tout est prévu pour le bien-être, l’amusement et l’éveil de votre bébé. Motricité et
+					découverte seront mises en place dans une ambiance propice au développement. Fidèle à notre pédagogie, les cours de bébé-baigneur se
+					déroulent dans une atmosphère ludique, En effet, il s’agit d’un moment de complicité entre les parents et le bébé. Nos éducateurs
+					spécialisés vous accompagneront dans cette nouvelle expérience.
+				</p>
+				<img src="/images/page-title/page_bebenageur.jpg" alt="Garçon en bas âge nageant sous l'eau " />
+			</div>
+		</Section>
+		<Section>
+			<div class="container">
+				<h3></h3>
+			</div>
+		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>

@@ -5,12 +5,12 @@ html {
     background-color: var(--color-white);
     font-size: var(--fs-base);
 }
-main {
-    background-color: var(--color-white);
-    padding-bottom: 100px;
-}
 section {
     padding: 2rem;
+}
+//gives some room for the footer logo with negative margin
+main > section:last-of-type {
+    padding-bottom: 100px;
 }
 //fallback for img loading
 *img:not(.logo) {

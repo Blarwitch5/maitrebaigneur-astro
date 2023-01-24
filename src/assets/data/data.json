@@ -171,5 +171,8 @@
 				"classes": "btn"
 			}
 		]
+	},
+	"swimmingLevels": {
+		"name": "Mini-Baigneur"
 	}
 }

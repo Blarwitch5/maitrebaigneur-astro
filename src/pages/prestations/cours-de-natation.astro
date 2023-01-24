@@ -8,9 +8,6 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 
 //data
-const title = "Maître-Baigneur | Cours de natation";
-const description = "";
-const pageImageUrl = "/images/page-title/page_natation.jpg";
 const page = {
 	metaTitle: "Maître-Baigneur | Cours de natation",
 	description: "",
@@ -24,7 +21,41 @@ const page = {
 	<SkipToContent />
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
-	<Main><h1>Cours de natation</h1></Main>
+	<Main>
+		<section>
+			<div class="container">
+				<h2>Nos différents groupes d’apprentissage de la natation</h2>
+				<p>
+					Grâce à la pédagogie Maître-Baigneur, nager ne sera plus jamais une corvée ! Finis les clichés sur l’apprentissage de la natation classique
+					avec les ceintures… Place désormais à du matériel ludique et pédagogique afin d’apprendre en s’amusant.
+				</p>
+				<img src="/images/page-title/page_bebenageur.jpg" alt="Garçon en bas âge nageant sous l'eau " />
+			</div>
+			<div class="levels__grid hs">
+				<div class="hs__wrapper full no-scrollbar">
+					<!-- {
+			levels.map((level) => (
+				<article
+					class={`level hs__item ${level.name
+						.replace(/\s|_|\(|\)/g, "-")
+						.normalize("NFD")
+						.replace(/\p{Diacritic}/gu, "")
+						.toLowerCase()}`}
+				>
+					<a href={level.href} class="level__link">
+						<img loading="lazy" class="level__img" src={level.image.src} alt={level.image.alt} />
+						<div class="level__info">
+							<h3 class="level__title">{level.name}</h3>
+							<span class="level__location">{level.location}</span>
+						</div>
+					</a>
+				</article>
+			))
+		} -->
+				</div>
+			</div>
+		</section>
+	</Main>
 	<Footer />
 </BaseLayout>
 

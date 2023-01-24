@@ -1,13 +1,6 @@
 ---
-import Swiper from "@components/ui/swiper/Swiper.astro";
-import SwiperSlide from "@components/ui/swiper/SwiperSlide.astro";
 import Container from "@components/Container.astro";
 
-const swiperParameters = {
-	// Optional parameters
-	loop: true,
-	autoplay: { delay: 1000 },
-};
 const reviews = [
 	{
 		name: "Yahia BEN AMMAR",
@@ -39,17 +32,16 @@ const reviews = [
 		quod voluptates eum deserunt deleniti nesciunt ea error, fugit accusantium quo aspernatur amet.
 	</p>
 </Container>
-<Swiper class="reviews">
-	{
-		reviews.map((review) => (
-			<SwiperSlide>
-				{" "}
-				<div class="review">
-					<div class="review__name">{review.name}</div>
-					<div class="review__review">{review.review}</div>
-					<div class="review__score">{review.score}</div>
-				</div>
-			</SwiperSlide>
-		))
-	}
-</Swiper>
+
+{
+	reviews.map((review) => (
+		<div class="">
+			{" "}
+			<div class="review">
+				<div class="review__name">{review.name}</div>
+				<div class="review__review">{review.review}</div>
+				<div class="review__score">{review.score}</div>
+			</div>
+		</div>
+	))
+}

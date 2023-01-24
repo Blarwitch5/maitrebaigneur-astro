@@ -1,16 +1,22 @@
 ---
-const { class: className, backgroundColor, ariaLabel } = Astro.props;
+interface Props {
+	class?: string;
+	backgroundColor?: string;
+	ariaLabel?: string;
+}
+const backgroundColor = Astro.props.backgroundColor ? Astro.props.backgroundColor : "white";
+
+const { class: className, ariaLabel } = Astro.props;
 ---
 
-<section class:list={["", className]} aria-label={ariaLabel} tabindex="0">
+<section class:list={["", className]} aria-label={ariaLabel} tabindex="0" style={`background-color: ${backgroundColor}`}>
 	<slot />
 </section>
 
-<style define:vars={{ backgroundColor }} scoped>
+<style scoped>
 	section {
 		position: relative;
 		padding-block: 4rem;
 		padding-inline: 0;
-		background-color: var(--backgroundColor);
 	}
 </style>
