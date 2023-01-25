@@ -7,5 +7,6 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@assets/*": ["src/assets/*"]
 		}
-	}
+	},
+	"allowJs": true
 }
