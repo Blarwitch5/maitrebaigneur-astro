@@ -50,11 +50,13 @@ const { iconVersion } = Astro.props;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			position: relative;
+
 			overflow: hidden;
 
 			svg {
-				padding: 0.5rem;
+				position: absolute;
+				width: 2rem;
+				height: 2rem;
 			}
 
 			&::before {

@@ -10,7 +10,6 @@ let prevScrollpos = window.pageYOffset;
 
 // Get the current state of the menu
 const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
-
 // Add event listeners
 toggleBtn.addEventListener("click", () => {
 	openMenu();
@@ -18,25 +17,18 @@ toggleBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
 	closeMenu();
 });
-// sidenav.addEventListener("keydown", (event) => {
-// 	if (event.key === "Tab" || event.keyCode === this.tabKeyCode) {
-// 		if (event.shiftKey) {
-// 			/* shift + tab */
-// 			// if focus is on first focusable element, move it to the last focusable element
-// 			if (document.activeElement === this.firstFocusableElement) {
-// 				this.lastFocusableElement.focus();
-// 				event.preventDefault();
-// 			}
-// 		} else {
-// 			/* tab */
-// 			// if focus is on the last focusable element, move it to the first focusable element
-// 			if (document.activeElement === this.lastFocusableElement) {
-// 				this.firstFocusableElement.focus();
-// 				event.preventDefault();
-// 			}
-// 		}
-// 	}
-// });
+//accessibility for keyboard users
+toggleBtn.addEventListener("keydown", (event) => {
+	if (event.key === "Enter" || event.key === "Space") {
+		openMenu();
+	}
+});
+closeBtn.addEventListener("keydown", (event) => {
+	if (event.key === "Enter" || event.key === "Space") {
+		closeMenu();
+	}
+});
+
 //on page load check if the page is already scrolled, if so add active class to header
 window.addEventListener("load", function () {
 	addRemoveHeaderClassOnScroll(window.scrollY);
@@ -46,7 +38,7 @@ window.addEventListener("scroll", function () {
 	// Get the current scroll position
 	let currentScrollPos = window.pageYOffset;
 	// If the previous scroll position is greater than the current scroll position, show the header
-	if (prevScrollpos > currentScrollPos) {
+	if (prevScrollpos > currentScrollPos || window.scrollY < 80) {
 		header.style.top = "0";
 	} else {
 		// If the previous scroll position is less than the current scroll position, hide the header

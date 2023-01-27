@@ -2,22 +2,14 @@
 interface Props {
 	href?: string;
 	class?: string;
-	regular?: boolean;
-	outline?: boolean;
 	newTab?: boolean;
 	[x: string]: any;
 }
-const { href, class: className, regular, outline, newTab, ...rest } = Astro.props;
+const { href, class: className, newTab, ...rest } = Astro.props;
 const Tag = href ? "a" : "button";
 ---
 
-<Tag
-	class:list={[`btn ${regular && `btn__regular`} ${outline && `btn__outline`}`, className]}
-	href={href}
-	target={`${newTab ? "_blank" : `_self`}`}
-	rel={`${newTab ? "noopener noreferrer" : ``}`}
-	{...rest}
->
+<Tag class:list={className} href={href} target={`${newTab ? "_blank" : `_self`}`} rel={`${newTab ? "noopener noreferrer" : ``}`} {...rest}>
 	<slot />
 </Tag>
 
