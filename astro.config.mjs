@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import image from "@astrojs/image";
+// import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,8 +18,8 @@ export default defineConfig({
 		port: 8080,
 	},
 	integrations: [
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp",
-		}),
+		// image({
+		// 	serviceEntryPoint: "@astrojs/image/sharp",
+		// }),
 	],
 });
