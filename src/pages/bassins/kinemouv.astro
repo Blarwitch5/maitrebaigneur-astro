@@ -11,8 +11,11 @@ const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'",
 	description: "",
 	title: "Kinémouv'",
-	imageUrl: "/images/page-title/fallback.jpg",
-	imageAlt: "Bassin Kinémouv' à Pertuis",
+	image:{
+		webp:"/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
+		alt: "Bassin Kinémouv' à Pertuis",
+	}
 };
 ---
 
@@ -20,7 +23,7 @@ const page = {
 	<SkipToContent />
 
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main><h1>Kinémouv'</h1></Main>
 	<Footer />
 </BaseLayout>

@@ -11,15 +11,19 @@ const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Set Club",
 	description: "",
 	title: "Set Club",
-	imageUrl: "/images/page-title/page_setclub-bassins.jpg",
-	imageAlt: "Bassin du Set Club à Aix-en-Provence",
+	
+		image:{
+		webp:"/images/page-title/webp/page_setclub-bassins.webp",
+		jpg: "/images/page-title/page_setclub-bassins.jpg",
+		alt: "Bassin du Set Club à Aix-en-Provence",
+	}
 };
 ---
 
 <BaseLayout title={page.title} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main><h1>Set Club</h1></Main>
 	<Footer />
 </BaseLayout>

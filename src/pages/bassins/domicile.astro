@@ -11,8 +11,12 @@ const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Domicile'",
 	description: "",
 	title: "Domicile",
-	imageUrl: "/images/page-title/page_domicile-bassins.jpg",
-	imageAlt: "Maître-Baigneur exerçant à domicile",
+
+	image:{
+		webp:"/images/page-title/webp/page_domicile-bassins.webp",
+		jpg: "/images/page-title/page_domicile-bassins.jpg",
+		alt: "Bassin de Aquabecool à Aix-en-Provence",
+	}
 };
 ---
 
@@ -20,8 +24,7 @@ const page = {
 	<SkipToContent />
 
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
-
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main><h1>Domicile</h1></Main>
 	<Footer />
 </BaseLayout>

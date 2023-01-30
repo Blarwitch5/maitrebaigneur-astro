@@ -56,7 +56,7 @@
 				},
 				"icon": "baby",
 				"pageTitleImage": {
-					"src": "/images/services/bebe-nageur-page.jpg",
+					"jpg": "/images/services/bebe-nageur-page.jpg",
 					"alt": "Bébé nageur sous l'eau"
 				}
 			},
@@ -172,7 +172,36 @@
 			}
 		]
 	},
-	"swimmingLevels": {
-		"name": "Mini-Baigneur"
-	}
+	"swimmingLevels": [
+		{
+			"name": "Mini Baigneur",
+			"imageSrc": "/images/levels/1_mini-baigneurs.jpg",
+			"desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
+			"hints": ["Mon enfant nage avec les brassards ?", "Mon enfant ne met pas la tête dans l’eau ?"]
+		},
+		{
+			"name": "Petit Baigneur",
+			"imageSrc": "/images/levels/2_petits-baigneurs.jpg",
+			"desc": "<span>« Le sourire des enfants »</span> restera toujours notre priorité ! Nous pensons qu’apprendre à nager c’est bien, mais apprendre en s’amusant c’est mieux !",
+			"hints": ["Mon enfant est à l’aise dans l’eau ?", "Mon enfant saute seul dans la piscine ?", "Mon enfant met la tête sous l’eau ?"]
+		},
+		{
+			"name": "Moyen Baigneur",
+			"imageSrc": "/images/levels/3_moyens-baigneurs.jpg",
+			"desc": "Vos enfants sont à l’aise dans l’eau, mais quelques leçons sont nécessaires pour la mise en place des bons mouvements de la brasse et du dos crawlé.",
+			"hints": ["Mon enfant se débrouille sans matériel ?", "Mon enfant est capable de nager seul sur quelques mètres ?"]
+		},
+		{
+			"name": "Grand Baigneur",
+			"imageSrc": "/images/levels/4_grands-baigneurs.jpg",
+			"desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort. <span>Mise en place des 3 nages codifiées, dos, brasse et crawl.</span>",
+			"hints": ["Je sais nager mais je veux améliorer mes nages, en particulier le crawl ?"]
+		},
+		{
+			"name": "Adulte",
+			"imageSrc": "/images/levels/5_adultes.jpg",
+			"desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
+			"hints": ["Je sais nager et mais je veux perfectionner ma nage ?"]
+		}
+	]
 }

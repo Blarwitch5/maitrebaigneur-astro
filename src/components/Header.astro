@@ -20,7 +20,7 @@ const nav = siteLinks.primary;
 			{
 				nav.map((item) => (
 					<li role="none" class={`nav-item ${item.responsive}`}>
-						<Buttons href={item.href} tabindex="0" class={`nav-link ${item.classes}`} role="menuitem">
+						<Buttons href={item.href} class={`nav-link ${item.classes}`} role="menuitem">
 							{item.name}
 						</Buttons>
 					</li>

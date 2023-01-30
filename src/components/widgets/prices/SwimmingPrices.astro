@@ -1,0 +1,204 @@
+---
+import Buttons from "@components/ui/Buttons.astro";
+---
+
+<div class="top">
+	<h2>Tarifications pour nos formules "domicile" et "bassin d'apprentissage"</h2>
+	<div class="toggle-btn">
+		<span style="margin: 0.8em;">Bassin d'apprentissage</span>
+		<label class="switch">
+			<input type="checkbox" id="checkbox" autocomplete="off" />
+			<span class="slider round"></span>
+		</label>
+		<span style="margin: 0.8em;">Domicile</span>
+	</div>
+</div>
+
+<div class="package-container">
+	<div id="price-package-home">
+		<div class="packages">
+			<h1>À la séance</h1>
+			<ul class="list">
+				<li>1 baigneur <span class="price">40€</span></li>
+				<li>2 baigneurs <span class="extra-desc">soit 25€ la séance</span> <span class="price">50€</span></li>
+				<li>3 baigneur <span class="extra-desc">soit 20€ la séance</span> <span class="price">60€</span></li>
+			</ul>
+			<Buttons href="https://user.clicrdv.com/maitre-baigneur">Réserver</Buttons>
+		</div>
+	</div>
+	<div id="price-package-pool">
+		<div class="packages">
+			<h1>À la séance</h1>
+			<ul class="list">
+				<li>1 baigneur <span class="price">40€</span></li>
+				<li>2 baigneurs <span class="extra-desc">soit 25€ la séance</span> <span class="price">50€</span></li>
+				<li>3 baigneur <span class="extra-desc">soit 20€ la séance</span> <span class="price">60€</span></li>
+			</ul>
+			<Buttons href="https://user.clicrdv.com/maitre-baigneur">Réserver</Buttons>
+		</div>
+		<div class="packages">
+			<h1>À la séance</h1>
+			<ul class="list">
+				<li>1 baigneur <span class="price">40€</span></li>
+				<li>2 baigneurs <span class="extra-desc">soit 25€ la séance</span> <span class="price">50€</span></li>
+				<li>3 baigneur <span class="extra-desc">soit 20€ la séance</span> <span class="price">60€</span></li>
+			</ul>
+			<Buttons href="https://user.clicrdv.com/maitre-baigneur">Réserver</Buttons>
+		</div>
+		<div class="packages">
+			<h1>À la séance</h1>
+			<ul class="list">
+				<li>1 baigneur <span class="price">40€</span></li>
+				<li>2 baigneurs <span class="extra-desc">soit 25€ la séance</span> <span class="price">50€</span></li>
+				<li>3 baigneur <span class="extra-desc">soit 20€ la séance</span> <span class="price">60€</span></li>
+			</ul>
+			<Buttons href="https://user.clicrdv.com/maitre-baigneur">Réserver</Buttons>
+		</div>
+	</div>
+</div>
+
+<style>
+	.container {
+		width: 100%;
+	}
+
+	.packages {
+		margin: 20px;
+		width: 300px;
+		padding: var(--space-m);
+		height: 100%;
+		background-color: var(--color-bg-light-alt);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		border-radius: 20px;
+		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+		flex-wrap: wrap;
+		color: var(--color-primary);
+	}
+
+	h1,
+	h2 {
+		font-size: 2.2em;
+	}
+
+	.list li {
+		font-size: var(--fs-base);
+		list-style: none;
+		padding-inline-start: 0;
+		border-width: 1px;
+		padding: 10px;
+	}
+
+	.list {
+		width: 80%;
+	}
+
+	ol,
+	ul {
+		padding: 0;
+		text-align: left;
+	}
+
+	.top {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-block: 2rem;
+	}
+
+	input,
+	label {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 10px 0;
+	}
+
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+
+	.switch input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--color-primary);
+		-webkit-transition: 0.4s;
+
+		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+		transform: translate(0px, 0px);
+		transition: 0.6s ease transform, 0.6s box-shadow;
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+	}
+
+	input:checked + .slider {
+		background-color: var(--color-secondary);
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1px var(--color-secondary);
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+
+	.slider.round {
+		border-radius: 34px;
+	}
+
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	.package-container > div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.package-container #price-package-home {
+		display: none;
+	}
+</style>
+<script scoped>
+	function check() {
+		const checkBox = document.getElementById("checkbox");
+		const pricePackageHome = document.getElementById("price-package-home");
+		const pricePackagePool = document.getElementById("price-package-pool");
+
+		if (checkBox.checked == true) {
+			pricePackageHome.style.display = "flex";
+			pricePackagePool.style.display = "none";
+		} else if (checkBox.checked == false) {
+			pricePackageHome.style.display = "none";
+			pricePackagePool.style.display = "flex";
+		}
+	}
+	document.getElementById("checkbox").addEventListener("click", check);
+</script>

@@ -1,22 +1,25 @@
 ---
 import Socials from "@components/Socials.astro";
-// import Breadcrumbs from "@components/ui/Breadcrumbs.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Breadcrumbs from "@components/header/Breadcrumbs.astro";
 
 interface Props {
 	pageTitle: string;
+	pageImageUrlWebp: string;
 	pageImageUrl: string;
 	pageImageAlt: string;
 }
-const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
+const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 ---
 
 <section class="page-title">
 	<Waves />
 	<div class="container">
 		<div class="page-title__img">
-			<img loading="lazy" src={pageImageUrl} alt={pageImageAlt} />
+			<picture>
+				<source type="image/webp" srcset={pageImageUrlWebp} />
+				<img loading="lazy" src={pageImageUrl} alt={pageImageAlt} />
+			</picture>
 		</div>
 		<div class="page-title__content">
 			<h1 class="page-title__title">{pageTitle}</h1>
@@ -74,6 +77,8 @@ const { pageTitle, pageImageUrl, pageImageAlt } = Astro.props;
 			img {
 				object-fit: cover;
 				width: 100%;
+				height: 100%;
+				aspect-ratio: 16 / 9;
 			}
 		}
 		&__content {

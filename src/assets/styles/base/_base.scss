@@ -5,6 +5,11 @@ html {
     background-color: var(--color-white);
     font-size: var(--fs-base);
 }
+html, body{
+    min-height: 100vh;
+    margin:0;
+    padding:0;
+}
 section {
     padding: 2rem;
 }

@@ -6,6 +6,11 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
+import LevelsGrid from "@components/widgets/LevelsGrid.astro";
+import SwimmingPrices from "@components/widgets/prices/SwimmingPrices.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
 
 //data
 const page = {
@@ -22,47 +27,72 @@ const page = {
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
 	<Main>
-		<section>
-			<div class="container">
+		<Section class="levels">
+			<Container>
 				<h2>Nos différents groupes d’apprentissage de la natation</h2>
 				<p>
 					Grâce à la pédagogie Maître-Baigneur, nager ne sera plus jamais une corvée ! Finis les clichés sur l’apprentissage de la natation classique
 					avec les ceintures… Place désormais à du matériel ludique et pédagogique afin d’apprendre en s’amusant.
 				</p>
-				<img src="/images/page-title/page_bebenageur.jpg" alt="Garçon en bas âge nageant sous l'eau " />
-			</div>
-			<div class="levels__grid hs">
-				<div class="hs__wrapper full no-scrollbar">
-					<!-- {
-			levels.map((level) => (
-				<article
-					class={`level hs__item ${level.name
-						.replace(/\s|_|\(|\)/g, "-")
-						.normalize("NFD")
-						.replace(/\p{Diacritic}/gu, "")
-						.toLowerCase()}`}
-				>
-					<a href={level.href} class="level__link">
-						<img loading="lazy" class="level__img" src={level.image.src} alt={level.image.alt} />
-						<div class="level__info">
-							<h3 class="level__title">{level.name}</h3>
-							<span class="level__location">{level.location}</span>
-						</div>
-					</a>
-				</article>
-			))
-		} -->
+				<LevelsGrid />
+			</Container>
+		</Section>
+		<Section class="fear" backgroundColor="var(--color-bg-light-alt)">
+			<Container>
+				<Waves atTopOfSection />
+				<div class="fear__wrapper">
+					<div class="fear__img">
+						<img src="/images/levels/6_peur-du-baigneur.jpg" alt="Illustration de la peur du baigneur" />
+					</div>
+					<div class="fear__content">
+						<h3 class="fear__title">La peur du baigneur</h3>
+						<p>Libérez-vous, jetez-vous à l’eau !</p>
+						<p>Nous sommes là pour vous aider à vaincre votre crainte du monde aquatique. L’Aquaphobie ne sera plus qu’un mauvais souvenir.</p>
+					</div>
 				</div>
-			</div>
-		</section>
+				<Waves />
+			</Container>
+		</Section>
+		<Section class="swimming-prices">
+			<Container>
+				<SwimmingPrices />
+			</Container>
+		</Section>
 	</Main>
-	<Footer />
 </BaseLayout>
+<Footer />
 
-<style>
+<style lang="scss">
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
+	}
+
+	.fear {
+		
+		&__wrapper {
+			position: relative;
+		}
+		&__img {
+			position: absolute;
+			height: 350px;
+			z-index: 9;
+			top: -50%;
+			overflow: hidden;
+			width: 25%;
+			border-radius: 20px;
+			transform: translatey(0px);
+
+			// box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+			animation: float 6s ease-in-out infinite;
+			img {
+				object-fit: cover;
+				height: 100%;
+			}
+		}
+		&__content {
+			padding-left: calc(25% + var(--space-l));
+		}
 	}
 </style>
