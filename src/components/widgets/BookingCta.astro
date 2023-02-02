@@ -5,7 +5,7 @@ import Container from "@components/Container.astro";
 
 <Container className="booking__section">
 	<div class="booking__img">
-		<img loading="lazy" src="/images/hero.jpg" alt="" class="" />
+		<img loading="lazy" src="/images/hero.jpg" alt="" class="" height="600" width="800" />
 	</div>
 	<div class="booking__content">
 		<h4 class="booking__title">Vous souhaitez commencer l’aventure avec Maître-Baigneur ?</h4><p class="booking__txt">
@@ -26,14 +26,18 @@ import Container from "@components/Container.astro";
 		}
 
 		&__img {
-			flex: 0 0 40%;
+			flex: 0 0 33%;
 			overflow: hidden;
+			height: 100%;
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
 			img {
-				width: 100%;
+				width: auto;
 				height: 100%;
 				object-fit: cover;
-				border-radius: 20px;
 			}
 		}
 		&__content {
