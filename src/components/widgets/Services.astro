@@ -3,183 +3,146 @@ import site from "@assets/data/data.json";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
-
-import Container from "@components/Container.astro";
 ---
 
-<Container>
-	<h2 class="services-title">Nos prestations aquatiques</h2>
-	<p class="services-desc">
-		L'équipe de Maître-Baigneur vous propose diverses activités autour du milieu aquatique, de l’apprentissage de la natation à la surveillance de vos
-		événements, en passant par des cours de bébé nageur ou encore nos aquaversaires.
-	</p>
-	<div class="services-grid">
-		{
-			services.map((service) => (
-				<div
-					class={`service ${service.name
-						.replace(/\s|_|\(|\)/g, "-")
-						.normalize("NFD")
-						.replace(/\p{Diacritic}/gu, "")
-						.toLowerCase()}`}
-				>
-					<a href={service.href} class="service__link">
-						<h3 class="service__title">{service.name}</h3>
-						<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
-					</a>
-				</div>
-			))
-		}
-	</div>
-</Container>
+<div class="services__grid">
+	{
+		services.map((service) => (
+			<div
+				class={`service ${service.name
+					.replace(/\s|_|\(|\)/g, "-")
+					.normalize("NFD")
+					.replace(/\p{Diacritic}/gu, "")
+					.toLowerCase()}`}
+			>
+				<a href={service.href} class="service__link">
+					<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
+					<h3 class="service__title">{service.name}</h3>
+				</a>
+			</div>
+		))
+	}
+</div>
 
 <style lang="scss">
-	.services-title {
-		text-align: center;
-	}
-	.services-desc {
-		margin-block: 4rem 4rem;
-	}
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		grid-gap: 2rem;
-		transition: all 0.3s ease-in-out;
+	.services {
+		&__grid {
+			width: calc(100% / 5 * 3);
+			width: 100%;
+			display: grid;
+			position: relative;
+			grid-template-columns: repeat(2, auto);
+			@media screen and (max-width: 992px) {
+				width: 100%;
+			}
 
-		@media screen and (max-width: 576px) {
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(4, 1fr);
-			grid-gap: 1rem;
+			@media screen and (max-width: 768px) {
+				grid-template-columns: repeat(1, auto);
+			}
+
+			.service {
+				position: relative;
+				transition: all 0.3s ease-in-out;
+				&:hover {
+					.service__img {
+						transform: translateY(-0.5rem);
+					}
+				}
+
+				&:nth-child(even) {
+					margin-top: var(--space-2xl);
+					@media screen and (max-width: 768px) {
+						margin-top: unset;
+					}
+					&:nth-child(even) {
+						margin-bottom: calc(-1 * var(--space-2xl));
+						@media screen and (max-width: 768px) {
+							margin-bottom: unset;
+						}
+					}
+				}
+				&:nth-child(1) {
+					.service__img {
+						-webkit-mask-image: url("/src/icons/blob2.svg");
+					}
+				}
+				&:nth-child(2) {
+					.service__img {
+						-webkit-mask-image: url("/src/icons/blob3.svg");
+					}
+				}
+				&:nth-child(3) {
+					&::after {
+						background-image: url("/src/icons/blob4.svg");
+						background-position: center center;
+						background-repeat: no-repeat;
+						background-size: contain;
+						transform: translate(1rem, 1rem);
+					}
+					.service__img {
+						-webkit-mask-image: url("/src/icons/blob4.svg");
+					}
+				}
+				&:nth-child(4) {
+					.service__img {
+						-webkit-mask-image: url("/src/icons/blob5.svg");
+					}
+				}
+				&__link {
+					text-decoration: none;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+
+				&__img {
+					width: 130%;
+					height: 100%;
+
+					// max-width: 100%;
+					height: auto;
+					object-fit: cover;
+					-webkit-mask-image: url("/src/icons/blob2.svg");
+					-webkit-mask-size: auto;
+					-webkit-mask-position: center;
+					-webkit-mask-repeat: no-repeat;
+
+					transition: all 0.3s ease-in-out;
+
+					&::after {
+						content: "";
+						position: absolute;
+						background-color: red !important;
+						display: block;
+						top: 1rem;
+						left: 1rem;
+						width: 100%;
+						height: 100%;
+
+						z-index: 0;
+						box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+					}
+				}
+
+				&__title {
+					font-family: var(--ff-pacifico);
+					font-size: var(--fs-small);
+					padding: 0.5rem;
+					width: calc(100% - 2rem);
+					text-align: center;
+					margin: -2rem auto 0 auto;
+					background-color: var(--color-white);
+					border-radius: var(--border-radius);
+				}
+			}
 		}
 
-		.service {
-			z-index: 2;
-			position: relative;
-			border-radius: 25px;
-			overflow: hidden;
-			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
-			transition: all 0.3s ease-in-out;
-			min-height: 9rem;
-
-			&:hover {
-				transition: all 0.3s ease-in-out;
-				transform: scale(1.03) rotate(-2deg);
-				z-index: 9;
-			}
-
-			&::after {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: -1;
-				background-color: hsla(var(--link-color-primary-hsl), 0.3);
-			}
-
-			//services grid
-			&:first-child {
-				grid-column: 1 / span 2;
-				grid-row: 1 / span 2;
-
-				@media screen and (max-width: 576px) {
-					grid-column: 1 / -1;
-					grid-row: 1 / span 1;
-				}
-
-				.service__title::before {
-					-webkit-mask-image: url("/images/icons/swimmer.svg");
-					mask-image: url("/images/icons/swimmer.svg");
-				}
-			}
-			&:nth-child(2) {
-				grid-column: 3 / span 2;
-				grid-row: 2 / span 2;
-
-				@media screen and (max-width: 576px) {
-					grid-column: 1 / -1;
-					grid-row: 2 / span 1;
-				}
-
-				.service__title::before {
-					-webkit-mask-image: url("/images/icons/baby.svg");
-					mask-image: url("/images/icons/baby.svg");
-				}
-			}
-			&:nth-child(3) {
-				grid-column: 3 / span 2;
-				grid-row: 1 / span 1;
-
-				@media screen and (max-width: 576px) {
-					grid-column: 1 / -1;
-					grid-row: 3 / span 1;
-				}
-
-				.service__title::before {
-					-webkit-mask-image: url("/images/icons/aquaversaire.svg");
-					mask-image: url("/images/icons/aquaversaire.svg");
-				}
-			}
-			&:nth-child(4) {
-				grid-column: 1 / span 2;
-				grid-row: 3 / span 1;
-
-				@media screen and (max-width: 576px) {
-					grid-column: 1 / -1;
-					grid-row: 4 / span 1;
-				}
-
-				.service__title::before {
-					-webkit-mask-image: url("/images/icons/event.svg");
-					mask-image: url("/images/icons/event.svg");
-				}
-			}
-
-			&__link {
-				text-decoration: none;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100%;
-				width: 100%;
-				text-align: center;
-			}
-
-			&__title {
-				color: var(--color-white);
-				font-size: clamp(1.5rem, 2.5vw + 1rem, 2.5rem);
-				margin: 3rem 0 0 0;
-				display: flex;
-				flex-direction: column;
-				position: relative;
-
-				&::before {
-					content: "";
-					display: block;
-					width: 3.5rem;
-					height: 3.5rem;
-					position: absolute;
-					top: -3.5rem;
-					left: 50%;
-					transform: translateX(-50%);
-					z-index: 1;
-					background-color: var(--color-white);
-					mask-repeat: no-repeat;
-					mask-position: center;
-					mask-size: 3.5rem;
-				}
-			}
-			&__img {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				z-index: -1;
-			}
+		&__title {
+			text-align: left;
+		}
+		&__desc {
+			margin-block: 4rem 4rem;
 		}
 	}
 </style>

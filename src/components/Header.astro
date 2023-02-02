@@ -54,14 +54,13 @@ const nav = siteLinks.primary;
 
 		&.active {
 			.navbar {
-				background-color: var(--color-white);
+				background-color: hsla(var(--link-color-white-hsl), 0.8);
+				backdrop-filter: blur(10px);
 				color: var(--color-primary);
 
-				border-radius: 100vw;
 				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 
 				.navbar-nav {
-					padding: 0.5rem;
 					color: var(--color-primary);
 
 					& * {
@@ -72,8 +71,7 @@ const nav = siteLinks.primary;
 		}
 	}
 	.navbar {
-		margin-top: 1rem;
-		margin-inline: 2rem;
+		// margin-inline: 2rem;
 		padding-inline: 2rem;
 		display: flex;
 		justify-content: space-between;
@@ -83,16 +81,13 @@ const nav = siteLinks.primary;
 		@media screen and (max-width: 992px) {
 			padding-inline: 0;
 		}
-		@media screen and (max-width: 768px) {
-			margin-inline: 1rem;
-		}
 
 		.navbar-nav {
 			display: flex;
 			list-style-type: none;
 			align-items: center;
 			gap: 1rem;
-			padding: 0;
+			padding: 0.5rem;
 			margin: 0;
 			color: var(--color-white);
 

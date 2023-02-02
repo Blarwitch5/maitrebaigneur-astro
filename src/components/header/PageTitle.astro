@@ -63,6 +63,7 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			height: 100%;
 
 			&::before {
 				content: "";
@@ -73,7 +74,9 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 				right: 0;
 				background: hsla(var(--link-color-black-hsl), 0.5);
 			}
-
+			picture {
+				height: 100%;
+			}
 			img {
 				object-fit: cover;
 				width: 100%;

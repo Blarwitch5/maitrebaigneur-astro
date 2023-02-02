@@ -8,12 +8,13 @@ import Footer from "@components/Footer.astro";
 import Section from "@components/Section.astro";
 import Forces from "@components/widgets/Forces.astro";
 import Services from "@components/widgets/Services.astro";
-import Partners from "@components/widgets/Partners.astro";
 import BookingCta from "@components/widgets/BookingCta.astro";
-// import Lifeguards from "@components/widgets/Lifeguards.astro";
 import PoolsCta from "@components/widgets/PoolsCta.astro";
 import Testimonials from "@components/widgets/Testimonials.astro";
 import Faq from "@components/widgets/Faq.astro";
+import Container from "@components/Container.astro";
+import LogoCarousel from "@components/widgets/LogoCarousel.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
 
 interface Props {
 	title: string;
@@ -21,9 +22,9 @@ interface Props {
 	url: string;
 }
 const page = {
-	title: "Maître-Baigneur - Vos cours de natation à Aix-en-Provence",
+	title: "Maître-Baigneur - Des cours de natation pour tous les âges, du bébé-nageur à l'apprentissage en profondeur",
 	description:
-		"Maître-Baigneur est une association qui vous propose des leçons de natation, des cours de bébé nageur ainsi que de la surveillance aquatique de vos événements.",
+		"Apprenez à nager avec nos cours de natation innovants et ludiques pour tous les âges à Aix-en-Provence. Découvrez nos cours bébé-nageur pour une initiation à l'eau, amusante mais sécurisée.",
 	url: "https://maitrebaigneur.com/",
 };
 ---
@@ -34,21 +35,42 @@ const page = {
 	<Main>
 		<Hero ariaLabel="Bannière Maître-Baigneur, apprendre à nager à Aix-en-Provence" />
 		<Section class="services" ariaLabel="Liste des prestations proposées par Maître-Baigneur">
-			<Services />
+			<Container className="services__wrapper">
+				<div class="services__infos">
+					<h2 class="services__title">Nos prestations aquatiques</h2>
+					<p class="services__desc">
+						Bienvenue chez <span class="pacifico">Maître-Baigneur</span>, votre solution pour apprendre à nager de manière ludique en toute sécurité
+						dès l'âge de 3 ans. Nous proposons également des cours de bébé-nageur pour une initiation à l'eau dès 3 mois. Outre nos services de
+						natation, nous organisons également des aquaversaires pour les plus grands et sommes à votre disposition pour surveiller vos événements
+						aquatiques.
+					</p>
+					<p><strong>Rejoignez notre équipe d'experts dès aujourd'hui pour découvrir les plaisirs de la natation !!</strong></p>
+				</div>
+				<Services />
+			</Container>
 		</Section>
 		<Section class="forces" backgroundColor="var(--color-bg-light)" ariaLabel="Les atouts de Maître-Baigneur">
-			<Forces />
+			<Waves atTopOfSection />
+			<Container>
+				<h2 class="forces__title">Pourquoi apprendre à nager avec Maître-Baigneur ?</h2>
+				<Forces />
+			</Container>
 		</Section>
 		<Section class="booking" backgroundColor="var(--color-primary)" ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance">
 			<BookingCta />
 		</Section>
 		<Section class="faq" ariaLabel="Réponses aux questions fréquentes">
-			<Faq />
+			<Container>
+				<h2>Foire Aux Questions : Tout ce que vous devez savoir sur Maître-Baigneur</h2>
+				<p>
+					Notre section FAQ vous fournit toutes les réponses aux questions les plus fréquentes sur Maître-Baigneur. De l'âge requis pour les cours de
+					natation et bébé-nageur aux informations sur les tarifs et les horaires, vous trouverez toutes les informations dont vous avez besoin pour
+					prendre une décision éclairée sur vos prochaines leçons de natation. Si vous avez des questions qui ne sont pas couvertes ici, n'hésitez pas
+					à nous contacter pour en savoir plus.
+				</p>
+				<Faq />
+			</Container>
 		</Section>
-
-		<!-- <Section class="lifeguards">
-			<Lifeguards />
-		</Section> -->
 		<Section class="pools" backgroundColor="var(--color-bg-light-alt)" ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur">
 			<PoolsCta />
 		</Section>
@@ -56,8 +78,52 @@ const page = {
 			<Testimonials />
 		</Section>
 		<Section class="partners" ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur">
-			<Partners />
+			<Container>
+				<h3>Partenaires : Une collaboration pour des services de qualité supérieure</h3>
+				<p>
+					Nous vous présentons les entreprises et les organisations avec lesquelles nous collaborons pour offrir une expérience de qualité supérieure.
+					Nous sommes fiers de travailler avec des partenaires qui partagent notre passion pour l'enseignement de la natation et la sécurité
+					aquatique. Nous les remercions chaleureusement pour leur soutien constant sans lequel Maître-Baigneur ne serait pas possible.
+				</p>
+			</Container>
+			<LogoCarousel />
 		</Section>
+		<Footer />
 	</Main>
-	<Footer />
+
+	<style lang="scss">
+		/** 
+	 * services section
+	 * */
+		.services {
+			&__wrapper {
+				display: flex;
+				flex-wrap: nowrap;
+				gap: var(--space-xl);
+				padding-block: var(--space-xl);
+				@media screen and (max-width: 992px) {
+					flex-direction: column;
+				}
+			}
+
+			&__infos {
+				width: calc(100% / 5 * 2);
+
+				@media screen and (max-width: 992px) {
+					width: 100%;
+				}
+			}
+
+			&__title {
+				text-align: left;
+			}
+			&__desc {
+				margin-block: 4rem 4rem;
+			}
+		}
+
+		/** 
+	 * services section
+	 * */
+	</style>
 </BaseLayout>

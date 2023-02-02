@@ -33,6 +33,10 @@ const Tag = href ? "a" : "button";
 			min-height: 48px;
 			padding: 0rem 1.2rem;
 
+			&:not(.nav-link) {
+				backdrop-filter: blur(6px);
+			}
+
 			&::after,
 			&::before {
 				position: absolute;
@@ -74,7 +78,7 @@ const Tag = href ? "a" : "button";
 		}
 		&__regular {
 			background-color: var(--color-primary);
-			color: var(--color-white);
+			color: qvar(--color-white);
 			transition: all 0.3s ease-in-out;
 			padding: 0.4rem 0.7rem;
 			border-radius: var(--border-radius);

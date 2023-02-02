@@ -29,6 +29,7 @@
 			{ "href": "/bassins/domicile", "name": "Domicile" },
 			{ "href": "/qui-sommes-nous", "name": "Qui sommes-nous ?" },
 			{ "href": "/tarifs", "name": "Tarifs" },
+			{ "href": "/faq", "name": "FAQ" },
 			{ "href": "/contact", "name": "Nous contacter" },
 			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "target": "_blank" }
 		],

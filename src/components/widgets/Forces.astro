@@ -1,42 +1,36 @@
 ---
-import Waves from "@components/ui/shapes/Waves.astro";
-import Container from "@components/Container.astro";
 import { Icon } from "astro-icon";
 
 const forces = [
 	{
-		name: "Amusant",
-		txt: "Nous mettons à disposition du matériel ludique et pédagogique afin d’apprendre en s’amusant. ",
+		name: "Ludique",
+		txt: "Chez Maître-Baigneur, nous croyons que l'apprentissage de la natation doit être une expérience amusante et agréable. C'est pourquoi nos cours sont conçus pour être ludiques, afin que les enfants puissent découvrir les plaisirs de la natation de manière naturelle. ",
 		icon: "fun",
 	},
 	{
 		name: "Expertise",
-		txt: "Tous nos maîtres-baigneurs sont diplômés d’État.",
+		txt: "Nos Maîtres-Baigneurs sont des experts en matière d'enseignement de la natation. Diplomés d'État, ils sont tous formés aux meilleures techniques et à la sécurité aquatique, et sont prêts à vous accompagner dans votre apprentissage de la natation.",
 		icon: "diploma",
 	},
 	{
 		name: "Pour tous",
-		txt: "À partir de 3ans, que vous soyez débutant ou confirmé, nous vous proposons des cours adaptés à votre niveau.",
+		txt: "Nous sommes ouverts à tout le monde, peu importe votre âge ou votre niveau. Nous proposons des cours de bébé-nageur pour les plus jeunes dès 3 mois, ainsi que des cours de natation pour les enfants et les adultes à partir de 3 ans.",
 		icon: "group",
 	},
 ];
 ---
 
-<Waves atTopOfSection />
-<Container>
-	<h2 class="forces__title">Pourquoi apprendre à nager avec Maître-Baigneur ?</h2>
-	<ul class="forces__list">
-		{
-			forces.map((force) => (
-				<li class="force">
-					<Icon name={force.icon} class="force__icon" />
-					<h3 class="force__title">{force.name}</h3>
-					<p class="force__txt">{force.txt}</p>
-				</li>
-			))
-		}
-	</ul>
-</Container>
+<ul class="forces__list">
+	{
+		forces.map((force) => (
+			<li class="force">
+				<Icon name={force.icon} class="force__icon" />
+				<h3 class="force__title">{force.name}</h3>
+				<p class="force__txt">{force.txt}</p>
+			</li>
+		))
+	}
+</ul>
 
 <style lang="scss">
 	.forces {

@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@components/Main.astro";
+
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+
+import SkipToContent from "@components/ui/SkipToContent.astro";
+import Accordion from "@components/ui/accordion/Accordion.astro";
+import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
+
+//data
+
+const page = {
+	metaTitle: "Maître-Baigneur |  Foire aux questions",
+	description: "",
+	title: " Foires aux questions",
+	imageUrl: "/images/page-title/page_tarifs.jpg",
+	imageAlt: "Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main",
+};
+---
+
+<BaseLayout title={page.metaTitle} descritpion={page.description}>
+	<SkipToContent />
+	<Header />
+	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+
+	<Main>
+		<h1>Nos tarifs</h1>
+		<Accordion>
+			<AccordionItem header="test">item 1</AccordionItem>
+			<AccordionItem header="test1">item 2</AccordionItem>
+			<AccordionItem header="test2">item 3</AccordionItem>
+			<AccordionItem header="test3">item 4</AccordionItem>
+			<AccordionItem header="test4">item 5</AccordionItem>
+		</Accordion>
+	</Main>
+	<Footer />
+</BaseLayout>
+
+<style>
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+</style>

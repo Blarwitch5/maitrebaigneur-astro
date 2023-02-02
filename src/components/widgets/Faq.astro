@@ -1,66 +1,58 @@
 ---
-import Container from "@components/Container.astro";
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
 ---
 
-<Container>
-	<h2>Réponses aux questions fréquentes</h2>
-	<p>
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti iste veritatis deleniti illum dolor, eum quae dolore dolores vel modi, placeat
-		dignissimos deserunt quidem odit tenetur expedita ex, temporibus laboriosam!
-	</p>
-	<Accordion>
-		<AccordionItem header="Quelles sont les modalités de paiement ?">
-			<p>Le réglement se fait lors de la première séance. Vous trouverez à votre diposition des enveloppes et des tickets d'encaissement</p>
+<Accordion>
+	<AccordionItem header="Quelles sont les modalités de paiement ?">
+		<p>Le réglement se fait lors de la première séance. Vous trouverez à votre diposition des enveloppes et des tickets d'encaissement</p>
+		<ul>
+			<li>
+				<h4>Réglement en espèces</h4>
+				<p>des envolppes sont à votre disposition, pensez à prévoir l'appoint et bien completer votre ticket d'encaissement.</p>
+			</li>
+			<li>
+				<h4>Réglement par chèques</h4><p>
+					(uniquement pour les paiement en plusieur fois : pour les abonnements ou grosses cartes ) à l'ordre de Maitre Baigneur avec au dos le Prénom
+					/ Nom du baigneur et les dates d'encaissement si plusieurs chèques.
+				</p>
+			</li>
+		</ul>
+		<p>
+			<strong>ATTENTION</strong>: nos prestations sont à régler avant le début de la séance. exemple carte de 5 séances à 100€ à régler en une seule
+			fois lors de la première séance, nous débitons informatiquement vos crédits au fur et à mesure.
+		</p>
+		<p>Les règlements à la séance sont seulements acceptés pour les séances à l'unité. ex 1 séance natation 25€ 1 baigneur</p>
+	</AccordionItem>
+	<AccordionItem header="Où puis-je apprendre à nager ?">
+		<p>
+			Vous pouvez apprendre à nager dans nos bassins d'apprentissage. Pour rappel
 			<ul>
-				<li>
-					<h4>Réglement en espèces</h4>
-					<p>des envolppes sont à votre disposition, pensez à prévoir l'appoint et bien completer votre ticket d'encaissement.</p>
-				</li>
-				<li>
-					<h4>Réglement par chèques</h4><p>
-						(uniquement pour les paiement en plusieur fois : pour les abonnements ou grosses cartes ) à l'ordre de Maitre Baigneur avec au dos le
-						Prénom / Nom du baigneur et les dates d'encaissement si plusieurs chèques.
-					</p>
-				</li>
+				<li>AQUABECOOL : 700 Chemin de la Beauvale, 13090 Aix en Provence</li>
+				<li>PLAN FORM : Parc Club de L´Arbois, Route de Calas, 13480 Cabriès</li>
+				<li>SET CLUB : 1335 Chemin de Granet, 13090 Aix-en-Provence</li>
+				<li>KABANON : Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde</li>
 			</ul>
-			<p>
-				<strong>ATTENTION</strong>: nos prestations sont à régler avant le début de la séance. exemple carte de 5 séances à 100€ à régler en une seule
-				fois lors de la première séance, nous débitons informatiquement vos crédits au fur et à mesure.
-			</p>
-			<p>Les règlements à la séance sont seulements acceptés pour les séances à l'unité. ex 1 séance natation 25€ 1 baigneur</p>
-		</AccordionItem>
-		<AccordionItem header="Où puis-je apprendre à nager ?">
-			<p>
-				Vous pouvez apprendre à nager dans nos bassins d'apprentissage. Pour rappel
-				<ul>
-					<li>AQUABECOOL : 700 Chemin de la Beauvale, 13090 Aix en Provence</li>
-					<li>PLAN FORM : Parc Club de L´Arbois, Route de Calas, 13480 Cabriès</li>
-					<li>SET CLUB : 1335 Chemin de Granet, 13090 Aix-en-Provence</li>
-					<li>KABANON : Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde</li>
-				</ul>
-			</p>
-		</AccordionItem>
-		<AccordionItem header="En cas d'empêchement ?">
-			<p>
-				Pensez à annuler vos séances en cas absence, nous avons des délais d'annulation jusqu'a 24 heures avant votre séance, afin de liberer la place
-				pour qu'un autre enfant puisse en beneficier.
-			</p><p>
-				Nous comprenons qu’il peut y avoir des aléas c’est pourquoi nous laissons à tous nos clients un « joker » sur votre carte afin de ne pénaliser
-				personne. Cette séance ne sera donc pas décomptée de votre carte si c’est la 1ere fois « joker», si c’est la 2 eme fois ou plus, la séance
-				sera décomptée. ( sauf sur présentation d'un justificatif )
-			</p><p>
-				Veuillez s’il vous plaît penser à annuler (dans la mesure du possible) votre séance afin que nous puissions ajuster les emplois du temps et
-				permettre à un autre enfant de bénéficier d’une séance de natation. Nous vous remercions pour votre compréhension. - Si vous rencontrez des
-				problèmes à la réservation,n'hésitez pas à nous appeler.
-			</p>
-		</AccordionItem>
-		<AccordionItem header="À partir de quel âge ?">
-			<p>Nous leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les âges.</p><p>
-				<strong>Il n'est jamais trop tard !</strong>
-			</p>
-			<p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
-		</AccordionItem>
-	</Accordion>
-</Container>
+		</p>
+	</AccordionItem>
+	<AccordionItem header="En cas d'empêchement ?">
+		<p>
+			Pensez à annuler vos séances en cas absence, nous avons des délais d'annulation jusqu'a 24 heures avant votre séance, afin de liberer la place
+			pour qu'un autre enfant puisse en beneficier.
+		</p><p>
+			Nous comprenons qu’il peut y avoir des aléas c’est pourquoi nous laissons à tous nos clients un « joker » sur votre carte afin de ne pénaliser
+			personne. Cette séance ne sera donc pas décomptée de votre carte si c’est la 1ere fois « joker», si c’est la 2 eme fois ou plus, la séance sera
+			décomptée. ( sauf sur présentation d'un justificatif )
+		</p><p>
+			Veuillez s’il vous plaît penser à annuler (dans la mesure du possible) votre séance afin que nous puissions ajuster les emplois du temps et
+			permettre à un autre enfant de bénéficier d’une séance de natation. Nous vous remercions pour votre compréhension. - Si vous rencontrez des
+			problèmes à la réservation,n'hésitez pas à nous appeler.
+		</p>
+	</AccordionItem>
+	<AccordionItem header="À partir de quel âge ?">
+		<p>Nous leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les âges.</p><p>
+			<strong>Il n'est jamais trop tard !</strong>
+		</p>
+		<p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
+	</AccordionItem>
+</Accordion>
