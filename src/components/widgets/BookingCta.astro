@@ -1,11 +1,19 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import Container from "@components/Container.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
 ---
 
 <Container className="booking__section">
 	<div class="booking__img">
-		<img loading="lazy" src="/images/hero.jpg" alt="" class="" height="600" width="800" />
+		<img
+			loading="lazy"
+			src="/images/join-us.jpg"
+			alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
+			class=""
+			height="600"
+			width="800"
+		/>
 	</div>
 	<div class="booking__content">
 		<h4 class="booking__title">Vous souhaitez commencer l’aventure avec Maître-Baigneur ?</h4><p class="booking__txt">
@@ -15,28 +23,38 @@ import Container from "@components/Container.astro";
 		</p>
 		<Buttons class="btn btn__outline" href="https://clicrdv.com/maitrebaigneur" target="_blank">Je réserve mon cours</Buttons>
 	</div>
+	<Waves />
 </Container>
 <style lang="scss">
 	.booking {
 		&__section {
-			display: flex;
-			flex-wrap: nowrap;
+			display: grid;
+			grid-template-columns: calc((100% * 1 / 3) - 2rem) calc((100% * 2 / 3) - 2rem);
 			gap: 4rem;
-			align-items: flex-start;
+			align-items: center;
+			padding-bottom: var(--space-l);
+
+			@media screen and (max-width: 992px) {
+				grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+				gap: 2rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
 		}
 
 		&__img {
-			flex: 0 0 33%;
 			overflow: hidden;
-			height: 100%;
 			border-radius: 20px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 
 			img {
-				width: auto;
 				height: 100%;
+				max-height: 370px;
 				object-fit: cover;
 			}
 		}
