@@ -5,6 +5,8 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 //data
 
@@ -13,11 +15,11 @@ const page = {
 	description: "",
 	title: "Set Club",
 
-		image:{
-		webp:"/images/page-title/webp/page_planform-bassins.webp",
+	image: {
+		webp: "/images/page-title/webp/page_planform-bassins.webp",
 		jpg: "/images/page-title/page_planform-bassins.jpg",
 		alt: "Bassin de Planform à Cabriès",
-	}
+	},
 };
 ---
 
@@ -26,7 +28,13 @@ const page = {
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
-	<Main><h1>Plan Form</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h2>Plan Form</h2>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>
 

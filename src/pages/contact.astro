@@ -20,13 +20,18 @@ const page = {
 	title: "Nous contacter",
 	imageUrl: "/images/page-title/page_contact.jpg",
 	imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+	image: {
+		webp: "/images/page-title/webp/page_contact.webp",
+		jpg: "/images/page-title/page_contact.jpg",
+		alt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+	},
 };
 ---
 
-<BaseLayout title={page.metaTitle} descritpion={page.description}>
+<BaseLayout title={page.title} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
 		<Section class="form" ariaLabel="Formulaire de contact">

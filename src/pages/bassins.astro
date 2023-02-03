@@ -16,13 +16,19 @@ const page = {
 	title: "Bassins d'apprentissage",
 	imageUrl: "/images/page-title/fallback.jpg",
 	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+
+	image: {
+		webp: "/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
+		alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+	},
 };
 ---
 
-<BaseLayout title={page.metaTitle} descritpion={page.description}>
+<BaseLayout title={page.title} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
 		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
@@ -30,12 +36,5 @@ const page = {
 		</Section>
 		<Footer />
 	</Main>
-
-	<style>
-		h1 {
-			font-size: 3rem;
-			font-weight: 800;
-			margin: 0;
-		}
-	</style>
 </BaseLayout>
+<style></style>

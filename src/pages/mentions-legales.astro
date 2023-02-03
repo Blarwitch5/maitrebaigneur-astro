@@ -4,7 +4,8 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
-
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
@@ -13,16 +14,25 @@ const page = {
 	metaTitle: "Maître-Baigneur | Mentions légales",
 	description: "",
 	title: "Mentions légales",
-	imageUrl: "/images/page-title/page_legal.jpg",
-	imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+	image: {
+		webp: "/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
+		alt: "Mentions légales",
+	},
 };
 ---
 
-<BaseLayout title={page.metaTitle} descritpion={page.description}>
+<BaseLayout title={page.title} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
-	<Main><h1>Mentions légales</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h1>Mentions légales</h1>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>

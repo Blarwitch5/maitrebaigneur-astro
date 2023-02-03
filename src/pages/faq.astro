@@ -5,7 +5,8 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
@@ -15,26 +16,30 @@ import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
 const page = {
 	metaTitle: "Maître-Baigneur |  Foire aux questions",
 	description: "",
-	title: " Foires aux questions",
-	imageUrl: "/images/page-title/page_tarifs.jpg",
-	imageAlt: "Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main",
+	title: " Foires Aux Questions",
+
+	image: {
+		webp: "/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
+		alt: "Foire Aux Questions",
+	},
 };
 ---
 
-<BaseLayout title={page.metaTitle} descritpion={page.description}>
+<BaseLayout title={page.title} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
-		<h1>Nos tarifs</h1>
-		<Accordion>
-			<AccordionItem header="test">item 1</AccordionItem>
-			<AccordionItem header="test1">item 2</AccordionItem>
-			<AccordionItem header="test2">item 3</AccordionItem>
-			<AccordionItem header="test3">item 4</AccordionItem>
-			<AccordionItem header="test4">item 5</AccordionItem>
-		</Accordion>
+		<Section>
+			<Container>
+				<h2>Foire Aux Questions</h2>
+				<Accordion>
+					<AccordionItem header="test">test</AccordionItem>
+				</Accordion>
+			</Container>
+		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>

@@ -4,7 +4,8 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
-
+import Container from "@components/Container.astro";
+import Section from "@components/Section.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
@@ -12,12 +13,12 @@ const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'Aube'",
 	description: "",
 	title: "Kabanon",
-	
-	image:{
-		webp:"/images/page-title/webp/page_kabanon-bassins.webp",
+
+	image: {
+		webp: "/images/page-title/webp/page_kabanon-bassins.webp",
 		jpg: "/images/page-title/page_kabanon-bassins.jpg",
 		alt: "Bassin du Kabanon des écuries de l'aube à Saint-Marc-Jaumegarde",
-	}
+	},
 };
 ---
 
@@ -26,7 +27,13 @@ const page = {
 
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main><h1>Kabanon des écuries de l'Aube</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h2>Kabanon des écuries de l'Aube</h2>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>
 

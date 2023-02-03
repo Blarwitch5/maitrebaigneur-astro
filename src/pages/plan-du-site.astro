@@ -5,6 +5,8 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
@@ -14,26 +16,28 @@ const page = {
 	metaTitle: "Maître-Baigneur | Plan du site",
 	description: "",
 	title: "Plan du site",
-	imageUrl: "/images/page-title/page_fallback.jpg",
-	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+
+	image: {
+		webp: "/images/page-title/webp/page_fallback.webp",
+		jpg: "/images/page-title/page_fallback.jpg",
+		alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+	},
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
-		<h2>Nos tarifs</h2>
+		<Section>
+			<Container>
+				<h2>Plan du site</h2>
+			</Container>
+		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>
 
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
+<style></style>

@@ -5,18 +5,19 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
-
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 //data
 const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Domicile'",
 	description: "",
 	title: "Domicile",
 
-	image:{
-		webp:"/images/page-title/webp/page_domicile-bassins.webp",
+	image: {
+		webp: "/images/page-title/webp/page_domicile-bassins.webp",
 		jpg: "/images/page-title/page_domicile-bassins.jpg",
 		alt: "Bassin de Aquabecool à Aix-en-Provence",
-	}
+	},
 };
 ---
 
@@ -25,7 +26,13 @@ const page = {
 
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main><h1>Domicile</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h2>Domicile</h2>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>
 

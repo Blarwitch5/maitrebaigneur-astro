@@ -12,15 +12,19 @@ const page = {
 	metaTitle: "Maître-Baigneur | Cours bébé nageur",
 	description: "",
 	title: "Cours bébé nageur",
-	imageUrl: "/images/page-title/page_bebenageur.jpg",
-	imageAlt: "Garçon en bas âge nageant sous l'eau ",
+
+	image: {
+		webp: "/images/page-title/webp/page_bebenageur.webp",
+		jpg: "/images/page-title/page_bebenageur.jpg",
+		alt: "Garçon en bas âge nageant sous l'eau",
+	},
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main>
 		<Section class="baby-swimmer" ariaLabel="Informations concernant la section bébé nageur">
 			<div class="container">

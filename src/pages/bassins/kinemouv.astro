@@ -5,17 +5,18 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
-
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 //data
 const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'",
 	description: "",
 	title: "Kinémouv'",
-	image:{
-		webp:"/images/page-title/webp/fallback.webp",
+	image: {
+		webp: "/images/page-title/webp/fallback.webp",
 		jpg: "/images/page-title/fallback.jpg",
 		alt: "Bassin Kinémouv' à Pertuis",
-	}
+	},
 };
 ---
 
@@ -24,7 +25,13 @@ const page = {
 
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main><h1>Kinémouv'</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h2>Kinémouv'</h2>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>
 

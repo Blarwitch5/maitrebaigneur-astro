@@ -5,6 +5,8 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
+import Container from "@components/Container.astro";
+import Section from "@components/Section.astro";
 
 //data
 
@@ -12,26 +14,40 @@ const page = {
 	metaTitle: "Maître-Baigneur | Aquaversaire",
 	description: "",
 	title: "Aquaversaire",
-	imageUrl: "/images/page-title/page_aquaversaire.jpg",
-	imageAlt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
+	image: {
+		webp: "/images/page-title/webp/page_aquaversaire.webp",
+		jpg: "/images/page-title/page_aquaversaire.jpg",
+		alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
+	},
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
-		<h1>Aquaversaire</h1>
+		<Section class="aquaversaire">
+			<Container>
+				<h2 class="aquaversaire__title">Maître-Baigneur organise vos anniversaires</h2>
+				<h3 class="aquaversaire__title--2">Un aquaversaire, quésako ?</h3>
+				<p class="aquaversaire__desc">
+					La piscine est un lieu de fête, de plaisir et de détente, mais c’est aussi un lieu qui peut être très dangereux. Fini le stress des parents
+					à organiser ou déposer leurs enfants à un anniversaire avec piscine! Maître Baigneur s’occupe de tout! Les enfants vont passer un moment
+					inoubliable en toute sécurité et les parents pourront se détendre et profiter de la fête en toute tranquillité.
+				</p>
+				<img class="aquaversaire__img" src="/images/hero.jpg" alt="" />
+			</Container>
+		</Section>
+		<Section>
+			<Container>
+				<h3>Tarifs Aquaversaire</h3>
+				<p>les prix</p>
+			</Container>
+		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>
 
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
+<style></style>

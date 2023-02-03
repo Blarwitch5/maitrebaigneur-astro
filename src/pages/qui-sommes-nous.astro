@@ -6,7 +6,8 @@ import PageTitle from "@components/header/PageTitle.astro";
 import Section from "@components/Section.astro";
 import Main from "@components/Main.astro";
 import Qualities from "@components/widgets/Qualities.astro";
-import Pedagogy from "@components/widgets/Pedagogy.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
+import Container from "@components/Container.astro";
 import CreatorQuote from "@components/widgets/CreatorQuote.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
@@ -17,22 +18,39 @@ const page = {
 	metaTitle: "Maître-Baigneur | Qui sommes-nous ?",
 	description: "",
 	title: "Qui sommes-nous ?",
-	imageUrl: "/images/page-title/page_quisommesnous.jpg",
-	imageAlt: "Maître-Baigneur apprenant un garçon à nager",
+
+	image: {
+		webp: "/images/page-title/webp/page_quisommesnous.webp",
+		jpg: "/images/page-title/page_quisommesnous.jpg",
+		alt: "Maître-Baigneur apprenant un garçon à nager",
+	},
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
-
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main>
 		<Section class="qualities" ariaLabel="Maître-Baigneur en trois mots">
 			<Qualities />
 		</Section>
 		<Section class="pedagogy" ariaLabel="La philosophie Maître-Baigneur" backgroundColor="var(--color-bg-light)">
-			<Pedagogy />
+			<Container>
+				<Waves atTopOfSection={true} />
+				<img loading="lazy" class="pedagogy__img" src="/images/hero.jpg" alt="Maître-Baigneur en action" />
+				<div class="pedagogy__content">
+					<h2>La philosophie Maître-Baigneur</h2>
+					<h3>Nager en groupe</h3>
+					<p>
+						Notre pédagogie en petits groupes pour l'apprentissage de la natation renforce l'esprit d'équipe, la solidarité, la confiance en soi et
+						favorise l'autonomie des élèves. Apprendre à nager est crucial pour leur sécurité et peut améliorer leur capacité cognitive, leurs
+						compétences sociales et leur coordination. Continuer à nager tout au long de l'année peut également améliorer leur condition physique
+						générale. Il est important de ne pas interrompre l'apprentissage, sinon cela peut entraîner une régression brutale de leurs acquis.
+					</p>
+				</div>
+				<Waves />
+			</Container>
 		</Section>
 		<Section class="quote" ariaLabel="Le mot du directeur Quentin Vander Meulen">
 			<CreatorQuote />
@@ -40,11 +58,20 @@ const page = {
 	</Main>
 	<Footer />
 
-	<style>
-		h1 {
-			font-size: 3rem;
-			font-weight: 800;
-			margin: 0;
+	<style lang="scss">
+		.pedagogy {
+			&__img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			&__content {
+				padding: 2rem;
+
+				@media screen and (min-width: 992px) {
+					padding: 0;
+				}
+			}
 		}
 	</style>
 </BaseLayout>

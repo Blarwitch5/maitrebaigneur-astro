@@ -17,15 +17,18 @@ const page = {
 	metaTitle: "Maître-Baigneur | Cours de natation",
 	description: "",
 	title: "Cours de natation",
-	imageUrl: "/images/page-title/page_natation.jpg",
-	imageAlt: "Petite fille avec lunettes de natation nageant sous l'eau tout sourire",
+	image: {
+		webp: "/images/page-title/webp/page_natation.webp",
+		jpg: "/images/page-title/page_natation.jpg",
+		alt: "Petite fille avec lunettes de natation nageant sous l'eau tout sourire",
+	},
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
 	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrl={page.imageUrl} pageImageAlt={page.imageAlt} />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main>
 		<Section class="levels">
 			<Container>
@@ -70,7 +73,6 @@ const page = {
 	}
 
 	.fear {
-		
 		&__wrapper {
 			position: relative;
 		}

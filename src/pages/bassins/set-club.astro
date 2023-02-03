@@ -5,18 +5,20 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 //data
 const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Set Club",
 	description: "",
 	title: "Set Club",
-	
-		image:{
-		webp:"/images/page-title/webp/page_setclub-bassins.webp",
+
+	image: {
+		webp: "/images/page-title/webp/page_setclub-bassins.webp",
 		jpg: "/images/page-title/page_setclub-bassins.jpg",
 		alt: "Bassin du Set Club à Aix-en-Provence",
-	}
+	},
 };
 ---
 
@@ -24,7 +26,13 @@ const page = {
 	<SkipToContent />
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main><h1>Set Club</h1></Main>
+	<Main>
+		<Section>
+			<Container>
+				<h2>Set Club</h2>
+			</Container>
+		</Section>
+	</Main>
 	<Footer />
 </BaseLayout>
 
