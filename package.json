@@ -16,7 +16,6 @@
 		"astro-breadcrumbs": "^1.1.0",
 		"astro-icon": "^0.8.0",
 		"netlify": "^13.1.2",
-		"particles.js": "^2.0.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-astro": "^0.7.0",
 		"sanitize.css": "^13.0.0",
