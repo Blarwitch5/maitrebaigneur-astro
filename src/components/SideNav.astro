@@ -2,8 +2,8 @@
 import CloseBtn from "@components/header/CloseBtn.astro";
 import Socials from "@components/Socials.astro";
 import Buttons from "@components/ui/Buttons.astro";
-
 import site from "@assets/data/data.json";
+import { Icon } from "astro-icon";
 
 const { siteLinks } = site;
 const secondaryNav = siteLinks.secondary;
@@ -13,7 +13,7 @@ const logo = {
 	src: "/images/logo.svg",
 	width: 200,
 	height: 200,
-	alt: "Logo Maître-Baigneur",
+	alt: "Logo Maître-Baigneur"
 };
 ---
 
@@ -23,12 +23,50 @@ const logo = {
 		<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
 			<ul class="navbar-nav" role="menubar" aria-label="Menu de navigation">
 				{
-					secondaryNav.map((item) => (
-						<li class="nav-item" role="none">
-							<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.href} target={item.target}>
-								{item.name}
-							</Buttons>
-						</li>
+					secondaryNav.map(item => (
+						<>
+							{item.children && (
+								<li class={`nav-item dropdown`} role="none">
+									<Icon name={item.icon} />
+									<Buttons
+										tabindex="0"
+										role="menuitem"
+										class="nav-link dropdown__toggle"
+										type="button"
+										aria-expanded="false"
+										aria-controls="dropdown"
+									>
+										{item.name}
+										<Icon name="arrow_down" />
+									</Buttons>
+
+									<ul id="dropdown" class="dropdown__menu">
+										{item.children.map(child => (
+											<li class={`nav-item`} role="none">
+												<Buttons tabindex="0" role="menuitem" class="nav-link dropdown__title" href={child.href}>
+													{child.name}
+												</Buttons>
+											</li>
+										))}
+									</ul>
+								</li>
+							)}
+							{!item.children && (
+								<li
+									class={`nav-item ${item.name
+										.replace(/\s|_|\(|\)/g, "-")
+										.normalize("NFD")
+										.replace(/\p{Diacritic}/gu, "")
+										.toLowerCase()}`}
+									role="none"
+								>
+									<Icon name={item.icon} />
+									<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.href} target={item.target}>
+										{item.name}
+									</Buttons>
+								</li>
+							)}
+						</>
 					))
 				}
 			</ul>
@@ -95,31 +133,84 @@ const logo = {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		justify-content: space-around;
 		padding: 0;
 		width: calc(100% - 2rem);
 		margin-inline: auto;
+		gap: var(--space-2xs);
+		width: 50%;
+
+		@media screen and (max-width: 768px) {
+			width: 85%;
+		}
 
 		.nav-item {
-			text-align: center;
+			text-align: left;
+			flex: 0 0 100%;
+			display: flex;
+			align-items: center;
+			&::before {
+				content: none;
+			}
+
 			a {
 				color: var(--color-white);
 				text-decoration: none;
+				line-height: 2rem;
+				flex-grow: 1;
 			}
-			flex: 0 0 100%;
 
-			// &:not(:nth-last-of-type(-n + 2)),
-			// &:not(:nth-child(-n + 2)) {
-			// 	flex: 0 0 100%;
-			// }
-			// &:nth-last-of-type(-n + 2),
-			// &:nth-child(-n + 2) {
-			// 	display: inline-block;
-			// 	max-width: 50%;
-			// }
+			svg {
+				color: var(--color-white);
+				width: 2rem;
+				margin-right: var(--space-2xs);
+			}
 		}
 	}
+	.dropdown {
+		position: relative;
+		flex-wrap: wrap;
 
-	.nav-link {
+		button {
+			all: unset;
+			color: white;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex: 0 0 calc(100% - 2rem - var(--space-2xs));
+
+			svg {
+				width: 2rem;
+				transition: transform 0.3s ease-in-out;
+			}
+		}
+		&__menu {
+			padding-inline: 2rem;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-out 0.1s, margin-top 0.3s ease, padding-block 0.3s ease;
+			background-color: hsla(var(--link-color-white-hsl), 0.1);
+			border-radius: 10px;
+			flex: 0 0 100%;
+
+			& > .nav-item {
+				font-weight: 400;
+			}
+		}
+		&--open {
+			.dropdown__menu {
+				margin-top: var(--space-2xs);
+				max-height: 500px;
+				padding-block: 0.5rem;
+			}
+			button {
+				svg {
+					transition: transform 0.3s ease-in-out;
+					transform: rotate(180deg);
+				}
+			}
+		}
 	}
 	.close-btn {
 		position: absolute;

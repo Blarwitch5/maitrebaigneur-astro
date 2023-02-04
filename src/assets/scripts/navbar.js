@@ -18,12 +18,12 @@ closeBtn.addEventListener("click", () => {
 	closeMenu();
 });
 //accessibility for keyboard users
-toggleBtn.addEventListener("keydown", (event) => {
+toggleBtn.addEventListener("keydown", event => {
 	if (event.key === "Enter" || event.key === "Space") {
 		openMenu();
 	}
 });
-closeBtn.addEventListener("keydown", (event) => {
+closeBtn.addEventListener("keydown", event => {
 	if (event.key === "Enter" || event.key === "Space") {
 		closeMenu();
 	}
@@ -135,3 +135,15 @@ for (let i = 0; i < navItems.length; i++) {
 		navItems[i].classList.add("active");
 	}
 }
+let dropdownToggles = document.querySelector(".dropdown__toggle");
+let submenu = document.querySelector(".dropdown__menu");
+
+dropdownToggles.addEventListener("click", function (e) {
+	e.preventDefault();
+	this.parentElement.classList.toggle("dropdown--open");
+	if (!this.parentElement.classList.contains("dropdown--open")) {
+		this.setAttribute("aria-expanded", "true");
+	} else {
+		this.setAttribute("aria-expanded", "false");
+	}
+});

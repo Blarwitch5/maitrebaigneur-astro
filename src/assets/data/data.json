@@ -11,27 +11,33 @@
 				"href": "/prestations/cours-bebe-nageur",
 				"name": "Cours bébé nageur",
 				"classes": "with-icon icon-baby",
-				"responsive": "hidden-md"
+				"responsive": " hidden-md"
 			},
 			{ "href": "/tarifs", "name": "Tarifs", "classes": "btn btn__outline", "responsive": "hidden-md" }
 		],
 		"secondary": [
-			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation" },
-			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur" },
-			{ "href": "/prestations/aquaversaire", "name": "Aquaversaire" },
-			{ "href": "/prestations/evenement-securite", "name": "Événements & Sécurité" },
-			{ "href": "/bassins", "name": "Nos bassins d'apprentissage" },
-			{ "href": "/bassins/aquabecool", "name": "Aquabecool" },
-			{ "href": "/bassins/plan-form", "name": "Plan Form" },
-			{ "href": "/bassins/set-club", "name": "Set Club" },
-			{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
-			{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
-			{ "href": "/bassins/domicile", "name": "Domicile" },
-			{ "href": "/qui-sommes-nous", "name": "Qui sommes-nous ?" },
-			{ "href": "/tarifs", "name": "Tarifs" },
-			{ "href": "/faq", "name": "FAQ" },
-			{ "href": "/contact", "name": "Nous contacter" },
-			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "target": "_blank" }
+			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation", "icon": "swimmer" },
+			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur", "icon": "baby" },
+			{ "href": "/prestations/aquaversaire", "name": "Aquaversaire", "icon": "aquaversaire" },
+			{ "href": "/prestations/evenement-securite", "name": "Événements & Sécurité", "icon": "event" },
+			{
+				"href": "/bassins",
+				"name": "Nos bassins d'apprentissage",
+				"children": [
+					{ "href": "/bassins/aquabecool", "name": "Aquabecool" },
+					{ "href": "/bassins/plan-form", "name": "Plan Form" },
+					{ "href": "/bassins/set-club", "name": "Set Club" },
+					{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
+					{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
+					{ "href": "/bassins/domicile", "name": "Domicile" }
+				],
+				"icon": "pool"
+			},
+			{ "href": "/qui-sommes-nous", "name": "Qui sommes-nous ?", "icon": "about" },
+			{ "href": "/tarifs", "name": "Tarifs", "icon": "credit-card" },
+			{ "href": "/faq", "name": "FAQ", "icon": "faq" },
+			{ "href": "/contact", "name": "Nous contacter", "icon": "contact" },
+			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "target": "_blank", "icon": "calendar" }
 		],
 		"services": [
 			{

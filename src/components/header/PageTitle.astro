@@ -57,8 +57,8 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 		padding-bottom: 2rem;
 
 		&__img {
-			position: fixed;
-			top: -25%;
+			position: absolute;
+			top: 0;
 			left: 0;
 			z-index: -1;
 			width: 100%;
@@ -78,6 +78,7 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 			}
 			picture {
 				height: 100%;
+				width: 100%;
 			}
 			img {
 				object-fit: cover;
