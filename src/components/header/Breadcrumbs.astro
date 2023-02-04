@@ -25,8 +25,8 @@ let parts: Array<BreadcrumbItem> = [
 	{
 		text: indexText,
 		href: "/",
-		"aria-current": ariaCurrent,
-	},
+		"aria-current": ariaCurrent
+	}
 ];
 
 /**
@@ -40,8 +40,8 @@ paths.forEach((text: string, index: number) => {
 		{
 			text: text.replace(/[-_]/g, " "),
 			href,
-			"aria-current": ariaCurrent,
-		},
+			"aria-current": ariaCurrent
+		}
 	];
 });
 ---
@@ -82,12 +82,12 @@ paths.forEach((text: string, index: number) => {
 			list-style: none;
 		}
 		&__item {
-			font-weight: 200;
+			font-weight: 400;
 
 			&:last-child {
 				a {
 					text-decoration: none;
-					font-weight: bold;
+					font-weight: 900;
 				}
 			}
 		}
@@ -97,7 +97,7 @@ paths.forEach((text: string, index: number) => {
 		}
 	}
 </style>
-<script>
+<script is:inline>
 	const list = document.querySelector(".breadcrumbs__items"); //select the list
 	const lastChild = list.lastElementChild; //get the last child of the list
 	const firstChildOfLastChild = lastChild.firstElementChild; // get the first child of the last child
