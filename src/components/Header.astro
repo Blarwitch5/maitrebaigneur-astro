@@ -16,26 +16,26 @@ const nav = siteLinks.primary;
 		<!-- Logo -->
 		<Brand />
 		<!-- Navigation menu -->
-		<ul class="navbar-nav" role="navigation" aria-label="Barre de menu">
+		<ul class="navbar-nav" role="menubar" aria-label="Barre de menu">
 			<!-- Navigation links -->
 			{
 				nav.map(item => (
-					<li role="none" class={`nav-item ${item.responsive}`}>
-						<Buttons href={item.href} class={`nav-link ${item.classes}`} role="menuitem">
+					<li role="menuitem" class={`nav-item ${item.responsive}`}>
+						<Buttons href={item.href} class={`nav-link ${item.classes}`}>
 							{item.name}
 						</Buttons>
 					</li>
 				))
 			}
 			<!-- contact button -->
-			<li role="none" class="nav-item nav-item--icon contact">
-				<Buttons href="/contact" class="nav-link" role="menuitem">
+			<li role="menuitem" class="nav-item nav-item--icon contact">
+				<Buttons href="/contact" class="nav-link">
 					<span class="visually-hidden">Contact</span>
 					<Icon name="contact" />
 				</Buttons>
 			</li>
 			<!-- menu button -->
-			<li role="none" class="nav-item nav-item--icon">
+			<li role="menuitem" class="nav-item nav-item--icon">
 				<ToggleBtn />
 			</li>
 		</ul>

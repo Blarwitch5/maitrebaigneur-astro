@@ -21,29 +21,22 @@ const logo = {
 	<div class="modal__content">
 		<img loading="lazy" src={logo.src} alt={logo.alt} class="logo" width="200px" />
 		<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
-			<ul class="navbar-nav" role="menubar" aria-label="Menu de navigation">
+			<ul class="navbar-nav" role="menu" aria-label="Menu de navigation">
 				{
 					secondaryNav.map(item => (
 						<>
 							{item.children && (
-								<li class={`nav-item dropdown`} role={null}>
+								<li class={`nav-item dropdown`} role="menuitem">
 									<Icon name={item.icon} />
-									<Buttons
-										tabindex="0"
-										role="menuitem"
-										class="nav-link dropdown__toggle"
-										type="button"
-										aria-expanded="false"
-										aria-controls="dropdown"
-									>
+									<Buttons tabindex="0" class="nav-link dropdown__toggle" type="button" aria-expanded="false" aria-controls="dropdown">
 										{item.name}
 										<Icon name="arrow_down" />
 									</Buttons>
 
-									<ul id="dropdown" class="dropdown__menu">
+									<ul id="dropdown" class="dropdown__menu" role="menu">
 										{item.children.map(child => (
-											<li class={`nav-item`} role={null}>
-												<Buttons role="menuitem" tabindex="0" class="nav-link dropdown__title" href={child.href}>
+											<li class={`nav-item`} role="menuitem">
+												<Buttons tabindex="0" class="nav-link dropdown__title" href={child.href}>
 													{child.name}
 												</Buttons>
 											</li>
@@ -58,10 +51,10 @@ const logo = {
 										.normalize("NFD")
 										.replace(/\p{Diacritic}/gu, "")
 										.toLowerCase()}`}
-									role={null}
+									role="menuitem"
 								>
 									<Icon name={item.icon} />
-									<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.href} target={item.target}>
+									<Buttons tabindex="0" class="nav-link" href={item.href} target={item.target}>
 										{item.name}
 									</Buttons>
 								</li>
