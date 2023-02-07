@@ -27,12 +27,12 @@ const reviews = [
 <ul class="testimonial__slider">
 	{
 		reviews.map(review => (
-			<div class="testimonial__slide">
+			<li class="testimonial__slide">
 				<div class="review">
 					<blockquote>{review.review}</blockquote>
 					<cite>{review.name}</cite>
 				</div>
-			</div>
+			</li>
 		))
 	}
 </ul>
