@@ -26,7 +26,7 @@ const logo = {
 					secondaryNav.map(item => (
 						<>
 							{item.children && (
-								<li class={`nav-item dropdown`} role="none">
+								<li class={`nav-item dropdown`} role={null}>
 									<Icon name={item.icon} />
 									<Buttons
 										tabindex="0"
@@ -42,8 +42,8 @@ const logo = {
 
 									<ul id="dropdown" class="dropdown__menu">
 										{item.children.map(child => (
-											<li class={`nav-item`} role="none">
-												<Buttons tabindex="0" role="menuitem" class="nav-link dropdown__title" href={child.href}>
+											<li class={`nav-item`} role={null}>
+												<Buttons role="menuitem" tabindex="0" class="nav-link dropdown__title" href={child.href}>
 													{child.name}
 												</Buttons>
 											</li>
@@ -58,7 +58,7 @@ const logo = {
 										.normalize("NFD")
 										.replace(/\p{Diacritic}/gu, "")
 										.toLowerCase()}`}
-									role="none"
+									role={null}
 								>
 									<Icon name={item.icon} />
 									<Buttons tabindex="0" role="menuitem" class="nav-link" href={item.href} target={item.target}>
@@ -82,6 +82,7 @@ const logo = {
 		height: 100%;
 		// overflow: hidden;
 		width: 50%;
+		max-width: 1000px;
 		position: fixed;
 		z-index: 999;
 		right: 0;
