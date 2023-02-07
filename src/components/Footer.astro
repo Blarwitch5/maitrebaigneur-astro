@@ -44,7 +44,7 @@ const footerMenu = siteLinks.footerMenu;
 				<h3 class="title">Nos prestations</h3>
 				<ul>
 					{
-						services.map((service) => (
+						services.map(service => (
 							<li>
 								<Buttons class="btn" href={service.href} label={service.name}>
 									{service.name}
@@ -58,7 +58,7 @@ const footerMenu = siteLinks.footerMenu;
 				<h3 class="title">Besoin d'aide ?</h3>
 				<ul>
 					{
-						footerMenu.map((item) => (
+						footerMenu.map(item => (
 							<li>
 								<Buttons class={item.classes} href={item.href} label={item.name} target={item.target}>
 									{item.name}
@@ -87,8 +87,8 @@ const footerMenu = siteLinks.footerMenu;
 			color: inherit;
 		}
 		.title {
-			font-size: var(--fs-medium);
-			margin-bottom: var(--space-m);
+			font-size: var(--fs-md);
+			margin-bottom: var(--space-md);
 			@media screen and (max-width: 576px) {
 				margin-bottom: 1rem;
 			}
@@ -97,14 +97,14 @@ const footerMenu = siteLinks.footerMenu;
 		.footer-sections {
 			display: grid;
 			grid-template-columns: repeat(6, 1fr);
-			gap: var(--space-m);
+			gap: var(--space-md);
 
 			.col {
 				&.brand {
 					grid-column: 1 / span 6;
 					display: flex;
 					flex-direction: column;
-					gap: var(--space-s);
+					gap: var(--space-sm);
 					margin-bottom: 2rem;
 					margin-top: -100px;
 					text-align: center;
@@ -151,7 +151,7 @@ const footerMenu = siteLinks.footerMenu;
 			.slogan {
 				margin-block: -2rem 0;
 				font-family: var(--ff-pacifico);
-				font-size: var(--fs-large);
+				font-size: var(--fs-lg);
 			}
 			.info {
 				padding: 0;
@@ -159,7 +159,7 @@ const footerMenu = siteLinks.footerMenu;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: var(--space-m);
+				gap: var(--space-md);
 
 				@media screen and (max-width: 992px) {
 					flex-direction: column;

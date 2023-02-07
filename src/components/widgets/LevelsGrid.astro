@@ -8,7 +8,7 @@ const levels = swimmingLevels;
 
 <div class="levels__grid">
 	{
-		levels.map((level) => (
+		levels.map(level => (
 			<div
 				class="level panel"
 				style={`background-image: linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%, hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%),url(${level.imageSrc});`}
@@ -18,7 +18,7 @@ const levels = swimmingLevels;
 					<h3 class="level__title">{level.name}</h3>
 					<p class="level__desc" set:html={level.desc} />
 					<ul class="hints">
-						{level.hints.map((hint) => (
+						{level.hints.map(hint => (
 							<li class="hint">{hint}</li>
 						))}
 					</ul>
@@ -32,7 +32,6 @@ const levels = swimmingLevels;
 	.levels__grid {
 		display: flex;
 		width: 100%;
-	
 
 		@media (max-width: 992px) {
 			display: flex;
@@ -84,18 +83,18 @@ const levels = swimmingLevels;
 
 		&__content {
 			position: absolute;
-			bottom: var(--space-m);
-			left: var(--space-m);
-			right: var(--space-m);
+			bottom: var(--space-md);
+			left: var(--space-md);
+			right: var(--space-md);
 			visibility: hidden;
 			display: flex;
 			flex-direction: column;
 			gap: 1rem;
 
 			@media (max-width: 992px) {
-				bottom: var(--space-s);
-				left: var(--space-s);
-				right: var(--space-s);
+				bottom: var(--space-sm);
+				left: var(--space-sm);
+				right: var(--space-sm);
 			}
 			@media (max-width: 576px) {
 				bottom: var(--space-2xs);
@@ -108,7 +107,7 @@ const levels = swimmingLevels;
 			opacity: 0;
 			color: var(--color-white);
 			font-family: var(--ff-pacifico);
-			font-size: var(--fs-large);
+			font-size: var(--fs-lg);
 			margin: 0;
 		}
 		&__desc {
@@ -165,7 +164,7 @@ const levels = swimmingLevels;
 	const levels = document.querySelectorAll(".level");
 	levels[0].classList.add("active");
 
-	levels.forEach((level) => {
+	levels.forEach(level => {
 		level.addEventListener("click", () => {
 			removeActiveClasses(); // Add fuctions to remove active class first
 			level.classList.add("active");
@@ -173,7 +172,7 @@ const levels = swimmingLevels;
 	});
 
 	function removeActiveClasses() {
-		levels.forEach((level) => {
+		levels.forEach(level => {
 			level.classList.remove("active");
 		});
 	}

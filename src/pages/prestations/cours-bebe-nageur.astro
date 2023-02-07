@@ -6,6 +6,7 @@ import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 //data
 const page = {
@@ -14,10 +15,10 @@ const page = {
 	title: "Cours bébé nageur",
 
 	image: {
-		webp: "/images/page-title/webp/page_bebenageur.webp",
-		jpg: "/images/page-title/page_bebenageur.jpg",
-		alt: "Garçon en bas âge nageant sous l'eau",
-	},
+		webp: "/images/page-title/webp/page_bebenageur-2.webp",
+		jpg: "/images/page-title/page_bebenageur-2.jpg",
+		alt: "Garçon en bas âge nageant sous l'eau"
+	}
 };
 ---
 
@@ -27,7 +28,7 @@ const page = {
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 	<Main>
 		<Section class="baby-swimmer" ariaLabel="Informations concernant la section bébé nageur">
-			<div class="container">
+			<Container>
 				<h2>Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?</h2>
 				<p>
 					Dans une eau chaude, avec des jeux à profusion… Tout est prévu pour le bien-être, l’amusement et l’éveil de votre bébé. Motricité et
@@ -36,12 +37,10 @@ const page = {
 					spécialisés vous accompagneront dans cette nouvelle expérience.
 				</p>
 				<img src="/images/page-title/page_bebenageur.jpg" alt="Garçon en bas âge nageant sous l'eau " />
-			</div>
+			</Container>
 		</Section>
 		<Section>
-			<div class="container">
-				<h3></h3>
-			</div>
+			<Container><h3>Prix</h3></Container>
 		</Section>
 	</Main>
 	<Footer />

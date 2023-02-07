@@ -1,74 +1,78 @@
-<div class="carousel">
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
-	<div class="item">
-		<a href="/" target="_blanck">
-			<img loading="lazy" src="https://via.placeholder.com/200x100" alt="Logo de la ville d'Aix-en-Provence" title="Aix-en-Provence" />
-		</a>
-	</div>
+---
+const partners = [
+	{
+		name: "Aquabecool",
+		logo: {
+			imgUrlWebp: "/images/partners/aquabecool-partner.webp",
+			imgUrl: "/images/partners/aquabecool-partner.jpg",
+			imgAlt: "Logo Aquabecool Aix-en-Provence"
+		}
+	},
+
+	{
+		name: "Kabanon des écuries de l'aube",
+		logo: {
+			imgUrlWebp: "/images/partners/kabanon-partner.webp",
+			imgUrl: "/images/partners/kabanon-partner.jpg",
+			imgAlt: "Logo Kabanon des écuries de l'aube"
+		}
+	},
+	{
+		name: "Plan Form",
+		logo: {
+			imgUrlWebp: "/images/partners/planform-partner.webp",
+			imgUrl: "/images/partners/planform-partner.jpg",
+			imgAlt: "Logo Plan Form"
+		}
+	},
+	{
+		name: "Kinémouv'",
+		logo: {
+			imgUrlWebp: "/images/partners/kinemouv-partner.webp",
+			imgUrl: "/images/partners/kinemouv-partner.jpg",
+			imgAlt: "Logo Kinémouv'"
+		}
+	}
+];
+---
+
+<div class="partners">
+	{
+		partners.map(partner => {
+			const { imgUrlWebp, imgUrl, imgAlt } = partner.logo;
+			return (
+				<picture class="logos__item">
+					<source type="image/webp" srcset={imgUrlWebp} />
+					<img loading="lazy" src={imgUrl} alt={imgAlt} />
+				</picture>
+			);
+		})
+	}
 </div>
+
 <style lang="scss">
-	.carousel {
+	.logos {
 		display: grid;
-		gap: 2rem;
-		grid-auto-flow: column;
-		grid-auto-columns: 21%;
-		padding-inline: 2rem;
-
-		overflow-x: auto;
-		overscroll-behavior-inline: contain;
-
-		.item {
-			padding-bottom: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-gap: var(--space-lg);
+		> div {
+			background: var(--color-bg-light-alt);
+			padding: 1rem;
+			display: grid;
+			place-items: center;
+			&::before {
+				// for apsect ratio
+				content: "";
+				display: block;
+				padding-bottom: 100%;
+				grid-area: 1 / 1 / 2 / 2;
+			}
 			img {
 				width: 100%;
-				height: auto;
-				object-fit: center;
+				// height: 100%;
+				// object-fit: contain;
+				grid-area: 1 / 1 / 2 / 2;
 			}
 		}
 	}
 </style>
-<script is:inline></script>

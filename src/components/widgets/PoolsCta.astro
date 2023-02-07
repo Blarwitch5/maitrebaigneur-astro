@@ -1,84 +1,33 @@
 ---
-import Swiper from "@components/ui/swiper/Swiper.astro";
-import SwiperSlide from "@components/ui/swiper/SwiperSlide.astro";
 import Buttons from "@components/ui/Buttons.astro";
 import Container from "@components/Container.astro";
 
-const swiperParameters = {
-	// Optional parameters
-	loop: true,
-	autoplay: { delay: 1000 },
-};
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const pools = siteLinks.pools;
 ---
 
 <Container className="pools__wrapper">
-	<div class="pools__img">
-		<div class="fan">
-			<img src="/images/hero.jpg" class="fan-item" />
-			<img src="/images/hero.jpg" class="fan-item" />
-			<img src="/images/hero.jpg" class="fan-item" />
-			<img src="/images/hero.jpg" class="fan-item" />
-			<img src="/images/hero.jpg" class="fan-item" />
-		</div>
-	</div>
 	<div class="pools__content">
-		<h3 class="pools__title">Des cours de natation, d’accord, mais où ?</h3>
-		<p class="pools__desc">Nous opérons aussi bien à domicile que dans nos bassins d’apprentissage</p>
-		<Buttons href="/bassins" class={`pools__btn`} regular>Découvrir tous nos bassins</Buttons>
+		<h3 class="pools__title">Vous êtes à la recherche d'un bassin pour apprendre à nager ?</h3>
+		<p class="pools__desc">
+			Vous êtes au bon endroit. Nous opérons aussi bien à domicile que dans nos bassins d’apprentissage. Choisissez un de nos bassins et commencez
+			votre aventure Maître-Baigneur. Nous sommes impatients de vous accueillir et de vous aider à atteindre vos objectifs.
+		</p>
+		<Buttons href="/bassins" class={`pools__btn btn btn__regular`}>Découvrir nos bassins</Buttons>
 	</div>
 </Container>
-<style lang="scss">
-	.pools {
-		&__wrapper {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+
+<div class="pools__carousel">
+	<div class="carousel">
+		{
+			pools.map(pool => (
+				<div class="carousel__item">
+					<img loading="lazy" class="carousel__img" src={pool.image.src} alt={pool.image.alt} />
+				</div>
+			))
 		}
-
-		&-title {
-			margin-bottom: 0;
-		}
-		&-btn {
-			padding: 0.5rem 1.2rem;
-		}
-	}
-	.fan {
-		position: relative;
-		width: 300px;
-		height: 300px;
-		margin: 0 auto;
-	}
-
-	.fan-item {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transition: transform 0.5s ease;
-		border-radius: 10px;
-	}
-
-	.fan-item:nth-child(1) {
-		transform: rotate(0deg) translate(0);
-	}
-
-	.fan-item:nth-child(2) {
-		transform: rotate(72deg) translate(0);
-	}
-
-	.fan-item:nth-child(3) {
-		transform: rotate(144deg) translate(0);
-	}
-
-	.fan-item:nth-child(4) {
-		transform: rotate(216deg) translate(0);
-	}
-
-	.fan-item:nth-child(5) {
-		transform: rotate(288deg) translate(0);
-	}
-
-	.fan:hover .fan-item {
-		transform: rotate(360deg) translate(0);
-	}
-</style>
+	</div>
+</div>
+<style lang="scss"></style>

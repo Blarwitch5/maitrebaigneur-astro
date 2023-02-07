@@ -16,7 +16,7 @@ const pools = siteLinks.pools;
 <div class="pools__grid hs">
 	<div class="hs__wrapper full no-scrollbar">
 		{
-			pools.map((pool) => (
+			pools.map(pool => (
 				<article
 					class={`pool hs__item ${pool.name
 						.replace(/\s|_|\(|\)/g, "-")
@@ -129,7 +129,7 @@ const pools = siteLinks.pools;
 			}
 			&__title {
 				color: var(--color-white);
-				font-size: var(--fs-medium);
+				font-size: var(--fs-md);
 				margin: 0;
 				position: relative;
 			}
@@ -182,11 +182,11 @@ const pools = siteLinks.pools;
 		}
 		&__wrapper {
 			display: grid;
-			grid-gap: var(--space-m);
+			grid-gap: var(--space-md);
 			grid-template-columns: 10px;
 			grid-template-rows: minmax(250px, 1fr);
 			grid-auto-flow: column;
-			grid-auto-columns: minmax(calc(30% - var(--space-m) * 2), calc(350px - var(--space-xs) * 2));
+			grid-auto-columns: minmax(calc(30% - var(--space-md) * 2), calc(350px - var(--space-xs) * 2));
 			overflow-x: scroll;
 			scroll-snap-type: x proximity;
 			-webkit-overflow-scrolling: touch;

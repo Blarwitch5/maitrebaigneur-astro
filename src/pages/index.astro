@@ -10,7 +10,7 @@ import Forces from "@components/widgets/Forces.astro";
 import Services from "@components/widgets/Services.astro";
 import BookingCta from "@components/widgets/BookingCta.astro";
 import PoolsCta from "@components/widgets/PoolsCta.astro";
-import Testimonials from "@components/widgets/Testimonials.astro";
+import Testimonial from "@components/widgets/Testimonial.astro";
 import Faq from "@components/widgets/Faq.astro";
 import Container from "@components/Container.astro";
 import LogoCarousel from "@components/widgets/LogoCarousel.astro";
@@ -25,7 +25,7 @@ const page = {
 	title: "Maître-Baigneur - Des cours de natation pour tous les âges, du bébé-nageur à l'apprentissage en profondeur",
 	description:
 		"Apprenez à nager avec nos cours de natation innovants et ludiques pour tous les âges à Aix-en-Provence. Découvrez nos cours bébé-nageur pour une initiation à l'eau, amusante mais sécurisée.",
-	url: "https://maitrebaigneur.com/",
+	url: "https://maitrebaigneur.com/"
 };
 ---
 
@@ -74,8 +74,17 @@ const page = {
 		<Section class="pools" backgroundColor="var(--color-bg-light-alt)" ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur">
 			<PoolsCta />
 		</Section>
-		<Section class="testimonials" ariaLabel="Liste d'avis de clients">
-			<Testimonials />
+		<Section class="testimonial" ariaLabel="Liste d'avis de clients">
+			<Container>
+				<h3 class="testimonial__title">Découvrez ce que nos clients disent de nous</h3>
+				<p class="testimonial__desc">
+					Dans ces témoignages, vous pouvez découvrir les expériences de nos clients qui ont participé à l'un de nos cours. Lisez leurs histoires pour
+					savoir ce qu'ils pensent de notre enseignement, de nos maître-nageurs et de l'environnement d'apprentissage ludique et sécurisé que nous
+					offrons. Ce sont les témoignages de nos clients satisfaits qui font de Maître-Baigneur le choix idéal pour votre apprentissage de la
+					natation.
+				</p>
+			</Container>
+			<Testimonial />
 		</Section>
 		<Section class="partners" ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur">
 			<Container>
@@ -85,8 +94,8 @@ const page = {
 					Nous sommes fiers de travailler avec des partenaires qui partagent notre passion pour l'enseignement de la natation et la sécurité
 					aquatique. Nous les remercions chaleureusement pour leur soutien constant sans lequel Maître-Baigneur ne serait pas possible.
 				</p>
+				<LogoCarousel />
 			</Container>
-			<LogoCarousel />
 		</Section>
 		<Footer />
 	</Main>

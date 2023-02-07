@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon";
+const reviews = [
+	{
+		name: "Yahia BEN AMMAR",
+		review: "Super maître nageur, très professionnel et très pédagogue, je le recommande vivement.",
+		score: 5
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5
+	},
+	{
+		name: "John Doe",
+		review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+		score: 5
+	}
+];
+---
+
+<ul class="testimonial__slider">
+	{
+		reviews.map(review => (
+			<div class="testimonial__slide">
+				<div class="review">
+					<blockquote>{review.review}</blockquote>
+					<cite>{review.name}</cite>
+				</div>
+			</div>
+		))
+	}
+</ul>
+<style></style>

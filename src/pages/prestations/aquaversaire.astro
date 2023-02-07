@@ -17,8 +17,8 @@ const page = {
 	image: {
 		webp: "/images/page-title/webp/page_aquaversaire.webp",
 		jpg: "/images/page-title/page_aquaversaire.jpg",
-		alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
-	},
+		alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire"
+	}
 };
 ---
 
@@ -32,12 +32,29 @@ const page = {
 			<Container>
 				<h2 class="aquaversaire__title">Maître-Baigneur organise vos anniversaires</h2>
 				<h3 class="aquaversaire__title--2">Un aquaversaire, quésako ?</h3>
-				<p class="aquaversaire__desc">
-					La piscine est un lieu de fête, de plaisir et de détente, mais c’est aussi un lieu qui peut être très dangereux. Fini le stress des parents
-					à organiser ou déposer leurs enfants à un anniversaire avec piscine! Maître Baigneur s’occupe de tout! Les enfants vont passer un moment
-					inoubliable en toute sécurité et les parents pourront se détendre et profiter de la fête en toute tranquillité.
-				</p>
-				<img class="aquaversaire__img" src="/images/hero.jpg" alt="" />
+				<div class="aquaversaire__content">
+					<p class="aquaversaire__desc">
+						La piscine peut être un lieu très amusant, mais elle comporte aussi des risques importants. Les parents peuvent maintenant profiter des
+						fêtes avec piscine sans s'inquiéter grâce à Maître Baigneur. Ce service permet aux enfants de s’amuser en toute sécurité et aux parents de
+						se détendre et de profiter de la fête en toute tranquillité. Maître Baigneur aide les parents à organiser des fêtes sûres et inoubliables
+						en assurant la sécurité des enfants dans la piscine.
+					</p>
+					<div class="aquaversaire__details">
+						<h4>À propos de nos aquaversaire</h4>
+						<ul>
+							<li>Jusqu'à 15 enfants</li>
+							<li>Matériel de premiers soins</li>
+							<li>Matériel ludique</li>
+							<li>Sécurité assurée par un Maître-Baigneur</li>
+							<li>Animation</li>
+						</ul>
+					</div>
+				</div>
+				<img
+					class="aquaversaire__img"
+					src="/images/aquaversaire-2.jpg"
+					alt="Personnes flottant sur des bouées dans une piscines lors d'un anniversaire"
+				/>
 			</Container>
 		</Section>
 		<Section>
@@ -50,4 +67,58 @@ const page = {
 	<Footer />
 </BaseLayout>
 
-<style></style>
+<style lang="scss">
+	.aquaversaire {
+		&__content {
+			display: flex;
+			flex-wrap: nowrap;
+			gap: var(--space-lg);
+			margin-block: var(--space-lg);
+			& > * {
+				flex: 1;
+			}
+		}
+		&__details {
+			background-color: var(--color-bg-light);
+			border-radius: 20px;
+			padding: var(--space-lg);
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 20px;
+				background-image: url("/images/icons/aquaversaire.svg");
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: bottom right;
+				opacity: 0.05;
+			}
+
+			h4 {
+				font-family: var(--ff-pacifico);
+			}
+
+			ul {
+				list-style: none;
+				& > li {
+					&::before {
+						content: "✓";
+						margin-right: var(--space-sm);
+					}
+				}
+			}
+		}
+		&__img {
+			width: 100%;
+			height: 400px;
+			object-fit: cover;
+			border-radius: 20px;
+		}
+	}
+</style>
