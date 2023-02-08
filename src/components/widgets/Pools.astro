@@ -13,28 +13,26 @@ const pools = siteLinks.pools;
 		établissements avec lesquels nous collaborons pour vous offrir une expérience de qualité dans un cadre magnifique.
 	</p>
 </Container>
-<div class="pools__grid hs">
-	<div class="hs__wrapper full no-scrollbar">
-		{
-			pools.map(pool => (
-				<article
-					class={`pool hs__item ${pool.name
-						.replace(/\s|_|\(|\)/g, "-")
-						.normalize("NFD")
-						.replace(/\p{Diacritic}/gu, "")
-						.toLowerCase()}`}
-				>
-					<a href={pool.href} class="pool__link">
-						<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
-						<div class="pool__info">
-							<h3 class="pool__title">{pool.name}</h3>
-							<span class="pool__location">{pool.location}</span>
-						</div>
-					</a>
-				</article>
-			))
-		}
-	</div>
+<div class="pools__grid horizontal-scroll">
+	{
+		pools.map(pool => (
+			<article
+				class={`pool hs__item ${pool.name
+					.replace(/\s|_|\(|\)/g, "-")
+					.normalize("NFD")
+					.replace(/\p{Diacritic}/gu, "")
+					.toLowerCase()}`}
+			>
+				<a href={pool.href} class="pool__link">
+					<img loading="lazy" class="pool__img" src={pool.image.src} alt={pool.image.alt} />
+					<div class="pool__info">
+						<h3 class="pool__title">{pool.name}</h3>
+						<span class="pool__location">{pool.location}</span>
+					</div>
+				</a>
+			</article>
+		))
+	}
 </div>
 
 <style lang="scss">
@@ -42,6 +40,9 @@ const pools = siteLinks.pools;
 		text-align: center;
 	}
 	.pools__grid {
+		padding-inline: 2rem;
+		margin-top: var(--space-md);
+
 		.pool {
 			position: relative;
 			display: flex;
@@ -53,7 +54,19 @@ const pools = siteLinks.pools;
 			overflow: hidden;
 			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 			transition: all 0.3s ease-in-out;
-			width: 100%;
+			max-width: 600px;
+			max-height: 300px;
+
+			@media screen and (max-width: 768px) {
+				max-width: 75%;
+			}
+			@media screen and (max-width: 576px) {
+				max-width: 100%;
+			}
+
+			&:not(:last-child) {
+				margin-right: var(--space-md);
+			}
 
 			&:hover {
 				transform: translateY(-0.5rem);
@@ -72,31 +85,6 @@ const pools = siteLinks.pools;
 				z-index: -1;
 				background-color: hsla(var(--link-color-primary-hsl), 0.3);
 			}
-
-			//pools grid
-			// &:first-child {
-			// 	grid-row-end: span 2;
-
-			// 	@media screen and (max-width: 768px) {
-			// 		grid-column-end: span 2;
-			// 		grid-row-end: unset;
-			// 	}
-			// }
-			// &:nth-child(4) {
-			// 	grid-column: 2;
-			// 	grid-row: 3 / 5;
-
-			// 	@media screen and (max-width: 768px) {
-			// 		grid-row: unset;
-			// 		grid-column-start: unset;
-			// 		grid-column-end: span 2;
-			// 	}
-			// }
-			// &:nth-child(n) {
-			// 	@media screen and (max-width: 576px) {
-			// 		grid-column-end: span 2;
-			// 	}
-			// }
 
 			&__link {
 				text-decoration: none;
@@ -168,53 +156,4 @@ const pools = siteLinks.pools;
 	}
 
 	//horizontal scroll section css
-	.hs {
-		display: grid;
-		align-content: start;
-		overflow-y: scroll;
-
-		& > * {
-			grid-column: 2 / -2;
-		}
-		& > .full {
-			grid-column: 1 / -1;
-			padding-block: 2rem;
-		}
-		&__wrapper {
-			display: grid;
-			grid-gap: var(--space-md);
-			grid-template-columns: 10px;
-			grid-template-rows: minmax(250px, 1fr);
-			grid-auto-flow: column;
-			grid-auto-columns: minmax(calc(30% - var(--space-md) * 2), calc(350px - var(--space-xs) * 2));
-			overflow-x: scroll;
-			scroll-snap-type: x proximity;
-			-webkit-overflow-scrolling: touch;
-			@media screen and (max-width: 1024px) {
-				grid-auto-columns: 35vw;
-			}
-			@media screen and (max-width: 768px) {
-				grid-auto-columns: 55vw;
-			}
-			@media screen and (max-width: 576px) {
-				grid-auto-columns: 75vw;
-			}
-			&::before,
-			&::after {
-				content: "";
-				width: var(--space-xs);
-			}
-			&.no-scrollbar {
-				scrollbar-width: none;
-				margin-bottom: 0;
-				padding-bottom: 0;
-			}
-			&.no-scrollbar::-webkit-scrollbar {
-				display: none;
-			}
-		}
-		&__item {
-			scroll-snap-align: center;
-		}
-	}
 </style>
