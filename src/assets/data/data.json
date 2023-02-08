@@ -29,7 +29,8 @@
 					{ "href": "/bassins/set-club", "name": "Set Club" },
 					{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
 					{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
-					{ "href": "/bassins/domicile", "name": "Domicile" }
+					{ "href": "/bassins/domicile", "name": "Domicile" },
+					{ "href": "/bassins", "name": "Tous les bassins" }
 				],
 				"icon": "pool"
 			},
