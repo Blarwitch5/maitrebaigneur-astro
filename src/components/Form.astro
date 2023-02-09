@@ -213,7 +213,7 @@ import Buttons from "./ui/Buttons.astro";
 				padding-inline: 1rem;
 				font-family: var(--ff-pacifico);
 				color: var(--color-primary);
-				font-size: var(--fs-large);
+				font-size: var(--fs-lg);
 			}
 			& > .form-field {
 				margin: 0;
@@ -397,8 +397,8 @@ import Buttons from "./ui/Buttons.astro";
 	const radioButtons = document.querySelectorAll("input[name='choise']");
 
 	// 2. Add an event listener to each radio button
-	radioButtons.forEach((button) => {
-		button.addEventListener("change", (event) => {
+	radioButtons.forEach(button => {
+		button.addEventListener("change", event => {
 			const swimmingSection = document.getElementById("swimming-lessons");
 			const aquaversarySection = document.getElementById("aquaversary");
 			const eventsSection = document.getElementById("events");
