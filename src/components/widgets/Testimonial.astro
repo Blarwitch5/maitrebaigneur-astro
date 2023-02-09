@@ -28,12 +28,62 @@ const reviews = [
 	{
 		reviews.map(review => (
 			<li class="testimonial__slide">
-				<div class="review">
-					<blockquote>{review.review}</blockquote>
-					<cite>{review.name}</cite>
-				</div>
+				<blockquote>{review.review}</blockquote>
+				<cite>{review.name}</cite>
 			</li>
 		))
 	}
 </ul>
-<style></style>
+<style>
+	.testimonial__slider {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 300px;
+		width: 80%;
+		margin: 50px auto;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.testimonial__slide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: all 0.5s ease;
+	}
+
+	.testimonial__slide:nth-child(1) {
+		z-index: 3;
+		opacity: 1;
+	}
+
+	.testimonial__slide:nth-child(2) {
+		z-index: 2;
+		left: 100%;
+	}
+
+	.testimonial__slide:nth-child(3) {
+		z-index: 1;
+		left: -100%;
+	}
+
+	blockquote {
+		font-size: 18px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	cite {
+		font-size: 14px;
+		font-style: italic;
+		text-align: center;
+	}
+</style>
