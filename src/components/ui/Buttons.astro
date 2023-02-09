@@ -19,19 +19,19 @@ const Tag = href ? "a" : "button";
 		line-height: 1;
 		color: inherit;
 		width: fit-content;
+		padding: 0.4rem 1.2rem;
+		min-height: 3rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
 		&.btn__outline {
 			color: currentColor;
 			border-radius: var(--border-radius);
 			background: none;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
 			position: relative;
 			transition: 0.3s;
 			overflow: hidden;
-			min-height: 48px;
-			padding: 0rem 1.2rem;
 
 			&:not(.nav-link) {
 				backdrop-filter: blur(6px);
@@ -76,26 +76,7 @@ const Tag = href ? "a" : "button";
 				}
 			}
 		}
-		&__regular {
-			background-color: var(--color-primary);
-			color: qvar(--color-white);
-			transition: all 0.3s ease-in-out;
-			padding: 0.4rem 0.7rem;
-			border-radius: var(--border-radius);
-			border: 1px solid transparent;
-
-			&:hover {
-				color: var(--color-primary);
-				background-color: var(--color-bg-light);
-				transition: all 0.3s ease-in-out;
-				border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
-			}
-		}
-		&-inverted {
-		}
-		&-icon {
-		}
-		&__outline--inverted {
+		&.btn__outline--inverted {
 			color: var(--color-primary);
 			border-radius: var(--border-radius);
 			background: none;
@@ -118,6 +99,23 @@ const Tag = href ? "a" : "button";
 					left: -2px;
 				}
 			}
+		}
+		&.btn__regular {
+			background-color: var(--color-primary);
+			color: var(--color-white);
+			transition: all 0.3s ease;
+			border-radius: var(--border-radius);
+			border: 1px solid transparent;
+			&:hover {
+				color: var(--color-white);
+				background-color: var(--color-secondary);
+				transition: all 0.3s ease;
+				border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+			}
+		}
+		&-inverted {
+		}
+		&-icon {
 		}
 	}
 
