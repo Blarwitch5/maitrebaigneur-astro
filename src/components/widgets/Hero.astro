@@ -10,7 +10,11 @@ const { ariaLabel } = Astro.props;
 <section id="hero" role="region" class="hero" aria-label={ariaLabel}>
 	<Particles />
 	<div class="hero__img">
-		<img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" />
+		<picture class="partners__item scroll__item">
+			<source type="image/webp" srcset="/images/hero.webp" />
+			<img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" height="1920" width="1080" />
+		</picture>
+		<!-- <img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" /> -->
 	</div>
 	<div class="hero__content">
 		<h1 class="hero__title">Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span></h1>
@@ -50,6 +54,9 @@ const { ariaLabel } = Astro.props;
 				left: 0;
 				right: 0;
 				background: hsla(var(--link-color-black-hsl), 0.5);
+			}
+			picture {
+				height: 100%;
 			}
 
 			img {
