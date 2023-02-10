@@ -11,12 +11,12 @@ import Container from "@components/Container.astro";
 const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool",
 	description: "",
-	title: "Domicile",
+	title: "Aquabecool",
 	image: {
 		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
 		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
-		alt: "Bassin de Aquabecool à Aix-en-Provence",
-	},
+		alt: "Bassin de Aquabecool à Aix-en-Provence"
+	}
 };
 ---
 
@@ -25,20 +25,51 @@ const page = {
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
-	<Main>
+	<Main class="single-pool">
+		<Section class="single-pool">
+			<Container>
+				<h2 class="single-pool__title">Découvrez la piscine {page.title} à Aix-en-Provence Sud</h2>
+				<div class="single-pool__content">
+					<p class="single-pool__desc">
+						Bienvenue à la piscine {page.title}, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos
+						cours de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant. La piscine {page.title} est
+						sécurisée et offre un environnement agréable pour les bébés-nageurs, permettant une initiation à l'eau en toute sécurité. Rejoignez-nous à
+						{page.title} pour une expérience inoubliable.
+					</p>
+					<div class="single-pool__img">
+						<picture>
+							<source type="image/webp" srcset={page.image.webp} />
+							<img loading="lazy" src={page.image.jpg} alt={page.image.alt} height="300" width="300" />
+						</picture>
+					</div>
+					<div class="single-pool__services">
+						<h4>Prestations proposées à {page.title}</h4>
+						<ul>
+							<li>Bébé nageur</li>
+							<li>Cours de natation</li>
+						</ul>
+					</div>
+				</div>
+			</Container>
+		</Section>
 		<Section>
 			<Container>
-				<h2>Aquabecool</h2>
+				<h3>informations utiles concernant Aquabeccol</h3>
+				<p>
+					Bienvenue à la piscine {page.title}, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos cours
+					de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant. Notre piscine {page.title} est sécurisée
+					et offre un environnement agréable pour les bébés-nageurs, permettant une initiation à l'eau en toute sécurité. Rejoignez-nous à
+					{page.title} pour une expérience de natation inoubliable.
+				</p>
 			</Container>
 		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>
 
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
+<style lang="scss">
+	.single-pool {
+		&__content {
+		}
 	}
 </style>

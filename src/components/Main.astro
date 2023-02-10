@@ -1,8 +1,13 @@
 ---
 import GoToTop from "@components/ui/GoToTop.astro";
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<main role="main" id="skip-content-target">
+<main role="main" id="skip-content-target" class:list={className}>
 	<slot />
 	<GoToTop />
 </main>
