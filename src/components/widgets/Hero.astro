@@ -10,11 +10,10 @@ const { ariaLabel } = Astro.props;
 <section id="hero" role="region" class="hero" aria-label={ariaLabel}>
 	<Particles />
 	<div class="hero__img">
-		<picture class="partners__item scroll__item">
+		<picture>
 			<source type="image/webp" srcset="/images/hero.webp" />
 			<img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" height="1920" width="1080" />
 		</picture>
-		<!-- <img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" /> -->
 	</div>
 	<div class="hero__content">
 		<h1 class="hero__title">Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span></h1>

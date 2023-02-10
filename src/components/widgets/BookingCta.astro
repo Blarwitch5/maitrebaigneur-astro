@@ -6,14 +6,17 @@ import Waves from "@components/ui/shapes/Waves.astro";
 
 <Container className="booking__section">
 	<div class="booking__img">
-		<img
-			loading="lazy"
-			src="/images/join-us.jpg"
-			alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
-			class=""
-			height="600"
-			width="800"
-		/>
+		<picture>
+			<source type="image/webp" srcset="/images/join-us.webp" />
+			<img
+				loading="lazy"
+				src="/images/join-us.jpg"
+				alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
+				class=""
+				height="600"
+				width="800"
+			/>
+		</picture>
 	</div>
 	<div class="booking__content">
 		<h4 class="booking__title">Vous souhaitez commencer l’aventure avec Maître-Baigneur ?</h4><p class="booking__txt">

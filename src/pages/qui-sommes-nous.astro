@@ -57,13 +57,16 @@ const page = {
 				<h2 class="quote__title">Le mot du patron</h2>
 				<div class="quote__content">
 					<div class="quote__img">
-						<img
-							loading="lazy"
-							src="/images/quentin.jpg"
-							alt="Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur"
-							width="500"
-							height="500"
-						/>
+						<picture>
+							<source type="image/webp" srcset="/images/quentin.webp" />
+							<img
+								loading="lazy"
+								src="/images/quentin.jpg"
+								alt="Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur"
+								width="500"
+								height="500"
+							/>
+						</picture>
 					</div>
 					<blockquote>
 						<p>
