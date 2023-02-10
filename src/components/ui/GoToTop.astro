@@ -40,52 +40,43 @@
 </style>
 <script>
 	// Get the "back to top" button
-	const gototopBtn = document.getElementById("gototopBtn");
+	const gototopBtn = document.getElementById("gototopBtn") as HTMLElement;
 	// When the user clicks on the button, scroll to the top of the document
 	gototopBtn.addEventListener("click", topFunction);
 	// Get the main element
-	let main = document.querySelector("main");
+	let main = document.querySelector("main") as HTMLElement;
 	// Get all the sections inside the main element
-	let sections = main.querySelectorAll("section");
+	let sections = main.querySelectorAll("section") as NodeListOf<HTMLElement>;
 	// Get the footer element
-	let footer = document.querySelector("footer");
+	let footer = document.querySelector("footer") as HTMLElement;
 
 	window.addEventListener("scroll", function () {
 		scrollFunction();
 	});
+
 	window.addEventListener("scroll", function () {
-		// Get all sections
 		let allSections = [...sections, footer];
-		// Loop through all sections
 		for (let i = 0; i < allSections.length; i++) {
-			// Get the section
 			let section = allSections[i];
-			// Get the section's rectangle
 			let sectionRect = section.getBoundingClientRect();
-			// Get the button's rectangle
 			let buttonRect = gototopBtn.getBoundingClientRect();
-			// If the button's top is inside the section's rectangle, get the background color
 			if (buttonRect.bottom >= sectionRect.top && buttonRect.bottom <= sectionRect.bottom) {
-				// Get the background color
 				let bgColor = window.getComputedStyle(section).getPropertyValue("background-color");
-				// Get the color's RGB values
 				let color;
 				if (bgColor.includes("rgba(")) {
-					color = /rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/g.exec(bgColor);
+					let colorResult = /rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/g.exec(bgColor);
+					color = colorResult !== null ? colorResult : [0, 0, 0, 0];
 				} else {
-					color = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/g.exec(bgColor);
+					let colorResult = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/g.exec(bgColor);
+					color = colorResult !== null ? colorResult : [0, 0, 0];
 				}
-				// Get the RGB values
-				let r = color[1],
-					g = color[2],
-					b = color[3];
-				// Check the brightness
+				let r = Number(color[1]),
+					g = Number(color[2]),
+					b = Number(color[3]);
 				const brightness = isLight(r, g, b);
-				// If the brightness is light, add the light class to the button
 				if (brightness) {
 					gototopBtn.classList.remove("light");
 					gototopBtn.classList.add("dark");
-					// If the brightness is dark, add the dark class to the button
 				} else {
 					gototopBtn.classList.remove("dark");
 					gototopBtn.classList.add("light");
@@ -93,30 +84,23 @@
 			}
 		}
 	});
-	// A function that returns a boolean value based on whether
-	// the combination of RGB values is considered light or not.
-	// The function takes three parameters: r, g, and b.
+
 	function isLight(r: number, g: number, b: number): boolean {
-		// Calculate brightness based on the RGB values
-		// RGB values range from 0 to 255
 		let brightness = (r * 299 + g * 587 + b * 114) / 1000;
-		// Return true if the brightness is above 128
 		return brightness > 128 || brightness === 0;
 	}
-	// When the user scrolls down 20px from the top of the document, show the button
+
 	function scrollFunction() {
-		// Get the current scroll position of the page
-		var scroll = document.body.scrollTop || document.documentElement.scrollTop;
-		// If the current scroll position is greater than 20px, show the button
+		let scroll = document.body.scrollTop || document.documentElement.scrollTop;
 		if (scroll > 20) {
 			gototopBtn.style.display = "block";
 		} else {
 			gototopBtn.style.display = "none";
 		}
 	}
+
 	function topFunction() {
-		// This function scrolls the body to the top of the page
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
 	}
 </script>
