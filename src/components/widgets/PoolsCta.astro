@@ -17,16 +17,56 @@ const pools = siteLinks.pools;
 		</p>
 		<Buttons href="/bassins" class={`pools__btn btn btn__regular`}>Découvrir nos bassins</Buttons>
 	</div>
-	<div class="pools__images">
-		<img
-			loading="lazy"
-			src="/images/pools/setclub.jpg"
-			alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
-			class=""
-			height="600"
-			width="800"
-		/>
-	</div>
+	<ul class="pools__images">
+		<li style="--x1: 2; --x2: 6; --y1: 1; --y2: 4;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/setclub-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/setclub-thumb.jpg" alt="Piscine Set Club" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 6; --x2: 8; --y1: 2; --y2: 4;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/domicile-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/domicile-thumb.jpg" alt="Piscine à domicile" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 1; --x2: 4; --y1: 4; --y2: 7;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/setclub_2-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/setclub_2-thumb.jpg" alt="Piscine Set Club" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 4; --x2: 7; --y1: 4; --y2: 7;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/aquabecool-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/aquabecool-thumb.jpg" alt="Piscine Aquabecool" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 7; --x2: 9; --y1: 4; --y2: 6;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/planform-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/planform-thumb.jpg" alt="Piscine Planform" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 2; --x2: 4; --y1: 7; --y2: 9;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/kabanon-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/kabanon-thumb.jpg" alt="Piscine Kabanon des écuries de l'aube" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 4; --x2: 7; --y1: 7; --y2: 10;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/domicile_2-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/domicile_2-thumb.jpg" alt="Piscine à domicile" height="300" width="300" />
+			</picture>
+		</li>
+		<li style="--x1: 7; --x2: 10; --y1: 6; --y2: 9;">
+			<picture class="partners__item scroll__item">
+				<source type="image/webp" srcset="/images/thumbnails/webp/kabanon_2-thumb.webp" />
+				<img loading="lazy" src="/images/thumbnails/kabanon_2-thumb.jpg" alt="Piscine Kabanon des écuries de l'aube" height="300" width="300" />
+			</picture>
+		</li>
+	</ul>
 </Container>
 
 <style lang="scss">
@@ -56,27 +96,46 @@ const pools = siteLinks.pools;
 				margin-block: 0;
 			}
 		}
-		&__images {
-			overflow: hidden;
-			border-radius: 20px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+	}
 
+	ul {
+		list-style-type: none;
+		max-width: 100%;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 1vmin;
+		grid-template-columns: repeat(9, 1fr);
+	}
+
+	li:nth-of-type(4) {
+		aspect-ratio: 1;
+	}
+
+	li {
+		padding: 0;
+		position: relative;
+		max-inline-size: 100%;
+		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+
+		picture {
+			width: 100%;
+			height: auto;
 			img {
+				width: 100%;
 				height: 100%;
-				max-height: 370px;
 				object-fit: cover;
 			}
 		}
 	}
-	.pool {
-		max-width: 100px;
+
+	li {
+		grid-column: var(--x1, auto) / var(--x2, auto);
+		grid-row: var(--y1, auto) / var(--y2, auto);
+	}
+
+	li {
+		border-radius: 10px;
 		overflow: hidden;
-		&__img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
 	}
 </style>
