@@ -1,14 +1,14 @@
 ---
-const { header } = Astro.props;
+const { header, index } = Astro.props;
 ---
 
 <li class="accordion__item">
 	<h3 class="accordion__title">
 		<button
-			id="accordion__header-1"
+			id={`accordion__header-${index}`}
 			class="accordion__header"
 			aria-expanded="false"
-			aria-controls="accordion__panel-1"
+			aria-controls={`accordion__panel-${index}`}
 			onclick="toggleAccordionItem()"
 		>
 			{header}
@@ -23,7 +23,7 @@ const { header } = Astro.props;
 			</svg>
 		</button>
 	</h3>
-	<div id="accordion__panel-1" role="region" class="accordion__panel" aria-labelledby="accordion__header-1">
+	<div id={`accordion__panel-${index}`} role="region" class="accordion__panel" aria-labelledby={`accordion__header-${index}`}>
 		<div class="panel-inner">
 			<slot />
 		</div>

@@ -19,11 +19,11 @@ const footerMenu = siteLinks.footerMenu;
 	<Container>
 		<div class="footer__sections">
 			<div class="footer__col brand">
-				<img class="logo" width="300px" height="250px" src="/images/logo.svg" alt="Logo Maître-Baigneur" />
+				<img class="logo" width="300" height="250" src="/images/logo.svg" alt="Logo Maître-Baigneur" />
 				<p class="slogan">"...Le bonheur du baigneur..."</p>
 				<ul class="info">
 					<li>
-						<Buttons class="btn" href="tel:+33677007584" label="Appeler Maître-Baigneur au 06 77 00 75 84">
+						<Buttons class="btn" href="tel:+33677007584">
 							<span class="icon">
 								<Icon name="call" />
 							</span>
@@ -31,7 +31,7 @@ const footerMenu = siteLinks.footerMenu;
 						</Buttons>
 					</li>
 					<li>
-						<Buttons class="btn" href="mailto:contact@maitrebaigneur.com" label="écrire un mail à contact@maitrebaigneur.com">
+						<Buttons class="btn" href="mailto:contact@maitrebaigneur.com">
 							<span class="icon"><Icon name="mail" /></span>contact@maitrebaigneur.com
 						</Buttons>
 					</li>
@@ -46,7 +46,7 @@ const footerMenu = siteLinks.footerMenu;
 					{
 						services.map(service => (
 							<li>
-								<Buttons class="btn" href={service.href} label={service.name}>
+								<Buttons class="btn" href={service.href}>
 									{service.name}
 								</Buttons>
 							</li>
@@ -60,7 +60,7 @@ const footerMenu = siteLinks.footerMenu;
 					{
 						footerMenu.map(item => (
 							<li>
-								<Buttons class={item.classes} href={item.href} label={item.name} target={item.target}>
+								<Buttons class={item.classes} href={item.href} target={item.target}>
 									{item.name}
 								</Buttons>
 							</li>
