@@ -103,7 +103,11 @@
 					"src": "/images/pools/domicile.jpg",
 					"alt": "Bassin à domicile"
 				},
-				"location": ""
+				"location": "",
+				"thumb": {
+					"jpg": "/images/thumbnails/domicile-thumb.jpg",
+					"alt": "Bassin à domicile"
+				}
 			},
 			{
 				"name": "Set Club",
@@ -112,7 +116,11 @@
 					"src": "/images/pools/setclub.jpg",
 					"alt": "Bassin du Set Club"
 				},
-				"location": "Aix Ouest"
+				"location": "Aix Ouest",
+				"thumb": {
+					"jpg": "/images/thumbnails/setclub-thumb.jpg",
+					"alt": "Bassin Set Club"
+				}
 			},
 			{
 				"name": "Aquabecool",
@@ -121,7 +129,11 @@
 					"src": "/images/pools/aquabecool.jpg",
 					"alt": "Bassin de Aquabecool"
 				},
-				"location": "Aix Sud"
+				"location": "Aix Sud",
+				"thumb": {
+					"jpg": "/images/thumbnails/aquabecool-thumb.jpg",
+					"alt": "Bassin à Aquabecool"
+				}
 			},
 			{
 				"name": "Kabanon des écuries de l'aube",
@@ -130,7 +142,11 @@
 					"src": "/images/pools/kabanon.jpg",
 					"alt": "Bassin du Kabanon des écuries de l'aube"
 				},
-				"location": "Saint-Marc-Jaumegarde"
+				"location": "Saint-Marc-Jaumegarde",
+				"thumb": {
+					"jpg": "/images/thumbnails/kabanon-thumb.jpg",
+					"alt": "Bassin du Kabanon des écuries de l'aube"
+				}
 			},
 			{
 				"name": "Kinémouv'",
@@ -139,7 +155,11 @@
 					"src": "/images/pools/fallback.jpg",
 					"alt": "Bassin de Kinémouv"
 				},
-				"location": "Pertuis"
+				"location": "Pertuis",
+				"thumb": {
+					"jpg": "/images/thumbnails/domicile-thumb.jpg",
+					"alt": "Bassin Kinémouv'"
+				}
 			},
 			{
 				"name": "Plan Form",
@@ -148,7 +168,11 @@
 					"src": "/images/pools/planform.jpg",
 					"alt": "Bassin de Plan Form"
 				},
-				"location": "Cabriès"
+				"location": "Cabriès",
+				"thumb": {
+					"jpg": "/images/thumbnails/planform-thumb.jpg",
+					"alt": "Bassin à Plan Form"
+				}
 			}
 		],
 		"footerMenu": [

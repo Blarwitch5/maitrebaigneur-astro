@@ -7,7 +7,15 @@ import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Section from "@components/Section.astro";
 import Container from "@components/Container.astro";
+import { Icon } from "astro-icon";
+
+import site from "@assets/data/data.json";
+
 //data
+
+const { siteLinks } = site;
+const pools = siteLinks.pools;
+
 const page = {
 	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Domicile'",
 	description: "",
@@ -16,30 +24,100 @@ const page = {
 	image: {
 		webp: "/images/page-title/webp/page_domicile-bassins.webp",
 		jpg: "/images/page-title/page_domicile-bassins.jpg",
-		alt: "Bassin de Aquabecool à Aix-en-Provence",
+		alt: "Bassin de Aquabecool à Aix-en-Provence"
 	},
+	currentPool: "Domicile"
+};
+const currentPool = {
+	name: "Domicile",
+	address: "Aix-en-Provence et alentours",
+
+	location: "Aix-en-Provence et alentours",
+
+	services: [
+		{
+			name: "Cours de natation",
+			icon: "swimmer",
+			href: "/prestations/cours-de-natation"
+		},
+		{
+			name: "Événement et sécurité",
+			icon: "event",
+			href: "/prestations/evenement-securite"
+		},
+		{
+			name: "Aquaversaire",
+			icon: "aquaversaire",
+			href: "/prestations/aquaversaire"
+		}
+	]
 };
 ---
 
 <BaseLayout title={page.metaTitle} descritpion={page.description}>
 	<SkipToContent />
-
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main>
-		<Section>
+
+	<Main class="single-pool">
+		<Section class="single-pool">
 			<Container>
-				<h2>Domicile</h2>
+				<h2 class="single-pool__title">Découvrez la piscine {page.title} à {currentPool.location}</h2>
+				<div class="single-pool__content">
+					<p class="single-pool__desc">
+						Bienvenue à la piscine {page.title}, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos
+						cours de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant. La piscine {page.title} est
+						sécurisée et offre un environnement agréable pour les bébés-nageurs, permettant une initiation à l'eau en toute sécurité. Rejoignez-nous à
+						{page.title} pour une expérience inoubliable.
+					</p>
+
+					<div class="single-pool__details">
+						<h3>Informations concernant notre bassin à {page.title}</h3>
+						<h4>Prestations proposées</h4>
+						<ul>
+							{
+								currentPool.services.map(item => {
+									return (
+										<li>
+											<a href={item.href}>
+												<Icon name={item.icon} /> {item.name}
+											</a>
+										</li>
+									);
+								})
+							}
+						</ul>
+						<h4>Sitution géographique</h4>
+						<ul>
+							<li>
+								<a href={`https://maps.google.com?q=${currentPool.address}`} target="_blank"><Icon name="map" />{currentPool.address}</a>
+							</li>
+						</ul>
+					</div>
+					<div class="single-pool__gallery">
+						<picture>
+							<source type="image/webp" srcset={page.image.webp} />
+							<img loading="lazy" src={page.image.jpg} alt={page.image.alt} height="300" width="300" />
+						</picture>
+					</div>
+				</div>
+				<ul class="related-pools">
+					{
+						pools.map(item => {
+							if (item.name === page.currentPool) {
+								return;
+							} else {
+								return (
+									<li>
+										<a href={item.href}>{item.name}</a>
+									</li>
+								);
+							}
+						})
+					}
+				</ul>
 			</Container>
 		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>
-
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
