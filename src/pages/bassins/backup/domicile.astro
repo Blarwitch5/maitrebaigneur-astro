@@ -15,24 +15,24 @@ import site from "@assets/data/data.json";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
+
 const page = {
-	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool",
-	description: "test",
-	title: "Aquabecool",
+	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Domicile'",
+	description: "",
+	title: "Domicile",
+
 	image: {
-		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
-		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
+		webp: "/images/page-title/webp/page_domicile-bassins.webp",
+		jpg: "/images/page-title/page_domicile-bassins.jpg",
 		alt: "Bassin de Aquabecool à Aix-en-Provence"
 	},
-	currentPool: "Aquabecool"
+	currentPool: "Domicile"
 };
 const currentPool = {
-	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",
-	link: {
-		url: "www.aquabecool.com/aquabike-aix-en-provence",
-		text: "Site web d'Aquabecool"
-	},
-	location: "Aix-en-Provence",
+	name: "Domicile",
+	address: "Aix-en-Provence et alentours",
+
+	location: "Aix-en-Provence et alentours",
 
 	services: [
 		{
@@ -41,9 +41,14 @@ const currentPool = {
 			href: "/prestations/cours-de-natation"
 		},
 		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
+			name: "Événement et sécurité",
+			icon: "event",
+			href: "/prestations/evenement-securite"
+		},
+		{
+			name: "Aquaversaire",
+			icon: "aquaversaire",
+			href: "/prestations/aquaversaire"
 		}
 	]
 };
@@ -87,9 +92,6 @@ const currentPool = {
 							<li>
 								<a href={`https://maps.google.com?q=${currentPool.address}`} target="_blank"><Icon name="map" />{currentPool.address}</a>
 							</li>
-							<li>
-								<a href={currentPool.link.url} target="_blank"><Icon name="link" />{currentPool.link.text}</a>
-							</li>
 						</ul>
 					</div>
 					<div class="single-pool__gallery">
@@ -100,7 +102,7 @@ const currentPool = {
 					</div>
 				</div>
 			</Container>
-			<div class="related-pools">
+			<Container fullWidth className="related-pools">
 				<h5>Les autres bassins d'apprentissage</h5>
 				<ul class="horizontal-scroll">
 					{
@@ -118,16 +120,8 @@ const currentPool = {
 						})
 					}
 				</ul>
-			</div>
+			</Container>
 		</Section>
 	</Main>
 	<Footer />
 </BaseLayout>
-
-<style lang="scss">
-	.single-pool {
-	}
-	.related-pools {
-		padding-inline: 2rem;
-	}
-</style>

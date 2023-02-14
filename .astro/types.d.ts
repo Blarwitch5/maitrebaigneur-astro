@@ -48,6 +48,10 @@ declare module 'astro:content' {
 		collection: C,
 		filter?: (entry: CollectionEntry<C>) => entry is E
 	): Promise<E[]>;
+	export function getCollection<C extends keyof typeof entryMap>(
+		collection: C,
+		filter?: (entry: CollectionEntry<C>) => unknown
+	): Promise<CollectionEntry<C>[]>;
 
 	type InferEntrySchema<C extends keyof typeof entryMap> = import('astro/zod').infer<
 		Required<ContentConfig['collections'][C]>['schema']
@@ -62,8 +66,52 @@ declare module 'astro:content' {
 	};
 
 	const entryMap: {
-		
+		"bassins": {
+"aquabecool.md": {
+  id: "aquabecool.md",
+  slug: "aquabecool",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+"domicile.md": {
+  id: "domicile.md",
+  slug: "domicile",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+"kabanon.md": {
+  id: "kabanon.md",
+  slug: "kabanon",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+"kinemouv.md": {
+  id: "kinemouv.md",
+  slug: "kinemouv",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+"planform.md": {
+  id: "planform.md",
+  slug: "planform",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+"set-club.md": {
+  id: "set-club.md",
+  slug: "set-club",
+  body: string,
+  collection: "bassins",
+  data: any
+},
+},
+
 	};
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }

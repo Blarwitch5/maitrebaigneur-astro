@@ -18,15 +18,16 @@ const pools = siteLinks.pools;
 
 //data
 const page = {
-	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'",
+	metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Set Club",
 	description: "",
-	title: "Kinémouv'",
+	title: "Set Club",
+
 	image: {
-		webp: "/images/page-title/webp/fallback.webp",
-		jpg: "/images/page-title/fallback.jpg",
-		alt: "Bassin Kinémouv' à Pertuis"
+		webp: "/images/page-title/webp/page_setclub-bassins.webp",
+		jpg: "/images/page-title/page_setclub-bassins.jpg",
+		alt: "Bassin du Set Club à Aix-en-Provence"
 	},
-	currentPool: "Kinémouv'"
+	currentPool: "Set Club"
 };
 const currentPool = {
 	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",
@@ -66,10 +67,6 @@ const currentPool = {
 					</p>
 
 					<div class="single-pool__details">
-						<!-- <picture>
-							<source type="image/webp" srcset={page.image.webp} />
-							<img loading="lazy" src={page.image.jpg} alt={page.image.alt} height="150" width="150" />
-						</picture> -->
 						<h3>Informations concernant notre bassin à {page.title}</h3>
 						<h4>Prestations proposées</h4>
 						<ul>
@@ -102,21 +99,25 @@ const currentPool = {
 						</picture>
 					</div>
 				</div>
-				<ul class="related-pools">
-					{
-						pools.map(item => {
-							if (item.name === page.currentPool) {
-								return;
-							} else {
-								return (
-									<li>
-										<a href={item.href}>{item.name}</a>
-									</li>
-								);
-							}
-						})
-					}
-				</ul>
+				<Container fullWidth className="related-pools">
+					<h5>Les autres bassins d'apprentissage</h5>
+					<ul class="horizontal-scroll">
+						{
+							pools.map(item => {
+								if (item.name === page.currentPool) {
+									return;
+								} else {
+									return (
+										<li>
+											<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
+											<a href={item.href}>{item.name}</a>
+										</li>
+									);
+								}
+							})
+						}
+					</ul>
+				</Container>
 			</Container>
 		</Section>
 	</Main>

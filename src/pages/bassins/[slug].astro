@@ -1,0 +1,235 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+import Main from "@components/Main.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
+import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
+import { Icon } from "astro-icon";
+// Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const poolEntries = await getCollection("bassins");
+	return poolEntries.map(entry => ({
+		params: { slug: entry.slug },
+		props: { entry }
+	}));
+}
+// Get the entry directly from the prop on render
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const pools = siteLinks.pools;
+---
+
+<BaseLayout title={entry.data.metaTitle} descritpion={entry.data.metaDesc}>
+	<SkipToContent />
+	<Header />
+	<PageTitle
+		pageTitle={entry.data.pool.name}
+		pageImageUrlWebp={entry.data.pool.image.webp}
+		pageImageUrl={entry.data.pool.image.jpg}
+		pageImageAlt={entry.data.pool.image.alt}
+	/>
+
+	<Main class="single-pool">
+		<Section class="single-pool">
+			<Container>
+				{
+					entry.data.pool.name === "Domicile" ? (
+						<h2 class="single-pool__title">Maître-Baigneur à domicile, chez vous !</h2>
+					) : (
+						<h2 class="single-pool__title">
+							Découvrez la piscine {entry.data.pool.name} à {entry.data.pool.location}
+						</h2>
+					)
+				}
+
+				<div class="single-pool__content">
+					<p class="single-pool__desc">
+						{entry.data.pool.desc}
+					</p>
+
+					<div class="single-pool__details">
+						<h3>Informations concernant notre bassin à {entry.data.pool.name}</h3>
+						<h4>Prestations proposées</h4>
+						<ul>
+							{
+								entry.data.pool.services.map((item: { href: string | URL | null | undefined; icon: any; name: unknown }) => {
+									return (
+										<li>
+											<a href={item.href}>
+												<Icon name={item.icon} /> {item.name}
+											</a>
+										</li>
+									);
+								})
+							}
+						</ul>
+						<h4>Sitution géographique</h4>
+						<ul>
+							<li>
+								<a href={`https://maps.google.com?q=${entry.data.pool.address}`} target="_blank"><Icon name="map" />{entry.data.pool.address}</a>
+							</li>
+							{
+								entry.data.pool.link.text !== "" ? (
+									<li>
+										<a href={entry.data.pool.link.url} target="_blank">
+											<Icon name="link" />
+											{entry.data.pool.link.text}
+										</a>
+									</li>
+								) : null
+							}
+						</ul>
+					</div>
+					<div class="single-pool__gallery">
+						<picture>
+							<source type="image/webp" srcset={entry.data.pool.image.webp} />
+							<img loading="lazy" src={entry.data.pool.image.jpg} alt={entry.data.pool.image.alt} height="300" width="300" />
+						</picture>
+					</div>
+				</div>
+			</Container>
+			<Container fullWidth className="related-pools">
+				<h5>Les autres bassins d'apprentissage</h5>
+				<ul class="horizontal-scroll">
+					{
+						pools.map(item => {
+							if (item.name === entry.data.pool.name) {
+								return;
+							} else {
+								return (
+									<li>
+										<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
+										<a href={item.href}>{item.name}</a>
+									</li>
+								);
+							}
+						})
+					}
+				</ul>
+			</Container>
+		</Section>
+	</Main>
+	<Footer />
+</BaseLayout>
+<style lang="scss">
+	.single-pool {
+		&__content {
+			display: grid;
+			grid-template-columns: calc((100% * 2 / 5) - 2rem) calc((100% * 3 / 5) - 2rem);
+			gap: 4rem;
+			align-items: center;
+			padding-bottom: var(--space-lg);
+
+			@media screen and (max-width: 992px) {
+				grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+				gap: 2rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+		}
+		&__details {
+			background-color: var(--color-bg-light);
+			border-radius: 20px;
+			padding: var(--space-lg);
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-sm);
+
+			* {
+				margin: 0;
+			}
+			*a {
+				color: var(--color-black);
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 20px;
+				background-image: url("/images/icons/event.svg");
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: bottom right;
+				opacity: 0.05;
+				z-index: -1;
+			}
+			h3 {
+				font-size: var(--fs-md);
+			}
+
+			h4 {
+				font-family: var(--ff-pacifico);
+				font-size: var(--fs-sm);
+			}
+
+			ul {
+				list-style: none;
+				padding-left: var(--space-sm);
+				& > li {
+					display: flex;
+					flex-wrap: nowrap;
+					align-items: center;
+					a {
+						display: flex;
+						flex-wrap: nowrap;
+						align-items: center;
+						width: 100%;
+						& > svg {
+							width: 2rem;
+							height: 2rem;
+							margin-right: var(--space-sm);
+						}
+					}
+					//
+				}
+			}
+			picture {
+				display: flex;
+				width: 4rem;
+				height: 4rem;
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 10px;
+				}
+			}
+		}
+	}
+	.related-pools {
+		h5 {
+			text-align: center;
+		}
+		ul {
+			& > li {
+				display: flex;
+				flex-wrap: nowrap;
+				align-items: center;
+				gap: var(--space-sm);
+				background-color: var(--color-bg-lght);
+
+				img {
+					width: 100px;
+					height: 100px;
+					border-radius: 20px;
+				}
+			}
+		}
+	}
+</style>

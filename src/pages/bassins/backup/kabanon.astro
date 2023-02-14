@@ -99,14 +99,18 @@ const currentPool = {
 						</picture>
 					</div>
 				</div>
-				<ul class="related-pools">
+			</Container>
+			<Container fullWidth className="related-pools">
+				<h5>Les autres bassins d'apprentissage</h5>
+				<ul class="horizontal-scroll">
 					{
 						pools.map(item => {
-							if (!page.title.includes(item.name)) {
+							if (item.name === page.currentPool) {
 								return;
 							} else {
 								return (
 									<li>
+										<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
 										<a href={item.href}>{item.name}</a>
 									</li>
 								);
