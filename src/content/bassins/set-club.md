@@ -1,21 +1,21 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool"
+metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Set Club"
 metaDesc: "meta description"
 
-title: "Aquabecool"
+title: "Set Club"
 pool: {
-	name: "Aquabecool",
-	location: "Aix Sud",
+	name: "Set Club",
+	location: "Aix Ouest",
 	desc: "test",
 	image: {
-		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
-		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
-		alt: "Bassin de Aquabecool à Aix-en-Provence"
+		webp: "/images/page-title/webp/page_setclub-bassins.webp",
+		jpg: "/images/page-title/page_setclub-bassins.jpg",
+		alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 	},
-	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",
+	address: "1335 Chemin de Granet Les Granettes, 13090, Aix-en-Provence France",
 	link: {
-		url: "www.aquabecool.com/aquabike-aix-en-provence",
-		text: "Site web d'Aquabecool"
+		url: "http://www.setclub.com/",
+		text: "Site web du Set Club"
 	},
 	services: [
 		{
@@ -27,6 +27,28 @@ pool: {
 			name: "Cours Bébé nageur",
 			icon: "baby",
 			href: "/prestations/cours-bebe-nageur"
+		}
+	],
+	gallery: [
+		{
+			webp: "/images/pools/set-club/set-club-1.webp",
+			jpg: "/images/pools/set-club/set-club-1.jpg",
+			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
+		},
+		{
+			webp: "/images/pools/set-club/set-club-2.webp",
+			jpg: "/images/pools/set-club/set-club-2.jpg",
+			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
+		},
+		{
+			webp: "/images/pools/set-club/set-club-3.webp",
+			jpg: "/images/pools/set-club/set-club-3.jpg",
+			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
+		},
+		{
+			webp: "/images/pools/set-club/set-club-4.webp",
+			jpg: "/images/pools/set-club/set-club-4.jpg",
+			alt: "Bassin au Set Club à Aix-en-Provence Ouest"
 		}
 	]
 }

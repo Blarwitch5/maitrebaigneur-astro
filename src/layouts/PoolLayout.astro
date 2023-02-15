@@ -1,0 +1,83 @@
+---
+import Favicon from "@components/head/Favicon.astro";
+import GeoTag from "@components/head/GeoTag.astro";
+
+export interface Props {
+	title: string;
+	descritpion: string;
+}
+
+const { title, description } = Astro.props;
+
+import "sanitize.css";
+import "../assets/styles/main.scss";
+
+//glide required style
+import "node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+import "node_modules/@glidejs/glide/dist/css/glide.theme.min.css";
+
+//differents geotag for the ddifferent pools, default is aix-en-provence (10KM acurancy)
+let region: string, placename: string, position: string, icbm: string;
+const currentPage = new URL(Astro.request.url).pathname as string;
+switch (true) {
+	case currentPage.endsWith("aquabecool"):
+		console.log("aquabecool");
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.512775;5.437376";
+		icbm = "43.512775, 5.437376";
+		break;
+	case currentPage.endsWith("kabanon"):
+		region = "FR-13";
+		placename = "Saint-Marc-Jaumegarde";
+		position = "43.541368;5.502705";
+		icbm = "43.541368, 5.502705";
+		break;
+	case currentPage.endsWith("kinemouv"):
+		region = "FR-13";
+		placename = "Pertuis";
+		position = "43.681747;5.50601";
+		icbm = "43.681747, 5.50601";
+		break;
+	case currentPage.endsWith("plan-form"):
+		region = "FR-13";
+		placename = "Cabri&egrave;s";
+		position = "43.4264974;5.3643899";
+		icbm = "43.4264974, 5.3643899";
+		break;
+	case currentPage.endsWith("set-club"):
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.535356;5.393444";
+		icbm = "43.535356, 5.393444";
+		break;
+	default:
+		region = "FR-13";
+		placename = "Aix-en-Provence";
+		position = "43.5;5.4";
+		icbm = "43.5, 5.4";
+}
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+
+		<!-- GEOTAG -->
+		<GeoTag region={region} placename={placename} position={position} icbm={icbm} />
+		<!-- /GEOTAG -->
+
+		<!-- FAVICON -->
+		<Favicon />
+		<!-- /FAVICON -->
+	</head>
+	<body>
+		<slot />
+		<script src="../assets/scripts/navbar.js"></script>
+	</body>
+</html>

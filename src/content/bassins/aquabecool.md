@@ -28,6 +28,23 @@ pool: {
 			icon: "baby",
 			href: "/prestations/cours-bebe-nageur"
 		}
+	],
+	gallery: [
+		{
+			webp: "/images/pools/aquabecool/aquabecool-1.webp",
+			jpg: "/images/pools/aquabecool/aquabecool-1.jpg",
+			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
+		},
+		{
+			webp: "/images/pools/aquabecool/aquabecool-2.webp",
+			jpg: "/images/pools/aquabecool/aquabecool-2.jpg",
+			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
+		},
+		{
+			webp: "/images/pools/aquabecool/aquabecool-3.webp",
+			jpg: "/images/pools/aquabecool/aquabecool-3.jpg",
+			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
+		}
 	]
 }
 ---

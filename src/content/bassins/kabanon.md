@@ -1,33 +1,50 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool"
+metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'aube"
 metaDesc: "meta description"
 
-title: "Aquabecool"
+title: "Kabanon"
 pool: {
-	name: "Aquabecool",
-	location: "Aix Sud",
+	name: "Kabanon des écuries de l'aube",
+	location: "St-MArc-Jaumegarde",
 	desc: "test",
 	image: {
-		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
-		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
-		alt: "Bassin de Aquabecool à Aix-en-Provence"
+		webp: "/images/page-title/webp/page_kabanon-bassins.webp",
+		jpg: "/images/page-title/page_kabanon-bassins.jpg",
+		alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 	},
-	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",
+	address: "Chemin Aube, 13100 Saint-Marc-Jaumegarde, Aix-en-Provence France",
 	link: {
-		url: "www.aquabecool.com/aquabike-aix-en-provence",
-		text: "Site web d'Aquabecool"
+		url: "https://www.lesecuriesdelaube.com/",
+		text: "Site web du Kabanon"
 	},
 	services: [
 		{
 			name: "Cours de natation",
 			icon: "swimmer",
 			href: "/prestations/cours-de-natation"
+		}
+	],
+	gallery: [
+		{
+			webp: "/images/pools/kabanon/kabanon-1.webp",
+			jpg: "/images/pools/kabanon/kabanon-1.jpg",
+			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		}
+			webp: "/images/pools/kabanon/kabanon-2.webp",
+			jpg: "/images/pools/kabanon/kabanon-2.jpg",
+			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
+		},
+		{
+			webp: "/images/pools/kabanon/kabanon-3.webp",
+			jpg: "/images/pools/kabanon/kabanon-3.jpg",
+			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
+		},
+		{
+			webp: "/images/pools/kabanon/kabanon-4.webp",
+			jpg: "/images/pools/kabanon/kabanon-4.jpg",
+			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
+		},
 	]
 }
 ---
