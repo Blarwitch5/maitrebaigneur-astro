@@ -126,8 +126,10 @@ const pools = siteLinks.pools;
 							} else {
 								return (
 									<li>
-										<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
-										<a href={item.href}>{item.name}</a>
+										<a href={item.href}>
+											<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
+											{item.name}
+										</a>
 									</li>
 								);
 							}
@@ -280,9 +282,7 @@ const pools = siteLinks.pools;
 					&__slide {
 						padding-inline: 0.5rem;
 					}
-					// &__bullets {
-					// 	bottom: 2rem;
-					// }
+
 					&__bullet {
 						background-color: var(--color-primary);
 
@@ -310,9 +310,7 @@ const pools = siteLinks.pools;
 					justify-content: center;
 					margin-inline: auto;
 					& > li {
-						display: flex;
-						flex-wrap: nowrap;
-						align-items: center;
+						list-style-type: none;
 						background-color: var(--color-bg-light-alt);
 						border-radius: 20px;
 						box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
@@ -331,7 +329,6 @@ const pools = siteLinks.pools;
 							color: var(--color-primary);
 							text-decoration: none;
 							font-family: var(--ff-pacifico);
-							padding-inline: var(--space-md);
 							display: block;
 							white-space: nowrap;
 							overflow: hidden;
@@ -342,6 +339,7 @@ const pools = siteLinks.pools;
 							width: 100px;
 							height: 100px;
 							border-radius: 20px;
+							margin-right: var(--space-md);
 						}
 					}
 				}
