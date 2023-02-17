@@ -6,8 +6,8 @@ const lifeguards = [
 		degree: "Diplômé d’État BEESAN",
 		picture: {
 			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen",
-		},
+			alt: "Quentin Vander Meulen"
+		}
 	},
 	{
 		name: "Edouard Bahna",
@@ -15,8 +15,8 @@ const lifeguards = [
 		degree: "Diplômé BPJEPS-AN ",
 		picture: {
 			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen",
-		},
+			alt: "Quentin Vander Meulen"
+		}
 	},
 	{
 		name: "Florent Astier",
@@ -24,9 +24,9 @@ const lifeguards = [
 		degree: "Diplômé BPJEPS-AN ",
 		picture: {
 			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen",
-		},
-	},
+			alt: "Quentin Vander Meulen"
+		}
+	}
 ];
 ---
 
@@ -38,7 +38,7 @@ const lifeguards = [
 	</p>
 	<div class="lifeguards-list">
 		{
-			lifeguards.map((lifeguard) => (
+			lifeguards.map(lifeguard => (
 				<div class="lifeguard">
 					<figure class="lifeguard-img">
 						<img src={lifeguard.picture.src} alt={lifeguard.picture.alt} loading="lazy" />
@@ -64,7 +64,7 @@ const lifeguards = [
 	}
 	.lifeguard {
 		background-color: var(--color-bg-light);
-		border-radius: 20px;
+		border-radius: var(--regular-border-radius);
 		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
 		&-img {
@@ -72,7 +72,7 @@ const lifeguards = [
 			height: 300px;
 			overflow: hidden;
 			margin: 0;
-			border-radius: 20px;
+			border-radius: var(--regular-border-radius);
 
 			img {
 				width: 100%;
