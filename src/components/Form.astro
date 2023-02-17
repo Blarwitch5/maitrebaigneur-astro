@@ -1,61 +1,82 @@
 ---
 import Buttons from "./ui/Buttons.astro";
+import { Icon } from "astro-icon";
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const pools = siteLinks.pools;
 ---
 
-<form action="https://getform.io/f/07ac1ebb-9a09-434c-a1ae-a86c55824ca5" method="POST">
-	<fieldset>
+<form class="form" action="https://getform.io/f/07ac1ebb-9a09-434c-a1ae-a86c55824ca5" method="POST">
+	<fieldset class="form__group">
 		<legend>En quoi pouvons-nous vous aider ?</legend>
-		<div class="form-field">
-			<label for="choise1" class="card card-swimming">
-				<input type="radio" autocomplete="off" name="choise" value="Leçons de natation" id="choise1" class="radio" />
-				<span class="sr-only">Leçons de natation à domicile</span>
-				<span class="card-title" aria-hidden="true">Leçons de natation à domicile</span>
-			</label>
-		</div>
-		<div class="form-field">
-			<label for="choise2" class="card card-aquaversary">
-				<input type="radio" autocomplete="off" name="choise" value="Organisation d'un aquaversaire" id="choise2" class="radio" />
-				<span class="sr-only">Organisation d'un aquaversaire</span>
-				<span class="card-title" aria-hidden="true">Organisation d'un aquaversaire</span>
-			</label>
-		</div>
-		<div class="form-field">
-			<label for="choise3" class="card card-events">
-				<input type="radio" autocomplete="off" name="choise" value="Sécuriter d'un événement" id="choise3" class="radio" />
-				<span class="sr-only">Sécuriser un événement</span>
-				<span class="card-title" aria-hidden="true">Sécurité d'un événement</span>
-			</label>
-		</div>
-		<div class="form-field">
-			<label for="choise4" class="card card-questions">
-				<input type="radio" autocomplete="off" name="choise" value="Autres questions ou suggestions" id="choise4" class="radio" />
-				<span class="sr-only">Autres questions ou suggestions</span>
-				<span class="card-title" aria-hidden="true">Autres questions ou suggestions</span>
-			</label>
+		<div class="radio__group">
+			<div class="form__field">
+				<label for="choise1" class="card card-swimming">
+					<input type="radio" autocomplete="off" name="choise" value="Leçons de natation" id="choise1" class="radio" />
+					<span class="sr-only">Leçons de natation à domicile</span>
+					<span class="card__title" aria-hidden="true">Leçons de natation à domicile</span>
+				</label>
+			</div>
+			<div class="form__field">
+				<label for="choise2" class="card card-aquaversary">
+					<input type="radio" autocomplete="off" name="choise" value="Organisation d'un aquaversaire" id="choise2" class="radio" />
+					<span class="sr-only">Organisation d'un aquaversaire</span>
+					<span class="card__title" aria-hidden="true">Organisation d'un aquaversaire</span>
+				</label>
+			</div>
+			<div class="form__field">
+				<label for="choise3" class="card card-events">
+					<input type="radio" autocomplete="off" name="choise" value="Sécuriter d'un événement" id="choise3" class="radio" />
+					<span class="sr-only">Sécuriser un événement</span>
+					<span class="card__title" aria-hidden="true">Sécurité d'un événement</span>
+				</label>
+			</div>
+			<div class="form__field">
+				<label for="choise4" class="card card-questions">
+					<input type="radio" autocomplete="off" name="choise" value="Autres questions ou suggestions" id="choise4" class="radio" />
+					<span class="sr-only">Autres questions ou suggestions</span>
+					<span class="card__title" aria-hidden="true">Autres questions ou suggestions</span>
+				</label>
+			</div>
+			<div class="form__field">
+				<label for="choise5" class="card card-baby">
+					<input type="radio" autocomplete="off" name="choise" value="Cours de bébé nageur" id="choise5" class="radio" />
+					<span class="sr-only">Cours de bébé nageur</span>
+					<span class="card__title" aria-hidden="true">Cours de bébé nageur</span>
+				</label>
+			</div>
+			<div class="form__field">
+				<label for="choise6" class="card card-swimming">
+					<input type="radio" autocomplete="off" name="choise" value="Leçons de natation en station" id="choise6" class="radio" />
+					<span class="sr-only">Leçons de natation en bassin d'apprentissage</span>
+					<span class="card__title" aria-hidden="true">Leçons de natation en bassin d'apprentissage</span>
+				</label>
+			</div>
 		</div>
 	</fieldset>
 
 	<!-- 1rst section - swimming lessons -->
-	<fieldset class="form-section" id="swimming-lessons">
+	<fieldset class="form__section" id="swimming-lessons">
 		<legend>Contact pour leçons de natation à domicile</legend>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="name">Nom d'un des parents</label>
 			<input type="text" name="name" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="tel">Numéro de téléphone</label>
 			<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="email">Adresse mail</label>
 			<input type="email" name="email" />
 		</div>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="location">Où est-ce que l'on nage ?</label>
 			<input type="text" name="location" />
 			<small>Adresse et code postal de la piscine</small>
 		</div>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="dates">Quand vodriez-vous réserver un cours ?</label>
 			<textarea name="dates" rows="3"></textarea>
 			<small>Veuillez nous fournir plusieurs dates et heures</small>
@@ -73,25 +94,25 @@ import Buttons from "./ui/Buttons.astro";
 	</fieldset>
 
 	<!-- 2nd section - aquaversary -->
-	<fieldset class="form-section" id="aquaversary">
+	<fieldset class="form__section" id="aquaversary">
 		<legend>Contact pour un Aquaversaire</legend>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="name">Nom</label>
 			<input type="text" name="name" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="firstname">Prénom</label>
 			<input type="text" name="firstname" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="tel">Numéro de téléphone</label>
 			<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="email">Adresse mail</label>
 			<input type="email" name="email" />
 		</div>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="info">Où ? Quand ? Et combien de baigneurs</label>
 			<textarea name="info" rows="3"></textarea>
 			<small>Exemple: Je souhaite organiser un aquaversaire à Aix le 01/01/23 pour 10 enfants...</small>
@@ -99,25 +120,25 @@ import Buttons from "./ui/Buttons.astro";
 	</fieldset>
 
 	<!-- 3rd section - events -->
-	<fieldset class="form-section" id="events">
+	<fieldset class="form__section" id="events">
 		<legend>Contact pour de la surveillance</legend>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="name">Nom</label>
 			<input type="text" name="name" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="firstname">Prénom</label>
 			<input type="text" name="firstname" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="tel">Numéro de téléphone</label>
 			<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="email">Adresse mail</label>
 			<input type="email" name="email" />
 		</div>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="info">Où ? Quand ? Et combien de personnes ? Quel type d'événement ?</label>
 			<textarea name="info" rows="3"></textarea>
 			<small>Exemple: Je souhaite sécuriser un mariage à Aix le 01/01/23 pour 50 personnes...</small>
@@ -125,34 +146,68 @@ import Buttons from "./ui/Buttons.astro";
 	</fieldset>
 
 	<!-- 4th section - questions -->
-	<fieldset class="form-section" id="questions">
+	<fieldset class="form__section" id="questions">
 		<legend>Autres questions et suggestions</legend>
 
-		<div class="form-field">
+		<div class="form__field">
 			<label for="name">Nom</label>
 			<input type="text" name="name" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="firstname">Prénom</label>
 			<input type="text" name="firstname" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="tel">Numéro de téléphone</label>
 			<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" />
 		</div>
-		<div class="form-field">
+		<div class="form__field">
 			<label for="email">Adresse mail</label>
 			<input type="email" name="email" />
 		</div>
-		<div class="form-field col-100">
+		<div class="form__field col-100">
 			<label for="info">Message</label>
 			<textarea name="info" rows="3"></textarea>
 		</div>
 	</fieldset>
+	<!-- 5th section - Baby swimmers -->
+	<fieldset class="form__section no-inputs" id="baby">
+		<legend>Cours bébé nageur</legend>
+
+		<p>Pour vous inscrire aux cours de bébé nageur, utilisez notre nouveau système de réservation en ligne.</p>
+		<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular"><Icon name="calendar" /> Je réserve maintenant</Buttons>
+	</fieldset>
+	<!-- 6th section - Swimming in station -->
+	<fieldset class="form__section no-inputs" id="swimming-station">
+		<legend>Cours de natation en bassin d'apprentissage</legend>
+
+		<p>
+			Pour vous inscrire aux cours de natation dans un de <a href="/bassins">nos bassins d'apprentissage</a>, utilisez notre nouveau système de
+			réservation en ligne.
+		</p>
+		<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular"><Icon name="calendar" /> Je réserve maintenant</Buttons>
+		<div class="pools">
+			<h3>Nos bassins d'apprentissage</h3>
+			<ul>
+				{
+					pools.map(item => {
+						return (
+							<li>
+								<a href={item.href}>
+									<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
+									{item.name}
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+	</fieldset>
 
 	<!-- RGDP -->
-	<fieldset class="form-section" id="rgpd">
-		<div class="form-field col-100">
+	<fieldset class="form__section rgpd" id="rgpd-section">
+		<div class="form__field col-100">
 			<input type="checkbox" name="rgpd" id="rgpd" required />
 			<label for="rgpd" class="rgpd-label"
 				>En soumettant ce formulaire, j'accepte que les informations saisies dans ce formulaire soient utilisées pour permettre de me recontacter.
@@ -160,12 +215,12 @@ import Buttons from "./ui/Buttons.astro";
 		</div>
 
 		<!-- submit button -->
-		<Buttons type="submit" class="btn btn-regular">Envoyer</Buttons>
+		<Buttons type="submit" class="btn btn__regular">Envoyer</Buttons>
 	</fieldset>
 </form>
 
 <style lang="scss">
-	form {
+	.form {
 		//form variables
 		--card-line-height: 1.2em;
 		--card-padding: var(--space-md);
@@ -173,49 +228,43 @@ import Buttons from "./ui/Buttons.astro";
 		--color-gray: #e2ebf6;
 		--color-dark-gray: #c4d1e1;
 		--radio-border-width: 2px;
-		--radio-size: 1.5em;
-		--form-gap: 1.5rem;
+		--radio-size: var(--space-md);
+		--form-gap: var(--space-xs);
 
-		max-width: 800px;
+		max-width: 1024px;
 		margin: auto;
 		display: grid;
 		grid-gap: var(--form-gap);
 		padding-block: 2rem;
 
-		label {
-			display: block;
+		legend {
+			padding-inline: 1rem;
+			font-family: var(--ff-pacifico);
+			color: var(--color-primary);
+			font-size: var(--fs-lg);
 		}
-		label:not(.card, .rgpd-label) {
-			padding-left: var(--space-xs);
-			font-size: 1rem;
-			font-weight: 600;
-			color: var(--color-secondary);
-		}
-		small {
-			color: hsla(var(--link-color-black-hsl), 0.5);
-			padding-left: var(--space-xs);
+		&__group {
+			border: none;
+			padding: 0;
 		}
 
-		fieldset {
+		&__group .radio__group,
+		&__section {
 			padding: var(--form-gap);
 			display: grid;
-			grid-template-columns: 1fr;
 			grid-gap: var(--form-gap);
 			border: none;
 			border-radius: 20px;
+			grid-template-columns: 1fr;
 
 			@media screen and (min-width: 576px) {
-				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
-
-			& > legend {
-				padding-inline: 1rem;
-				font-family: var(--ff-pacifico);
-				color: var(--color-primary);
-				font-size: var(--fs-lg);
+			@media screen and (min-width: 992px) {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
 			}
-			& > .form-field {
+
+			& > .form__field {
 				margin: 0;
 				display: flex;
 				gap: 0.3rem;
@@ -245,6 +294,110 @@ import Buttons from "./ui/Buttons.astro";
 				}
 			}
 		}
+		&__section {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+
+			&.no-inputs {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-md);
+
+				& > * {
+					margin: 0;
+				}
+
+				// pool list
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--space-2xs);
+
+					& > li {
+						list-style-type: none;
+						border-radius: 20px;
+						transition: all 0.3s ease-in-out;
+						flex-basis: calc(50% - var(--space-md));
+						transition: all 0.3s ease-in-out;
+
+						&:hover {
+							transform: translateX(1rem);
+						}
+
+						@media screen and (max-width: 767px) {
+							flex-basis: calc(100% - var(--space-md));
+						}
+
+						a:is(a, :hover, :focus, :active) {
+							color: var(--color-primary);
+							text-decoration: none;
+							font-family: var(--ff-pacifico);
+							display: block;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+						}
+
+						img {
+							width: 3rem;
+							height: 3rem;
+							border-radius: 20px;
+							margin-right: var(--space-md);
+						}
+					}
+				}
+				.pools {
+					padding: var(--space-md);
+					background-color: var(--color-bg-light);
+					border-radius: var(--regular-border-radius);
+				}
+
+				//booking btn
+				.btn {
+					svg {
+						width: 2rem;
+						margin-right: var(--space-xs);
+					}
+				}
+			}
+
+			label {
+				height: auto;
+			}
+			&.rgpd {
+				.form__field {
+					flex-direction: row;
+					flex-wrap: nowrap;
+					gap: var(--space-sm);
+				}
+				input[type="checkbox"] {
+					&[name="rgpd"] {
+						accent-color: var(--color-primary);
+						width: 1.5rem;
+						height: 1.5rem;
+						border-radius: var(--small-border-radius);
+					}
+				}
+			}
+		}
+
+		label {
+			display: block;
+			height: 100%;
+
+			&:not(.card, .rgpd-label) {
+				padding-left: var(--space-xs);
+				font-size: 1rem;
+				font-weight: 600;
+				color: var(--color-secondary);
+				height: unset;
+			}
+		}
+
+		small {
+			color: hsla(var(--link-color-black-hsl), 0.5);
+			padding-left: var(--space-xs);
+		}
+		//buttons cards style
 		.card {
 			background-color: var(--color-white);
 			border-radius: var(--card-radius);
@@ -288,6 +441,11 @@ import Buttons from "./ui/Buttons.astro";
 			&.card-questions {
 				&::before {
 					background-image: url("/images/icons/comment-smile.svg");
+				}
+			}
+			&.card-baby {
+				&::before {
+					background-image: url("/images/icons/baby.svg");
 				}
 			}
 		}
@@ -342,103 +500,105 @@ import Buttons from "./ui/Buttons.astro";
 			}
 		}
 
-		.card-title {
+		.card__title {
+			height: 100%;
 			border: var(--radio-border-width) solid var(--color-gray);
 			border-radius: var(--card-radius);
 			cursor: pointer;
 			display: flex;
 			flex-direction: column;
 			padding-block: var(--card-padding);
-			padding-inline: var(--card-padding) 4rem;
+			padding-inline: var(--card-padding) 4.5rem;
 
 			transition: border-color 0.2s ease-out;
 		}
 
-		.card:hover .card-title {
-			border-color: var(--color-dark-gray);
+		.card {
+			&:hover {
+				.card__title {
+					border-color: var(--color-dark-gray);
+				}
+				.radio {
+					&:disabled {
+						& ~ .card__title {
+							border-color: var(--color-gray);
+							box-shadow: none;
+						}
+					}
+				}
+				.card {
+					&:hover {
+						.radio {
+							&:disabled {
+								border-color: var(--color-gray);
+							}
+						}
+					}
+				}
+			}
 		}
-
-		.radio:checked ~ .card-title {
-			border-color: var(--color-primary);
+		.radio {
+			&:checked {
+				& ~ .card__title {
+					border-color: var(--color-primary);
+				}
+			}
+			&:focus {
+				& ~ .card__title {
+					box-shadow: 0 0 0 2px var(--color-dark-gray);
+				}
+			}
+			&:disabled {
+				& ~ .card__title {
+					color: var(--color-dark-gray);
+				}
+			}
 		}
-
-		.radio:focus ~ .card-title {
-			box-shadow: 0 0 0 2px var(--color-dark-gray);
-		}
-
-		.radio:disabled ~ .card-title {
-			color: var(--color-dark-gray);
-			// cursor: default;
-		}
-
-		.card:hover .radio:disabled ~ .card-title {
-			border-color: var(--color-gray);
-			box-shadow: none;
-		}
-
-		.card:hover .radio:disabled {
-			border-color: var(--color-gray);
+		button[type="submit"] {
+			margin-top: var(--space-md);
 		}
 	}
 </style>
 
 <script is:inline>
 	// Get all elements with the class name "form-section"
-	const formSections = document.getElementsByClassName("form-section");
-
+	const formSections = document.getElementsByClassName("form__section");
 	// Loop through each of the form sections
 	for (const formSection of formSections) {
 		// Hide each form section exects swimming sessons which is the default one
-		// if (formSection.id !== "swimming-lessons") {
 		formSection.style.display = "none";
-		// }
 	}
-	// 1. Select all radio buttons
-	const radioButtons = document.querySelectorAll("input[name='choise']");
 
-	// 2. Add an event listener to each radio button
+	const swimmingSection = document.getElementById("swimming-lessons");
+	const aquaversarySection = document.getElementById("aquaversary");
+	const eventsSection = document.getElementById("events");
+	const questionsSection = document.getElementById("questions");
+	const babySection = document.getElementById("baby");
+	const swimmingStationSection = document.getElementById("swimming-station");
+	const rgpd = document.getElementById("rgpd-section");
+
+	const sectionMap = {
+		"Leçons de natation": swimmingSection,
+		"Organisation d'un aquaversaire": aquaversarySection,
+		"Sécuriter d'un événement": eventsSection,
+		"Autres questions ou suggestions": questionsSection,
+		"Cours de bébé nageur": babySection,
+		"Leçons de natation en station": swimmingStationSection
+	};
+
+	const radioButtons = document.querySelectorAll("input[name='choise']");
 	radioButtons.forEach(button => {
 		button.addEventListener("change", event => {
-			const swimmingSection = document.getElementById("swimming-lessons");
-			const aquaversarySection = document.getElementById("aquaversary");
-			const eventsSection = document.getElementById("events");
-			const questionsSection = document.getElementById("questions");
-			const rgpd = document.getElementById("rgpd");
-
-			// 3. Display the corresponding form
-			switch (event.target.value) {
-				case "Leçons de natation":
-					swimmingSection.style.display = "grid";
-					aquaversarySection.style.display = "none";
-					eventsSection.style.display = "none";
-					questionsSection.style.display = "none";
-					rgpd.style.display = "block";
-					break;
-				case "Organisation d'un aquaversaire":
-					swimmingSection.style.display = "none";
-					aquaversarySection.style.display = "grid";
-					eventsSection.style.display = "none";
-					questionsSection.style.display = "none";
-					rgpd.style.display = "block";
-
-					break;
-				case "Sécuriter d'un événement":
-					swimmingSection.style.display = "none";
-					aquaversarySection.style.display = "none";
-					eventsSection.style.display = "grid";
-					questionsSection.style.display = "none";
-					rgpd.style.display = "block";
-
-					break;
-				case "Autres questions ou suggestions":
-					swimmingSection.style.display = "none";
-					aquaversarySection.style.display = "none";
-					eventsSection.style.display = "none";
-					questionsSection.style.display = "grid";
-					rgpd.style.display = "block";
-
-					break;
+			const section = sectionMap[event.target.value];
+			for (const key in sectionMap) {
+				if (sectionMap[key] === section) {
+					sectionMap[key].style.display = sectionMap[key].classList.contains("no-inputs") ? "flex" : "grid";
+				} else {
+					sectionMap[key].style.display = "none";
+				}
 			}
+			rgpd.style.display =
+				section === swimmingSection || section === aquaversarySection || section === eventsSection || section === questionsSection ? "block" : "none";
 		});
 	});
 </script>
