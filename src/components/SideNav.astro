@@ -78,18 +78,18 @@ const logo = {
 		max-width: 1000px;
 		position: fixed;
 		z-index: 999;
-		right: 0;
+		left: 100%;
 		top: 0;
 		background-color: var(--color-primary);
 		padding-block: 3rem 2rem;
 		transition: transform 0.3s linear;
-		transform: translateX(100%);
+		transform: translateX(0%);
 
 		&[data-state="opened"] {
-			transform: translateX(0);
+			transform: translateX(-100%);
 		}
 		&[data-state="closed"] {
-			transform: translateX(100%);
+			transform: translateX(0%);
 		}
 
 		@media screen and (max-width: 992px) {
