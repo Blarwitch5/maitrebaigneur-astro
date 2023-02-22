@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Main from "@components/Main.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import PageTitle from "@components/header/PageTitle.astro";
+import Container from "@components/Container.astro";
+import Section from "@components/Section.astro";
+import SkipToContent from "@components/ui/SkipToContent.astro";
+
+//data
+
+const page = {
+	metaTitle: "Maître-Baigneur | Nos prestations",
+	description: "",
+	title: "Nos presttations",
+	imageUrl: "/images/page-title/fallback.jpg",
+	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+
+	image: {
+		webp: "/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
+		alt: "Vue sur des pieds trempants dans l'eau d'une piscine"
+	}
+};
+---
+
+<BaseLayout title={page.title} descritpion={page.description}>
+	<SkipToContent />
+	<Header />
+	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+
+	<Main>
+		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
+			<Container>
+				<h2>Nos prestations</h2>
+				{}
+			</Container>
+		</Section>
+		<Footer />
+	</Main>
+</BaseLayout>
+<style></style>

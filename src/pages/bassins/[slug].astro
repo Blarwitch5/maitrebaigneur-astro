@@ -138,235 +138,235 @@ const pools = siteLinks.pools;
 				</ul>
 			</Container>
 		</Section>
-		<Footer />
-
-		<style lang="scss">
-			.single-pool {
-				&__content {
-					display: grid;
-					grid-template-columns: calc((100% * 2 / 5) - 2rem) calc((100% * 3 / 5) - 2rem);
-					gap: 4rem;
-					align-items: center;
-					padding-bottom: var(--space-lg);
-
-					@media screen and (max-width: 992px) {
-						grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
-						gap: 2rem;
-					}
-
-					@media screen and (max-width: 768px) {
-						grid-template-columns: 1fr;
-						gap: 2rem;
-					}
-				}
-				&__details {
-					background-color: var(--color-bg-light);
-					border-radius: var(--regular-border-radius);
-					padding: var(--space-lg);
-					box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
-					position: relative;
-					display: flex;
-					flex-direction: column;
-					gap: var(--space-sm);
-
-					* {
-						margin: 0;
-					}
-					*a {
-						color: var(--color-black);
-					}
-
-					&::after {
-						content: "";
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						border-radius: var(--regular-border-radius);
-						background-image: url("/images/icons/event.svg");
-						background-repeat: no-repeat;
-						background-size: contain;
-						background-position: bottom right;
-						opacity: 0.05;
-						z-index: -1;
-					}
-					h3 {
-						font-size: var(--fs-md);
-					}
-
-					h4 {
-						font-family: var(--ff-pacifico);
-						font-size: var(--fs-sm);
-					}
-
-					ul {
-						list-style: none;
-						padding-left: var(--space-sm);
-						& > li {
-							display: flex;
-							flex-wrap: nowrap;
-							align-items: center;
-							a {
-								display: flex;
-								flex-wrap: nowrap;
-								align-items: center;
-								width: 100%;
-								& > svg {
-									width: 2rem;
-									height: 2rem;
-									margin-right: var(--space-sm);
-								}
-							}
-							//
-						}
-					}
-				}
-				&__gallery {
-					picture {
-						position: relative;
-						display: block;
-						height: 100%;
-						border-radius: var(--regular-border-radius);
-						overflow: hidden;
-						box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
-
-						&:after {
-							content: "";
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							border-radius: var(--regular-border-radius);
-							overflow: hidden;
-							background-image: linear-gradient(
-								0deg,
-								hsla(var(--link-color-primary-hsl), 1) 0%,
-								hsla(var(--link-color-primary-hsl), 1) 7%,
-								hsla(var(--link-color-white-hsl), 0) 36%
-							);
-							z-index: 1;
-						}
-
-						& > img {
-							border-radius: var(--regular-border-radius);
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-							object-position: center;
-						}
-					}
-				}
-				.glide {
-					display: block;
-					height: 432px;
-					// display: flex;
-					// justify-content: center;
-					// align-items: center;
-					// padding-block-end: 4rem;
-					position: relative;
-
-					@media screen and (max-width: 1024px) {
-						height: 332px;
-					}
-
-					@media screen and (max-width: 768px) {
-						height: 232px;
-					}
-					&__track,
-					&__slides {
-						height: 100%;
-					}
-
-					&__slide {
-						padding-inline: 0.5rem;
-					}
-
-					&__bullet {
-						background-color: var(--color-primary);
-
-						border-color: var(--color-white);
-						border-width: 1px;
-
-						&--active {
-							background-color: var(--color-bg-light-alt);
-						}
-					}
-				}
-			}
-			.related-pools {
-				padding-top: 0;
-				h5 {
-					text-align: center;
-					margin-block: var(--space-lg);
-				}
-				ul {
-					padding: var(--space-md);
-					display: flex;
-					gap: var(--space-md);
-					flex-wrap: wrap;
-					max-width: 992px;
-					justify-content: center;
-					margin-inline: auto;
-					& > li {
-						list-style-type: none;
-						background-color: var(--color-bg-light-alt);
-						border-radius: var(--regular-border-radius);
-						box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
-						transition: all 0.3s ease-in-out;
-						flex-basis: calc(50% - var(--space-md));
-
-						@media screen and (max-width: 767px) {
-							flex-basis: calc(100% - var(--space-md));
-						}
-
-						&:hover {
-							transform: translateY(-0.5rem);
-						}
-
-						a:is(a, :hover, :focus, :active) {
-							color: var(--color-primary);
-							text-decoration: none;
-							font-family: var(--ff-pacifico);
-							display: block;
-							white-space: nowrap;
-							overflow: hidden;
-							text-overflow: ellipsis;
-						}
-
-						img {
-							width: 100px;
-							height: 100px;
-							border-radius: var(--regular-border-radius);
-							margin-right: var(--space-md);
-						}
-					}
-				}
-			}
-		</style>
-		<script>
-			import Glide from "@glidejs/glide";
-			import { Swipe } from "@glidejs/glide/dist/glide.modular.esm";
-
-			var glide = new Glide(".glide", {
-				type: "slider",
-				// autoplay: 3000,
-				hoverpause: true,
-				focusAt: "center",
-				perView: 3,
-				// gap: 16,
-				keyboard: true,
-				breakpoints: {
-					1024: {
-						perView: 2
-					},
-					768: {
-						perView: 1.5
-					}
-				}
-			});
-			glide.mount({ Swipe });
-		</script>
 	</Main>
+	<Footer />
 </PoolLayout>
+
+<style lang="scss">
+	.single-pool {
+		&__content {
+			display: grid;
+			grid-template-columns: calc((100% * 2 / 5) - 2rem) calc((100% * 3 / 5) - 2rem);
+			gap: 4rem;
+			align-items: center;
+			padding-bottom: var(--space-lg);
+
+			@media screen and (max-width: 992px) {
+				grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+				gap: 2rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+		}
+		&__details {
+			background-color: var(--color-bg-light);
+			border-radius: var(--regular-border-radius);
+			padding: var(--space-lg);
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-sm);
+
+			* {
+				margin: 0;
+			}
+			*a {
+				color: var(--color-black);
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: var(--regular-border-radius);
+				background-image: url("/images/icons/event.svg");
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: bottom right;
+				opacity: 0.05;
+				z-index: -1;
+			}
+			h3 {
+				font-size: var(--fs-md);
+			}
+
+			h4 {
+				font-family: var(--ff-pacifico);
+				font-size: var(--fs-sm);
+			}
+
+			ul {
+				list-style: none;
+				padding-left: var(--space-sm);
+				& > li {
+					display: flex;
+					flex-wrap: nowrap;
+					align-items: center;
+					a {
+						display: flex;
+						flex-wrap: nowrap;
+						align-items: center;
+						width: 100%;
+						& > svg {
+							width: 2rem;
+							height: 2rem;
+							margin-right: var(--space-sm);
+						}
+					}
+					//
+				}
+			}
+		}
+		&__gallery {
+			picture {
+				position: relative;
+				display: block;
+				height: 100%;
+				border-radius: var(--regular-border-radius);
+				overflow: hidden;
+				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border-radius: var(--regular-border-radius);
+					overflow: hidden;
+					background-image: linear-gradient(
+						0deg,
+						hsla(var(--link-color-primary-hsl), 1) 0%,
+						hsla(var(--link-color-primary-hsl), 1) 7%,
+						hsla(var(--link-color-white-hsl), 0) 36%
+					);
+					z-index: 1;
+				}
+
+				& > img {
+					border-radius: var(--regular-border-radius);
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+		}
+		.glide {
+			display: block;
+			height: 432px;
+			// display: flex;
+			// justify-content: center;
+			// align-items: center;
+			// padding-block-end: 4rem;
+			position: relative;
+
+			@media screen and (max-width: 1024px) {
+				height: 332px;
+			}
+
+			@media screen and (max-width: 768px) {
+				height: 232px;
+			}
+			&__track,
+			&__slides {
+				height: 100%;
+			}
+
+			&__slide {
+				padding-inline: 0.5rem;
+			}
+
+			&__bullet {
+				background-color: var(--color-primary);
+
+				border-color: var(--color-white);
+				border-width: 1px;
+
+				&--active {
+					background-color: var(--color-bg-light-alt);
+				}
+			}
+		}
+	}
+	.related-pools {
+		padding-top: 0;
+		h5 {
+			text-align: center;
+			margin-block: var(--space-lg);
+		}
+		ul {
+			padding: var(--space-md);
+			display: flex;
+			gap: var(--space-md);
+			flex-wrap: wrap;
+			max-width: 992px;
+			justify-content: center;
+			margin-inline: auto;
+			& > li {
+				list-style-type: none;
+				background-color: var(--color-bg-light-alt);
+				border-radius: var(--regular-border-radius);
+				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+				transition: all 0.3s ease-in-out;
+				flex-basis: calc(50% - var(--space-md));
+
+				@media screen and (max-width: 767px) {
+					flex-basis: calc(100% - var(--space-md));
+				}
+
+				&:hover {
+					transform: translateY(-0.5rem);
+				}
+
+				a:is(a, :hover, :focus, :active) {
+					color: var(--color-primary);
+					text-decoration: none;
+					font-family: var(--ff-pacifico);
+					display: block;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				img {
+					width: 100px;
+					height: 100px;
+					border-radius: var(--regular-border-radius);
+					margin-right: var(--space-md);
+				}
+			}
+		}
+	}
+</style>
+<script>
+	import Glide from "@glidejs/glide";
+	import { Swipe } from "@glidejs/glide/dist/glide.modular.esm";
+
+	var glide = new Glide(".glide", {
+		type: "slider",
+		// autoplay: 3000,
+		hoverpause: true,
+		focusAt: "center",
+		perView: 3,
+		// gap: 16,
+		keyboard: true,
+		breakpoints: {
+			1024: {
+				perView: 2
+			},
+			768: {
+				perView: 1.5
+			}
+		}
+	});
+	glide.mount({ Swipe });
+</script>

@@ -33,9 +33,9 @@ const logo = {
 										<Icon name="arrow_down" />
 									</Buttons>
 
-									<ul id="dropdown" class="dropdown__menu" role="menu">
+									<ul id="dropdown" class="dropdown__menu submenu" role="menu">
 										{item.children.map(child => (
-											<li class={`nav-item`} role="menuitem">
+											<li class={`nav-item submenu__item`} role="menuitem">
 												<Buttons tabindex="0" class="nav-link dropdown__title" href={child.href}>
 													{child.name}
 												</Buttons>
@@ -143,8 +143,25 @@ const logo = {
 			flex: 0 0 100%;
 			display: flex;
 			align-items: center;
+
+			&:not(.submenu__item) {
+				//first 2 items of main menu list
+				&:nth-child(-n + 2) {
+					font-weight: 900;
+					font-size: var(--fs-base);
+				}
+			}
+
 			&::before {
 				content: none;
+			}
+
+			&:hover {
+				svg {
+					padding: calc(0.5rem / 2);
+					background-color: hsla(var(--link-color-white-hsl), 0.1);
+					border-radius: 50%;
+				}
 			}
 
 			a {
@@ -158,6 +175,7 @@ const logo = {
 				color: var(--color-white);
 				width: 2rem;
 				margin-right: var(--space-2xs);
+				transition: all 0.2s ease-in-out;
 			}
 		}
 	}

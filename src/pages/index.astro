@@ -56,7 +56,12 @@ const page = {
 				<Forces />
 			</Container>
 		</Section>
-		<Section class="booking" backgroundColor="var(--color-primary)" ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance">
+		<Section
+			class="booking"
+			backgroundColor="var(--color-primary)"
+			darkSection
+			ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance"
+		>
 			<BookingCta />
 		</Section>
 		<Section class="faq" ariaLabel="Réponses aux questions fréquentes">
@@ -100,40 +105,40 @@ const page = {
 		</Section>
 		<Footer />
 	</Main>
+</BaseLayout>
 
-	<style lang="scss">
-		/** 
+<style lang="scss">
+	/** 
 	 * services section
 	 * */
-		.services {
-			&__wrapper {
-				display: flex;
-				flex-wrap: nowrap;
-				gap: var(--space-xl);
-				padding-block: var(--space-xl);
-				@media screen and (max-width: 992px) {
-					flex-direction: column;
-				}
-			}
-
-			&__infos {
-				width: calc(100% / 5 * 2);
-
-				@media screen and (max-width: 992px) {
-					width: 100%;
-				}
-			}
-
-			&__title {
-				text-align: left;
-			}
-			&__desc {
-				margin-block: 4rem 4rem;
+	.services {
+		&__wrapper {
+			display: flex;
+			flex-wrap: nowrap;
+			gap: var(--space-xl);
+			padding-block: var(--space-xl);
+			@media screen and (max-width: 992px) {
+				flex-direction: column;
 			}
 		}
 
-		/** 
+		&__infos {
+			width: calc(100% / 5 * 2);
+
+			@media screen and (max-width: 992px) {
+				width: 100%;
+			}
+		}
+
+		&__title {
+			text-align: left;
+		}
+		&__desc {
+			margin-block: 4rem 4rem;
+		}
+	}
+
+	/** 
 	 * services section
 	 * */
-	</style>
-</BaseLayout>
+</style>
