@@ -7,48 +7,48 @@ const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
-<form class="form" action="https://getform.io/f/07ac1ebb-9a09-434c-a1ae-a86c55824ca5" method="POST">
+<form id="form" class="form" action="https://getform.io/f/07ac1ebb-9a09-434c-a1ae-a86c55824ca5" method="POST">
 	<fieldset class="form__group">
 		<legend>En quoi pouvons-nous vous aider ?</legend>
 		<div class="radio__group">
 			<div class="form__field">
-				<label for="choise1" class="card card-swimming">
-					<input type="radio" autocomplete="off" name="choise" value="Leçons de natation" id="choise1" class="radio" />
+				<label for="choice1" class="card card-swimming">
+					<input type="radio" autocomplete="off" name="choice" value="leçons de natation à domicile" id="choice1" class="radio" />
 					<span class="sr-only">Leçons de natation à domicile</span>
 					<span class="card__title" aria-hidden="true">Leçons de natation à domicile</span>
 				</label>
 			</div>
 			<div class="form__field">
-				<label for="choise2" class="card card-aquaversary">
-					<input type="radio" autocomplete="off" name="choise" value="Organisation d'un aquaversaire" id="choise2" class="radio" />
+				<label for="choice2" class="card card-aquaversary">
+					<input type="radio" autocomplete="off" name="choice" value="organiser un aquaversaire" id="choice2" class="radio" />
 					<span class="sr-only">Organisation d'un aquaversaire</span>
 					<span class="card__title" aria-hidden="true">Organisation d'un aquaversaire</span>
 				</label>
 			</div>
 			<div class="form__field">
-				<label for="choise3" class="card card-events">
-					<input type="radio" autocomplete="off" name="choise" value="Sécuriter d'un événement" id="choise3" class="radio" />
+				<label for="choice3" class="card card-events">
+					<input type="radio" autocomplete="off" name="choice" value="sécuriser un événement" id="choice3" class="radio" />
 					<span class="sr-only">Sécuriser un événement</span>
 					<span class="card__title" aria-hidden="true">Sécurité d'un événement</span>
 				</label>
 			</div>
 			<div class="form__field">
-				<label for="choise4" class="card card-questions">
-					<input type="radio" autocomplete="off" name="choise" value="Autres questions ou suggestions" id="choise4" class="radio" />
+				<label for="choice4" class="card card-questions">
+					<input type="radio" autocomplete="off" name="choice" value="autres questions ou suggestions" id="choice4" class="radio" />
 					<span class="sr-only">Autres questions ou suggestions</span>
 					<span class="card__title" aria-hidden="true">Autres questions ou suggestions</span>
 				</label>
 			</div>
 			<div class="form__field">
-				<label for="choise5" class="card card-baby">
-					<input type="radio" autocomplete="off" name="choise" value="Cours de bébé nageur" id="choise5" class="radio" />
+				<label for="choice5" class="card card-baby">
+					<input type="radio" autocomplete="off" name="choice" value="cours de bébé nageur" id="choice5" class="radio" />
 					<span class="sr-only">Cours de bébé nageur</span>
 					<span class="card__title" aria-hidden="true">Cours de bébé nageur</span>
 				</label>
 			</div>
 			<div class="form__field">
-				<label for="choise6" class="card card-swimming">
-					<input type="radio" autocomplete="off" name="choise" value="Leçons de natation en station" id="choise6" class="radio" />
+				<label for="choice6" class="card card-swimming">
+					<input type="radio" autocomplete="off" name="choice" value="leçons de natation en station" id="choice6" class="radio" />
 					<span class="sr-only">Leçons de natation en bassin d'apprentissage</span>
 					<span class="card__title" aria-hidden="true">Leçons de natation en bassin d'apprentissage</span>
 				</label>
@@ -278,7 +278,7 @@ const pools = siteLinks.pools;
 			*.col-100 {
 				grid-column: 1 / 3;
 			}
-			input:not([name="choise"]),
+			input:not([name="choice"]),
 			textarea {
 				background-color: var(--color-white);
 				border-radius: var(--regular-border-radius);
@@ -560,45 +560,59 @@ const pools = siteLinks.pools;
 	}
 </style>
 
-<script is:inline>
-	// Get all elements with the class name "form-section"
-	const formSections = document.getElementsByClassName("form__section");
-	// Loop through each of the form sections
-	for (const formSection of formSections) {
-		// Hide each form section exects swimming sessons which is the default one
-		formSection.style.display = "none";
-	}
-
-	const swimmingSection = document.getElementById("swimming-lessons");
-	const aquaversarySection = document.getElementById("aquaversary");
-	const eventsSection = document.getElementById("events");
-	const questionsSection = document.getElementById("questions");
-	const babySection = document.getElementById("baby");
-	const swimmingStationSection = document.getElementById("swimming-station");
-	const rgpd = document.getElementById("rgpd-section");
-
-	const sectionMap = {
-		"Leçons de natation": swimmingSection,
-		"Organisation d'un aquaversaire": aquaversarySection,
-		"Sécuriter d'un événement": eventsSection,
-		"Autres questions ou suggestions": questionsSection,
-		"Cours de bébé nageur": babySection,
-		"Leçons de natation en station": swimmingStationSection
+<script>
+	// Define the section map
+	const sectionMap: { [title: string]: HTMLElement } = {
+		"leçons de natation à domicile": document.getElementById("swimming-lessons")!,
+		"organiser un aquaversaire": document.getElementById("aquaversary")!,
+		"sécuriser un événement": document.getElementById("events")!,
+		"autres questions ou suggestions": document.getElementById("questions")!,
+		"cours de bébé nageur": document.getElementById("baby")!,
+		"leçons de natation en station": document.getElementById("swimming-station")!
 	};
 
-	const radioButtons = document.querySelectorAll("input[name='choise']");
-	radioButtons.forEach(button => {
-		button.addEventListener("change", event => {
-			const section = sectionMap[event.target.value];
-			for (const key in sectionMap) {
-				if (sectionMap[key] === section) {
-					sectionMap[key].style.display = sectionMap[key].classList.contains("no-inputs") ? "flex" : "grid";
-				} else {
-					sectionMap[key].style.display = "none";
-				}
+	// Hide all form sections except the default one
+	const formSections = Array.from(document.getElementsByClassName("form__section")) as HTMLElement[];
+	formSections.forEach((formSection: HTMLElement) => {
+		formSection.style.display = "none";
+	});
+
+	// Display form section based on URL parameter, if present
+	const urlParams = new URLSearchParams(window.location.search);
+	const option = urlParams.get("option");
+	if (option) {
+		const section = sectionMap[option];
+		if (section) {
+			section.style.display = section.classList.contains("no-inputs") ? "flex" : "grid";
+			const matchingButton = document.querySelector(`input[type='radio'][name='choice'][value='${option}']`) as HTMLInputElement;
+			if (matchingButton) {
+				matchingButton.checked = true;
 			}
-			rgpd.style.display =
-				section === swimmingSection || section === aquaversarySection || section === eventsSection || section === questionsSection ? "block" : "none";
+		}
+	}
+
+	// Add event listeners to the radio buttons
+	const radioButtons = document.querySelectorAll("input[type='radio'][name='choice']");
+	radioButtons.forEach((button: Element) => {
+		button.addEventListener("click", () => {
+			const section = sectionMap[(button as HTMLInputElement).value];
+			formSections.forEach((formSection: HTMLElement) => {
+				formSection.style.display = formSection === section ? (formSection.classList.contains("no-inputs") ? "flex" : "grid") : "none";
+			});
+			document.getElementById("rgpd-section")!.style.display = section && !section.classList.contains("no-inputs") ? "block" : "none";
+			urlParams.set("option", (button as HTMLInputElement).value);
+			window.history.replaceState({}, "", window.location.pathname + "?" + urlParams.toString());
 		});
 	});
+
+	// Hide all form sections and deselect radio buttons if the URL is just /contact
+	if (window.location.pathname === "/contact.html") {
+		formSections.forEach((formSection: HTMLElement) => {
+			formSection.style.display = "none";
+		});
+		radioButtons.forEach((button: Element) => {
+			(button as HTMLInputElement).checked = false;
+		});
+		document.getElementById("rgpd-section")!.style.display = "none";
+	}
 </script>
