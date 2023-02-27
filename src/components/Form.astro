@@ -13,42 +13,90 @@ const pools = siteLinks.pools;
 		<div class="radio__group">
 			<div class="form__field">
 				<label for="choice1" class="card card-swimming">
-					<input type="radio" autocomplete="off" name="choice" value="leçons de natation à domicile" id="choice1" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						data-option="lecons-de-natation-a-domicile"
+						value="leçons de natation à domicile"
+						id="choice1"
+						class="radio"
+					/>
 					<span class="sr-only">Leçons de natation à domicile</span>
 					<span class="card__title" aria-hidden="true">Leçons de natation à domicile</span>
 				</label>
 			</div>
 			<div class="form__field">
 				<label for="choice2" class="card card-aquaversary">
-					<input type="radio" autocomplete="off" name="choice" value="organiser un aquaversaire" id="choice2" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						value="organiser un aquaversaire"
+						id="choice2"
+						class="radio"
+						data-option="organiser-un-aquaversaire"
+					/>
 					<span class="sr-only">Organisation d'un aquaversaire</span>
 					<span class="card__title" aria-hidden="true">Organisation d'un aquaversaire</span>
 				</label>
 			</div>
 			<div class="form__field">
 				<label for="choice3" class="card card-events">
-					<input type="radio" autocomplete="off" name="choice" value="sécuriser un événement" id="choice3" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						value="sécuriser un événement"
+						id="choice3"
+						class="radio"
+						data-option="securiser-un-evenement"
+					/>
 					<span class="sr-only">Sécuriser un événement</span>
 					<span class="card__title" aria-hidden="true">Sécurité d'un événement</span>
 				</label>
 			</div>
 			<div class="form__field">
 				<label for="choice4" class="card card-questions">
-					<input type="radio" autocomplete="off" name="choice" value="autres questions ou suggestions" id="choice4" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						value="autres questions ou suggestions"
+						id="choice4"
+						class="radio"
+						data-option="autres-questions-ou-suggestions"
+					/>
 					<span class="sr-only">Autres questions ou suggestions</span>
 					<span class="card__title" aria-hidden="true">Autres questions ou suggestions</span>
 				</label>
 			</div>
 			<div class="form__field">
 				<label for="choice5" class="card card-baby">
-					<input type="radio" autocomplete="off" name="choice" value="cours de bébé nageur" id="choice5" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						value="cours de bébé nageur"
+						id="choice5"
+						class="radio"
+						data-option="cours-de-bebe-nageur"
+					/>
 					<span class="sr-only">Cours de bébé nageur</span>
 					<span class="card__title" aria-hidden="true">Cours de bébé nageur</span>
 				</label>
 			</div>
 			<div class="form__field">
 				<label for="choice6" class="card card-swimming">
-					<input type="radio" autocomplete="off" name="choice" value="leçons de natation en station" id="choice6" class="radio" />
+					<input
+						type="radio"
+						autocomplete="off"
+						name="choice"
+						value="leçons de natation en station"
+						id="choice6"
+						class="radio"
+						data-option="lecons-de-natation-en-station"
+					/>
 					<span class="sr-only">Leçons de natation en bassin d'apprentissage</span>
 					<span class="card__title" aria-hidden="true">Leçons de natation en bassin d'apprentissage</span>
 				</label>
@@ -581,10 +629,11 @@ const pools = siteLinks.pools;
 	const urlParams = new URLSearchParams(window.location.search);
 	const option = urlParams.get("option");
 	if (option) {
-		const section = sectionMap[option];
+		const normalizedOption = removeAccents(option).toLowerCase().replace(/\s+/g, "-");
+		const section = Object.keys(sectionMap).find(title => removeAccents(title).toLowerCase().replace(/\s+/g, "-") === normalizedOption);
 		if (section) {
-			section.style.display = section.classList.contains("no-inputs") ? "flex" : "grid";
-			const matchingButton = document.querySelector(`input[type='radio'][name='choice'][value='${option}']`) as HTMLInputElement;
+			sectionMap[section].style.display = sectionMap[section].classList.contains("no-inputs") ? "flex" : "grid";
+			const matchingButton = document.querySelector(`input[type='radio'][name='choice'][data-option='${normalizedOption}']`) as HTMLInputElement;
 			if (matchingButton) {
 				matchingButton.checked = true;
 			}
@@ -600,7 +649,10 @@ const pools = siteLinks.pools;
 				formSection.style.display = formSection === section ? (formSection.classList.contains("no-inputs") ? "flex" : "grid") : "none";
 			});
 			document.getElementById("rgpd-section")!.style.display = section && !section.classList.contains("no-inputs") ? "block" : "none";
-			urlParams.set("option", (button as HTMLInputElement).value);
+			const normalizedOption = removeAccents((button as HTMLInputElement).getAttribute("data-option") || "")
+				.toLowerCase()
+				.replace(/\s+/g, "-");
+			urlParams.set("option", normalizedOption);
 			window.history.replaceState({}, "", window.location.pathname + "?" + urlParams.toString());
 		});
 	});
@@ -614,5 +666,42 @@ const pools = siteLinks.pools;
 			(button as HTMLInputElement).checked = false;
 		});
 		document.getElementById("rgpd-section")!.style.display = "none";
+	}
+
+	// Function to remove accents from a string
+	function removeAccents(str: string): string {
+		const accentsMap: { [char: string]: string } = {
+			à: "a",
+			á: "a",
+			â: "a",
+			ä: "a",
+			ã: "a",
+			å: "a",
+			ç: "c",
+			è: "e",
+			é: "e",
+			ê: "e",
+			ë: "e",
+			ì: "i",
+			í: "i",
+			î: "i",
+			ï: "i",
+			ñ: "n",
+			ò: "o",
+			ó: "o",
+			ô: "o",
+			ö: "o",
+			õ: "o",
+			ø: "o",
+			ù: "u",
+			ú: "u",
+			û: "u",
+			ü: "u",
+			ý: "y",
+			ÿ: "y",
+			æ: "ae",
+			œ: "oe"
+		};
+		return str.toLowerCase().replace(/[àáâäãåçèéêëìíîïñòóôöõøùúûüýÿæœ]/g, char => accentsMap[char]);
 	}
 </script>
