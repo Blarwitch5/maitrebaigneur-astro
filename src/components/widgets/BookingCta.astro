@@ -19,12 +19,13 @@ import Waves from "@components/ui/shapes/Waves.astro";
 		</picture>
 	</div>
 	<div class="booking__content">
-		<h4 class="booking__title">Vous souhaitez commencer l’aventure avec Maître-Baigneur ?</h4><p class="booking__txt">
-			Ne manquez pas l'occasion de découvrir les nombreux bienfaits de la natation. Chez Maître-Baigneur, nous offrons des cours pour tous les âges,
-			des bébé-nageurs (dès 3 mois) aux adultes. Nos maître-baigneurs expérimentés s'assureront que vous ayez une expérience d'apprentissage amusante
-			et sécurisante.
+		<h4 class="booking__title">Vous souhaitez commencer l’aventure avec Maître-Baigneur ?</h4>
+		<p class="booking__txt">
+			Nous proposons une séance découverte de leçons de natation à un tarif avantageux de <strong>20€</strong>. Durant cette séance, nos
+			maître-baigneurs professionnels vous apprendront les bases de la natation et vous aideront à améliorer votre technique de nage. Profitez de
+			cette occasion pour découvrir les joies de la natation et faire un premier pas vers la maîtrise de l'eau !
 		</p>
-		<Buttons class="btn btn__outline" href="https://clicrdv.com/maitrebaigneur" target="_blank">Je réserve mon cours</Buttons>
+		<Buttons class="btn btn__outline" href="https://clicrdv.com/maitrebaigneur" target="_blank">Je réserve ma place dès maintenant !</Buttons>
 	</div>
 	<Waves />
 </Container>
@@ -58,7 +59,7 @@ import Waves from "@components/ui/shapes/Waves.astro";
 			img {
 				height: 100%;
 				max-height: 370px;
-				object-fit: cover;
+				object-fit: contain;
 			}
 		}
 		&__content {
