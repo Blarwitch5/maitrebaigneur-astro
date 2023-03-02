@@ -37,6 +37,9 @@ const { header, index } = Astro.props;
 			width: 100%;
 			max-width: 800px;
 			margin: auto;
+
+			svg {
+			}
 		}
 		&__item {
 			border-bottom: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
@@ -73,6 +76,9 @@ const { header, index } = Astro.props;
 				.accordion__toggle {
 					transform: rotate(180deg);
 				}
+			}
+			svg {
+				flex: 0 0 2rem;
 			}
 		}
 		&__toggle {
