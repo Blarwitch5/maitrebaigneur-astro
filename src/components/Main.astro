@@ -1,5 +1,4 @@
 ---
-import GoToTop from "@components/ui/GoToTop.astro";
 interface Props {
 	class?: string;
 }
@@ -9,7 +8,6 @@ const { class: className } = Astro.props;
 
 <main id="skip-content-target" class:list={className}>
 	<slot />
-	<GoToTop />
 </main>
 
 <style>

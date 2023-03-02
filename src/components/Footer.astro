@@ -6,6 +6,8 @@ import InstagramFeed from "./widgets/InstagramFeed.astro";
 import { Icon } from "astro-icon";
 import Waves from "@components//ui/shapes/Waves.astro";
 import Container from "@components/Container.astro";
+import GoToTop from "@components/ui/GoToTop.astro";
+import BookingBtn from "@components/ui/BookingBtn.astro";
 
 import site from "@assets/data/data.json";
 
@@ -77,6 +79,8 @@ const footerMenu = siteLinks.footerMenu;
 		</div>
 		<Copyright />
 	</Container>
+	<BookingBtn />
+	<GoToTop />
 </footer>
 
 <style lang="scss">
