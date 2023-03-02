@@ -16,6 +16,7 @@
     -webkit-box-orient: vertical;
   }
 }
+
 //usage: @include text-shorten(3);
 
 /**
@@ -29,6 +30,7 @@
   left: $left;
   z-index: $z-index;
 }
+
 //usage:   @include position(absolute, 60px, 0, 0, 0, 10);
 
 //links style
@@ -48,7 +50,9 @@
   &:active {
     background-size: 100% 1px;
   }
-} /** Horizontal scrolling */
+}
+
+/** Horizontal scrolling */
 @mixin horizontal-scroll {
   display: flex;
   overflow-x: auto;
@@ -56,8 +60,9 @@
   justify-content: unset !important;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  flex-wrap: unset;
 
-  & > * {
+  &>* {
     scroll-snap-align: center;
     flex: 0 0 auto;
   }

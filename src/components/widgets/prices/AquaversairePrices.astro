@@ -1,0 +1,34 @@
+---
+import Buttons from "@components/ui/Buttons.astro";
+import site from "@assets/data/prices.json";
+
+const { prices } = site;
+const aquaversaire = prices.aquaversaire;
+---
+
+<div class="packages-container aquaversaire">
+	<div>
+		<div class="package">
+			<h1 class="package__title">{aquaversaire.name}</h1>
+
+			<ul class="package__list">
+				<li class="package__item"><span class="package__txt">{aquaversaire.desc}</span></li>
+				<li class="package__item">
+					{aquaversaire.surveillanceTime} heures <span class="package__price">{aquaversaire.price}€</span>
+				</li>
+
+				<li class="package__item">
+					{aquaversaire.extra.desc}
+					<span class="package__price">{aquaversaire.extra.price}€</span>
+				</li>
+			</ul>
+			<Buttons href="/contact?option=organiser+un+aqauversaire" class="btn btn__regular">Demander un devis</Buttons>
+		</div>
+	</div>
+</div>
+
+<style>
+	.container {
+		width: 100%;
+	}
+</style>

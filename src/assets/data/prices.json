@@ -1,147 +1,67 @@
 {
-	"prices": [
-		{ "unit": "€" },
-		{
-			"service": "Cours de natation",
-			"formula": {
-				"pool": {
-					"oneSessionCard": {
-						"oneSwimmerFormula": {
-							"numberOfSwimmer": 1,
-							"unit": "€",
-							"price": 25,
-							"sessionPrice": 25
-						},
-						"twoSwimmer": {
-							"numberOfSwimmer": 2,
-							"unit": "€",
-							"price": 40,
-							"sessionPrice": 20
-						},
-						"threeSwimmer": {
-							"numberOfSwimmer": 3,
-							"unit": "€",
-							"price": 50,
-							"sessionPrice": 16.67
-						}
-					},
-					"fiveSessionsCard": {
-						"oneSwimmerFormula": {
-							"numberOfSwimmer": 1,
-							"unit": "€",
-							"price": 100,
-							"sessionPrice": 20
-						},
-						"twoSwimmer": {
-							"numberOfSwimmer": 2,
-							"unit": "€",
-							"price": 175,
-							"sessionPrice": 17.5
-						},
-						"threeSwimmer": {
-							"numberOfSwimmer": 3,
-							"unit": "€",
-							"price": 225,
-							"sessionPrice": 15
-						}
-					},
-					"fifteenSessionsCard": {
-						"unit": "€",
-						"price": 262.5,
-						"sessionPrice": 17.5
-					},
-					"thirtySessionsCard": {
-						"unit": "€",
-						"price": 450,
-						"sessionPrice": 15
-					}
-				},
-				"home": {
-					"oneSwimmerFormula": {
-						"numberOfSwimmer": 1,
-						"unit": "€",
-						"price": 40,
-						"sessionPrice": 40
-					},
-					"twoSwimmerFormula": {
-						"numberOfSwimmer": 2,
-						"unit": "€",
-						"price": 50,
-						"sessionPrice": 25
-					},
-					"threeSwimmerFormula": {
-						"numberOfSwimmer": 3,
-						"unit": "€",
-						"price": 60,
-						"sessionPrice": 20
-					}
-				}
+	"prices": {
+		"swimmingLessons": {
+			"pool": {
+				"single": [
+					{ "name": "Séance découverte", "price": 20 },
+					{ "name": "1 Séance pour 1 baigneur", "price": 25 },
+					{ "name": "1 Séance pour 2 baigneurs", "price": 40 },
+					{ "name": "1 Séance pour 3 baigneurs", "price": 50 }
+				],
+				"cards": [
+					{ "name": "Carte 5 séances", "price": 100 },
+					{ "name": "Carte 10 séances", "price": 180 },
+					{ "name": "Carte 30 séances", "price": 450 }
+				]
+			},
+			"home": {
+				"formula": [
+					{ "name": "1 Séance pour 1 baigneur", "price": 40 },
+					{ "name": "1 Séance pour 2 baigneurs", "price": 50, "extraDesc": "Soit 25€ par baigneur" },
+					{ "name": "1 Séance pour 3 baigneurs", "price": 60, "extraDesc": "Soit 20€ par baigneur" }
+				]
 			}
 		},
-		{
-			"service": "Cours de bébé nageur",
-			"formula": {
-				"oneSessionCard": {
-					"numberOfSessions": "1",
-					"unit": "€",
-					"price": 35,
-					"sessionPrice": 35
-				},
-				"fiveSessionsCard": {
-					"numberOfSessions": "5",
-
-					"unit": "€",
-					"price": 125,
-					"sessionPrice": 25
-				},
-				"ten+SessionsCard": {
-					"numberOfSessions": "10 minimum",
-					"unit": "€ et +",
-					"price": 200,
-					"sessionPrice": 20
-				},
-				"sixMonthCard": {
-					"price": 300,
-					"sessionPrice": 15
-				},
-				"twelveMonthCard": {
-					"price": 549,
-					"sessionPrice": 12
-				}
+		"babySwimming": {
+			"formula": [
+				{ "name": "Séance unique", "price": 35 },
+				{ "name": "Carte de 5 Séances ", "price": 125, "extraDesc": "Soit 25 € la séance par bébé, valable 4 mois à partir de la 1ère séance " },
+				{ "name": "Carte de 10 séances", "price": 200, "extraDesc": "Soit 20 € la séance par bébé, valable 4 mois à partir de la 1ère séance " },
+				{ "name": "Abonnement 6 mois", "price": 300, "extraDesc": "Soit 12€ la séance par bébé" },
+				{ "name": "Abonnement 12 mois", "price": 549, "extraDesc": "Soit 11€ la séance par bébé" }
+			]
+		},
+		"aquaversaire": {
+			"name": "Sécurité et animation de votre aquaversaire",
+			"desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s’occupera de la sécurité et de l’animation pour 15 enfants maximum.",
+			"price": 300,
+			"surveillanceTime": "2",
+			"extra": {
+				"desc": "chaque heure supplémentaire",
+				"price": 100
 			}
 		},
-		{
-			"service": "Aquaversaire",
-			"formula": {
-				"surveillance": {
-					"name": "Sécurité et animation de votre aquaversaire",
-					"desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s’occupera de la sécurité et de l’animation pour 10 enfants, 10€ par enfant supplémentaire.",
-					"price": 180,
-					"surveillanceTime": "2"
-				},
-				"rental": {
-					"name": "Location de structure gonflable",
-					"desc": "Vous pouvez louer une structure gonflable de 11h à 17h pour votre mariage, anniversaire ou autre événement.",
-					"price": 250
-				}
-			}
-		},
-		{
-			"service": "Événements et sécurité",
+		"events": {
 			"formula": {
 				"day": {
 					"name": "Tarif de jour",
-					"price": 30,
+					"price": 40,
 					"condition": "par heure et par Maître-Baigneur",
 					"surveillanceTime": "Entre 9h et 21h"
 				},
 				"night": {
 					"name": "Tarif de nuit",
-					"price": 250,
+					"price": 50,
 					"condition": "par heure et par Maître-Baigneur",
 					"surveillanceTime": "Entre 21h et 9h"
 				}
 			}
+		},
+		"diploma": {
+			"name": "Diplôme",
+			"name_2": "Test d'aisance aquatique",
+			"distance": "50 mètres",
+			"price": 10
 		}
-	]
+	}
 }

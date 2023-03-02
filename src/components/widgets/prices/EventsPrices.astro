@@ -1,0 +1,65 @@
+---
+import Buttons from "@components/ui/Buttons.astro";
+import site from "@assets/data/prices.json";
+
+const { prices } = site;
+const eventsPrices = prices.events.formula;
+const eventsDayPrices = eventsPrices.day;
+const eventsNightPrices = eventsPrices.night;
+---
+
+<div class="packages-container events">
+	<div>
+		<div class="package">
+			<h1 class="package__title">{eventsDayPrices.name}</h1>
+			<ul class="package__list">
+				<li class="package__item">
+					{eventsDayPrices.condition}
+					<span class="package__price">{eventsDayPrices.price}€</span>
+					<span class="package__extra-desc">{eventsDayPrices.surveillanceTime}</span>
+				</li>
+			</ul>
+			<Buttons href="/contact?option=securiser+un+evenement" class="btn btn__regular">Demander un devis</Buttons>
+		</div>
+		<div class="package">
+			<h1 class="package__title">{eventsNightPrices.name}</h1>
+			<ul class="package__list">
+				<li class="package__item">
+					{eventsNightPrices.condition}
+					<span class="package__price">{eventsNightPrices.price}€</span>
+					<span class="package__extra-desc">{eventsNightPrices.surveillanceTime}</span>
+				</li>
+			</ul>
+			<Buttons href="/contact?option=securiser+un+evenement" class="btn btn__regular">Demander un devis</Buttons>
+		</div>
+	</div>
+</div>
+
+<style>
+	.container {
+		width: 100%;
+	}
+
+	.packages-container #price-package-home {
+		display: none;
+	}
+</style>
+<script>
+	function check(): void {
+		const checkBox: HTMLInputElement | null = document.getElementById("checkbox") as HTMLInputElement;
+		const pricePackageHome: HTMLElement | null = document.getElementById("price-package-home");
+		const pricePackagePool: HTMLElement | null = document.getElementById("price-package-pool");
+
+		if (checkBox && pricePackageHome && pricePackagePool) {
+			if (checkBox.checked) {
+				pricePackageHome.style.display = "flex";
+				pricePackagePool.style.display = "none";
+			} else {
+				pricePackageHome.style.display = "none";
+				pricePackagePool.style.display = "flex";
+			}
+		}
+	}
+
+	document.getElementById("checkbox")?.addEventListener("click", check);
+</script>

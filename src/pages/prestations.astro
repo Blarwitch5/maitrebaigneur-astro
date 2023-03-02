@@ -8,6 +8,11 @@ import Container from "@components/Container.astro";
 import Section from "@components/Section.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const services = siteLinks.services;
+
 //data
 
 const page = {
@@ -31,10 +36,27 @@ const page = {
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
 
 	<Main>
-		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
+		<Section class="services" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
 			<Container>
 				<h2>Nos prestations</h2>
-				{}
+				{
+					services.map(service => (
+						<article
+							class={`service ${service.name
+								.replace(/\s|_|\(|\)/g, "-")
+								.normalize("NFD")
+								.replace(/\p{Diacritic}/gu, "")
+								.toLowerCase()}`}
+						>
+							<a href={service.href} class="service__link">
+								<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
+								<div class="service__info">
+									<h3 class="service__title">{service.name}</h3>
+								</div>
+							</a>
+						</article>
+					))
+				}
 			</Container>
 		</Section>
 		<Footer />

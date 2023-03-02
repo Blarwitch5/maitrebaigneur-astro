@@ -7,6 +7,9 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Container from "@components/Container.astro";
 import Section from "@components/Section.astro";
+import Buttons from "@components/ui/Buttons.astro";
+
+import AquaversairePrices from "@components/widgets/prices/AquaversairePrices.astro";
 
 //data
 
@@ -60,7 +63,7 @@ const page = {
 		<Section>
 			<Container>
 				<h3>Tarifs Aquaversaire</h3>
-				<p>les prix</p>
+				<AquaversairePrices />
 			</Container>
 		</Section>
 	</Main>
@@ -74,6 +77,10 @@ const page = {
 			flex-wrap: nowrap;
 			gap: var(--space-lg);
 			margin-block: var(--space-lg);
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+			}
 			& > * {
 				flex: 1;
 			}

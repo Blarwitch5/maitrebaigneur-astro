@@ -53,28 +53,28 @@
     @include horizontal-scroll;
 }
 /* class for horizontal scrolling on tablet devices */
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
     .lg-horizontal-scroll {
-        @include horizontal-scroll;
+        @include horizontal-scroll; 
     }
 }
 
 /* class for horizontal scrolling on tablet devices */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .md-horizontal-scroll {
         @include horizontal-scroll;
     }
 }
 
 /* class for horizontal scrolling on mobile devices */
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .sm-horizontal-scroll {
         @include horizontal-scroll;
     }
 }
 .no-scrollbar {
-    scrollbar-width: none;
     -webkit-scrollbar-width: none;
+    scrollbar-width: none;
     margin-bottom: 0;
     padding-bottom: 0;
 
