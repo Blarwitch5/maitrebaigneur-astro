@@ -243,7 +243,7 @@ const pools = siteLinks.pools;
 							<li>
 								<a href={item.href}>
 									<img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
-									{item.name}
+									<span>{item.name}</span>
 								</a>
 							</li>
 						);
@@ -359,6 +359,7 @@ const pools = siteLinks.pools;
 					display: flex;
 					flex-wrap: wrap;
 					gap: var(--space-2xs);
+					padding-left: var(--space-sm);
 
 					& > li {
 						list-style-type: none;
@@ -375,21 +376,22 @@ const pools = siteLinks.pools;
 							flex-basis: calc(100% - var(--space-md));
 						}
 
+						& > a span {
+						}
+
 						a:is(a, :hover, :focus, :active) {
 							color: var(--color-primary);
 							text-decoration: none;
 							font-family: var(--ff-pacifico);
-							display: block;
-							white-space: nowrap;
-							overflow: hidden;
-							text-overflow: ellipsis;
+							display: flex;
+							align-items: center;
 						}
 
 						img {
 							width: 3rem;
 							height: 3rem;
 							border-radius: var(--regular-border-radius);
-							margin-right: var(--space-md);
+							margin-right: var(--space-sm);
 						}
 					}
 				}
@@ -397,6 +399,10 @@ const pools = siteLinks.pools;
 					padding: var(--space-md);
 					background-color: var(--color-bg-light);
 					border-radius: var(--regular-border-radius);
+
+					@media screen and (max-width: 768px) {
+						padding-inline: var(--space-xs);
+					}
 				}
 
 				//booking btn
