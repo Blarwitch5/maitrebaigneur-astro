@@ -41,18 +41,29 @@ const page = {
 			</Container>
 		</Section>
 		<Section class="fear" backgroundColor="var(--color-bg-light-alt)">
-			<Container>
-				<Waves atTopOfSection />
-				<div class="fear__wrapper">
-					<div class="fear__img">
-						<img src="/images/levels/6_peur-du-baigneur.jpg" alt="Illustration de la peur du baigneur" />
-					</div>
-					<div class="fear__content">
-						<h3 class="fear__title">La peur du baigneur</h3>
-						<p>Libérez-vous, jetez-vous à l’eau !</p>
-						<p>Nous sommes là pour vous aider à vaincre votre crainte du monde aquatique. L’Aquaphobie ne sera plus qu’un mauvais souvenir.</p>
-					</div>
+			<Waves atTopOfSection />
+			<Container className="fear__section">
+				<div class="fear__img">
+					<picture>
+						<source type="image/webp" srcset="/images/levels/6_peur-du-baigneur.webp" />
+						<img
+							loading="lazy"
+							src="/images/levels/6_peur-du-baigneur.jpg"
+							alt="Illustration de la peur du baigneur"
+							class=""
+							height="600"
+							width="800"
+						/>
+					</picture>
 				</div>
+				<div class="fear__content">
+					<h4 class="fear__title">La peur du baigneur</h4>
+					<p class="fear__txt">
+						Libérez-vous, jetez-vous à l’eau !<br />
+						Nous sommes là pour vous aider à vaincre votre crainte du monde aquatique. L’Aquaphobie ne sera plus qu’un mauvais souvenir.
+					</p>
+				</div>
+
 				<Waves />
 			</Container>
 		</Section>
@@ -67,35 +78,48 @@ const page = {
 </BaseLayout>
 
 <style lang="scss">
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-
 	.fear {
-		&__wrapper {
-			position: relative;
-		}
-		&__img {
-			position: absolute;
-			height: 350px;
-			z-index: 9;
-			top: -50%;
-			overflow: hidden;
-			width: 25%;
-			border-radius: var(--regular-border-radius);
-			transform: translatey(0px);
+		&__section {
+			display: grid;
+			grid-template-columns: calc((100% * 1 / 3) - 2rem) calc((100% * 2 / 3) - 2rem);
+			gap: 4rem;
+			align-items: center;
+			padding-block: var(--space-md);
 
-			// box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
-			animation: float 6s ease-in-out infinite;
+			@media screen and (max-width: 992px) {
+				grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+				gap: 2rem;
+			}
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+		}
+
+		&__img {
+			overflow: hidden;
+			border-radius: var(--regular-border-radius);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
 			img {
-				object-fit: cover;
 				height: 100%;
+				max-height: 370px;
+				object-fit: contain;
 			}
 		}
 		&__content {
-			padding-left: calc(25% + var(--space-lg));
+			display: flex;
+			gap: 1rem;
+			flex-direction: column;
+		}
+		&__title {
+			color: inherit;
+			margin-bottom: 0;
+			font-size: var(--fs-lg);
+			font-weight: bold;
 		}
 	}
 </style>
