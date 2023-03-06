@@ -1,0 +1,169 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div class="sticky-btn">
+	<button id="main-btn" aria-haspopup="true" aria-expanded="false" title="Ouvrir ou fermer le menu" aria-label="Ouvrir ou fermer le menu"
+		><Icon name="cross" /><span class="visually-hidden">Ouvrir ou fermer le menu</span></button
+	>
+	<div class="sub-btns" role="menu" aria-label="submenu" aria-hidden="true">
+		<button role="menuitem" id="whatsapp" title="Nous contacter par Whatsapp" aria-label="Nous contacter par Whatsapp">
+			<Icon name="whatsapp" />
+			<span class="visually-hidden">Nous contacter par Whatsapp</span>
+		</button>
+		<button role="menuitem" id="booking" title="Réserver un cours" aria-label="Réserver un cours">
+			<Icon name="calendar" />
+			<span class="visually-hidden">Réserver un cours</span>
+		</button>
+	</div>
+</div>
+<!-- <button id="bookingBtn" class="booking-btn" title="Réserver un cours" aria-label="Réserver un cours">
+	<span class="visually-hidden">Réserver un cours</span>
+	<Icon name="calendar" />
+</button> -->
+
+<style lang="scss">
+	.sticky-btn {
+		position: fixed;
+		z-index: 999;
+		bottom: var(--space-sm);
+		right: var(--space-sm);
+		display: none;
+
+		@media screen and (max-width: 768px) {
+			bottom: var(--space-xs);
+			right: var(--space-xs);
+		}
+
+		& > button {
+			color: var(--color-white);
+			background-color: var(--color-secondary);
+			border: none;
+			border-radius: 100vh;
+			width: 3rem;
+			height: 3rem;
+			border: 1px solid transparent;
+
+			&[aria-expanded="true"] {
+				border: 1px solid var(--color-white);
+			}
+			svg {
+				transform: rotate(45deg) scale(1);
+				transition: all 0.2s ease-in;
+			}
+
+			&:hover {
+				svg {
+					transform: rotate(45deg) scale(1.3);
+				}
+			}
+
+			&.active {
+				svg {
+					transform: rotate(-360deg) scale(1);
+				}
+			}
+		}
+
+		* button {
+			cursor: pointer;
+			color: var(--color-white);
+			border: none;
+			border-radius: 100vh;
+			width: 3rem;
+			height: 3rem;
+			box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+
+			&#whatsapp {
+				background-color: #25d366;
+			}
+			&#booking {
+				background-color: #e16f5c;
+			}
+		}
+
+		* svg {
+			width: var(--space-md);
+			height: var(--space-md);
+		}
+	}
+	.main-btn {
+		z-index: 99;
+		border: none;
+		cursor: pointer;
+		border-radius: 100vw;
+		font-size: var(--fs-xs);
+		background-color: var(--color-secondary);
+		color: var(--color-white);
+		max-height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.sub-btns {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+		position: absolute;
+		bottom: calc(var(--space-2xs) + 3rem);
+		right: 0;
+		z-index: 1;
+	}
+
+	.sub-btns button {
+		display: block;
+	}
+
+	.sub-btns[aria-hidden="true"] {
+		display: none;
+	}
+</style>
+<script>
+	// Get the "back to top" button
+	const stickyBtns = document.querySelector(".sticky-btn") as HTMLElement;
+	const bookingBtn = document.getElementById("booking") as HTMLElement;
+	const whatsappBtn = document.getElementById("whatsapp") as HTMLElement;
+
+	bookingBtn.addEventListener("click", function () {
+		window.location.href = "https://user.clicrdv.com/maitre-baigneur";
+	});
+	whatsappBtn.addEventListener("click", function () {
+		window.location.href = "https://api.whatsapp.com/send?phone=337007584";
+	});
+	// Get the main element
+
+	// When the user clicks on the button, scroll to the top of the document
+	window.addEventListener("scroll", function () {
+		scrollFunction();
+	});
+
+	function scrollFunction() {
+		let scroll = document.body.scrollTop || document.documentElement.scrollTop;
+		if (scroll > 20) {
+			stickyBtns.style.display = "flex";
+		} else {
+			stickyBtns.style.display = "none";
+		}
+	}
+	const mainBtn: HTMLButtonElement = document.getElementById("main-btn") as HTMLButtonElement;
+	const subBtns: HTMLDivElement = document.querySelector(".sub-btns") as HTMLDivElement;
+
+	mainBtn.addEventListener("click", function () {
+		mainBtn.classList.toggle("active");
+		if (subBtns.getAttribute("aria-hidden") === "true") {
+			subBtns.setAttribute("aria-hidden", "false");
+			mainBtn.setAttribute("aria-expanded", "true");
+		} else {
+			subBtns.setAttribute("aria-hidden", "true");
+			mainBtn.setAttribute("aria-expanded", "false");
+		}
+	});
+
+	document.addEventListener("keydown", function (event: KeyboardEvent) {
+		if (event.key === "Escape") {
+			subBtns.setAttribute("aria-hidden", "true");
+			mainBtn.focus();
+		}
+	});
+</script>

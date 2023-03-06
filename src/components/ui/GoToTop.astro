@@ -1,6 +1,10 @@
+---
+import { Icon } from "astro-icon";
+---
+
 <button id="gototopBtn" class="gototop-btn" title="Retour en haut de la page" aria-label="Retour en haut de la page">
 	<span class="visually-hidden">Retour en haut de la page</span>
-	<span></span>
+	<Icon name="arrow_down" />
 </button>
 
 <style lang="scss">
@@ -9,14 +13,31 @@
 		position: fixed;
 		width: 3rem;
 		height: 3rem;
-		bottom: 20px;
-		right: 30px;
+		bottom: var(--space-md);
+		right: var(--space-md);
 		z-index: 99;
 		border: none;
 		cursor: pointer;
-		padding: 15px;
 		border-radius: 100vw;
-		font-size: 18px;
+		font-size: var(--fs-xs);
+		// background-color: var(--color-secondary);
+		// color: var(--color-white);
+		max-height: 100%;
+		overflow: hidden;
+		transition: all 0.2s ease-in-out;
+
+		justify-content: center;
+		align-items: center;
+
+		@media screen and (max-width: 768px) {
+			bottom: var(--space-sm);
+			right: var(--space-sm);
+		}
+
+		// &:hover {
+		// 	background-color: hsl(var(--link-color-secondary-h), var(--link-color-secondary-s), calc((var(--link-color-secondary-l) - 15%)));
+		// 	box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+		// }
 
 		&.light {
 			background-color: var(--color-bg-light);
@@ -35,6 +56,11 @@
 			&:hover {
 				  background-color: #555; /* Add a dark-grey background on hover */
 			}
+		}
+
+		svg {
+			transform: rotate(180deg);
+			align-self: center;
 		}
 	}
 </style>
@@ -93,7 +119,7 @@
 	function scrollFunction() {
 		let scroll = document.body.scrollTop || document.documentElement.scrollTop;
 		if (scroll > 20) {
-			gototopBtn.style.display = "block";
+			gototopBtn.style.display = "flex";
 		} else {
 			gototopBtn.style.display = "none";
 		}
