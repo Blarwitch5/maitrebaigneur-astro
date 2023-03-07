@@ -19,7 +19,34 @@ const page = {
 		webp: "/images/page-title/webp/page_bebenageur-2.webp",
 		jpg: "/images/page-title/page_bebenageur-2.jpg",
 		alt: "Garçon en bas âge nageant sous l'eau"
-	}
+	},
+	gallery: [
+		{
+			webp: "/images/baby-swimming/bebe-nageur.webp",
+			jpg: "/images/baby-swimming/bebe-nageur.jpg",
+			alt: "Garçon en bas âge nageant sous l'eau"
+		},
+		{
+			webp: "/images/baby-swimming/bebe-nageur-3.webp",
+			jpg: "/images/baby-swimming/bebe-nageur-3.jpg",
+			alt: "Garçon en bas âge nageant sous l'eau"
+		},
+		{
+			webp: "/images/baby-swimming/bebe-nageur-2.webp",
+			jpg: "/images/baby-swimming/bebe-nageur-2.jpg",
+			alt: "Garçon en bas âge nageant sous l'eau"
+		},
+		{
+			webp: "/images/baby-swimming/bebe-nageur-4.webp",
+			jpg: "/images/baby-swimming/bebe-nageur-4.jpg",
+			alt: "Garçon en bas âge nageant sous l'eau"
+		},
+		{
+			webp: "/images/baby-swimming/bebe-nageur-4.webp",
+			jpg: "/images/baby-swimming/bebe-nageur-4.jpg",
+			alt: "Garçon en bas âge nageant sous l'eau"
+		}
+	]
 };
 ---
 
@@ -30,14 +57,37 @@ const page = {
 	<Main>
 		<Section class="baby-swimmer" ariaLabel="Informations concernant la section bébé nageur">
 			<Container>
-				<h2>Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?</h2>
-				<p>
-					Dans une eau chaude, avec des jeux à profusion… Tout est prévu pour le bien-être, l’amusement et l’éveil de votre bébé. Motricité et
-					découverte seront mises en place dans une ambiance propice au développement. Fidèle à notre pédagogie, les cours de bébé-baigneur se
-					déroulent dans une atmosphère ludique, En effet, il s’agit d’un moment de complicité entre les parents et le bébé. Nos éducateurs
-					spécialisés vous accompagneront dans cette nouvelle expérience.
-				</p>
-				<img src="/images/page-title/page_bebenageur.jpg" alt="Garçon en bas âge nageant sous l'eau " />
+				<div class="baby-swimmer__wrapper">
+					<h2 class="baby-swimmer__title">Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?</h2>
+					<div class="baby-swimmer__txt">
+						<p>
+							Offrez à votre bébé un moment privilégié d'éveil et de motricité dans une eau chaude et une ambiance ludique. Nos cours de bébé-baigneur
+							sont conçus pour :
+							<ul>
+								<li>Favoriser le bien-être et l'amusement de votre enfant</li>
+								<li>Respecter notre pédagogie axée sur la découverte</li>
+								<li>Mettre en place des activités favorisant la motricité et la découverte</li>
+								<li>Proposer une ambiance propice au développement</li>
+								<li>Accompagner les parents et le bébé dans une expérience unique de complicité</li>
+							</ul>
+
+							Nos éducateurs spécialisés sont formés pour vous accompagner dans cette nouvelle expérience. Découvrez dès maintenant notre programme
+							pour le développement de votre bébé dans une ambiance propice à l'épanouissement.
+						</p>
+					</div>
+					<div class="baby-swimmer__images">
+						{
+							page.gallery.map(image => {
+								return (
+									<picture>
+										<source type="image/webp" srcset={image.webp} />
+										<img loading="lazy" src={image.jpg} alt={image.alt} height="300" width="400" />
+									</picture>
+								);
+							})
+						}
+					</div>
+				</div>
 			</Container>
 		</Section>
 		<Section>
@@ -50,10 +100,77 @@ const page = {
 	<Footer />
 </BaseLayout>
 
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
+<style lang="scss">
+	.baby-swimmer {
+		&__wrapper {
+			display: grid;
+			grid-template-columns: 45% 1fr;
+			gap: var(--space-md);
+			align-items: center;
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				grid-auto-flow: row;
+			}
+		}
+		&__title {
+			grid-column: 1 / span 2;
+
+			@media screen and (max-width: 768px) {
+				grid-column: 1 / span 1;
+			}
+		}
+		&__txt {
+			ul {
+				list-style: none;
+				background-color: var(--color-bg-light);
+				padding: var(--space-md);
+				border-radius: var(--regular-border-radius);
+				& > li {
+					&::before {
+						content: "✓";
+						margin-right: var(--space-sm);
+					}
+				}
+			}
+		}
+		&__images {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(5, 75px);
+			grid-gap: var(--space-sm);
+
+			picture {
+				overflow: hidden;
+				border-radius: var(--regular-border-radius);
+				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+
+				img {
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+				}
+				&:nth-child(1) {
+					grid-column: 2 / 4;
+					grid-row: 1 / 3;
+				}
+				&:nth-child(2) {
+					grid-column: 4 / 5;
+					grid-row: 2 / 3;
+				}
+				&:nth-child(3) {
+					grid-row: 3 / 5;
+					grid-column: 1 / 3;
+				}
+				&:nth-child(4) {
+					grid-column: 3 / 5;
+					grid-row: 3 / 6;
+				}
+				&:nth-child(5) {
+					grid-row: 5 / 6;
+					grid-column: 2 / 3;
+				}
+			}
+		}
 	}
 </style>
