@@ -23,7 +23,39 @@ const page = {
 		webp: "/images/page-title/webp/page_quisommesnous.webp",
 		jpg: "/images/page-title/page_quisommesnous.jpg",
 		alt: "Maître-Baigneur apprenant un garçon à nager"
-	}
+	},
+	gallery: [
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
+		},
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe-3.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe-3.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe avec enfants nageant sur le dos "
+		},
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe-2.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe-2.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe montrant l'exercice"
+		},
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
+		},
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe-5.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe-5.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager"
+		},
+		{
+			webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
+			jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
+			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
+		}
+	]
 };
 ---
 
@@ -38,16 +70,37 @@ const page = {
 		<Section class="pedagogy" ariaLabel="La philosophie Maître-Baigneur" backgroundColor="var(--color-bg-light)">
 			<Container>
 				<Waves atTopOfSection={true} />
-				<img loading="lazy" class="pedagogy__img" src="/images/hero.jpg" alt="Maître-Baigneur en action" />
-				<div class="pedagogy__content">
-					<h2>La philosophie Maître-Baigneur</h2>
-					<h3>Nager en groupe</h3>
-					<p>
-						Notre pédagogie en petits groupes pour l'apprentissage de la natation renforce l'esprit d'équipe, la solidarité, la confiance en soi et
-						favorise l'autonomie des élèves. Apprendre à nager est crucial pour leur sécurité et peut améliorer leur capacité cognitive, leurs
-						compétences sociales et leur coordination. Continuer à nager tout au long de l'année peut également améliorer leur condition physique
-						générale. Il est important de ne pas interrompre l'apprentissage, sinon cela peut entraîner une régression brutale de leurs acquis.
-					</p>
+				<div class="pedagogy__wrapper">
+					<h2 class="pedagogy__title">La philosophie Maître-Baigneur</h2>
+
+					<div class="pedagogy__images">
+						{
+							page.gallery.map(image => {
+								return (
+									<picture>
+										<source type="image/webp" srcset={image.webp} />
+										<img loading="lazy" src={image.jpg} alt={image.alt} height="300" width="400" />
+									</picture>
+								);
+							})
+						}
+					</div>
+					<div class="pedagogy__content">
+						<h3>Nager en groupe</h3>
+						<p>
+							Les avantages de notre pédagogie en petits groupes pour l'apprentissage de la natation sont nombreux :
+							<ul>
+								<li>Renforce l'esprit d'équipe, la solidarité, la confiance en soi et favorise l'autonomie des élèves.</li>
+								<li>Améliore la sécurité en évitant les dangers de l'eau.</li>
+								<li>Développe les compétences sociales et la coordination.</li>
+								<li>Améliore les capacités cognitives et la condition physique générale.</li>
+								<li>Il est important de ne pas interrompre l'apprentissage pour éviter une régression brutale des acquis.</li>
+							</ul>
+							En résumé, notre pédagogie en petits groupes pour l'apprentissage de la natation permet aux élèves de travailler en équipe, de gagner en
+							confiance en soi, d'améliorer leur sécurité, leurs compétences sociales, leur coordination, leurs capacités cognitives et leur condition
+							physique. Il est essentiel de maintenir une continuité dans l'apprentissage pour éviter toute régression des acquis.
+						</p>
+					</div>
 				</div>
 				<Waves />
 			</Container>
@@ -92,6 +145,86 @@ const page = {
 </BaseLayout>
 
 <style lang="scss">
+	.pedagogy {
+		&__wrapper {
+			display: grid;
+			grid-template-columns: 45% 1fr;
+			gap: var(--space-md);
+			align-items: center;
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+				grid-auto-flow: row;
+			}
+		}
+		&__title {
+			grid-column: 1 / span 2;
+			text-align: center;
+
+			@media screen and (max-width: 768px) {
+				grid-column: 1 / span 1;
+			}
+		}
+		&__content {
+			h3 {
+				font-family: var(--ff-pacifico);
+			}
+			ul {
+				list-style: none;
+				background-color: var(--color-white);
+				padding: var(--space-md);
+				border-radius: var(--regular-border-radius);
+				& > li {
+					&::before {
+						content: "✓";
+						margin-right: var(--space-sm);
+					}
+				}
+			}
+		}
+		&__images {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(5, 75px);
+			grid-gap: var(--space-sm);
+
+			picture {
+				overflow: hidden;
+				border-radius: var(--regular-border-radius);
+				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+
+				img {
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+				}
+				&:nth-child(1) {
+					grid-column: 1 / 3;
+					grid-row: 1 / 4;
+				}
+				&:nth-child(2) {
+					grid-column: 3 / 4;
+					grid-row: 1 / 2;
+				}
+				&:nth-child(3) {
+					grid-column: 3 / 5;
+					grid-row: 2 / 4;
+				}
+				&:nth-child(4) {
+					grid-column: 1/ 2;
+					grid-row: 4 / 5;
+				}
+				&:nth-child(5) {
+					grid-column: 2 / 4;
+					grid-row: 4 / 6;
+				}
+				&:nth-child(6) {
+					grid-column: 4 / 5;
+					grid-row: 4 / 5;
+				}
+			}
+		}
+	}
 	.pedagogy {
 		&__img {
 			width: 100%;
