@@ -71,8 +71,10 @@ function openMenu() {
 		toggleBtn.setAttribute("aria-expanded", true);
 		sidenav.setAttribute("data-state", "opened");
 	}
-	// Add the overlay
-	addOverlay();
+	if (window.innerWidth > 768) {
+		// Add the overlay
+		addOverlay();
+	}
 	// Prevent scrolling on the body element
 	body.style.overflow = "hidden";
 }
@@ -88,9 +90,10 @@ function closeMenu() {
 		toggleBtn.setAttribute("aria-expanded", false);
 		sidenav.setAttribute("data-state", "closed");
 	}
-
-	// Remove the overlay
-	removeOverlay();
+  	if (window.innerWidth > 768) {
+		// Remove the overlay
+		removeOverlay();
+	}
 	// Allow scrolling on the body element again
 	body.style.overflow = "";
 }
