@@ -50,18 +50,11 @@
             -webkit-overflow-scrolling: touch;
             flex-wrap: unset;
             padding-bottom: 2rem;
+            padding-inline: var(--space-md);
 
             .package {
                 scroll-snap-align: center;
                 flex: 0 0 min(75%, 350px);
-
-                &:first-child {
-                    margin-left: var(--space-md);
-                }
-
-                &:last-child {
-                    margin-right: var(--space-md);
-                }
             }
         }
     }
