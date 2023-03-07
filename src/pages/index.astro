@@ -19,17 +19,15 @@ import Waves from "@components/ui/shapes/Waves.astro";
 interface Props {
 	title: string;
 	description: string;
-	url: string;
 }
 const page = {
 	title: "Maître-Baigneur - Des cours de natation pour tous les âges, du bébé-nageur à l'apprentissage en profondeur",
 	description:
-		"Apprenez à nager avec nos cours de natation innovants et ludiques pour tous les âges à Aix-en-Provence. Découvrez nos cours bébé-nageur pour une initiation à l'eau, amusante mais sécurisée.",
-	url: "https://maitrebaigneur.com/"
+		"Apprenez à nager avec nos cours de natation innovants et ludiques pour tous les âges à Aix-en-Provence. Découvrez nos cours bébé-nageur pour une initiation à l'eau, amusante mais sécurisée."
 };
 ---
 
-<BaseLayout title={page.title} descritpion={page.description}>
+<BaseLayout title={page.title} description={page.description}>
 	<SkipToContent />
 	<Header />
 	<Main>
@@ -108,7 +106,7 @@ const page = {
 </BaseLayout>
 
 <style lang="scss">
-	/** 
+	/**
 	 * services section
 	 * */
 	.services {
@@ -138,7 +136,7 @@ const page = {
 		}
 	}
 
-	/** 
+	/**
 	 * services section
 	 * */
 </style>

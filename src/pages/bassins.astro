@@ -20,12 +20,12 @@ const page = {
 	image: {
 		webp: "/images/page-title/webp/fallback.webp",
 		jpg: "/images/page-title/fallback.jpg",
-		alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
-	},
+		alt: "Vue sur des pieds trempants dans l'eau d'une piscine"
+	}
 };
 ---
 
-<BaseLayout title={page.title} descritpion={page.description}>
+<BaseLayout title={page.title} description={page.description}>
 	<SkipToContent />
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
