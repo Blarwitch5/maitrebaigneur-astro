@@ -9,6 +9,7 @@ import Section from "@components/Section.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
 import site from "@assets/data/data.json";
+import Services from "@components/widgets/Services.astro";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -18,7 +19,7 @@ const services = siteLinks.services;
 const page = {
 	metaTitle: "Maître-Baigneur | Nos prestations",
 	description: "",
-	title: "Nos presttations",
+	title: "Nos prestations",
 	imageUrl: "/images/page-title/fallback.jpg",
 	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
 
@@ -30,7 +31,7 @@ const page = {
 };
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout title={page.metaTitle} description={page.description}>
 	<SkipToContent />
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
@@ -39,24 +40,16 @@ const page = {
 		<Section class="services" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
 			<Container>
 				<h2>Nos prestations</h2>
-				{
-					services.map(service => (
-						<article
-							class={`service ${service.name
-								.replace(/\s|_|\(|\)/g, "-")
-								.normalize("NFD")
-								.replace(/\p{Diacritic}/gu, "")
-								.toLowerCase()}`}
-						>
-							<a href={service.href} class="service__link">
-								<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
-								<div class="service__info">
-									<h3 class="service__title">{service.name}</h3>
-								</div>
-							</a>
-						</article>
-					))
-				}
+				<p>
+					Maître-Baigneur est votre partenaire pour un apprentissage ludique et sécurisé de la natation. Nous nous concentrons sur les cours de bébé
+					nageur dès 3 mois et les cours de natation dès 3 ans, en proposant des sessions en petits groupes pour une attention personnalisée. Notre
+					philosophie est d'apprendre en s'amusant.
+				</p>
+				<p>
+					En plus de ces prestations, nous offrons la surveillance d'événements et l'organisation d'aquaversaires. Rejoignez Maître-Baigneur pour
+					vivre des moments aquatiques inoubliables !
+				</p>
+				<Services />
 			</Container>
 		</Section>
 		<Footer />
