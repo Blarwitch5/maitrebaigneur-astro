@@ -10,13 +10,14 @@ import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
+import Search from "@components/ui/Search.astro";
 
 //data
 
 const page = {
-	metaTitle: "Maître-Baigneur |  Foire aux questions",
+	metaTitle: "Maître-Baigneur | Foire aux questions",
 	description: "",
-	title: " Foires Aux Questions",
+	title: "FAQ",
 
 	image: {
 		webp: "/images/page-title/webp/fallback.webp",
@@ -26,7 +27,7 @@ const page = {
 };
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout title={page.metaTitle} description={page.description}>
 	<SkipToContent />
 	<Header />
 	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
@@ -42,6 +43,10 @@ const page = {
 					> à l'aide du formulaire prévu à cet effet.
 				</p>
 
+				<!--Search field-->
+				<Search />
+
+				<!--Accordion panels-->
 				<Accordion>
 					<AccordionItem header="Quelles sont les modalités de paiement ?" index="1">
 						<p>Le réglement se fait lors de la première séance. Vous trouverez à votre diposition des enveloppes et des tickets d'encaissement</p>
@@ -65,8 +70,7 @@ const page = {
 					</AccordionItem>
 					<AccordionItem header="Où puis-je apprendre à nager ?" index="2">
 						<p>
-							Vous pouvez apprendre à nager dans nos bassins d'apprentissage. Pour rappel
-							<ul>
+							Vous pouvez apprendre à nager dans nos bassins d'apprentissage. Pour rappel<ul>
 								<li>AQUABECOOL : 700 Chemin de la Beauvale, 13090 Aix en Provence</li>
 								<li>PLAN FORM : Parc Club de L´Arbois, Route de Calas, 13480 Cabriès</li>
 								<li>SET CLUB : 1335 Chemin de Granet, 13090 Aix-en-Provence</li>
@@ -130,11 +134,3 @@ const page = {
 	</Main>
 	<Footer />
 </BaseLayout>
-
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-</style>
