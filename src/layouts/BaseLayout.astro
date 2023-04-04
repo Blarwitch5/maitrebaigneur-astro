@@ -26,6 +26,8 @@ const {
   canonical,
 } = Astro.props;
 
+const url = new URL(Astro.request.url);
+
 import "sanitize.css";
 import "../assets/styles/main.scss";
 
@@ -45,12 +47,13 @@ const icbm: string = "43.5, 5.4";
     <SEO
       title={title}
       description={description}
+      canonical={canonical ? canonical : url.pathname}
       openGraph={{
         basic: {
           type: openGraphType ? openGraphType : "website",
           title: openGraphTitle ? openGraphTitle : title,
           image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg",
-          url: canonical ? canonical : Astro.request.url,
+          url: canonical ? canonical : url.pathname,
         },
         image: {
           alt: openGraphImageAlt
