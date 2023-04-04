@@ -1,7 +1,35 @@
 declare module 'astro:content' {
+	interface Render {
+		'.md': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
 	export { z } from 'astro/zod';
 	export type CollectionEntry<C extends keyof typeof entryMap> =
-		(typeof entryMap)[C][keyof (typeof entryMap)[C]] & Render;
+		(typeof entryMap)[C][keyof (typeof entryMap)[C]];
+
+	// This needs to be in sync with ImageMetadata
+	export const image: () => import('astro/zod').ZodObject<{
+		src: import('astro/zod').ZodString;
+		width: import('astro/zod').ZodNumber;
+		height: import('astro/zod').ZodNumber;
+		format: import('astro/zod').ZodUnion<
+			[
+				import('astro/zod').ZodLiteral<'png'>,
+				import('astro/zod').ZodLiteral<'jpg'>,
+				import('astro/zod').ZodLiteral<'jpeg'>,
+				import('astro/zod').ZodLiteral<'tiff'>,
+				import('astro/zod').ZodLiteral<'webp'>,
+				import('astro/zod').ZodLiteral<'gif'>,
+				import('astro/zod').ZodLiteral<'svg'>
+			]
+		>;
+	}>;
 
 	type BaseSchemaWithoutEffects =
 		| import('astro/zod').AnyZodObject
@@ -57,14 +85,6 @@ declare module 'astro:content' {
 		Required<ContentConfig['collections'][C]>['schema']
 	>;
 
-	type Render = {
-		render(): Promise<{
-			Content: import('astro').MarkdownInstance<{}>['Content'];
-			headings: import('astro').MarkdownHeading[];
-			remarkPluginFrontmatter: Record<string, any>;
-		}>;
-	};
-
 	const entryMap: {
 		"bassins": {
 "aquabecool.md": {
@@ -73,42 +93,42 @@ declare module 'astro:content' {
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 "domicile.md": {
   id: "domicile.md",
   slug: "domicile",
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 "kabanon.md": {
   id: "kabanon.md",
   slug: "kabanon",
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 "kinemouv.md": {
   id: "kinemouv.md",
   slug: "kinemouv",
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 "planform.md": {
   id: "planform.md",
   slug: "planform",
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 "set-club.md": {
   id: "set-club.md",
   slug: "set-club",
   body: string,
   collection: "bassins",
   data: any
-},
+} & { render(): Render[".md"] },
 },
 
 	};

@@ -5,16 +5,26 @@ import GeoTag from "@components/head/GeoTag.astro";
 import { SEO } from "astro-seo";
 
 export interface Props {
-	title: string;
-	description: string;
-	openGraphType?: string;
-	openGraphTitle?: string;
-	openGraphDescription?: string;
-	openGraphImage?: string;
-	openGraphImageAlt?: string;
+  title: string;
+  description: string;
+  openGraphType?: string;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+  openGraphImage?: string;
+  openGraphImageAlt?: string;
+  canonical?: string;
 }
 
-const { title, description, openGraphType, openGraphTitle, openGraphDescription, openGraphImage, openGraphImageAlt } = Astro.props;
+const {
+  title,
+  description,
+  openGraphType,
+  openGraphTitle,
+  openGraphDescription,
+  openGraphImage,
+  openGraphImageAlt,
+  canonical,
+} = Astro.props;
 
 import "sanitize.css";
 import "../assets/styles/main.scss";
@@ -28,43 +38,49 @@ const icbm: string = "43.5, 5.4";
 
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<SEO
-			title={title}
-			description={description}
-			openGraph={{
-				basic: {
-					type: openGraphType ? openGraphType : "website",
-					title: openGraphTitle ? openGraphTitle : title,
-					image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg"
-				},
-				image: {
-					alt: openGraphImageAlt
-						? openGraphImageAlt
-						: "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés."
-				},
-				optional: {
-					description: openGraphDescription
-						? openGraphDescription
-						: "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés."
-				}
-			}}
-		/>
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          type: openGraphType ? openGraphType : "website",
+          title: openGraphTitle ? openGraphTitle : title,
+          image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg",
+          url: canonical ? canonical : Astro.request.url,
+        },
+        image: {
+          alt: openGraphImageAlt
+            ? openGraphImageAlt
+            : "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés.",
+        },
+        optional: {
+          description: openGraphDescription
+            ? openGraphDescription
+            : "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés.",
+        },
+      }}
+    />
+    <title>{title}</title>
 
-		<!-- GEOTAG -->
-		<GeoTag region={region} placename={placename} position={position} icbm={icbm} />
-		<!-- /GEOTAG -->
+    <!-- GEOTAG -->
+    <GeoTag
+      region={region}
+      placename={placename}
+      position={position}
+      icbm={icbm}
+    />
+    <!-- /GEOTAG -->
 
-		<!-- FAVICON -->
-		<Favicon />
-		<!-- /FAVICON -->
-	</head>
-	<body>
-		<slot />
-		<script src="../assets/scripts/navbar.js"></script>
-	</body>
+    <!-- FAVICON -->
+    <Favicon />
+    <!-- /FAVICON -->
+  </head>
+  <body>
+    <slot />
+    <script src="../assets/scripts/navbar.js"></script>
+  </body>
 </html>

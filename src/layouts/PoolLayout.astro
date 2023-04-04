@@ -1,13 +1,12 @@
 ---
 import Favicon from "@components/head/Favicon.astro";
 import GeoTag from "@components/head/GeoTag.astro";
+import { SEO } from "astro-seo";
 
 export interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
-
-const { title, description } = Astro.props;
 
 import "sanitize.css";
 import "../assets/styles/main.scss";
@@ -20,64 +19,111 @@ import "node_modules/@glidejs/glide/dist/css/glide.theme.min.css";
 let region: string, placename: string, position: string, icbm: string;
 const currentPage = new URL(Astro.request.url).pathname as string;
 switch (true) {
-	case currentPage.endsWith("aquabecool"):
-		console.log("aquabecool");
-		region = "FR-13";
-		placename = "Aix-en-Provence";
-		position = "43.512775;5.437376";
-		icbm = "43.512775, 5.437376";
-		break;
-	case currentPage.endsWith("kabanon"):
-		region = "FR-13";
-		placename = "Saint-Marc-Jaumegarde";
-		position = "43.541368;5.502705";
-		icbm = "43.541368, 5.502705";
-		break;
-	case currentPage.endsWith("kinemouv"):
-		region = "FR-13";
-		placename = "Pertuis";
-		position = "43.681747;5.50601";
-		icbm = "43.681747, 5.50601";
-		break;
-	case currentPage.endsWith("plan-form"):
-		region = "FR-13";
-		placename = "Cabri&egrave;s";
-		position = "43.4264974;5.3643899";
-		icbm = "43.4264974, 5.3643899";
-		break;
-	case currentPage.endsWith("set-club"):
-		region = "FR-13";
-		placename = "Aix-en-Provence";
-		position = "43.535356;5.393444";
-		icbm = "43.535356, 5.393444";
-		break;
-	default:
-		region = "FR-13";
-		placename = "Aix-en-Provence";
-		position = "43.5;5.4";
-		icbm = "43.5, 5.4";
+  case currentPage.endsWith("aquabecool"):
+    console.log("aquabecool");
+    region = "FR-13";
+    placename = "Aix-en-Provence";
+    position = "43.512775;5.437376";
+    icbm = "43.512775, 5.437376";
+    break;
+  case currentPage.endsWith("kabanon"):
+    region = "FR-13";
+    placename = "Saint-Marc-Jaumegarde";
+    position = "43.541368;5.502705";
+    icbm = "43.541368, 5.502705";
+    break;
+  case currentPage.endsWith("kinemouv"):
+    region = "FR-13";
+    placename = "Pertuis";
+    position = "43.681747;5.50601";
+    icbm = "43.681747, 5.50601";
+    break;
+  case currentPage.endsWith("plan-form"):
+    region = "FR-13";
+    placename = "Cabri&egrave;s";
+    position = "43.4264974;5.3643899";
+    icbm = "43.4264974, 5.3643899";
+    break;
+  case currentPage.endsWith("set-club"):
+    region = "FR-13";
+    placename = "Aix-en-Provence";
+    position = "43.535356;5.393444";
+    icbm = "43.535356, 5.393444";
+    break;
+  default:
+    region = "FR-13";
+    placename = "Aix-en-Provence";
+    position = "43.5;5.4";
+    icbm = "43.5, 5.4";
 }
+export interface Props {
+  title: string;
+  description: string;
+  openGraphType?: string;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+  openGraphImage?: string;
+  openGraphImageAlt?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  openGraphType,
+  openGraphTitle,
+  openGraphDescription,
+  openGraphImage,
+  openGraphImageAlt,
+  canonical,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- GEOTAG -->
-		<GeoTag region={region} placename={placename} position={position} icbm={icbm} />
-		<!-- /GEOTAG -->
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          type: openGraphType ? openGraphType : "website",
+          title: openGraphTitle ? openGraphTitle : title,
+          image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg",
+        },
+        image: {
+          alt: openGraphImageAlt
+            ? openGraphImageAlt
+            : "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés.",
+        },
+        optional: {
+          description: openGraphDescription
+            ? openGraphDescription
+            : "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés.",
+        },
+      }}
+    />
+    <title>{title}</title>
 
-		<!-- FAVICON -->
-		<Favicon />
-		<!-- /FAVICON -->
-	</head>
-	<body>
-		<slot />
-		<script src="../assets/scripts/navbar.js"></script>
-	</body>
+    <!-- GEOTAG -->
+    <GeoTag
+      region={region}
+      placename={placename}
+      position={position}
+      icbm={icbm}
+    />
+    <!-- /GEOTAG -->
+
+    <!-- FAVICON -->
+    <Favicon />
+    <!-- /FAVICON -->
+  </head>
+  <body>
+    <slot />
+    <script src="../assets/scripts/navbar.js"></script>
+  </body>
 </html>

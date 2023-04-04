@@ -17,42 +17,51 @@ const services = siteLinks.services;
 //data
 
 const page = {
-	metaTitle: "Maître-Baigneur | Nos prestations",
-	description: "",
-	title: "Nos prestations",
-	imageUrl: "/images/page-title/fallback.jpg",
-	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+  metaTitle: "Maître-Baigneur | Nos prestations",
+  description: "",
+  title: "Nos prestations",
 
-	image: {
-		webp: "/images/page-title/webp/fallback.webp",
-		jpg: "/images/page-title/fallback.jpg",
-		alt: "Vue sur des pieds trempants dans l'eau d'une piscine"
-	}
+  image: {
+    webp: "/images/page-title/webp/fallback.webp",
+    jpg: "/images/page-title/fallback.jpg",
+    alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+  },
 };
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
 
-	<Main>
-		<Section class="services" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
-			<Container>
-				<h2>Nos prestations</h2>
-				<p>
-					Maître-Baigneur est votre partenaire pour un apprentissage ludique et sécurisé de la natation. Nous nous concentrons sur les cours de bébé
-					nageur dès 3 mois et les cours de natation dès 3 ans, en proposant des sessions en petits groupes pour une attention personnalisée. Notre
-					philosophie est d'apprendre en s'amusant.
-				</p>
-				<p>
-					En plus de ces prestations, nous offrons la surveillance d'événements et l'organisation d'aquaversaires. Rejoignez Maître-Baigneur pour
-					vivre des moments aquatiques inoubliables !
-				</p>
-				<Services />
-			</Container>
-		</Section>
-		<Footer />
-	</Main>
+  <Main>
+    <Section
+      class="services"
+      ariaLabel="Les bassins d'apprentissage de Maître-Baigneur"
+    >
+      <Container>
+        <h2>Nos prestations</h2>
+        <p>
+          Maître-Baigneur est votre partenaire pour un apprentissage ludique et
+          sécurisé de la natation. Nous nous concentrons sur les cours de bébé
+          nageur dès 3 mois et les cours de natation dès 3 ans, en proposant des
+          sessions en petits groupes pour une attention personnalisée. Notre
+          philosophie est d'apprendre en s'amusant.
+        </p>
+        <p>
+          En plus de ces prestations, nous offrons la surveillance d'événements
+          et l'organisation d'aquaversaires. Rejoignez Maître-Baigneur pour
+          vivre des moments aquatiques inoubliables !
+        </p>
+        <Services />
+      </Container>
+    </Section>
+    <Footer />
+  </Main>
 </BaseLayout>
 <style></style>
