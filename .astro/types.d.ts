@@ -115,9 +115,9 @@ declare module 'astro:content' {
   collection: "bassins",
   data: any
 } & { render(): Render[".md"] },
-"planform.md": {
-  id: "planform.md",
-  slug: "planform",
+"plan-form.md": {
+  id: "plan-form.md",
+  slug: "plan-form",
   body: string,
   collection: "bassins",
   data: any

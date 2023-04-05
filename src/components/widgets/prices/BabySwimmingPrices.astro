@@ -8,30 +8,39 @@ const babySwimming = prices.babySwimming;
 ---
 
 <div class="packages-container baby-swimming">
-	<div>
-		<div class="package">
-			<h1 class="package__title">Les formules</h1>
-			<p class="package__info"><Icon name="warning" />1 parent par bébé</p>
+  <div>
+    <div class="package">
+      <h1 class="package__title">Les formules</h1>
+      <p class="package__info"><Icon name="warning" />2 parent par bébé</p>
 
-			<ul class="package__list">
-				{
-					babySwimming.formula.map((item: { name: string; price: number; extraDesc?: string }) => {
-						return (
-							<li class="package__item">
-								{item.name} <span class="package__price">{item.price}€</span>
-								{item.extraDesc && <span class="package__extra-desc">{item.extraDesc}</span>}
-							</li>
-						);
-					})
-				}
-			</ul>
-			<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular">Réserver</Buttons>
-		</div>
-	</div>
+      <ul class="package__list">
+        {
+          babySwimming.formula.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class="package__item">
+                  {item.name} <span class="package__price">{item.price}€</span>
+                  {item.extraDesc && (
+                    <span class="package__extra-desc">{item.extraDesc}</span>
+                  )}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Buttons
+        href="https://user.clicrdv.com/maitre-baigneur"
+        class="btn btn__regular"
+      >
+        Réserver
+      </Buttons>
+    </div>
+  </div>
 </div>
 
 <style>
-	.container {
-		width: 100%;
-	}
+  .container {
+    width: 100%;
+  }
 </style>

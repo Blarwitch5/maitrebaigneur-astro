@@ -26,7 +26,6 @@
 				"children": [
 					{ "href": "/bassins/aquabecool", "name": "Aquabecool" },
 					{ "href": "/bassins/plan-form", "name": "Plan Form" },
-					{ "href": "/bassins/set-club", "name": "Set Club" },
 					{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
 					{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
 					{ "href": "/bassins/domicile", "name": "Domicile" },
@@ -107,19 +106,6 @@
 				"thumb": {
 					"jpg": "/images/thumbnails/domicile-thumb.jpg",
 					"alt": "Bassin à domicile"
-				}
-			},
-			{
-				"name": "Set Club",
-				"href": "/bassins/set-club",
-				"image": {
-					"src": "/images/pools/setclub.jpg",
-					"alt": "Bassin du Set Club"
-				},
-				"location": "Aix Ouest",
-				"thumb": {
-					"jpg": "/images/thumbnails/setclub-thumb.jpg",
-					"alt": "Bassin Set Club"
 				}
 			},
 			{
@@ -206,6 +192,16 @@
 	},
 	"swimmingLevels": [
 		{
+			"name": "Micro Baigneur",
+			"imageSrc":{
+				"jpg": "/images/niveaux/0_micro-baigneurs.jpg",
+				"webp": "/images/niveaux/0_micro-baigneurs.webp"
+			},
+
+			"desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
+			"hints": ["Mon enfant nage avec les brassards ?", "Mon enfant ne met pas la tête dans l’eau ?"]
+		},
+		{
 			"name": "Mini Baigneur",
 			"imageSrc":{
 				"jpg": "/images/niveaux/1_mini-baigneurs.jpg",
@@ -252,5 +248,19 @@
 			"desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
 			"hints": ["Je sais nager et mais je veux perfectionner ma nage ?"]
 		}
-	]
+	],
+	"backup":{
+		"name": "Set Club",
+		"href": "/bassins/set-club",
+		"image": {
+			"src": "/images/pools/setclub.jpg",
+			"alt": "Bassin du Set Club"
+		},
+		"location": "Aix Ouest",
+		"thumb": {
+			"jpg": "/images/thumbnails/setclub-thumb.jpg",
+			"alt": "Bassin Set Club"
+		}
+	}
 }
+

@@ -8,11 +8,11 @@ pool: {
 	location: "Pertuis",
 	desc: "test",
 	image: {
-		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
-		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
-		alt: "Bassin de Aquabecool à Aix-en-Provence"
+		webp: "/images/page-title/webp/page_kinemouv-bassins.webp",
+		jpg: "/images/page-title/page_kinemouv-bassins.jpg",
+		alt: "Bassin de Kinémouv' à Pertuis"
 	},
-	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",
+	address: "434 Chem. de Saint-Martin, 84120 Pertuis",
 	link: {
 		url: "https://www.facebook.com/kinemouv/",
 		text: "Page de Kinémouv'"
@@ -22,7 +22,12 @@ pool: {
 			name: "Cours de natation",
 			icon: "swimmer",
 			href: "/prestations/cours-de-natation"
-		}
+		},
+		{
+			name: "Cours Bébé nageur",
+			icon: "baby",
+			href: "/prestations/cours-bebe-nageur"
+		},
 	],
 	gallery: [
 		{

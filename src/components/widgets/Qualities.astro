@@ -3,118 +3,120 @@ import { Icon } from "astro-icon";
 import Container from "@components/Container.astro";
 
 const qualities = [
-	{
-		name: "Collaboration",
-		txt: "Maître-Baigneur est une collaboration d’entrepreneurs qui vous propose diverses activités aquatiques. ",
-		icon: "collaboration",
-	},
-	{
-		name: "Pédagogie",
-		txt: "C’est la synergie de maîtres nageurs partageant les mêmes valeurs pédagogiques afin d’assurer la cohérence et l’harmonisation de leurs pratiques.",
-		icon: "pedagogy",
-	},
-	{
-		name: "Sécurité",
-		txt: "Nos maîtres nageurs sont tous diplômés d’État et à jour de leur révision de secourisme.",
-		icon: "safety",
-	},
+  {
+    name: "Collaboration",
+    txt: "Maître-Baigneur est une collaboration unique d'entrepreneurs, offrant une variété d'activités aquatiques pour tous. Ensemble, nous nous engageons à créer des expériences mémorables et adaptées à chaque participant.",
+    icon: "collaboration",
+  },
+  {
+    name: "Pédagogie",
+    txt: "Nos maîtres nageurs partagent des valeurs pédagogiques communes, garantissant cohérence et harmonisation dans l'enseignement. Nous visons l'excellence pour satisfaire les besoins de chacun de nos clients.",
+    icon: "pedagogy",
+  },
+  {
+    name: "Sécurité",
+    txt: "Chaque maître nageur est diplômé d'État et régulièrement formé aux premiers secours, assurant ainsi sécurité et compétence lors de nos activités aquatiques.",
+    icon: "safety",
+  },
 ];
 ---
 
 <Container>
-	<h2 class="qualities__title">Pourquoi apprendre à nager avec Maître-Baigneur ?</h2>
-	<ul class="qualities__list">
-		{
-			qualities.map((quality) => (
-				<li class="quality">
-					<Icon name={quality.icon} class="quality__icon" />
-					<h3 class="quality__title">{quality.name}</h3>
-					<p class="quality__txt">{quality.txt}</p>
-				</li>
-			))
-		}
-	</ul>
+  <h2 class="qualities__title">
+    Pourquoi apprendre à nager avec Maître-Baigneur ?
+  </h2>
+  <ul class="qualities__list">
+    {
+      qualities.map((quality) => (
+        <li class="quality">
+          <Icon name={quality.icon} class="quality__icon" />
+          <h3 class="quality__title">{quality.name}</h3>
+          <p class="quality__txt">{quality.txt}</p>
+        </li>
+      ))
+    }
+  </ul>
 </Container>
 
 <style lang="scss">
-	.qualities {
-		&__title {
-			text-align: center;
-			@media screen and (max-width: 768px) {
-				text-align: left;
-			}
-		}
-		&__list {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			grid-gap: 2rem;
-			transition: all 0.3s ease-in-out;
-			padding: 0;
+  .qualities {
+    &__title {
+      text-align: center;
+      @media screen and (max-width: 768px) {
+        text-align: left;
+      }
+    }
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      transition: all 0.3s ease-in-out;
+      padding: 0;
 
-			@media screen and (max-width: 768px) {
-				grid-template-columns: repeat(1, 1fr);
-				grid-row: auto;
-			}
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row: auto;
+      }
 
-			.quality {
-				color: var(--color-primary);
-				display: grid;
-				justify-content: center;
-				align-content: flex-start;
-				gap: 1rem;
+      .quality {
+        color: var(--color-primary);
+        display: grid;
+        justify-content: center;
+        align-content: flex-start;
+        gap: 1rem;
 
-				@media screen and (max-width: 768px) {
-					row-gap: 0.5rem;
-					grid-template-columns: 25% 1fr;
-					grid-template-rows: repeat(2, min-content);
-				}
+        @media screen and (max-width: 768px) {
+          row-gap: 0.5rem;
+          grid-template-columns: 25% 1fr;
+          grid-template-rows: repeat(2, min-content);
+        }
 
-				&__icon {
-					display: block;
-					width: 100px;
-					height: 100px;
-					margin: 0 auto;
-					padding: 1rem;
-					background-size: contain;
-					background-repeat: no-repeat;
-					background-position: center;
-					fill: blue;
+        &__icon {
+          display: block;
+          width: 100px;
+          height: 100px;
+          margin: 0 auto;
+          padding: 1rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          fill: blue;
 
-					path,
-					g {
-						fill: blue;
-					}
+          path,
+          g {
+            fill: blue;
+          }
 
-					@media screen and (max-width: 768px) {
-						grid-row: 1 / span 2;
-						display: grid;
-						// align-items: center;
-						width: calc(100% - 0.5rem);
-						height: auto;
-					}
-				}
+          @media screen and (max-width: 768px) {
+            grid-row: 1 / span 2;
+            display: grid;
+            // align-items: center;
+            width: calc(100% - 0.5rem);
+            height: auto;
+          }
+        }
 
-				&__title {
-					margin: 0;
-					text-align: center;
-					font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
-					font-family: var(--ff-pacifico);
+        &__title {
+          margin: 0;
+          text-align: center;
+          font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+          font-family: var(--ff-pacifico);
 
-					@media screen and (max-width: 768px) {
-						grid-row: 1 / span 1;
-						text-align: left;
-					}
-				}
-				&__txt {
-					color: var(--color-primary);
-					text-align: justify;
+          @media screen and (max-width: 768px) {
+            grid-row: 1 / span 1;
+            text-align: left;
+          }
+        }
+        &__txt {
+          color: var(--color-primary);
+          text-align: justify;
 
-					@media screen and (max-width: 768px) {
-						margin: 0;
-						text-align: left;
-					}
-				}
-			}
-		}
-	}
+          @media screen and (max-width: 768px) {
+            margin: 0;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
 </style>
