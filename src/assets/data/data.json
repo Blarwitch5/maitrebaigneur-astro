@@ -37,7 +37,7 @@
 			{ "href": "/tarifs", "name": "Tarifs", "icon": "credit-card" },
 			{ "href": "/faq", "name": "FAQ", "icon": "faq" },
 			{ "href": "/contact", "name": "Nous contacter", "icon": "contact" },
-			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "target": "_blank", "icon": "calendar" }
+			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "inNewTab": true, "icon": "calendar" }
 		],
 		"services": [
 			{
@@ -170,7 +170,7 @@
 			{
 				"href": "https://user.clicrdv.com/maitre-baigneur",
 				"name": "Réserver un cours",
-				"target": "_blank",
+				"inNewTab": true,
 				"classes": "btn"
 			},
 			{

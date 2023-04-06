@@ -10,230 +10,246 @@ const secondaryNav = siteLinks.secondary;
 
 //data
 const logo = {
-	src: "/images/logo.svg",
-	width: 200,
-	height: 200,
-	alt: "Logo Maître-Baigneur"
+  src: "/images/logo.svg",
+  width: 200,
+  height: 200,
+  alt: "Logo Maître-Baigneur",
 };
 ---
 
 <div id="modal" class="modal">
-	<div class="modal__content">
-		<img src={logo.src} alt={logo.alt} class="logo" width="200" />
-		<nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
-			<ul class="navbar-nav" role="menu" aria-label="Menu de navigation">
-				{
-					secondaryNav.map(item => (
-						<>
-							{item.children && (
-								<li class={`nav-item dropdown`} role="menuitem">
-									<Icon name={item.icon} />
-									<Buttons tabindex="0" class="nav-link dropdown__toggle" type="button" aria-expanded="false" aria-controls="dropdown">
-										{item.name}
-										<Icon name="arrow_down" />
-									</Buttons>
+  <div class="modal__content">
+    <img src={logo.src} alt={logo.alt} class="logo" width="200" />
+    <nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
+      <ul class="navbar-nav" role="menu" aria-label="Menu de navigation">
+        {
+          secondaryNav.map((item) => (
+            <>
+              {item.children && (
+                <li class={`nav-item dropdown`} role="menuitem">
+                  <Icon name={item.icon} />
+                  <Buttons
+                    tabindex="0"
+                    class="nav-link dropdown__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="dropdown"
+                  >
+                    {item.name}
+                    <Icon name="arrow_down" />
+                  </Buttons>
 
-									<ul id="dropdown" class="dropdown__menu submenu" role="menu">
-										{item.children.map(child => (
-											<li class={`nav-item submenu__item`} role="menuitem">
-												<Buttons tabindex="0" class="nav-link dropdown__title" href={child.href}>
-													{child.name}
-												</Buttons>
-											</li>
-										))}
-									</ul>
-								</li>
-							)}
-							{!item.children && (
-								<li
-									class={`nav-item ${item.name
-										.replace(/\s|_|\(|\)/g, "-")
-										.normalize("NFD")
-										.replace(/\p{Diacritic}/gu, "")
-										.toLowerCase()}`}
-									role="menuitem"
-								>
-									<Icon name={item.icon} />
-									<Buttons tabindex="0" class="nav-link" href={item.href} target={item.target}>
-										{item.name}
-									</Buttons>
-								</li>
-							)}
-						</>
-					))
-				}
-			</ul>
-			<Socials iconVersion="light" />
-		</nav>
-		<!-- close button -->
-		<CloseBtn />
-	</div>
+                  <ul id="dropdown" class="dropdown__menu submenu" role="menu">
+                    {item.children.map((child) => (
+                      <li class={`nav-item submenu__item`} role="menuitem">
+                        <Buttons
+                          tabindex="0"
+                          class="nav-link dropdown__title"
+                          href={child.href}
+                        >
+                          {child.name}
+                        </Buttons>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
+              {!item.children && (
+                <li
+                  class={`nav-item ${item.name
+                    .replace(/\s|_|\(|\)/g, "-")
+                    .normalize("NFD")
+                    .replace(/\p{Diacritic}/gu, "")
+                    .toLowerCase()}`}
+                  role="menuitem"
+                >
+                  <Icon name={item.icon} />
+                  <Buttons
+                    tabindex="0"
+                    class="nav-link"
+                    href={item.href}
+                    newTab={item.inNewTab}
+                  >
+                    {item.name}
+                  </Buttons>
+                </li>
+              )}
+            </>
+          ))
+        }
+      </ul>
+      <Socials iconVersion="light" />
+    </nav>
+    <!-- close button -->
+    <CloseBtn />
+  </div>
 </div>
 
 <style lang="scss">
-	.modal {
-		height: 100%;
-		// overflow: hidden;
-		width: 50%;
-		max-width: 1000px;
-		position: fixed;
-		z-index: 999;
-		left: 100%;
-		top: 0;
-		background-color: var(--color-primary);
-		padding-block: 3rem 2rem;
-		transition: transform 0.3s linear;
-		transform: translateX(0%);
+  .modal {
+    height: 100%;
+    // overflow: hidden;
+    width: 50%;
+    max-width: 1000px;
+    position: fixed;
+    z-index: 999;
+    left: 100%;
+    top: 0;
+    background-color: var(--color-primary);
+    padding-block: 3rem 2rem;
+    transition: transform 0.3s linear;
+    transform: translateX(0%);
 
-		&[data-state="opened"] {
-			transform: translateX(-100%);
-		}
-		&[data-state="closed"] {
-			transform: translateX(0%);
-		}
+    &[data-state="opened"] {
+      transform: translateX(-100%);
+    }
+    &[data-state="closed"] {
+      transform: translateX(0%);
+    }
 
-		@media screen and (max-width: 992px) {
-			width: 75%;
-		}
-		@media screen and (max-width: 768px) {
-			width: 100%;
-		}
+    @media screen and (max-width: 992px) {
+      width: 75%;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
 
-		&__content {
-			height: 100%;
-			overflow-y: scroll;
-			display: grid;
-		}
-	}
-	.sidenav {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-	.logo {
-		position: absolute;
-		bottom: -25%;
-		right: -25%;
-		transform: translate(25%, 25%);
-		width: 130%;
-		max-width: 800px;
-		transform: rotate(-25deg);
-		opacity: 0.1;
-	}
-	.navbar-nav {
-		position: relative;
-		list-style-type: none;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-around;
-		padding: 0;
-		width: calc(100% - 2rem);
-		margin-inline: auto;
-		gap: var(--space-2xs);
-		width: 50%;
+    &__content {
+      height: 100%;
+      overflow-y: scroll;
+      display: grid;
+    }
+  }
+  .sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .logo {
+    position: absolute;
+    bottom: -25%;
+    right: -25%;
+    transform: translate(25%, 25%);
+    width: 130%;
+    max-width: 800px;
+    transform: rotate(-25deg);
+    opacity: 0.1;
+  }
+  .navbar-nav {
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    width: calc(100% - 2rem);
+    margin-inline: auto;
+    gap: var(--space-2xs);
+    width: 50%;
 
-		@media screen and (max-width: 768px) {
-			width: 85%;
-		}
+    @media screen and (max-width: 768px) {
+      width: 85%;
+    }
 
-		.nav-item {
-			text-align: left;
-			flex: 0 0 100%;
-			display: flex;
-			align-items: center;
+    .nav-item {
+      text-align: left;
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
 
-			&:not(.submenu__item) {
-				//first 2 items of main menu list
-				&:nth-child(-n + 2) {
-					font-weight: 900;
-					font-size: var(--fs-base);
-				}
-			}
+      &:not(.submenu__item) {
+        //first 2 items of main menu list
+        &:nth-child(-n + 2) {
+          font-weight: 900;
+          font-size: var(--fs-base);
+        }
+      }
 
-			&::before {
-				content: none;
-			}
+      &::before {
+        content: none;
+      }
 
-			&:hover {
-				svg {
-					padding: calc(0.5rem / 2);
-					background-color: hsla(var(--link-color-white-hsl), 0.1);
-					border-radius: 50%;
-				}
-			}
+      &:hover {
+        svg {
+          padding: calc(0.5rem / 2);
+          background-color: hsla(var(--link-color-white-hsl), 0.1);
+          border-radius: 50%;
+        }
+      }
 
-			a {
-				color: var(--color-white);
-				text-decoration: none;
-				line-height: 2rem;
-				flex-grow: 1;
-			}
+      a {
+        color: var(--color-white);
+        text-decoration: none;
+        line-height: 2rem;
+        flex-grow: 1;
+      }
 
-			svg {
-				color: var(--color-white);
-				width: 2rem;
-				margin-right: var(--space-2xs);
-				transition: all 0.2s ease-in-out;
-			}
-		}
-	}
-	.dropdown {
-		position: relative;
-		flex-wrap: wrap;
+      svg {
+        color: var(--color-white);
+        width: 2rem;
+        margin-right: var(--space-2xs);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+  .dropdown {
+    position: relative;
+    flex-wrap: wrap;
 
-		button {
-			all: unset;
-			color: white;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex: 0 0 calc(100% - 2rem - var(--space-2xs));
+    button {
+      all: unset;
+      color: white;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 0 0 calc(100% - 2rem - var(--space-2xs));
 
-			svg {
-				width: 2rem;
-				transition: transform 0.3s ease-in-out;
-			}
-		}
-		&__menu {
-			padding-inline: 2rem;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.3s ease-out 0.1s, margin-top 0.3s ease, padding-block 0.3s ease;
-			background-color: hsla(var(--link-color-white-hsl), 0.1);
-			border-radius: var(--small-border-radius);
-			flex: 0 0 100%;
+      svg {
+        width: 2rem;
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+    &__menu {
+      padding-inline: 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out 0.1s, margin-top 0.3s ease,
+        padding-block 0.3s ease;
+      background-color: hsla(var(--link-color-white-hsl), 0.1);
+      border-radius: var(--small-border-radius);
+      flex: 0 0 100%;
 
-			& > .nav-item {
-				font-weight: 400;
+      & > .nav-item {
+        font-weight: 400;
 
-				&:last-child {
-					font-weight: 900;
-				}
-			}
-		}
-		&--open {
-			.dropdown__menu {
-				margin-top: var(--space-2xs);
-				max-height: 500px;
-				padding-block: 0.5rem;
-			}
-			button {
-				svg {
-					transition: transform 0.3s ease-in-out;
-					transform: rotate(180deg);
-				}
-			}
-		}
-	}
-	.close-btn {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		font-size: 60px;
-		text-decoration: none;
-		color: var(--color-white);
-	}
+        &:last-child {
+          font-weight: 900;
+        }
+      }
+    }
+    &--open {
+      .dropdown__menu {
+        margin-top: var(--space-2xs);
+        max-height: 500px;
+        padding-block: 0.5rem;
+      }
+      button {
+        svg {
+          transition: transform 0.3s ease-in-out;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    text-decoration: none;
+    color: var(--color-white);
+  }
 </style>

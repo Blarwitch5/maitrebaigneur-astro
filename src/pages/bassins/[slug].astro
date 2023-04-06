@@ -89,7 +89,7 @@ const pools = siteLinks.pools;
                 <a
                   href={`https://maps.google.com?q=${entry.data.pool.address}`}
                   target="_blank"
-                  ><Icon name="map" />{entry.data.pool.address}</a
+                  rel="noopener"><Icon name="map" />{entry.data.pool.address}</a
                 >
               </li>
               {
@@ -138,7 +138,11 @@ const pools = siteLinks.pools;
           <div class="glide__bullets" data-glide-el="controls[nav]">
             {
               entry.data.pool.gallery.map((_: any, index: number) => (
-                <button class="glide__bullet" data-glide-dir={`=${index}`} />
+                <button
+                  class="glide__bullet"
+                  title={`Image numéro ${index}`}
+                  data-glide-dir={`=${index}`}
+                />
               ))
             }
           </div>

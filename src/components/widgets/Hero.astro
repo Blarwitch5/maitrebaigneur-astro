@@ -8,150 +8,174 @@ const { ariaLabel } = Astro.props;
 ---
 
 <section id="hero" class="hero" aria-label={ariaLabel}>
-	<Particles />
-	<div class="hero__img">
-		<picture>
-			<source type="image/webp" srcset="/images/hero.webp" />
-			<img loading="lazy" src="/images/hero.jpg" alt="Enfant s'amusant sous l'eau avec les pouces en l'air" height="1920" width="1080" />
-		</picture>
-	</div>
-	<div class="hero__content">
-		<h1 class="hero__title">Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span></h1>
-		<div class="hero__cta">
-			<Buttons href="/contact" class="btn btn__outline--inverted" text="Contactez-nous">Contactez-nous</Buttons>
-			<Buttons href="/contact" class="hero-button btn btn__outline">Je réserve mon cours</Buttons>
-		</div>
-	</div>
-	<div class="socials__wrapper">
-		<Socials iconVersion="light" />
-	</div>
-	<Waves />
+  <Particles />
+  <div class="hero__img">
+    <picture>
+      <source type="image/webp" srcset="/images/hero.webp" />
+      <img
+        loading="lazy"
+        src="/images/hero.jpg"
+        alt="Enfant s'amusant sous l'eau avec les pouces en l'air"
+        height="1920"
+        width="1080"
+      />
+    </picture>
+  </div>
+  <div class="hero__content">
+    <h1 class="hero__title">
+      Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span>
+    </h1>
+    <div class="hero__cta">
+      <Buttons
+        href="/contact"
+        class="btn btn__outline--inverted"
+        text="Contactez-nous"
+      >
+        Contactez-nous
+      </Buttons>
+      <Buttons
+        href="/contact"
+        rel="noopener"
+        class="hero-button btn btn__outline"
+      >
+        Je réserve mon cours
+      </Buttons>
+    </div>
+  </div>
+  <div class="socials__wrapper">
+    <Socials iconVersion="light" />
+  </div>
+  <Waves />
 </section>
 
 <style lang="scss">
-	.hero {
-		position: relative;
-		height: 100vh;
-		min-height: 550px;
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 550px;
 
-		&__img {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
+    &__img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
 
-			display: flex;
-			align-items: center;
-			justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background: hsla(var(--link-color-black-hsl), 0.5);
-			}
-			picture {
-				height: 100%;
-				width: 100%;
-			}
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: hsla(var(--link-color-black-hsl), 0.5);
+      }
+      picture {
+        height: 100%;
+        width: 100%;
+      }
 
-			img {
-				object-fit: cover;
-				height: 100%;
-				width: 100%;
-			}
-		}
-		&__content {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: calc(100% - 2rem);
-			text-align: center;
-			color: var(--color-white);
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			z-index: 2;
-		}
-		&__title {
-			color: #fff;
-			font-size: var(--fs-xl);
-			line-height: 1.2;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 2rem);
+      text-align: center;
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    &__title {
+      color: #fff;
+      font-size: var(--fs-xl);
+      line-height: 1.2;
 
-			span {
-				display: block;
-				font-weight: 100;
-				font-size: clamp(2rem, 3vw + 1rem, 3rem);
-				margin-top: 0.5rem;
-			}
-		}
-		&__cta {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
+      span {
+        display: block;
+        font-weight: 100;
+        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        margin-top: 0.5rem;
+      }
+    }
+    &__cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-			@media screen and (max-width: 576px) {
-				flex-direction: column-reverse;
-				gap: 1rem;
-			}
-			a {
-				min-width: max-content;
+      @media screen and (max-width: 576px) {
+        flex-direction: column-reverse;
+        gap: 1rem;
+      }
+      a {
+        min-width: max-content;
 
-				@media screen and (max-width: 576px) {
-					min-width: calc(320px - 2rem);
-				}
-			}
-		}
-	}
+        @media screen and (max-width: 576px) {
+          min-width: calc(320px - 2rem);
+        }
+      }
+    }
+  }
 
-	.socials__wrapper {
-		position: absolute;
-		bottom: 2rem;
-		right: 2rem;
-		z-index: 8;
+  .socials__wrapper {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 8;
 
-		@media screen and (max-width: 768px) {
-			right: 50%;
-			transform: translateX(50%);
-		}
-	}
-	.bubble {
-		position: absolute;
-		bottom: 0;
+    @media screen and (max-width: 768px) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+  .bubble {
+    position: absolute;
+    bottom: 0;
 
-		border-radius: 50%;
-		background-image: radial-gradient(hsla(var(--link-color-white-hsl), 0.3) 60%, hsla(var(--link-color-white-hsl), 1) 80%);
-		will-change: top, left;
-		transform: translateX(-50%);
-		animation-name: float;
-		animation-timing-function: ease-out;
+    border-radius: 50%;
+    background-image: radial-gradient(
+      hsla(var(--link-color-white-hsl), 0.3) 60%,
+      hsla(var(--link-color-white-hsl), 1) 80%
+    );
+    will-change: top, left;
+    transform: translateX(-50%);
+    animation-name: float;
+    animation-timing-function: ease-out;
 
-		&::after {
-			content: "";
-			position: absolute;
-			top: 20%;
-			right: 25%;
-			width: 33%;
-			height: 33%;
-			border: 2px solid;
-			border-color: hsla(var(--link-color-white-hsl), 0.8) transparent transparent transparent;
-			border-radius: 50%;
-			transform: rotate(45deg);
-		}
-	}
-	/* animation pour faire remonter les bulles */
-	@keyframes float {
-		0% {
-			transform: translateY(0);
-		}
-		100% {
-			transform: translateY(-100%);
-		}
-	}
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      right: 25%;
+      width: 33%;
+      height: 33%;
+      border: 2px solid;
+      border-color: hsla(var(--link-color-white-hsl), 0.8) transparent
+        transparent transparent;
+      border-radius: 50%;
+      transform: rotate(45deg);
+    }
+  }
+  /* animation pour faire remonter les bulles */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 </style>

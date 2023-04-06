@@ -12,135 +12,137 @@ const nav = siteLinks.primary;
 ---
 
 <header id="header" class="header">
-	<nav class="navbar">
-		<!-- Logo -->
-		<Brand />
-		<!-- Navigation menu -->
-		<ul class="navbar-nav" role="menubar" aria-label="Barre de menu">
-			<!-- Navigation links -->
-			{
-				nav.map(item => (
-					<li role="menuitem" class={`nav-item ${item.responsive}`}>
-						<Buttons href={item.href} class={`nav-link ${item.classes}`}>
-							{item.name}
-						</Buttons>
-					</li>
-				))
-			}
-			<!-- contact button -->
-			<li role="menuitem" class="nav-item nav-item--icon contact">
-				<Buttons href="/contact" class="nav-link">
-					<span class="visually-hidden">Contact</span>
-					<Icon name="contact" />
-				</Buttons>
-			</li>
-			<!-- menu button -->
-			<li role="menuitem" class="nav-item nav-item--icon">
-				<ToggleBtn />
-			</li>
-		</ul>
-	</nav>
+  <nav class="navbar">
+    <!-- Logo -->
+    <Brand />
+    <!-- Navigation menu -->
+    <ul class="navbar-nav" role="menubar" aria-label="Barre de menu">
+      <!-- Navigation links -->
+      {
+        nav.map((item) => (
+          <li role="menuitem" class={`nav-item ${item.responsive}`}>
+            <Buttons href={item.href} class={`nav-link ${item.classes}`}>
+              {item.name}
+            </Buttons>
+          </li>
+        ))
+      }
+      <!-- contact button -->
+      <li role="menuitem" class="nav-item nav-item--icon contact">
+        <Buttons href="/contact" class="nav-link">
+          <span class="visually-hidden">Contact</span>
+          <Icon name="contact" />
+        </Buttons>
+      </li>
+      <!-- menu button -->
+      <li role="menuitem" class="nav-item nav-item--icon">
+        <ToggleBtn />
+      </li>
+    </ul>
+  </nav>
 </header>
 <!-- Side menu -->
 <SideNav />
 
 <style lang="scss">
-	header {
-		position: fixed;
-		top: 0;
-		left: 0px;
-		width: 100%;
-		z-index: 99;
-		opacity: 1;
-		visibility: visible;
-		transition: all 0.3s ease-in-out;
-		max-height: 80px;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+    max-height: 80px;
 
-		&*a {
-			text-decoration: none;
-		}
+    &*a {
+      text-decoration: none;
+    }
 
-		&.active {
-			.navbar {
-				background-color: hsla(var(--link-color-white-hsl), 0.8);
-				backdrop-filter: blur(10px);
-				color: var(--color-primary);
+    &.active {
+      .navbar {
+        background-color: hsla(var(--link-color-white-hsl), 0.8);
+        backdrop-filter: blur(10px);
+        color: var(--color-primary);
 
-				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
+          0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 
-				.navbar-nav {
-					color: var(--color-primary);
+        .navbar-nav {
+          color: var(--color-primary);
 
-					& * {
-						color: inherit;
-					}
-				}
-			}
-		}
-	}
-	.navbar {
-		// margin-inline: 2rem;
-		padding-inline: 2rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: var(--color-white);
+          & * {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+  .navbar {
+    // margin-inline: 2rem;
+    padding-inline: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-white);
 
-		@media screen and (max-width: 992px) {
-			padding-inline: 0;
-		}
+    @media screen and (max-width: 992px) {
+      padding-inline: 0;
+    }
 
-		.navbar-nav {
-			display: flex;
-			list-style-type: none;
-			align-items: center;
-			gap: 1rem;
-			padding: 0.5rem;
-			margin: 0;
-			color: var(--color-white);
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      margin: 0;
+      color: var(--color-white);
 
-			& * {
-				color: inherit;
-			}
-			.nav-item.contact {
-				svg {
-					width: 2rem;
-				}
-				@media screen and (min-width: 992px) {
-					display: none;
-				}
-			}
-		}
-	}
+      & * {
+        color: inherit;
+      }
+      .nav-item.contact {
+        svg {
+          width: 2rem;
+        }
+        @media screen and (min-width: 992px) {
+          display: none;
+        }
+      }
+    }
+  }
 </style>
 <script is:inline>
-	const menu = document.querySelector(".navbar-nav");
-	const menuItems = menu.querySelectorAll(".nav-item");
+  const menu = document.querySelector(".navbar-nav");
+  const menuItems = menu.querySelectorAll(".nav-item");
 
-	menu.addEventListener("keydown", event => {
-		// Check if the user pressed the up or down arrow key
-		if (event.keyCode === 38 || event.keyCode === 40) {
-			// Get the currently selected menu item
-			let current = menu.querySelector(".nav-item.active");
+  menu.addEventListener("keydown", (event) => {
+    // Check if the user pressed the up or down arrow key
+    if (event.keyCode === 38 || event.keyCode === 40) {
+      // Get the currently selected menu item
+      let current = menu.querySelector(".nav-item.active");
 
-			// Check if the user pressed the up arrow key
-			if (event.keyCode === 38) {
-				// If the user pressed the up arrow key, select the previous menu item
-				current = current.previousElementSibling || menuItems[menuItems.length - 1];
-			} else {
-				// If the user pressed the down arrow key, select the next menu item
-				current = current.nextElementSibling || menuItems[0];
-			}
+      // Check if the user pressed the up arrow key
+      if (event.keyCode === 38) {
+        // If the user pressed the up arrow key, select the previous menu item
+        current =
+          current.previousElementSibling || menuItems[menuItems.length - 1];
+      } else {
+        // If the user pressed the down arrow key, select the next menu item
+        current = current.nextElementSibling || menuItems[0];
+      }
 
-			// Deselect the currently active menu item
-			menu.querySelector(".nav-item.active").classList.remove("active");
-			// Select the new menu item
-			current.classList.add("active");
-		}
-	});
+      // Deselect the currently active menu item
+      menu.querySelector(".nav-item.active").classList.remove("active");
+      // Select the new menu item
+      current.classList.add("active");
+    }
+  });
 
-	// Select the first menu item when the menu is first focused
-	menu.addEventListener("focus", event => {
-		menuItems[0].classList.add("active");
-	});
+  // Select the first menu item when the menu is first focused
+  menu.addEventListener("focus", (event) => {
+    menuItems[0].classList.add("active");
+  });
 </script>
