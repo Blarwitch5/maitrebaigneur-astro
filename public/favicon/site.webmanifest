@@ -1,4 +1,5 @@
-{  "start_url": "/",
+{  
+	"start_url": "/index.html",
 	"name": "Maître-Baigneur app",
 	"short_name": "mb",
 	"icons": [
