@@ -192,14 +192,14 @@
 	},
 	"swimmingLevels": [
 		{
-			"name": "Micro Baigneur",
+			"name": "Baigneur en douceur",
 			"imageSrc":{
 				"jpg": "/images/niveaux/0_micro-baigneurs.jpg",
 				"webp": "/images/niveaux/0_micro-baigneurs.webp"
 			},
 
-			"desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
-			"hints": ["Mon enfant nage avec les brassards ?", "Mon enfant ne met pas la tête dans l’eau ?"]
+			"desc": "Découverte du milieu aquatique dès l'âge de 3 ans !",
+			"hints": ["Mon enfant a peur de la piscine?", "Mon enfant ne mets pas la tête dans l’eau ?"]
 		},
 		{
 			"name": "Mini Baigneur",

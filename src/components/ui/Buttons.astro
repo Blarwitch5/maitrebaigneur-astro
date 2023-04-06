@@ -1,170 +1,181 @@
 ---
 interface Props {
-	href?: string;
-	class?: string;
-	newTab?: boolean;
-	[x: string]: any;
+  href?: string;
+  class?: string;
+  newTab?: boolean;
+  [x: string]: any;
 }
 const { href, class: className, newTab, ...rest } = Astro.props;
 const Tag = href ? "a" : "button";
 ---
 
 {
-	newTab ? (
-		<Tag class:list={className} href={href} target={`${newTab ? "_blank" : `_self`}`} rel={`${newTab ? "noopener noreferrer" : ``}`} {...rest}>
-			<slot />
-		</Tag>
-	) : (
-		<Tag class:list={className} href={href} rel={`${newTab ? "noopener noreferrer" : ``}`} {...rest}>
-			<slot />
-		</Tag>
-	)
+  newTab ? (
+    <Tag
+      class:list={className}
+      href={href}
+      target={`${newTab ? "_blank" : `_self`}`}
+      rel={`${newTab ? "noopener noreferrer" : ``}`}
+      {...rest}
+    >
+      <slot />
+    </Tag>
+  ) : (
+    <Tag
+      class:list={className}
+      href={href}
+      rel={`${newTab ? "noopener noreferrer" : ``}`}
+      {...rest}
+    >
+      <slot />
+    </Tag>
+  )
 }
 
 <style lang="scss">
-	.btn {
-		text-decoration: none;
-		line-height: 1.5;
-		color: inherit;
-		width: fit-content;
-		padding: 0.4rem 1.2rem;
-		min-height: 3rem;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
+  .btn {
+    text-decoration: none;
+    line-height: 1.5;
+    color: inherit;
+    width: fit-content;
+    padding: 0.4rem 1.2rem;
+    min-height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-		&.btn__outline {
-			color: currentColor;
-			border-radius: var(--border-radius);
-			background: none;
-			position: relative;
-			transition: 0.3s;
-			overflow: hidden;
+    &.btn__outline {
+      color: currentColor;
+      border-radius: var(--border-radius);
+      background: none;
+      position: relative;
+      transition: 0.3s;
+      overflow: hidden;
 
-			&:not(.nav-link) {
-				backdrop-filter: blur(6px);
-			}
+      &:not(.nav-link) {
+        backdrop-filter: blur(6px);
+      }
 
-			&::after,
-			&::before {
-				position: absolute;
-				content: "";
-				transition: 0.2s;
-				transition-timing-function: ease;
-				opacity: 0.1;
-				border-radius: inherit;
-				transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
-			}
+      &::after,
+      &::before {
+        position: absolute;
+        content: "";
+        transition: 0.2s;
+        transition-timing-function: ease;
+        opacity: 0.1;
+        border-radius: inherit;
+        transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
+      }
 
-			&::before {
-				top: -2px;
-				bottom: -2px;
-				left: -2px;
-				right: 100%;
-				background-color: currentColor;
-			}
-			&::after {
-				top: 0;
-				bottom: 0;
-				left: 0;
+      &::before {
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: 100%;
+        background-color: currentColor;
+      }
+      &::after {
+        top: 0;
+        bottom: 0;
+        left: 0;
 
-				right: 0;
-				box-shadow: inset 0 0 0px 1px currentColor;
-				opacity: 0.2;
-			}
+        right: 0;
+        box-shadow: inset 0 0 0px 1px currentColor;
+        opacity: 0.2;
+      }
 
-			&:hover {
-				box-shadow: inset 0 0 0px 2px currentColor;
+      &:hover {
+        box-shadow: inset 0 0 0px 2px currentColor;
 
-				&::before {
-					right: -2px;
-				}
-				&::after {
-					opacity: 1;
-				}
-			}
-		}
-		&.btn__outline--inverted {
-			color: var(--color-primary);
-			border-radius: var(--border-radius);
-			background: none;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			position: relative;
-			transition: 0.3s;
-			overflow: hidden;
-			min-height: 48px;
-			padding: 0rem 1.2rem;
-			// box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 1);
-			background-color: var(--color-bg-light);
+        &::before {
+          right: -2px;
+        }
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    &.btn__outline--inverted {
+      color: var(--color-primary);
+      border-radius: var(--border-radius);
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: 0.3s;
+      overflow: hidden;
+      min-height: 48px;
+      padding: 0rem 1.2rem;
+      // box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 1);
+      background-color: var(--color-bg-light);
 
-			&:hover {
-				background-color: var(--color-primary);
-				color: var(--color-white);
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
 
-				&::before {
-					left: -2px;
-				}
-			}
-		}
-		&.btn__regular {
-			background-color: var(--color-primary);
-			color: var(--color-white);
-			transition: all 0.3s ease;
-			border-radius: var(--border-radius);
-			border: 1px solid transparent;
-			&:hover {
-				color: var(--color-white);
-				background-color: var(--color-secondary);
-				transition: all 0.3s ease;
-				border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
-			}
-		}
-		&-inverted {
-		}
-		&-icon {
-		}
-	}
+        &::before {
+          left: -2px;
+        }
+      }
+    }
+    &.btn__regular {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      transition: all 0.3s ease;
+      border-radius: var(--border-radius);
+      border: 1px solid transparent;
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-secondary);
+        transition: all 0.3s ease;
+        border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+      }
+    }
+    &-inverted {
+    }
+    &-icon {
+    }
+  }
 
-	.link {
-		color: inherit;
-		text-decoration: wavy underline;
-	}
-	.with-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+  .link {
+    color: inherit;
+    text-decoration: wavy underline;
+  }
+  .with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-		&:hover {
-		}
+    &:hover {
+    }
 
-		&.icon-baby {
-			color: inherit;
-			&::before {
-				width: 2rem;
-				height: 2rem;
-				content: "";
-				-webkit-mask: url("/images/icons/baby.svg") no-repeat 50% 50%;
-				mask: url("/images/icons/baby.svg") no-repeat 50% 50%;
-				-webkit-mask-size: cover;
-				mask-size: cover;
-				margin-right: 0.5rem;
-				background-color: currentColor;
-			}
-		}
-		&.icon-swimmer {
-			&::before {
-				width: 2rem;
-				height: 2rem;
-				content: "";
-				-webkit-mask: url("/images/icons/swimmer.svg") no-repeat 50% 50%;
-				mask: url("/images/icons/swimmer.svg") no-repeat 50% 50%;
-				-webkit-mask-size: cover;
-				mask-size: cover;
-				margin-right: 0.5rem;
-				background-color: currentColor;
-			}
-		}
-	}
+    &.icon-baby {
+      color: inherit;
+      &::before {
+        width: 2rem;
+        height: 2rem;
+        content: "";
+        -webkit-mask: url("/images/icons/baby.svg") no-repeat 50% 50%;
+        mask: url("/images/icons/baby.svg") no-repeat 50% 50%;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        margin-right: 0.5rem;
+        background-color: currentColor;
+      }
+    }
+    &.icon-swimmer {
+      &::before {
+        width: 2rem;
+        height: 2rem;
+        content: "";
+        -webkit-mask: url("/images/icons/swimmer.svg") no-repeat 50% 50%;
+        mask: url("/images/icons/swimmer.svg") no-repeat 50% 50%;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        margin-right: 0.5rem;
+        background-color: currentColor;
+      }
+    }
+  }
 </style>

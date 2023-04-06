@@ -10,101 +10,137 @@ const swimmingPricesPool = swimmingPrices.pool;
 ---
 
 <div class="top">
-	<div class="top__toggle-btn">
-		<span class="top__toggle-btn-label top__toggle-btn-label--active">En bassin</span>
-		<label class="top__toggle-btn-switch">
-			<input type="checkbox" id="checkbox" autocomplete="off" />
-			<span class="top__toggle-btn-slider top__toggle-btn-slider--round"></span>
-		</label>
-		<span class="top__toggle-btn-label">À domicile</span>
-	</div>
+  <div class="top__toggle-btn">
+    <span class="top__toggle-btn-label top__toggle-btn-label--active"
+      >En bassin</span
+    >
+    <label class="top__toggle-btn-switch">
+      <input type="checkbox" id="checkbox" autocomplete="off" />
+      <span class="top__toggle-btn-slider top__toggle-btn-slider--round"></span>
+    </label>
+    <span class="top__toggle-btn-label">À domicile</span>
+  </div>
 </div>
 
 <div class="packages-container swimming">
-	<div id="price-package-home">
-		<div class="package">
-			<h1 class="package__title">Séance à l'unité</h1>
-			<ul class="package__list">
-				{
-					swimmingPricesHome.formula.map((item: { name: string; price: number; extraDesc?: string }) => {
-						return (
-							<li class="package__item">
-								{item.name} <span class="package__price">{item.price}€</span>
-								{item.extraDesc && <span class="package__extra-desc">{item.extraDesc}</span>}
-							</li>
-						);
-					})
-				}
-			</ul>
-			<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular">Réserver</Buttons>
-		</div>
-	</div>
-	<div id="price-package-pool">
-		<div class="package">
-			<h1 class="package__title">Séance à l'unité</h1>
-			<ul class="package__list">
-				{
-					swimmingPricesPool.single.map((item: { name: string; price: number; extraDesc?: string }) => {
-						return (
-							<li class="package__item">
-								{item.name} <span class="package__price">{item.price}€</span>
-								{item.extraDesc && <span class="package__extra-desc">{item.extraDesc}</span>}
-							</li>
-						);
-					})
-				}
-			</ul>
-			<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular">Réserver</Buttons>
-		</div>
+  <div id="price-package-home">
+    <div class="package">
+      <h1 class="package__title">Séance à l'unité</h1>
+      <ul class="package__list">
+        {
+          swimmingPricesHome.formula.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class="package__item">
+                  {item.name} <span class="package__price">{item.price}€</span>
+                  {item.extraDesc && (
+                    <span class="package__extra-desc">{item.extraDesc}</span>
+                  )}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Buttons
+        href="https://user.clicrdv.com/maitre-baigneur"
+        class="btn btn__regular"
+      >
+        Réserver
+      </Buttons>
+    </div>
+  </div>
+  <div id="price-package-pool">
+    <div class="package">
+      <h1 class="package__title">Séance à l'unité</h1>
+      <ul class="package__list">
+        {
+          swimmingPricesPool.single.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class="package__item">
+                  {item.name} <span class="package__price">{item.price}€</span>
+                  {item.extraDesc && (
+                    <span class="package__extra-desc">{item.extraDesc}</span>
+                  )}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Buttons
+        href="https://user.clicrdv.com/maitre-baigneur"
+        class="btn btn__regular"
+        newTab
+      >
+        Réserver
+      </Buttons>
+    </div>
 
-		<div class="package">
-			<h1 class="package__title">Les cartes</h1>
-			<ul class="package__list">
-				{
-					swimmingPricesPool.cards.map((item: { name: string; price: number; extraDesc?: string }) => {
-						return (
-							<li class="package__item">
-								{item.name} <span class="package__price">{item.price}€</span>
-								{item.extraDesc && <span class="package__extra-desc">{item.extraDesc}</span>}
-							</li>
-						);
-					})
-				}
-			</ul>
-			<Buttons href="https://user.clicrdv.com/maitre-baigneur" class="btn btn__regular">Réserver</Buttons>
-		</div>
-	</div>
+    <div class="package">
+      <h1 class="package__title">Les cartes</h1>
+      <ul class="package__list">
+        {
+          swimmingPricesPool.cards.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class="package__item">
+                  {item.name} <span class="package__price">{item.price}€</span>
+                  {item.extraDesc && (
+                    <span class="package__extra-desc">{item.extraDesc}</span>
+                  )}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Buttons
+        href="https://user.clicrdv.com/maitre-baigneur"
+        class="btn btn__regular"
+        newTab
+      >
+        Réserver
+      </Buttons>
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
-	.packages-container {
-		#price-package-home {
-			display: none;
-		}
-	}
+  .packages-container {
+    #price-package-home {
+      display: none;
+    }
+  }
 </style>
 <script>
-	const checkBox: HTMLInputElement | null = document.getElementById("checkbox") as HTMLInputElement;
+  const checkBox: HTMLInputElement | null = document.getElementById(
+    "checkbox"
+  ) as HTMLInputElement;
 
-	function check(): void {
-		const pricePackageHome: HTMLElement | null = document.getElementById("price-package-home");
-		const pricePackagePool: HTMLElement | null = document.getElementById("price-package-pool");
-		const labels: NodeListOf<HTMLLabelElement> | null = document.querySelectorAll(".top__toggle-btn-label");
+  function check(): void {
+    const pricePackageHome: HTMLElement | null =
+      document.getElementById("price-package-home");
+    const pricePackagePool: HTMLElement | null =
+      document.getElementById("price-package-pool");
+    const labels: NodeListOf<HTMLLabelElement> | null =
+      document.querySelectorAll(".top__toggle-btn-label");
 
-		if (checkBox && pricePackageHome && pricePackagePool && labels) {
-			if (checkBox.checked) {
-				labels[0].classList.remove("top__toggle-btn-label--active");
-				labels[1].classList.add("top__toggle-btn-label--active");
-				pricePackageHome.style.display = "flex";
-				pricePackagePool.style.display = "none";
-			} else {
-				labels[0].classList.add("top__toggle-btn-label--active");
-				labels[1].classList.remove("top__toggle-btn-label--active");
-				pricePackageHome.style.display = "none";
-				pricePackagePool.style.display = "flex";
-			}
-		}
-	}
+    if (checkBox && pricePackageHome && pricePackagePool && labels) {
+      if (checkBox.checked) {
+        labels[0].classList.remove("top__toggle-btn-label--active");
+        labels[1].classList.add("top__toggle-btn-label--active");
+        pricePackageHome.style.display = "flex";
+        pricePackagePool.style.display = "none";
+      } else {
+        labels[0].classList.add("top__toggle-btn-label--active");
+        labels[1].classList.remove("top__toggle-btn-label--active");
+        pricePackageHome.style.display = "none";
+        pricePackagePool.style.display = "flex";
+      }
+    }
+  }
 
-	checkBox.addEventListener("click", check);
+  checkBox.addEventListener("click", check);
 </script>
