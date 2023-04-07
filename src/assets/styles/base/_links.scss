@@ -20,3 +20,53 @@
 //         }
 //     }
 // }
+//general link style
+
+main :not(li) > a:not(.btn),
+.breadcrumbs__item a {
+  position: relative;
+  color: currentColor;
+  text-decoration: none;
+  font-weight: 600;
+  outline: none;
+  overflow: hidden;
+  display: inline-flex;
+
+  &:hover::before,
+  &:focus::before {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 1px;
+    background-color: currentColor;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &:focus {
+    outline-offset: 1px;
+    outline: 1px solid currentColor;
+    border-radius: var(--regular-border-radius);
+  }
+}
