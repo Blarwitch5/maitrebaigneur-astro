@@ -22,7 +22,7 @@
 // }
 //general link style
 
-main :not(li) > a:not(.btn),
+main :not(li) > a:not(.btn, .service__link),
 .breadcrumbs__item a {
   position: relative;
   color: currentColor;
