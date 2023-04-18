@@ -26,7 +26,7 @@ const {
   canonical,
 } = Astro.props;
 
-const url = Astro.request.url;
+const url: string = Astro.url.toString();
 import "sanitize.css";
 import "../assets/styles/main.scss";
 
