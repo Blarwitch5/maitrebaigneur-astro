@@ -245,43 +245,50 @@ import { Icon } from "astro-icon";
       stickyBtns.style.display = "none";
     }
   }
+  const mainBtn = document.getElementById("main-btn");
+  const subBtns = document.querySelector(".sub-btns");
+  const childButtons = Array.from(subBtns.children).reverse();
 
-  const mainBtn: HTMLButtonElement = document.getElementById(
-    "main-btn"
-  ) as HTMLButtonElement;
-  const subBtns: HTMLDivElement = document.querySelector(
-    ".sub-btns"
-  ) as HTMLDivElement;
+  // Initialize the child buttons' opacity to 0
+  childButtons.forEach((btn) => {
+    btn.style.opacity = "0";
+  });
+
+  function animateButtons(buttons, action) {
+    buttons.forEach((btn, index) => {
+      setTimeout(() => {
+        btn.style.opacity = action === "show" ? "1" : "0";
+      }, index * 100);
+    });
+  }
 
   mainBtn.addEventListener("click", function () {
-    mainBtn.classList.toggle("active");
-    if (subBtns.getAttribute("aria-hidden") === "true") {
-      subBtns.setAttribute("aria-hidden", "false");
+    const isExpanded = mainBtn.getAttribute("aria-expanded") === "true";
+
+    if (!isExpanded) {
       mainBtn.setAttribute("aria-expanded", "true");
-
-      const childButtons = Array.from(subBtns.children);
-      childButtons.reverse().forEach((btn, index) => {
-        setTimeout(() => {
-          btn.style.display = "inline-flex"; // Change display to "inline-flex" for visible state
-        }, index * 100); // 200ms delay for each button
-      });
+      subBtns.setAttribute("aria-hidden", "false");
+      subBtns.style.display = "flex";
+      animateButtons(childButtons, "show");
     } else {
-      subBtns.setAttribute("aria-hidden", "true");
-      mainBtn.setAttribute("aria-expanded", "false");
-
-      const childButtons = Array.from(subBtns.children);
-      childButtons.reverse().forEach((btn, index) => {
-        setTimeout(() => {
-          btn.style.display = "none"; // Change display to "none" for hidden state
-        }, index * 100); // 200ms delay for each button
-      });
+      animateButtons(childButtons.slice().reverse(), "hide");
+      setTimeout(() => {
+        subBtns.style.display = "none";
+        subBtns.setAttribute("aria-hidden", "true");
+        mainBtn.setAttribute("aria-expanded", "false");
+      }, childButtons.length * 100);
     }
   });
 
-  document.addEventListener("keydown", function (event: KeyboardEvent) {
+  document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-      subBtns.setAttribute("aria-hidden", "true");
-      mainBtn.focus();
+      animateButtons(childButtons.slice().reverse(), "hide");
+      setTimeout(() => {
+        subBtns.style.display = "none";
+        subBtns.setAttribute("aria-hidden", "true");
+        mainBtn.setAttribute("aria-expanded", "false");
+        mainBtn.focus();
+      }, childButtons.length * 100);
     }
   });
 </script>
