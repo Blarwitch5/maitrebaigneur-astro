@@ -4,7 +4,7 @@ import GeoTag from "@components/head/GeoTag.astro";
 
 import { SEO } from "astro-seo";
 
-export interface Props {
+export interface SeoProps {
   title: string;
   description: string;
   openGraphType?: string;
@@ -13,6 +13,7 @@ export interface Props {
   openGraphImage?: string;
   openGraphImageAlt?: string;
 }
+const canonical : URL = new URL(Astro.url.pathname, Astro.site);
 
 const {
   title,
@@ -24,10 +25,11 @@ const {
   openGraphImageAlt,
 } = Astro.props;
 
+
 import "sanitize.css";
 import "../assets/styles/main.scss";
 
-//differents geotag for the ddifferent pools, default is aix-en-provence (10KM acurancy)
+//differents geotag for the different pools, default is aix-en-provence (10KM acurancy)
 const region: string = "FR-13";
 const placename: string = "Aix-en-Provence";
 const position: string = "43.5;5.4";
@@ -42,11 +44,13 @@ const icbm: string = "43.5, 5.4";
     <SEO
       title={title}
       description={description}
+      canonical={canonical.toString()}
       openGraph={{
         basic: {
           type: openGraphType ? openGraphType : "website",
           title: openGraphTitle ? openGraphTitle : title,
           image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg",
+          url: canonical.toString(),
         },
         image: {
           alt: openGraphImageAlt
