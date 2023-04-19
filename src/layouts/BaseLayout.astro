@@ -12,7 +12,6 @@ export interface Props {
   openGraphDescription?: string;
   openGraphImage?: string;
   openGraphImageAlt?: string;
-  canonical?: string;
 }
 
 const {
@@ -23,10 +22,8 @@ const {
   openGraphDescription,
   openGraphImage,
   openGraphImageAlt,
-  canonical,
 } = Astro.props;
 
-const url: string = Astro.url.toString();
 import "sanitize.css";
 import "../assets/styles/main.scss";
 
@@ -37,7 +34,6 @@ const position: string = "43.5;5.4";
 const icbm: string = "43.5, 5.4";
 ---
 
-<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -46,13 +42,11 @@ const icbm: string = "43.5, 5.4";
     <SEO
       title={title}
       description={description}
-      canonical={url}
       openGraph={{
         basic: {
           type: openGraphType ? openGraphType : "website",
           title: openGraphTitle ? openGraphTitle : title,
           image: openGraphImage ? openGraphImage : "/images/og/og-default.jpg",
-          url: canonical ? canonical : url,
         },
         image: {
           alt: openGraphImageAlt
