@@ -169,12 +169,17 @@ const levels = swimmingLevels;
 
     <div class="col-100">
       <h3>Aide à l'évaluation du niveau du baigneur</h3>
-      <ul>
+      <ul class="levels">
         {
           levels.map((level) => (
             <li>
               <span>{level.name}</span>
               <p set:html={level.desc} />
+              <ul class="hints">
+                {level.hints.map((hint) => (
+                  <li class="hint">{hint}</li>
+                ))}
+              </ul>
             </li>
           ))
         }
@@ -489,6 +494,43 @@ const levels = swimmingLevels;
           svg {
             width: 2rem;
             margin-right: var(--space-xs);
+          }
+        }
+      }
+      .levels {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: var(--space-md);
+        list-style-type: none;
+        padding: 0;
+
+        @media screen and (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+        & > li {
+          background-color: var(--color-bg-light-alt);
+          padding: var(--space-sm);
+          border-radius: var(--regular-border-radius);
+
+          & > span {
+            font-family: var(--ff-pacifico);
+            font-size: var(--fs-xs);
+            font-weight: 600;
+            color: var(--color-primary);
+          }
+          ul {
+            font-style: italic;
+            list-style-type: none;
+            padding-left: var(--space-xs);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2xs);
+
+            li {
+              background-color: var(--color-white);
+              padding-inline: var(--space-sm);
+              border-radius: var(--border-radius);
+            }
           }
         }
       }
