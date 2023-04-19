@@ -17,6 +17,18 @@ import { Icon } from "astro-icon";
   <div class="sub-btns" role="menu" aria-label="submenu" aria-hidden="true">
     <button
       role="menuitem"
+      id="facebook"
+      title="Donnez votre avis sur Facebook "
+      aria-label="Donnez votre avis sur Facebook"
+    >
+      <Icon name="facebook-review" />
+      <span class="visually-hidden">Donnez votre avis sur Facebook</span>
+      <div class="hover-text-container">
+        <span class="hover-text">Donnez votre avis sur Facebook</span>
+      </div>
+    </button>
+    <button
+      role="menuitem"
       id="google"
       title="Donnez votre avis sur Google "
       aria-label="Donnez votre avis sur Google"
@@ -121,6 +133,16 @@ import { Icon } from "astro-icon";
       &#google {
         background-color: var(--color-white);
       }
+      &#facebook {
+        background-color: var(--color-white);
+      }
+      #booking,
+      #whatsapp,
+      #google,
+      #facebook {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
     }
 
     * svg {
@@ -192,6 +214,7 @@ import { Icon } from "astro-icon";
   const bookingBtn = document.getElementById("booking") as HTMLElement;
   const whatsappBtn = document.getElementById("whatsapp") as HTMLElement;
   const googleBtn = document.getElementById("google") as HTMLElement;
+  const facebookBtn = document.getElementById("facebook") as HTMLElement;
 
   bookingBtn.addEventListener("click", function () {
     window.location.href = "https://user.clicrdv.com/maitre-baigneur";
@@ -203,8 +226,9 @@ import { Icon } from "astro-icon";
     window.location.href =
       "https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,";
   });
-
-  // Get the main element
+  facebookBtn.addEventListener("click", function () {
+    window.location.href = "https://www.facebook.com/MaitreBaigneur/reviews";
+  });
 
   // When the user clicks on the button, scroll to the top of the document
   window.addEventListener("scroll", function () {
@@ -213,12 +237,15 @@ import { Icon } from "astro-icon";
 
   function scrollFunction() {
     let scroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const subBtns = [bookingBtn, whatsappBtn, googleBtn, facebookBtn];
+
     if (scroll > 20) {
       stickyBtns.style.display = "flex";
     } else {
       stickyBtns.style.display = "none";
     }
   }
+
   const mainBtn: HTMLButtonElement = document.getElementById(
     "main-btn"
   ) as HTMLButtonElement;
@@ -231,9 +258,23 @@ import { Icon } from "astro-icon";
     if (subBtns.getAttribute("aria-hidden") === "true") {
       subBtns.setAttribute("aria-hidden", "false");
       mainBtn.setAttribute("aria-expanded", "true");
+
+      const childButtons = Array.from(subBtns.children);
+      childButtons.reverse().forEach((btn, index) => {
+        setTimeout(() => {
+          btn.style.display = "inline-flex"; // Change display to "inline-flex" for visible state
+        }, index * 100); // 200ms delay for each button
+      });
     } else {
       subBtns.setAttribute("aria-hidden", "true");
       mainBtn.setAttribute("aria-expanded", "false");
+
+      const childButtons = Array.from(subBtns.children);
+      childButtons.reverse().forEach((btn, index) => {
+        setTimeout(() => {
+          btn.style.display = "none"; // Change display to "none" for hidden state
+        }, index * 100); // 200ms delay for each button
+      });
     }
   });
 
