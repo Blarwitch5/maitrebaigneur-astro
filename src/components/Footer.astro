@@ -17,188 +17,205 @@ const footerMenu = siteLinks.footerMenu;
 ---
 
 <footer class="footer">
-	<Waves atTopOfSection />
-	<Container>
-		<div class="footer__sections">
-			<div class="footer__col brand">
-				<img class="logo" width="300" height="250" src="/images/logo.svg" alt="Logo Maître-Baigneur" />
-				<p class="slogan">"...Le bonheur du baigneur..."</p>
-				<ul class="info">
-					<li>
-						<Buttons class="btn" href="tel:+33677007584">
-							<span class="icon">
-								<Icon name="call" />
-							</span>
-							<span class="visually-hidden">Applez Maître Baigneur au +33 6 77 00 75 84</span>
-							+33 6 77 00 75 84
-						</Buttons>
-					</li>
-					<li>
-						<Buttons class="btn" href="mailto:contact@maitrebaigneur.com">
-							<span class="icon"><Icon name="mail" /></span><span class="visually-hidden">Écrivez-nous à contact@maitrebaigneur.com</span
-							>contact@maitrebaigneur.com
-						</Buttons>
-					</li>
-					<li><span class="icon"><Icon name="location" /></span>Aix-en-Provence et ses alentours</li>
-				</ul>
-				<Socials iconVersion="light" />
-			</div>
+  <Waves atTopOfSection />
+  <Container>
+    <div class="footer__sections">
+      <div class="footer__col brand">
+        <img
+          class="logo"
+          width="300"
+          height="250"
+          src="/images/logo.svg"
+          alt="Logo Maître-Baigneur"
+        />
+        <p class="slogan">"...Le bonheur du baigneur..."</p>
+        <ul class="info">
+          <li>
+            <Buttons class="btn" href="tel:+33677007584">
+              <span class="icon">
+                <Icon name="call" />
+              </span>
+              <span class="visually-hidden"
+                >Applez Maître Baigneur au +33 6 77 00 75 84</span
+              >
+              +33 6 77 00 75 84
+            </Buttons>
+          </li>
+          <li>
+            <Buttons class="btn" href="mailto:contact@maitrebaigneur.com">
+              <span class="icon"><Icon name="mail" /></span><span
+                class="visually-hidden"
+                >Écrivez-nous à contact@maitrebaigneur.com</span
+              >contact@maitrebaigneur.com
+            </Buttons>
+          </li>
+          <li>
+            <span class="icon"><Icon name="location" /></span>Aix-en-Provence et
+            ses alentours
+          </li>
+        </ul>
+        <Socials iconVersion="light" />
+      </div>
 
-			<div class="footer__col services">
-				<h3 class="title">Nos prestations</h3>
-				<ul>
-					{
-						services.map(service => (
-							<li>
-								<Buttons class="btn" href={service.href}>
-									{service.name}
-								</Buttons>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-			<div class="footer__col useful-links">
-				<h3 class="title">Besoin d'aide ?</h3>
-				<ul>
-					{
-						footerMenu.map(item => (
-							<li>
-								<Buttons class={item.classes} href={item.href} target={item.target}>
-									{item.name}
-								</Buttons>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-			<div class="footer__col insta">
-				<h3 class="title">Flux Instagram</h3>
-				<!-- <InstagramFeed /> -->
-			</div>
-		</div>
-		<Copyright />
-	</Container>
-	<StickyBtns />
-	<!-- <GoToTop /> -->
+      <div class="footer__col services">
+        <h3 class="title">Nos prestations</h3>
+        <ul>
+          {
+            services.map((service) => (
+              <li>
+                <Buttons class="btn" href={service.href}>
+                  {service.name}
+                </Buttons>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="footer__col useful-links">
+        <h3 class="title">Besoin d'aide ?</h3>
+        <ul>
+          {
+            footerMenu.map((item) => (
+              <li>
+                <Buttons
+                  class={item.classes}
+                  href={item.href}
+                  target={item.target}
+                >
+                  {item.name}
+                </Buttons>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="footer__col insta">
+        <h3 class="title">Flux Instagram</h3>
+        <InstagramFeed />
+      </div>
+    </div>
+    <Copyright />
+  </Container>
+  <StickyBtns />
+  <!-- <GoToTop /> -->
 </footer>
 
 <style lang="scss">
-	.footer {
-		background-color: var(--color-primary);
-		color: var(--color-white);
-		position: relative;
+  .footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    position: relative;
 
-		&* {
-			color: inherit;
-		}
-		.title {
-			font-size: var(--fs-md);
-			margin-bottom: var(--space-md);
-			@media screen and (max-width: 576px) {
-				margin-bottom: 1rem;
-			}
-		}
+    &* {
+      color: inherit;
+    }
+    .title {
+      font-size: var(--fs-md);
+      margin-bottom: var(--space-md);
+      @media screen and (max-width: 576px) {
+        margin-bottom: 1rem;
+      }
+    }
 
-		&__sections {
-			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-			gap: var(--space-md);
-		}
-		&__col {
-			&.brand {
-				grid-column: 1 / span 6;
-				display: flex;
-				flex-direction: column;
-				gap: var(--space-sm);
-				margin-bottom: 2rem;
-				margin-top: -100px;
-				text-align: center;
-				z-index: 2;
-			}
-			&.insta {
-				text-align: center;
-				grid-column: 5 / span 2;
-				@media screen and (max-width: 1024px) {
-					grid-column: 1 / span 6;
-				}
-			}
-			&.services {
-				grid-column: 1 / span 2;
+    &__sections {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-md);
+    }
+    &__col {
+      &.brand {
+        grid-column: 1 / span 6;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-bottom: 2rem;
+        margin-top: -100px;
+        text-align: center;
+        z-index: 2;
+      }
+      &.insta {
+        text-align: center;
+        grid-column: 5 / span 2;
+        @media screen and (max-width: 1024px) {
+          grid-column: 1 / span 6;
+        }
+      }
+      &.services {
+        grid-column: 1 / span 2;
 
-				@media screen and (max-width: 1024px) {
-					grid-column: 1 / span 3;
-				}
-			}
-			&.useful-links {
-				grid-column: 3 / span 2;
+        @media screen and (max-width: 1024px) {
+          grid-column: 1 / span 3;
+        }
+      }
+      &.useful-links {
+        grid-column: 3 / span 2;
 
-				@media screen and (max-width: 1024px) {
-					grid-column: 4 / span 3;
-				}
-			}
-			&.services,
-			&.useful-links {
-				ul {
-					text-align: left;
+        @media screen and (max-width: 1024px) {
+          grid-column: 4 / span 3;
+        }
+      }
+      &.services,
+      &.useful-links {
+        ul {
+          text-align: left;
 
-					a {
-						padding: 0;
-						min-height: unset;
-					}
-				}
-				@media screen and (max-width: 576px) {
-					text-align: center;
-					grid-column: 1 / span 6;
-				}
-			}
-		}
+          a {
+            padding: 0;
+            min-height: unset;
+          }
+        }
+        @media screen and (max-width: 576px) {
+          text-align: center;
+          grid-column: 1 / span 6;
+        }
+      }
+    }
 
-		.logo {
-			max-height: 250px;
-			background-color: transparent;
-			margin-inline: auto;
-		}
-		.slogan {
-			margin-block: -2rem 0;
-			font-family: var(--ff-pacifico);
-			font-size: var(--fs-lg);
-		}
-		.info {
-			padding: 0;
-			list-style: none;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: var(--space-md);
+    .logo {
+      max-height: 250px;
+      background-color: transparent;
+      margin-inline: auto;
+    }
+    .slogan {
+      margin-block: -2rem 0;
+      font-family: var(--ff-pacifico);
+      font-size: var(--fs-lg);
+    }
+    .info {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
 
-			@media screen and (max-width: 992px) {
-				flex-direction: column;
-				gap: var(--space-xs);
-			}
-			& > * {
-				margin: 0;
-			}
+      @media screen and (max-width: 992px) {
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+      & > * {
+        margin: 0;
+      }
 
-			& > li {
-				display: flex;
-				flex-wrap: nowrap;
-				align-items: center;
-				gap: var(--space-xs);
+      & > li {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: var(--space-xs);
 
-				.btn {
-					display: flex;
-					flex-wrap: nowrap;
-					align-items: center;
-					justify-content: center;
-					gap: var(--space-xs);
-				}
-				.icon {
-					display: block;
-					width: 1.8rem;
-					height: 1.8rem;
-				}
-			}
-		}
-	}
+        .btn {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-xs);
+        }
+        .icon {
+          display: block;
+          width: 1.8rem;
+          height: 1.8rem;
+        }
+      }
+    }
+  }
 </style>
