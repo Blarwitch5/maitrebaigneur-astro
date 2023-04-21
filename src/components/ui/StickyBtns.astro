@@ -107,7 +107,7 @@ import { Icon } from "astro-icon";
         }
       }
 
-      &.active {
+      &[aria-expanded="true"] {
         svg {
           transform: rotate(-360deg) scale(1);
         }
@@ -209,34 +209,34 @@ import { Icon } from "astro-icon";
   }
 </style>
 <script>
-  // Get the "back to top" button
+  type ButtonAction = "show" | "hide";
+
   const stickyBtns = document.querySelector(".sticky-btn") as HTMLElement;
   const bookingBtn = document.getElementById("booking") as HTMLElement;
   const whatsappBtn = document.getElementById("whatsapp") as HTMLElement;
   const googleBtn = document.getElementById("google") as HTMLElement;
   const facebookBtn = document.getElementById("facebook") as HTMLElement;
 
-  bookingBtn.addEventListener("click", function () {
+  function handleBookingClick(): void {
     window.location.href = "https://user.clicrdv.com/maitre-baigneur";
-  });
-  whatsappBtn.addEventListener("click", function () {
+  }
+
+  function handleWhatsAppClick(): void {
     window.location.href = "https://api.whatsapp.com/send?phone=337007584";
-  });
-  googleBtn.addEventListener("click", function () {
+  }
+
+  function handleGoogleClick(): void {
     window.location.href =
       "https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,";
-  });
-  facebookBtn.addEventListener("click", function () {
+  }
+
+  function handleFacebookClick(): void {
     window.location.href = "https://www.facebook.com/MaitreBaigneur/reviews";
-  });
+  }
 
-  // When the user clicks on the button, scroll to the top of the document
-  window.addEventListener("scroll", function () {
-    scrollFunction();
-  });
-
-  function scrollFunction() {
-    let scroll = document.body.scrollTop || document.documentElement.scrollTop;
+  function scrollFunction(): void {
+    const scroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
     const subBtns = [bookingBtn, whatsappBtn, googleBtn, facebookBtn];
 
     if (scroll > 20) {
@@ -245,23 +245,32 @@ import { Icon } from "astro-icon";
       stickyBtns.style.display = "none";
     }
   }
-  const mainBtn = document.getElementById("main-btn");
-  const subBtns = document.querySelector(".sub-btns");
-  const childButtons = Array.from(subBtns.children).reverse();
 
-  // Initialize the child buttons' opacity to 0
+  bookingBtn.addEventListener("click", handleBookingClick);
+  whatsappBtn.addEventListener("click", handleWhatsAppClick);
+  googleBtn.addEventListener("click", handleGoogleClick);
+  facebookBtn.addEventListener("click", handleFacebookClick);
+
+  window.addEventListener("scroll", scrollFunction);
+
+  const mainBtn = document.getElementById("main-btn") as HTMLElement;
+  const subBtns = document.querySelector(".sub-btns") as HTMLElement;
+  const childButtons = Array.from(
+    subBtns.children,
+    (child) => child as HTMLElement
+  ).reverse();
+
   childButtons.forEach((btn) => {
-    btn.style.opacity = "0";
+    (btn as HTMLElement).style.opacity = "0";
   });
 
-  function animateButtons(buttons, action) {
+  function animateButtons(buttons: HTMLElement[], action: ButtonAction): void {
     buttons.forEach((btn, index) => {
       setTimeout(() => {
         btn.style.opacity = action === "show" ? "1" : "0";
       }, index * 100);
     });
   }
-
   mainBtn.addEventListener("click", function () {
     const isExpanded = mainBtn.getAttribute("aria-expanded") === "true";
 
