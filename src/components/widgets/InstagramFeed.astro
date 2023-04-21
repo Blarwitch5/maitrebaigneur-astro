@@ -1,8 +1,14 @@
 ---
-// Import Astro fetch utility
-import { fetchContent } from "astro/content";
-
-async function fetchInstagramFeed(accessToken) {
+interface InstagramPost {
+  id: string;
+  media_type: string;
+  media_url: string;
+  caption: string;
+  permalink: string;
+}
+async function fetchInstagramFeed(
+  accessToken: string
+): Promise<InstagramPost[]> {
   const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${accessToken}&limit=4`;
   const response = await fetch(url);
   const data = await response.json();
@@ -10,15 +16,15 @@ async function fetchInstagramFeed(accessToken) {
 }
 
 // Fetch the Instagram feed using your access token
-const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
-const instagramFeed = await fetchInstagramFeed(accessToken);
+const accessToken: string = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
 ---
 
 <div class="instagram-grid">
   {
     instagramFeed.map((post) => (
       <a href={post.permalink} target="_blank" rel="noopener noreferrer">
-        <article key={post.id} class="instagram-post">
+        <article data-key={post.id} class="instagram-post">
           {post.media_type === "IMAGE" ? (
             <img
               src={post.media_url}
