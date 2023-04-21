@@ -1,9 +1,10 @@
 import { defineConfig } from "astro/config";
+
 // import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://maitrebaigneur.netlify.app/contact/",
+  site: "https://maitrebaigneur.netlify.app",
   output: "static",
   vite: {
     build: {
