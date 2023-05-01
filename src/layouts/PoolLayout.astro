@@ -8,6 +8,8 @@ export interface Props {
   description: string;
 }
 
+const siteTitle: string = "Maître Baigneur";
+
 import "sanitize.css";
 import "../assets/styles/main.scss";
 
@@ -87,8 +89,8 @@ const {
     <meta name="generator" content={Astro.generator} />
 
     <SEO
-      title={title}
-      description={description}
+    title={`${title} | ${siteTitle}`}
+    description={description}
       openGraph={{
         basic: {
           type: openGraphType ? openGraphType : "website",

@@ -25,6 +25,8 @@ const {
   openGraphImageAlt,
 } = Astro.props;
 
+const siteTitle: string = "Maître Baigneur";
+
 
 import "sanitize.css";
 import "../assets/styles/main.scss";
@@ -42,7 +44,7 @@ const icbm: string = "43.5, 5.4";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <SEO
-      title={title}
+      title={`${title} | ${siteTitle}`}
       description={description}
       canonical={canonical.toString()}
       openGraph={{

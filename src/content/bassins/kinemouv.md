@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Kinémouv'"
+metaTitle: "Notre bassin d'apprentissage à Kinémouv'"
 metaDesc: "meta description"
 
 title: "Kinémouv'"

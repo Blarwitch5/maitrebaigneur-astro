@@ -17,6 +17,7 @@
 		"astro-breadcrumbs": "^1.1.0",
 		"astro-icon": "^0.8.0",
 		"astro-navbar": "^1.1.5",
+		"astro-particles": "^2.9.3",
 		"astro-seo": "^0.7.1",
 		"autoprefixer": "^10.4.13",
 		"dotenv": "^16.0.3",
@@ -26,7 +27,9 @@
 		"sanitize.css": "^13.0.0",
 		"sharp": "^0.31.3",
 		"swiper": "^8.4.7",
-		"title": "^3.5.3"
+		"title": "^3.5.3",
+		"tsparticles": "^2.9.3",
+		"tsparticles-engine": "^2.9.3"
 	},
 	"devDependencies": {
 		"@astrojs/react": "^2.1.1",

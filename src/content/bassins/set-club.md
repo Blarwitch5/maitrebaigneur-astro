@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Set Club"
+metaTitle: "Notre bassin d'apprentissage au Set Club"
 metaDesc: "meta description"
 
 title: "Set Club"

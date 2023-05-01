@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Aquabecool"
+metaTitle: "Notre bassin d'apprentissage à Aquabecool"
 metaDesc: "Découvrez notre bassin d'apprentissage chez Aquabecool, exploité par Maître-Baigneur pour des cours de natation et bébé nageur. Profitez d'un environnement sécurisé et adapté pour apprendre à nager dans les meilleures conditions avec nos professionnels qualifiés."
 
 title: "Aquabecool"

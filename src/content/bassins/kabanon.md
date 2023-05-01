@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage au Kabanon des écuries de l'aube"
+metaTitle: "Notre bassin d'apprentissage au Kabanon des écuries de l'aube"
 metaDesc: "meta description"
 
 title: "Kabanon"

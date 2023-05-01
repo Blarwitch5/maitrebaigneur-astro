@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Bassin à domicile"
+metaTitle: "Bassin à domicile"
 metaDesc: "meta description"
 
 title: "Domicile"

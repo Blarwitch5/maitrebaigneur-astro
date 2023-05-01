@@ -2,7 +2,6 @@
 import Socials from "@components/Socials.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Breadcrumbs from "@components/header/Breadcrumbs.astro";
-import Particles from "@components/ui/Particles.astro";
 
 interface Props {
 	pageTitle: string;
@@ -15,7 +14,6 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 
 <section class="page-title">
 	<Waves />
-	<Particles />
 	<div class="container">
 		<div class="page-title__img">
 			<picture>

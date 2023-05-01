@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maître-Baigneur | Notre bassin d'apprentissage à Plan Form"
+metaTitle: "Notre bassin d'apprentissage à Plan Form"
 metaDesc: "meta description"
 
 title: "Plan Form"
