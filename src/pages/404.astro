@@ -1,1 +1,54 @@
-<h1>404</h1>
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const page = {
+  metaTitle: "Page introuvable",
+  description: "Nous sommes désolés, mais il semblerait que vous ayez nagé un peu trop loin et que vous soyez arrivé(e) dans les profondeurs de notre site web, où la page que vous cherchez a été emportée par les vagues. Sur cette page, vous trouverez un message sympathique et humoristique pour vous rassurer, vous faire sourire et vous guider vers la sécurité. En effet, notre équipe de sauvetage de pages web est toujours prête à vous ramener à bon port ! N\'oubliez pas que chez Maître-Biagneur, nous proposons d'excellents cours de natation et des services de bébé nageur pour tous",
+  title: "404",
+};
+
+import site from "@assets/data/data.json";
+
+const { siteLinks } = site;
+const services = siteLinks.services;
+const swimming = services.find(service => service.name.includes("natation") );
+const babySwimming = services.find(service => service.name.includes("bébé"));
+---
+
+<BaseLayout title={page.metaTitle} description={page.description}>
+  <main class="page-404">
+    <p>404</p>
+    <h1>🌊 Oups !</h1>
+    <p>On dirait que cette page a été emportée par les vagues !</p>
+    <p>Ne t'inquiète pas, notre équipe de Maîtres-Baigneurs est déjà à sa recherche.</p>
+    <p>En attendant, pourquoi ne pas retourner à la <a href="/">page d'accueil</a> et découvrir nos fantastiques <a href={swimming.href}>{swimming.name}</a> et <a href={babySwimming.href}>{babySwimming.name}</a> ?</p>
+    <p>À bientôt dans l'eau ! 🏊‍♂️</p>
+</main>
+  </BaseLayout>
+
+  <style lang="scss">
+.page-404{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--color-primary);
+  h1{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  a{
+    color: var(--color-primary);
+    text-decoration: underline;
+    &:hover{
+      color: var(--color-primary-dark);
+    }
+  }
+}
+  </style>

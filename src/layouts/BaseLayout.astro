@@ -83,6 +83,6 @@ const icbm: string = "43.5, 5.4";
   </head>
   <body>
     <slot />
-    <script src="../assets/scripts/navbar.js"></script>
+    {Astro.url.pathname !== '/404' && <script src="../assets/scripts/navbar.js"></script>}
   </body>
 </html>
