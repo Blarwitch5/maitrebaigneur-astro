@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://maitrebaigneur.netlify.app",
+  site: "https://maitrebaigneur.vercel.app",
   output: "static",
   vite: {
     build: {
