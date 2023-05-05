@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow: /mentions-legales/
+Disallow: /contact/
+Disallow: /404/
+Disallow: /500/
+
+Sitemap: https://maitrebaigneur.vercel.app/sitemap-index.xml

@@ -1,0 +1,18 @@
+/* TEAM */
+
+Founder: Quentin Vander Meulen
+Developer: Romain Blary
+UI/UX Designer: Romain Blary
+
+/* THANKS */
+
+Thanks to our contributors for their valuable feedback and suggestions:
+- Edouard Bahna
+- Florent Astier
+- Quentin Vander Meulen
+
+/* CONTACT */
+
+Email: contact@maitrebaigneur.com
+Facebook: /MaitreBaigneur
+Instagram : /maitre_baigneur_aix
