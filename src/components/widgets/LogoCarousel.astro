@@ -43,7 +43,13 @@ const partners = [
       return (
         <picture class="partners__item scroll__item">
           <source type="image/webp" srcset={imgUrlWebp} />
-          <img loading="lazy" src={imgUrl} alt={imgAlt} />
+          <img
+            width="250"
+            height="250"
+            loading="lazy"
+            src={imgUrl}
+            alt={imgAlt}
+          />
         </picture>
       );
     })

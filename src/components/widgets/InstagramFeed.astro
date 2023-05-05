@@ -23,7 +23,12 @@ const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
 <div class="instagram-grid">
   {
     instagramFeed.map((post) => (
-      <a href={post.permalink} target="_blank" rel="noopener noreferrer">
+      <a
+        href={post.permalink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={post.caption}
+      >
         <article data-key={post.id} class="instagram-post">
           {post.media_type === "IMAGE" ? (
             <img

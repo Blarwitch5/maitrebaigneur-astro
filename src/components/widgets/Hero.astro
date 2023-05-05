@@ -13,7 +13,6 @@ const { ariaLabel } = Astro.props;
     <picture>
       <source type="image/webp" srcset="/images/hero.webp" />
       <img
-        loading="lazy"
         src="/images/hero.jpg"
         alt="Enfant s'amusant sous l'eau avec les pouces en l'air"
         height="1920"
@@ -61,7 +60,6 @@ const { ariaLabel } = Astro.props;
       bottom: 0;
       left: 0;
       right: 0;
-
       display: flex;
       align-items: center;
       justify-content: center;
