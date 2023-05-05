@@ -61,8 +61,23 @@ const icbm: string = "43.5, 5.4";
         optional: {
           description: openGraphDescription
             ? openGraphDescription
-            : "Découvrez les cours de natation pour tous les âges chez Maître Baigneur - de la piscine pour les bébés nageurs dès 3 mois aux leçons de natation pour enfants et adultes débutants ou confirmés.",
+            : "Cours de natation pour tous les âges chez Maître Baigneur - bébés nageurs dès 3 mois, enfants, adultes débutants ou confirmés. Maîtres nageurs qualifiés pour une expérience de natation optimale.",
         },
+      }}
+      extend={{
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "/images/og/og-default.jpg",
+          },
+          { name: "twitter:title", content: "Maître-Baigneur" },
+          {
+            name: "twitter:description",
+            content:
+              "Cours de natation pour tous les âges chez Maître Baigneur - bébés nageurs dès 3 mois, enfants, adultes débutants ou confirmés. Maîtres nageurs qualifiés pour une expérience de natation optimale.",
+          },
+        ],
       }}
     />
     <title>{title}</title>
