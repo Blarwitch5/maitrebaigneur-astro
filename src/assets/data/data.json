@@ -1,266 +1,307 @@
 {
-	"siteLinks": {
-		"primary": [
-			{
-				"href": "/prestations/cours-de-natation",
-				"name": "Cours de natation",
-				"classes": "with-icon icon-swimmer",
-				"responsive": "hidden-md"
-			},
-			{
-				"href": "/prestations/cours-bebe-nageur",
-				"name": "Cours bébé nageur",
-				"classes": "with-icon icon-baby",
-				"responsive": " hidden-md"
-			},
-			{ "href": "/tarifs", "name": "Tarifs", "classes": "btn btn__outline", "responsive": "hidden-md" }
-		],
-		"secondary": [
-			{ "href": "/prestations/cours-de-natation", "name": "Cours de natation", "icon": "swimmer" },
-			{ "href": "/prestations/cours-bebe-nageur", "name": "Cours bébé nageur", "icon": "baby" },
-			{ "href": "/prestations/aquaversaire", "name": "Aquaversaire", "icon": "aquaversaire" },
-			{ "href": "/prestations/evenement-securite", "name": "Événements & Sécurité", "icon": "event" },
-			{
-				"href": "/bassins",
-				"name": "Nos bassins d'apprentissage",
-				"children": [
-					{ "href": "/bassins/aquabecool", "name": "Aquabecool" },
-					{ "href": "/bassins/plan-form", "name": "Plan Form" },
-					{ "href": "/bassins/kabanon", "name": "Kabanon des écuries de l'aube" },
-					{ "href": "/bassins/kinemouv", "name": "Kinémouv'" },
-					{ "href": "/bassins/domicile", "name": "Domicile" },
-					{ "href": "/bassins", "name": "Tous les bassins" }
-				],
-				"icon": "pool"
-			},
-			{ "href": "/qui-sommes-nous", "name": "Qui sommes-nous ?", "icon": "about" },
-			{ "href": "/tarifs", "name": "Tarifs", "icon": "credit-card" },
-			{ "href": "/faq", "name": "FAQ", "icon": "faq" },
-			{ "href": "/contact", "name": "Nous contacter", "icon": "contact" },
-			{ "href": "https://user.clicrdv.com/maitre-baigneur", "name": "Réservation", "inNewTab": true, "icon": "calendar" }
-		],
-		"services": [
-			{
-				"name": "Cours de natation",
-				"href": "/prestations/cours-de-natation",
-				"image": {
-					"src": "/images/services/natation.jpg",
-					"alt": "Fillette nageant sous l'eau en souriant"
-				},
-				"icon": "swimmer",
+  "siteLinks": {
+    "primary": [
+      {
+        "href": "/prestations/cours-de-natation",
+        "name": "Cours de natation",
+        "classes": "with-icon icon-swimmer",
+        "responsive": "hidden-md"
+      },
+      {
+        "href": "/prestations/cours-bebe-nageur",
+        "name": "Cours bébé nageur",
+        "classes": "with-icon icon-baby",
+        "responsive": " hidden-md"
+      },
+      {
+        "href": "/tarifs",
+        "name": "Tarifs",
+        "classes": "btn btn__outline",
+        "responsive": "hidden-md"
+      }
+    ],
+    "secondary": [
+      {
+        "href": "/prestations/cours-de-natation",
+        "name": "Cours de natation",
+        "icon": "swimmer"
+      },
+      {
+        "href": "/prestations/cours-bebe-nageur",
+        "name": "Cours bébé nageur",
+        "icon": "baby"
+      },
+      {
+        "href": "/prestations/aquaversaire",
+        "name": "Aquaversaire",
+        "icon": "aquaversaire"
+      },
+      {
+        "href": "/prestations/evenement-securite",
+        "name": "Événements & Sécurité",
+        "icon": "event"
+      },
+      {
+        "href": "/bassins",
+        "name": "Nos bassins d'apprentissage",
+        "children": [
+          { "href": "/bassins/aquabecool", "name": "Aquabecool" },
+          { "href": "/bassins/plan-form", "name": "Plan Form" },
+          {
+            "href": "/bassins/kabanon",
+            "name": "Kabanon des écuries de l'aube"
+          },
+          { "href": "/bassins/kinemouv", "name": "Kinémouv'" },
+          { "href": "/bassins/domicile", "name": "Domicile" },
+          { "href": "/bassins", "name": "Tous les bassins" }
+        ],
+        "icon": "pool"
+      },
+      {
+        "href": "/qui-sommes-nous",
+        "name": "Qui sommes-nous ?",
+        "icon": "about"
+      },
+      { "href": "/tarifs", "name": "Tarifs", "icon": "credit-card" },
+      { "href": "/faq", "name": "FAQ", "icon": "faq" },
+      { "href": "/contact", "name": "Nous contacter", "icon": "contact" },
+      {
+        "href": "https://user.clicrdv.com/maitre-baigneur",
+        "name": "Réservation",
+        "inNewTab": true,
+        "icon": "calendar"
+      }
+    ],
+    "services": [
+      {
+        "name": "Cours de natation",
+        "href": "/prestations/cours-de-natation",
+        "image": {
+          "src": "/images/services/natation.jpg",
+          "alt": "Fillette nageant sous l'eau en souriant"
+        },
+        "icon": "swimmer",
 
-				"pageTitleImage": {
-					"src": "/images/services/natation-page.jpg",
-					"alt": "Fillette nageant sous l'eau en souriant"
-				}
-			},
-			{
-				"name": "Cours bébé nageur",
-				"href": "/prestations/cours-bebe-nageur",
-				"image": {
-					"src": "/images/services/bebe-nageur.jpg",
-					"alt": "Bébé nageur sous l'eau"
-				},
-				"icon": "baby",
-				"pageTitleImage": {
-					"jpg": "/images/services/bebe-nageur-page.jpg",
-					"alt": "Bébé nageur sous l'eau"
-				}
-			},
-			{
-				"name": "Aquaversaire",
-				"href": "/prestations/aquaversaire",
-				"image": {
-					"src": "/images/services/aquaversaire.jpg",
-					"alt": "Groupes d'enfants s'amusant dans une piscine"
-				},
-				"icon": "aquaversaire",
-				"pageTitleImage": {
-					"src": "/images/services/aquaversaire-page.jpg",
-					"alt": "Groupes d'enfants s'amusant dans une piscine"
-				}
-			},
-			{
-				"name": "Surveillance",
-				"href": "/prestations/evenement-securite",
-				"image": {
-					"src": "/images/services/surveillance.jpg",
-					"alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
-				},
-				"icon": "event",
-				"pageTitleImage": {
-					"src": "/images/services/surveillance-page.jpg",
-					"alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
-				}
-			}
-		],
-		"pools": [
-			{
-				"name": "Domicile",
-				"href": "/bassins/domicile",
-				"image": {
-					"src": "/images/pools/domicile.jpg",
-					"alt": "Bassin à domicile"
-				},
-				"location": "",
-				"thumb": {
-					"jpg": "/images/thumbnails/domicile-thumb.jpg",
-					"alt": "Bassin à domicile"
-				}
-			},
-			{
-				"name": "Aquabecool",
-				"href": "/bassins/aquabecool",
-				"image": {
-					"src": "/images/pools/aquabecool.jpg",
-					"alt": "Bassin de Aquabecool"
-				},
-				"location": "Aix Sud",
-				"thumb": {
-					"jpg": "/images/thumbnails/aquabecool-thumb.jpg",
-					"alt": "Bassin à Aquabecool"
-				}
-			},
-			{
-				"name": "Kabanon des écuries de l'aube",
-				"href": "/bassins/kabanon",
-				"image": {
-					"src": "/images/pools/kabanon.jpg",
-					"alt": "Bassin du Kabanon des écuries de l'aube"
-				},
-				"location": "Saint-Marc-Jaumegarde",
-				"thumb": {
-					"jpg": "/images/thumbnails/kabanon-thumb.jpg",
-					"alt": "Bassin du Kabanon des écuries de l'aube"
-				}
-			},
-			{
-				"name": "Kinémouv'",
-				"href": "/bassins/kinemouv",
-				"image": {
-					"src": "/images/pools/fallback.jpg",
-					"alt": "Bassin de Kinémouv"
-				},
-				"location": "Pertuis",
-				"thumb": {
-					"jpg": "/images/thumbnails/domicile-thumb.jpg",
-					"alt": "Bassin Kinémouv'"
-				}
-			},
-			{
-				"name": "Plan Form",
-				"href": "/bassins/planform",
-				"image": {
-					"src": "/images/pools/planform.jpg",
-					"alt": "Bassin de Plan Form"
-				},
-				"location": "Cabriès",
-				"thumb": {
-					"jpg": "/images/thumbnails/planform-thumb.jpg",
-					"alt": "Bassin à Plan Form"
-				}
-			}
-		],
-		"footerMenu": [
-			{
-				"href": "/contact",
-				"name": "Contactez-nous",
-				"classes": "btn"
-			},
-			{
-				"href": "https://user.clicrdv.com/maitre-baigneur",
-				"name": "Réserver un cours",
-				"inNewTab": true,
-				"classes": "btn"
-			},
-			{
-				"href": "/tarifs",
-				"name": "Tarifs",
-				"classes": "btn"
-			},
-			{
-				"href": "/mentions-legales",
-				"name": "Mentions légales",
-				"classes": "btn"
-			},
-			{
-				"href": "/plan-du-site",
-				"name": "Plan du site",
-				"classes": "btn"
-			}
-		]
-	},
-	"swimmingLevels": [
-		{
-			"name": "Baigneur en douceur",
-			"imageSrc":{
-				"jpg": "/images/niveaux/0_endouceur-baigneurs.jpg",
-				"webp": "/images/niveaux/0_endouceur-baigneurs.webp"
-			},
+        "pageTitleImage": {
+          "src": "/images/services/natation-page.jpg",
+          "alt": "Fillette nageant sous l'eau en souriant"
+        }
+      },
+      {
+        "name": "Cours bébé nageur",
+        "href": "/prestations/cours-bebe-nageur",
+        "image": {
+          "src": "/images/services/bebe-nageur.jpg",
+          "alt": "Bébé nageur sous l'eau"
+        },
+        "icon": "baby",
+        "pageTitleImage": {
+          "jpg": "/images/services/bebe-nageur-page.jpg",
+          "alt": "Bébé nageur sous l'eau"
+        }
+      },
+      {
+        "name": "Aquaversaire",
+        "href": "/prestations/aquaversaire",
+        "image": {
+          "src": "/images/services/aquaversaire.jpg",
+          "alt": "Groupes d'enfants s'amusant dans une piscine"
+        },
+        "icon": "aquaversaire",
+        "pageTitleImage": {
+          "src": "/images/services/aquaversaire-page.jpg",
+          "alt": "Groupes d'enfants s'amusant dans une piscine"
+        }
+      },
+      {
+        "name": "Surveillance",
+        "href": "/prestations/evenement-securite",
+        "image": {
+          "src": "/images/services/surveillance.jpg",
+          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+        },
+        "icon": "event",
+        "pageTitleImage": {
+          "src": "/images/services/surveillance-page.jpg",
+          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+        }
+      }
+    ],
+    "pools": [
+      {
+        "name": "Domicile",
+        "href": "/bassins/domicile",
+        "image": {
+          "src": "/images/pools/domicile.jpg",
+          "alt": "Bassin à domicile"
+        },
+        "location": "",
+        "thumb": {
+          "jpg": "/images/thumbnails/domicile-thumb.jpg",
+          "alt": "Bassin à domicile"
+        }
+      },
+      {
+        "name": "Aquabecool",
+        "href": "/bassins/aquabecool",
+        "image": {
+          "src": "/images/pools/aquabecool.jpg",
+          "alt": "Bassin de Aquabecool"
+        },
+        "location": "Aix Sud",
+        "thumb": {
+          "jpg": "/images/thumbnails/aquabecool-thumb.jpg",
+          "alt": "Bassin à Aquabecool"
+        }
+      },
+      {
+        "name": "Kabanon des écuries de l'aube",
+        "href": "/bassins/kabanon",
+        "image": {
+          "src": "/images/pools/kabanon.jpg",
+          "alt": "Bassin du Kabanon des écuries de l'aube"
+        },
+        "location": "Saint-Marc-Jaumegarde",
+        "thumb": {
+          "jpg": "/images/thumbnails/kabanon-thumb.jpg",
+          "alt": "Bassin du Kabanon des écuries de l'aube"
+        }
+      },
+      {
+        "name": "Kinémouv'",
+        "href": "/bassins/kinemouv",
+        "image": {
+          "src": "/images/pools/fallback.jpg",
+          "alt": "Bassin de Kinémouv"
+        },
+        "location": "Pertuis",
+        "thumb": {
+          "jpg": "/images/thumbnails/domicile-thumb.jpg",
+          "alt": "Bassin Kinémouv'"
+        }
+      },
+      {
+        "name": "Plan Form",
+        "href": "/bassins/planform",
+        "image": {
+          "src": "/images/pools/planform.jpg",
+          "alt": "Bassin de Plan Form"
+        },
+        "location": "Cabriès",
+        "thumb": {
+          "jpg": "/images/thumbnails/planform-thumb.jpg",
+          "alt": "Bassin à Plan Form"
+        }
+      }
+    ],
+    "footerMenu": [
+      {
+        "href": "/contact",
+        "name": "Contactez-nous",
+        "classes": "btn"
+      },
+      {
+        "href": "https://user.clicrdv.com/maitre-baigneur",
+        "name": "Réserver un cours",
+        "inNewTab": true,
+        "classes": "btn"
+      },
+      {
+        "href": "/tarifs",
+        "name": "Tarifs",
+        "classes": "btn"
+      },
+      {
+        "href": "/mentions-legales",
+        "name": "Mentions légales",
+        "classes": "btn"
+      }
+    ]
+  },
+  "swimmingLevels": [
+    {
+      "name": "Baigneur en douceur",
+      "imageSrc": {
+        "jpg": "/images/niveaux/0_endouceur-baigneurs.jpg",
+        "webp": "/images/niveaux/0_endouceur-baigneurs.webp"
+      },
 
-			"desc": "Découverte du milieu aquatique dès l'âge de 3 ans !",
-			"hints": ["Mon enfant a peur de la piscine?", "Mon enfant ne mets pas la tête dans l’eau ?"]
-		},
-		{
-			"name": "Mini Baigneur",
-			"imageSrc":{
-				"jpg": "/images/niveaux/1_mini-baigneurs.jpg",
-				"webp": "/images/niveaux/1_mini-baigneurs.webp"
-			},
+      "desc": "Découverte du milieu aquatique dès l'âge de 3 ans !",
+      "hints": [
+        "Mon enfant a peur de la piscine?",
+        "Mon enfant ne mets pas la tête dans l’eau ?"
+      ]
+    },
+    {
+      "name": "Mini Baigneur",
+      "imageSrc": {
+        "jpg": "/images/niveaux/1_mini-baigneurs.jpg",
+        "webp": "/images/niveaux/1_mini-baigneurs.webp"
+      },
 
-			"desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
-			"hints": ["Mon enfant nage avec les brassards ?", "Mon enfant ne met pas la tête dans l’eau ?"]
-		},
-		{
-			"name": "Petit Baigneur",
-			"imageSrc":{
-				"jpg": "/images/niveaux/2_petits-baigneurs.jpg",
-				"webp": "/images/niveaux/2_petits-baigneurs.webp"
-
-			} ,
-			"desc": "<span>« Le sourire des enfants »</span> restera toujours notre priorité ! Nous pensons qu’apprendre à nager c’est bien, mais apprendre en s’amusant c’est mieux !",
-			"hints": ["Mon enfant est à l’aise dans l’eau ?", "Mon enfant saute seul dans la piscine ?", "Mon enfant met la tête sous l’eau ?"]
-		},
-		{
-			"name": "Moyen Baigneur",
-			"imageSrc":{
-				"jpg": "/images/niveaux/3_moyens-baigneurs.jpg",
-				"webp": "/images/niveaux/3_moyens-baigneurs.webp"
-			} ,
-			"desc": "Vos enfants sont à l’aise dans l’eau, mais quelques leçons sont nécessaires pour la mise en place des bons mouvements de la brasse et du dos crawlé.",
-			"hints": ["Mon enfant se débrouille sans matériel ?", "Mon enfant est capable de nager seul sur quelques mètres ?"]
-		},
-		{
-			"name": "Grand Baigneur",
-			"imageSrc":{
-				"jpg": "/images/niveaux/4_grands-baigneurs.jpg",
-				"webp": "/images/niveaux/4_grands-baigneurs.webp"
-			} ,
-			"desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort. <span>Mise en place des 3 nages codifiées, dos, brasse et crawl.</span>",
-			"hints": ["Je sais nager mais je veux améliorer mes nages, en particulier le crawl ?"]
-		},
-		{
-			"name": "Adulte",
-			"imageSrc":{
-				"jpg": "/images/niveaux/5_adultes.jpg",
-				"webp": "/images/niveaux/5_adultes.webp"
-			},
-			"desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
-			"hints": ["Je sais nager et mais je veux perfectionner ma nage ?"]
-		}
-	],
-	"backup":{
-		"name": "Set Club",
-		"href": "/bassins/set-club",
-		"image": {
-			"src": "/images/pools/setclub.jpg",
-			"alt": "Bassin du Set Club"
-		},
-		"location": "Aix Ouest",
-		"thumb": {
-			"jpg": "/images/thumbnails/setclub-thumb.jpg",
-			"alt": "Bassin Set Club"
-		}
-	}
+      "desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
+      "hints": [
+        "Mon enfant nage avec les brassards ?",
+        "Mon enfant ne met pas la tête dans l’eau ?"
+      ]
+    },
+    {
+      "name": "Petit Baigneur",
+      "imageSrc": {
+        "jpg": "/images/niveaux/2_petits-baigneurs.jpg",
+        "webp": "/images/niveaux/2_petits-baigneurs.webp"
+      },
+      "desc": "<span>« Le sourire des enfants »</span> restera toujours notre priorité ! Nous pensons qu’apprendre à nager c’est bien, mais apprendre en s’amusant c’est mieux !",
+      "hints": [
+        "Mon enfant est à l’aise dans l’eau ?",
+        "Mon enfant saute seul dans la piscine ?",
+        "Mon enfant met la tête sous l’eau ?"
+      ]
+    },
+    {
+      "name": "Moyen Baigneur",
+      "imageSrc": {
+        "jpg": "/images/niveaux/3_moyens-baigneurs.jpg",
+        "webp": "/images/niveaux/3_moyens-baigneurs.webp"
+      },
+      "desc": "Vos enfants sont à l’aise dans l’eau, mais quelques leçons sont nécessaires pour la mise en place des bons mouvements de la brasse et du dos crawlé.",
+      "hints": [
+        "Mon enfant se débrouille sans matériel ?",
+        "Mon enfant est capable de nager seul sur quelques mètres ?"
+      ]
+    },
+    {
+      "name": "Grand Baigneur",
+      "imageSrc": {
+        "jpg": "/images/niveaux/4_grands-baigneurs.jpg",
+        "webp": "/images/niveaux/4_grands-baigneurs.webp"
+      },
+      "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort. <span>Mise en place des 3 nages codifiées, dos, brasse et crawl.</span>",
+      "hints": [
+        "Je sais nager mais je veux améliorer mes nages, en particulier le crawl ?"
+      ]
+    },
+    {
+      "name": "Adulte",
+      "imageSrc": {
+        "jpg": "/images/niveaux/5_adultes.jpg",
+        "webp": "/images/niveaux/5_adultes.webp"
+      },
+      "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
+      "hints": ["Je sais nager et mais je veux perfectionner ma nage ?"]
+    }
+  ],
+  "backup": {
+    "name": "Set Club",
+    "href": "/bassins/set-club",
+    "image": {
+      "src": "/images/pools/setclub.jpg",
+      "alt": "Bassin du Set Club"
+    },
+    "location": "Aix Ouest",
+    "thumb": {
+      "jpg": "/images/thumbnails/setclub-thumb.jpg",
+      "alt": "Bassin Set Club"
+    }
+  }
 }
-
