@@ -1,219 +1,82 @@
 ---
-import { Icon } from "astro-icon";
-
 const partners = [
-	{
-		name: "Aquabecool",
-		logo: {
-			imgUrlWebp: "/images/partners/aquabecool-partner.webp",
-			imgUrl: "/images/partners/aquabecool-partner.jpg",
-			imgAlt: "Logo Aquabecool Aix-en-Provence"
-		}
-	},
+  {
+    name: "Aquabecool",
+    logo: {
+      imgUrlWebp: "/images/partners/aquabecool-partner.webp",
+      imgUrl: "/images/partners/aquabecool-partner.jpg",
+      imgAlt: "Logo Aquabecool Aix-en-Provence",
+    },
+  },
 
-	{
-		name: "Kabanon des écuries de l'aube",
-		logo: {
-			imgUrlWebp: "/images/partners/kabanon-partner.webp",
-			imgUrl: "/images/partners/kabanon-partner.jpg",
-			imgAlt: "Logo Kabanon des écuries de l'aube"
-		}
-	},
-	{
-		name: "Plan Form",
-		logo: {
-			imgUrlWebp: "/images/partners/planform-partner.webp",
-			imgUrl: "/images/partners/planform-partner.jpg",
-			imgAlt: "Logo Plan Form"
-		}
-	},
-	{
-		name: "Kinémouv'",
-		logo: {
-			imgUrlWebp: "/images/partners/kinemouv-partner.webp",
-			imgUrl: "/images/partners/kinemouv-partner.jpg",
-			imgAlt: "Logo Kinémouv'"
-		}
-	}
+  {
+    name: "Kabanon des écuries de l'aube",
+    logo: {
+      imgUrlWebp: "/images/partners/kabanon-partner.webp",
+      imgUrl: "/images/partners/kabanon-partner.jpg",
+      imgAlt: "Logo Kabanon des écuries de l'aube",
+    },
+  },
+  {
+    name: "Plan Form",
+    logo: {
+      imgUrlWebp: "/images/partners/planform-partner.webp",
+      imgUrl: "/images/partners/planform-partner.jpg",
+      imgAlt: "Logo Plan Form",
+    },
+  },
+  {
+    name: "Kinémouv'",
+    logo: {
+      imgUrlWebp: "/images/partners/kinemouv-partner.webp",
+      imgUrl: "/images/partners/kinemouv-partner.jpg",
+      imgAlt: "Logo Kinémouv'",
+    },
+  },
 ];
 ---
 
-<div class="partners lg-horizontal-scroll no-scrollbar scroll">
-	{
-		partners.map(partner => {
-			const { imgUrlWebp, imgUrl, imgAlt } = partner.logo;
-			return (
-				<picture class="partners__item scroll__item">
-					<source type="image/webp" srcset={imgUrlWebp} />
-					<img loading="lazy" src={imgUrl} alt={imgAlt} />
-				</picture>
-			);
-		})
-	}
+<div class="partners">
+  {
+    partners.map((partner) => {
+      const { imgUrlWebp, imgUrl, imgAlt } = partner.logo;
+      return (
+        <picture class="partners__item scroll__item">
+          <source type="image/webp" srcset={imgUrlWebp} />
+          <img loading="lazy" src={imgUrl} alt={imgAlt} />
+        </picture>
+      );
+    })
+  }
 </div>
-<div class="scroll__controllers">
-	<button class="scroll__left" tabindex="0"><Icon name="arrow_down" /><span class="sr-only">Défiler vers la gauche</span></button>
-	<button class="scroll__right" tabindex="0"><Icon name="arrow_down" /><span class="sr-only">Défiler vers la droite</span></button>
-</div>
+
 <style lang="scss">
-	.partners {
-		& > div {
-			position: relative;
-		}
-		position: relative;
-		width: 100vw;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
+  .partners {
+    & > div {
+      position: relative;
+    }
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
 
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: center;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
 
-		padding-inline: 2rem;
+      & > picture {
+        flex: 0 0 calc(50% - (var(--space-sm) * 4));
+      }
+    }
+    &__item {
+      padding: var(--space-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-		&::before,
-		&::after {
-			content: none;
-			@media screen and (max-width: 992px) {
-				content: "";
-				flex: 0 0 50%;
-			}
-		}
-
-		&__item {
-			padding: 2rem;
-
-			img {
-				width: 100%;
-			}
-		}
-	}
-	.scroll {
-		&__controllers {
-			display: none;
-			@media screen and (max-width: 992px) {
-				position: relative;
-
-				z-index: 1;
-				display: flex;
-				gap: var(--space-lg);
-				width: calc(var(--space-lg) * 2);
-				margin: auto;
-				margin-bottom: var(--space-lg);
-			}
-		}
-		@media screen and (max-width: 992px) {
-			&__left {
-				left: -1rem;
-
-				svg {
-					transform: rotate(90deg);
-				}
-			}
-			&__right {
-				right: -1rem;
-				svg {
-					transform: rotate(-90deg);
-				}
-			}
-			&__left,
-			&__right {
-				position: absolute;
-				// left: 50%;
-				// transform: translateX(-50%);
-				align-items: center;
-				justify-content: center;
-				background-color: var(--color-bg-light);
-				color: var(--color-primary);
-				width: 3rem;
-				height: 3rem;
-				border-radius: 50%;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				transition: 0.3s;
-				overflow: hidden;
-				min-height: 48px;
-				border: 1px solid hsla(var(--link-color-primary-hsl), 0.05);
-				// padding: 0rem 1.2rem;
-				opacity: 1;
-
-				&[disabled] {
-					opacity: 0.5;
-					cursor: not-allowed;
-				}
-			}
-		}
-	}
+      img {
+        width: 100%;
+      }
+    }
+  }
 </style>
-<script is:inline>
-	const scrollContainer = document.querySelector(".scroll");
-	const scrollLeftButton = document.querySelector(".scroll__left");
-	const scrollRightButton = document.querySelector(".scroll__right");
-	let scrollableItems = document.querySelectorAll(".scroll__item");
-	const scrollItemWidth = getScrollableItemsWidth();
-
-	let currentIndex = 0;
-	scrollLeftButton.addEventListener("click", scrollLeft);
-	scrollLeftButton.addEventListener("keydown", event => {
-		if (event.key === "Enter") {
-			scrollLeft();
-		}
-	});
-
-	scrollRightButton.addEventListener("click", scrollRight);
-	scrollRightButton.addEventListener("keydown", event => {
-		if (event.key === "Enter") {
-			scrollRight();
-		}
-	});
-
-	function scrollLeft() {
-		scrollContainer.scrollBy({
-			left: -scrollItemWidth,
-			behavior: "smooth"
-		});
-		updateBtns();
-	}
-
-	function scrollRight() {
-		scrollContainer.scrollBy({
-			left: scrollItemWidth,
-			behavior: "smooth"
-		});
-		updateBtns();
-	}
-
-	function getScrollableItemsWidth() {
-		const scrollItemWidth = scrollableItems[0].offsetWidth + getPseudoWidth();
-		return scrollItemWidth;
-	}
-	function getPseudoWidth() {
-		const scrollItem = scrollableItems[0];
-		const pseudoWidth = scrollItem.offsetWidth / 4;
-		return pseudoWidth;
-	}
-
-	updateBtns();
-
-	function updateBtns() {
-		if (currentIndex === 0) {
-			scrollLeftButton.setAttribute("disabled", true);
-		} else {
-			scrollLeftButton.removeAttribute("disabled");
-		}
-
-		if (currentIndex === scrollableItems.length - 1) {
-			scrollRightButton.setAttribute("disabled", true);
-		} else {
-			scrollRightButton.removeAttribute("disabled");
-		}
-	}
-
-	scrollContainer.addEventListener("scroll", function () {
-		currentIndex = Math.round(scrollContainer.scrollLeft / getScrollableItemsWidth());
-		updateBtns();
-	});
-</script>
