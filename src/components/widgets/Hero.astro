@@ -2,13 +2,11 @@
 import Socials from "@components/Socials.astro";
 import Buttons from "@components/ui/Buttons.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
-// import Particles from "@components/ui/Particles.astro";
 
 const { ariaLabel } = Astro.props;
 ---
 
 <section id="hero" class="hero" aria-label={ariaLabel}>
-  <!-- <Particles /> -->
   <div class="hero__img">
     <picture>
       <source type="image/webp" srcset="/images/hero.webp" />
