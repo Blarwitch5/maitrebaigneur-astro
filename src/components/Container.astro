@@ -1,44 +1,43 @@
 ---
 interface Props {
-	fullWidth?: boolean;
-	className?: string;
+  fullWidth?: boolean;
+  className?: string;
 }
 const { fullWidth, className } = Astro.props;
 ---
 
 <div class:list={[`${fullWidth ? "container-fluid" : `container`}`, className]}>
-	<slot />
+  <slot />
 </div>
 
 <style lang="scss">
-	.container {
-		margin-right: auto;
-		margin-left: auto;
-		padding-right: 1.5rem;
-		padding-left: 1.5rem;
-		/* for edge cases: */
-		width: 100%;
-		max-width: 100%;
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    /* for edge cases: */
+    max-width: 100%;
 
-		@media (min-width: 576px) {
-			max-width: 33.75rem; //540px
-		}
-		@media (min-width: 768px) {
-			max-width: 45rem; //720px
-		}
-		@media (min-width: 992px) {
-			max-width: 62rem; //960px
-		}
-		@media (min-width: 1200px) {
-			max-width: 71.25rem; //1140px
-		}
-	}
-	.container-fluid {
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-	}
+    @media (min-width: 576px) {
+      max-width: 33.75rem; //540px
+    }
+    @media (min-width: 768px) {
+      max-width: 45rem; //720px
+    }
+    @media (min-width: 992px) {
+      max-width: 62rem; //960px
+    }
+    @media (min-width: 1200px) {
+      max-width: 71.25rem; //1140px
+    }
+  }
+  .container-fluid {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 </style>

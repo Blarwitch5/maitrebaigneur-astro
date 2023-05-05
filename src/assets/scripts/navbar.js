@@ -59,9 +59,10 @@ function addRemoveHeaderClassOnScroll(scroll) {
     // Remove class "active" from the header
     header.classList.remove("active");
   }
-}
-// Function to open the menu
+} // Function to open the menu
 function openMenu() {
+  const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
+
   // If the menu is open, close it
   if (isOpened) {
     toggleBtn.setAttribute("aria-expanded", false);
@@ -81,14 +82,16 @@ function openMenu() {
 
 // Function to close the menu
 function closeMenu() {
+  const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
+
   // If the menu is open, close it
   if (isOpened) {
-    toggleBtn.setAttribute("aria-expanded", true);
-    sidenav.setAttribute("data-state", "opened");
-  } else {
-    // If the menu is closed, open it
     toggleBtn.setAttribute("aria-expanded", false);
     sidenav.setAttribute("data-state", "closed");
+  } else {
+    // If the menu is closed, open it
+    toggleBtn.setAttribute("aria-expanded", true);
+    sidenav.setAttribute("data-state", "opened");
   }
   if (window.innerWidth > 768) {
     // Remove the overlay

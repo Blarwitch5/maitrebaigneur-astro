@@ -1,66 +1,71 @@
 //smooth scrolling
 html {
-    scroll-behavior: smooth;
-    font-family: "Raleway", sans-serif;
-    background-color: var(--color-white);
-    font-size: var(--fs-base);
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+  background-color: var(--color-white);
+  font-size: var(--fs-base);
 }
 html,
 body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
 }
 section {
-    padding: 2rem;
+  padding: 2rem;
 }
 //gives some room for the footer logo with negative margin
 main > section:last-of-type {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 //fallback for img loading
 *img:not(.logo) {
-    background-color: var(--color-bg-light);
-    color: var(--color-primary);
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
 }
 .visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 .hidden-xs {
-    @media (max-width: 30.625) {
-        display: none !important;
-    }
+  @media (max-width: 30.625) {
+    display: none !important;
+  }
 }
 .hidden-sm {
-    @media (max-width: 48rem) {
-        display: none !important;
-    }
+  @media (max-width: 48rem) {
+    display: none !important;
+  }
 }
 .hidden-md {
-    @media (max-width: 62rem) {
-        display: none !important;
-    }
+  @media (max-width: 62rem) {
+    display: none !important;
+  }
 }
 .hidden-lg {
-    @media (max-width: 64rem) {
-        display: none !important;
-    }
+  @media (max-width: 64rem) {
+    display: none !important;
+  }
 }
 .hidden-xl {
-    @media (min-width: 75.063rem) {
-        display: none !important;
-    }
+  @media (min-width: 75.063rem) {
+    display: none !important;
+  }
 }
 
 .relative {
-    position: relative;
+  position: relative;
+}
+
+* {
+  border: red solid 2px;
 }
