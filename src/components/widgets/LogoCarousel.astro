@@ -71,7 +71,7 @@ const partners = [
       flex-wrap: wrap;
 
       & > picture {
-        flex: 0 0 calc(50% - (var(--space-sm) * 4));
+        flex: 0 0 50%;
       }
     }
     &__item {
@@ -82,6 +82,9 @@ const partners = [
 
       img {
         width: 100%;
+        height: auto;
+        object-fit: contain;
+        background-color: transparent;
       }
     }
   }
