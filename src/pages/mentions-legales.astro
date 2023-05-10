@@ -11,80 +11,164 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 //data
 
 const page = {
-	metaTitle: "Mentions légales",
-	description: "",
-	title: "Mentions légales",
-	image: {
-		webp: "/images/page-title/webp/fallback.webp",
-		jpg: "/images/page-title/fallback.jpg",
-		alt: "Mentions légales"
-	}
+  metaTitle: "Mentions légales",
+  description: "",
+  title: "Mentions légales",
+  image: {
+    webp: "/images/page-title/webp/fallback.webp",
+    jpg: "/images/page-title/fallback.jpg",
+    alt: "Mentions légales",
+  },
 };
 ---
 
 <BaseLayout title={page.title} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
 
-	<Main>
-		<Section>
-			<Container>
-				<h1>Mentions légales</h1>
-				<ul>
-					<li>
-						<h3>Propriété intellectuelle</h3><p>
-							Le contenu du site, y compris les textes, images, icônes et design, est protégé par les lois sur la propriété intellectuelle. Tous les
-							droits de reproduction sont réservés.
-						</p>
-					</li>
-					<li>
-						<h3>Sources des icônes</h3><p>
-							Certaines des icônes utilisées sur ce site font partie d'un pack acheté, tandis que d'autres sont issues de <a
-								href="https://www.flaticon.com/"
-								rel="nofollow"
-								target="_blank">Flaticon.com</a
-							> et sont soumises à leur licence.
-						</p>
-					</li>
-					<li>
-						<h3>Sources des images</h3><p>
-							Certaines des images utilisées sur ce site sont la propriété de Maître-Baigneur, d'autres ont été achetées sur <a
-								href="https://stock.adobe.com/fr/"
-								rel="nofollow"
-								target="_blank">Adobe Stock</a
-							> et certaines sont issues de <a href="https://www.pexels.com/" rel="nofollow" target="_blank">Pexels.com</a>. Toutes les images sont
-							soumises aux termes de la licence applicable.
-						</p>
-					</li>
-					<li>
-						<h3>Formulaire de contact</h3><p>
-							Le formulaire de contact sur ce site est utilisé uniquement pour permettre aux utilisateurs de contacter le propriétaire du site. Les
-							informations collectées ne seront utilisées que pour répondre aux demandes des utilisateurs.
-						</p>
-					</li>
-					<li>
-						<h3>Limitation de responsabilité</h3><p>
-							Le propriétaire du site n'assume aucune responsabilité pour les dommages directs ou indirects découlant de l'utilisation de ce site ou
-							de son contenu. Liens vers d'autres sites : Le site peut inclure des liens vers d'autres sites. Le propriétaire du site n'assume aucune
-							responsabilité pour le contenu ou les pratiques de ces sites.
-						</p>
-					</li>
-					<li>
-						<h3>Modification des mentions légales</h3><p>
-							Le propriétaire du site se réserve le droit de modifier ces mentions légales à tout moment. Les utilisateurs sont invités à consulter
-							régulièrement cette page pour prendre connaissance de tout changement.
-						</p>
-					</li>
-					<li>
-						<h3>Droit applicable</h3><p>
-							Ces mentions légales sont soumises au droit français. Tout litige découlant de l'utilisation de ce site sera soumis à la juridiction des
-							tribunaux français.
-						</p>
-					</li>
-				</ul>
-			</Container>
-		</Section>
-	</Main>
-	<Footer />
+  <Main>
+    <Section>
+      <Container>
+        <h1>Mentions légales</h1>
+        <div>
+          <h3>Propriété intellectuelle</h3><p>
+            Les éléments du site, tels que textes, images, icônes et design,
+            sont protégés par les lois relatives à la propriété intellectuelle.
+            La reproduction est interdite.
+          </p>
+        </div>
+        <div>
+          <h3>Icônes et images</h3><p>
+            Les icônes proviennent d'un pack acheté et de <a
+              href="https://www.flaticon.com/"
+              rel="nofollow"
+              target="_blank">Flaticon.com</a
+            > (soumises à leur licence).
+            <ul class="legal">
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/nager_7115059?related_id=7115059"
+                  title="Icône d'un nageur"
+                  >Icône nageur créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/la-natation_8282538?related_id=8282538"
+                  title="Icône d'un plongeur"
+                  >Icône plongeur créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/pieds_7583538?term=pieds&page=1&position=96&origin=search&related_id=7583538"
+                  title="Icône de pieds"
+                  >Icône pieds créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/anniversaire_817930?term=f%C3%AAte+dinosaure&page=1&position=2&origin=search&related_id=817930"
+                  title="Icône anniversaire"
+                  >Icône anniversaire créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/chaise-de-sauveteur_2124694?term=sauveteur&page=1&position=8&origin=search&related_id=2124694"
+                  title="Icône surveillance"
+                  >Icône surveillance créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/diplome_2327439?term=diploma&page=1&position=2&origin=style&related_id=2327439"
+                  title="Icône diplôme"
+                  >Icône diplôme créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/sauveteur_7535369?term=bouee&page=1&position=75&origin=style&related_id=7535369"
+                  title="Icône bouée"
+                  >Icône bouée créée par Freepik - Flaticon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.flaticon.com/fr/icone-gratuite/nageur_3124285?term=nageur&page=1&position=10&origin=style&related_id=3124285"
+                  title="Icône nageur 2"
+                  >Icône nageur 2 créée par Freepik - Flaticon</a
+                >
+              </li>
+            </ul>
+          </p>
+          <p>
+            Les images appartiennent à Maître-Baigneur, <a
+              href="https://stock.adobe.com/fr/"
+              rel="nofollow"
+              target="_blank">Adobe Stock (achats)</a
+            > et <a
+              href="https://www.pexels.com/"
+              rel="nofollow"
+              target="_blank">Pexels.com</a
+            > (libres de droit).
+          </p>
+        </div>
+        <div>
+          <h3>Sources des images</h3><p>
+            Certaines des images utilisées sur ce site sont la propriété de
+            Maître-Baigneur, d'autres ont été achetées sur <a
+              href="https://stock.adobe.com/fr/"
+              rel="nofollow"
+              target="_blank">Adobe Stock</a
+            > et certaines sont issues de <a
+              href="https://www.pexels.com/"
+              rel="nofollow"
+              target="_blank">Pexels.com</a
+            >. Toutes les images sont soumises aux termes de la licence
+            applicable.
+          </p>
+        </div>
+        <div>
+          <h3>Formulaire de contact</h3><p>
+            Le formulaire de contact sur ce site est utilisé uniquement pour
+            permettre aux utilisateurs de contacter le propriétaire du site. Les
+            informations collectées ne seront utilisées que pour répondre aux
+            demandes des utilisateurs.
+          </p>
+        </div>
+        <div>
+          <h3>Limitation de responsabilité</h3><p>
+            Le propriétaire du site décline toute responsabilité en cas de
+            dommages résultant de l'utilisation du site ou de son contenu. Liens
+            externes : Le site peut contenir des liens vers d'autres sites, dont
+            le propriétaire du site n'est pas responsable du contenu ou des
+            pratiques.
+          </p>
+        </div>
+        <div>
+          <h3>Modification des mentions légales</h3><p>
+            Le propriétaire du site peut modifier ces mentions légales à tout
+            moment. Les utilisateurs sont invités à consulter cette page
+            régulièrement pour se tenir informés des changements.
+          </p>
+        </div>
+        <div>
+          <h3>Droit applicable</h3><p>
+            Ces mentions légales sont soumises au droit français. Les litiges
+            découlant de l'utilisation du site seront résolus par les tribunaux
+            français.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  </Main>
+  <Footer />
 </BaseLayout>
