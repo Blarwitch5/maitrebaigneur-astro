@@ -2,7 +2,6 @@
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
 import Buttons from "@components/ui/Buttons.astro";
-import { Icon } from "astro-icon";
 
 import site from "@assets/data/data.json";
 
@@ -12,11 +11,11 @@ const pools = siteLinks.pools;
 
 <Accordion>
   <AccordionItem header="Quelles sont les modalités de paiement ?" index="1">
-    <>
+    <p>
       Nous vous informons que le paiement doit être effectué lors de votre
       première séance. Des enveloppes et des tickets d'encaissement sont
       disponibles pour vous faciliter la tâche.
-    </>
+    </p>
     <h4>Paiement en espèces</h4>
     <p>
       Si vous optez pour un règlement en espèces, des enveloppes sont à votre
