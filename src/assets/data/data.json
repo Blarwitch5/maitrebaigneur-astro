@@ -149,6 +149,7 @@
           "alt": "Bassin de Aquabecool"
         },
         "location": "Aix Sud",
+        "address": "Chemin de la Blaque, 13090 Aix-en-Provence",
         "thumb": {
           "jpg": "/images/thumbnails/aquabecool-thumb.jpg",
           "alt": "Bassin à Aquabecool"
@@ -162,6 +163,7 @@
           "alt": "Bassin du Kabanon des écuries de l'aube"
         },
         "location": "Saint-Marc-Jaumegarde",
+        "address": "Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde",
         "thumb": {
           "jpg": "/images/thumbnails/kabanon-thumb.jpg",
           "alt": "Bassin du Kabanon des écuries de l'aube"
@@ -175,6 +177,7 @@
           "alt": "Bassin de Kinémouv"
         },
         "location": "Pertuis",
+        "address": "434 Chemin de Saint-Martin, 84120 Pertuis",
         "thumb": {
           "jpg": "/images/thumbnails/domicile-thumb.jpg",
           "alt": "Bassin Kinémouv'"
@@ -188,6 +191,7 @@
           "alt": "Bassin de Plan Form"
         },
         "location": "Cabriès",
+        "address": "Parc Club de L´Arbois, Route de Calas, 13480 Cabriès",
         "thumb": {
           "jpg": "/images/thumbnails/planform-thumb.jpg",
           "alt": "Bassin à Plan Form"
@@ -299,6 +303,7 @@
       "alt": "Bassin du Set Club"
     },
     "location": "Aix Ouest",
+    "address": "1335 Chemin de Granet, 13090 Aix-en-Provence",
     "thumb": {
       "jpg": "/images/thumbnails/setclub-thumb.jpg",
       "alt": "Bassin Set Club"

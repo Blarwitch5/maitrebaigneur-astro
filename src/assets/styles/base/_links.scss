@@ -23,7 +23,8 @@
 //general link style
 
 main :not(li) > a:not(.btn, .service__link),
-.breadcrumbs__item a {
+.breadcrumbs__item a,
+.legal li > a {
   position: relative;
   color: currentColor;
   text-decoration: none;
