@@ -42,7 +42,8 @@ const pools = siteLinks.pools;
       Vous pouvez apprendre à nager dans un de nos bassins d'apprentissage. En
       voici la liste :
     </p>
-    <ul>
+
+    <ol>
       {
         pools
           .filter((pool) => pool.name !== "Domicile")
@@ -52,7 +53,7 @@ const pools = siteLinks.pools;
             </li>
           ))
       }
-    </ul>
+    </ol>
   </AccordionItem>
   <AccordionItem header="En cas d'empêchement ?" index="3">
     <p>

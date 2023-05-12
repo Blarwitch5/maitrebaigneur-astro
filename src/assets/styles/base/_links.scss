@@ -22,7 +22,7 @@
 // }
 //general link style
 
-main :not(li) > a:not(.btn, .service__link),
+main :not(ul > li) > a:not(.btn, .service__link),
 .breadcrumbs__item a,
 .legal li > a {
   position: relative;

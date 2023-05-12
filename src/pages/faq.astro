@@ -99,7 +99,7 @@ const page = {
               Vous pouvez apprendre à nager dans un de nos bassins
               d'apprentissage. En voici la liste :
             </p>
-            <ul>
+            <ol>
               {
                 pools
                   .filter((pool) => pool.name !== "Domicile")
@@ -109,7 +109,7 @@ const page = {
                     </li>
                   ))
               }
-            </ul>
+            </ol>
           </AccordionItem>
           <AccordionItem header="En cas d'empêchement ?" index="3">
             <p>
@@ -156,13 +156,13 @@ const page = {
             </p>
           </AccordionItem>
         </Accordion>
-        <p>
-          Nous sommes en train de travailler pour compléter cette page avec les
-          questions fréquemment posées par nos clients. <br />Nous vous
-          remercions de votre compréhension !
-        </p>
       </Container>
+      <p>
+        Nous sommes en train de travailler pour compléter cette page avec les
+        questions fréquemment posées par nos clients. <br />Nous vous remercions
+        de votre compréhension !
+      </p>
     </Section>
   </Main>
-  <Footer />
 </BaseLayout>
+<Footer />

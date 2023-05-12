@@ -7,7 +7,7 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@assets/*": ["src/assets/*"]
 		},
-		"strictNullChecks": true
+		"strictNullChecks": true,
 	},
 	"allowJs": true
 }
