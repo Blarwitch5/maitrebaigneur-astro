@@ -152,9 +152,16 @@ const levels = swimmingLevels;
       <input type="email" name="email" />
     </div>
     <div class="form__field col-100">
-      <label for="location">Où est-ce que l'on nage ?</label>
-      <input type="text" name="location" />
-      <small>Adresse et code postal de la piscine</small>
+      <label for="address">Adresse de la piscine</label>
+      <input type="text" name="address" />
+    </div>
+    <div class="form__field col-50">
+      <label for="zip">Code postal</label>
+      <input type="text" pattern="\d{5}" title="Code postal français à 5 chiffres" name="zip" />
+    </div>
+    <div class="form__field col-50">
+      <label for="city">Ville</label>
+      <input type="text" name="city" />
     </div>
     <div class="form__field col-100">
       <label for="dates">Quand vodriez-vous réserver un cours ?</label>
