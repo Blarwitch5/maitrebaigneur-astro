@@ -11,303 +11,342 @@ import Container from "@components/Container.astro";
 import { Icon } from "astro-icon";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Title from "@components/ui/Title.astro";
 
 //data
 
 const page = {
-	metaTitle: "Qui sommes-nous ?",
-	description: "",
-	title: "Qui sommes-nous ?",
+  metaTitle: "Qui sommes-nous ?",
+  description: "",
+  title: "Qui sommes-nous ?",
 
-	image: {
-		webp: "/images/page-title/webp/page_quisommesnous.webp",
-		jpg: "/images/page-title/page_quisommesnous.jpg",
-		alt: "Maître-Baigneur apprenant un garçon à nager"
-	},
-	gallery: [
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
-		},
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe-3.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe-3.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe avec enfants nageant sur le dos "
-		},
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe-2.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe-2.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe montrant l'exercice"
-		},
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
-		},
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe-5.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe-5.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager"
-		},
-		{
-			webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
-			jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
-			alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions"
-		}
-	]
+  image: {
+    webp: "/images/page-title/webp/page_quisommesnous.webp",
+    jpg: "/images/page-title/page_quisommesnous.jpg",
+    alt: "Maître-Baigneur apprenant un garçon à nager",
+  },
+  gallery: [
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
+    },
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe-3.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe-3.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe avec enfants nageant sur le dos ",
+    },
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe-2.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe-2.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe montrant l'exercice",
+    },
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
+    },
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe-5.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe-5.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager",
+    },
+    {
+      webp: "/images/nager-en-groupe/nager-en-groupe-4.webp",
+      jpg: "/images/nager-en-groupe/nager-en-groupe-4.jpg",
+      alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
+    },
+  ],
 };
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
-	<Main>
-		<Section class="qualities" ariaLabel="Maître-Baigneur en trois mots">
-			<Qualities />
-		</Section>
-		<Section class="pedagogy" ariaLabel="La philosophie Maître-Baigneur" backgroundColor="var(--color-bg-light)">
-			<Container>
-				<Waves atTopOfSection={true} />
-				<div class="pedagogy__wrapper">
-					<h2 class="pedagogy__title">La philosophie Maître-Baigneur</h2>
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
+  <Main>
+    <Section class="qualities" ariaLabel="Maître-Baigneur en trois mots">
+      <Qualities />
+    </Section>
+    <Section
+      class="pedagogy"
+      ariaLabel="La philosophie Maître-Baigneur"
+      backgroundColor="var(--color-bg-light)"
+    >
+      <Container>
+        <Waves atTopOfSection={true} />
+        <div class="pedagogy__wrapper">
+          <Title level="2" class="pedagogy__title">
+            La philosophie Maître-Baigneur
+          </Title>
 
-					<div class="pedagogy__images">
-						{
-							page.gallery.map(image => {
-								return (
-									<picture>
-										<source type="image/webp" srcset={image.webp} />
-										<img loading="lazy" src={image.jpg} alt={image.alt} height="300" width="400" />
-									</picture>
-								);
-							})
-						}
-					</div>
-					<div class="pedagogy__content">
-						<h3>Nager en groupe</h3>
-						<p>
-							Les avantages de notre pédagogie en petits groupes pour l'apprentissage de la natation sont nombreux :
-							<ul>
-								<li>Renforce l'esprit d'équipe, la solidarité, la confiance en soi et favorise l'autonomie des élèves.</li>
-								<li>Améliore la sécurité en évitant les dangers de l'eau.</li>
-								<li>Développe les compétences sociales et la coordination.</li>
-								<li>Améliore les capacités cognitives et la condition physique générale.</li>
-								<li>Il est important de ne pas interrompre l'apprentissage pour éviter une régression brutale des acquis.</li>
-							</ul>
-							En résumé, notre pédagogie en petits groupes pour l'apprentissage de la natation permet aux élèves de travailler en équipe, de gagner en
-							confiance en soi, d'améliorer leur sécurité, leurs compétences sociales, leur coordination, leurs capacités cognitives et leur condition
-							physique. Il est essentiel de maintenir une continuité dans l'apprentissage pour éviter toute régression des acquis.
-						</p>
-					</div>
-				</div>
-				<Waves />
-			</Container>
-		</Section>
-		<Section class="quote" ariaLabel="Le mot du directeur Quentin Vander Meulen">
-			<Container>
-				<h2 class="quote__title">Le mot du patron</h2>
-				<div class="quote__content">
-					<div class="quote__img">
-						<picture>
-							<source type="image/webp" srcset="/images/quentin.webp" />
-							<img
-								loading="lazy"
-								src="/images/quentin.jpg"
-								alt="Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur"
-								width="500"
-								height="500"
-							/>
-						</picture>
-					</div>
-					<blockquote>
-						<p>
-							<Icon name="quote" aria-hidden="true" />
-							Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait mon
-							métier : athlète de haut niveau, joueur professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin d’inventer
-							ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond, celui d’allier mes différentes expériences et de transmettre
-							mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité.
-							<Icon name="quote" aria-hidden="true" />
-						</p>
-						<footer>
-							<cite>
-								<span>Quentin Vander Meulen</span>
-								Fondateur et directeur de Maître-Baigneur
-							</cite>
-						</footer>
-					</blockquote>
-				</div>
-			</Container>
-		</Section>
-	</Main>
-	<Footer />
+          <div class="pedagogy__images">
+            {
+              page.gallery.map((image) => {
+                return (
+                  <picture>
+                    <source type="image/webp" srcset={image.webp} />
+                    <img
+                      loading="lazy"
+                      src={image.jpg}
+                      alt={image.alt}
+                      height="300"
+                      width="400"
+                    />
+                  </picture>
+                );
+              })
+            }
+          </div>
+          <div class="pedagogy__content">
+            <Title level="3">Nager en groupe</Title>
+            <p>
+              Les avantages de notre pédagogie en petits groupes pour
+              l'apprentissage de la natation sont nombreux :
+              <ul>
+                <li>
+                  Renforce l'esprit d'équipe, la solidarité, la confiance en soi
+                  et favorise l'autonomie des élèves.
+                </li>
+                <li>Améliore la sécurité en évitant les dangers de l'eau.</li>
+                <li>Développe les compétences sociales et la coordination.</li>
+                <li>
+                  Améliore les capacités cognitives et la condition physique
+                  générale.
+                </li>
+                <li>
+                  Il est important de ne pas interrompre l'apprentissage pour
+                  éviter une régression brutale des acquis.
+                </li>
+              </ul>
+              En résumé, notre pédagogie en petits groupes pour l'apprentissage de
+              la natation permet aux élèves de travailler en équipe, de gagner en
+              confiance en soi, d'améliorer leur sécurité, leurs compétences sociales,
+              leur coordination, leurs capacités cognitives et leur condition physique.
+              Il est essentiel de maintenir une continuité dans l'apprentissage pour
+              éviter toute régression des acquis.
+            </p>
+          </div>
+        </div>
+        <Waves />
+      </Container>
+    </Section>
+    <Section
+      class="quote"
+      ariaLabel="Le mot du directeur Quentin Vander Meulen"
+    >
+      <Container>
+        <Title level="2" class="quote__title">Le mot du patron</Title>
+        <div class="quote__content">
+          <div class="quote__img">
+            <picture>
+              <source type="image/webp" srcset="/images/quentin.webp" />
+              <img
+                loading="lazy"
+                src="/images/quentin.jpg"
+                alt="Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur"
+                width="500"
+                height="500"
+              />
+            </picture>
+          </div>
+          <blockquote>
+            <p>
+              <Icon name="quote" aria-hidden="true" />
+              Je me souviens du plaisir que j’avais enfant à passer des heures à
+              m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait
+              mon métier : athlète de haut niveau, joueur professionnel de water-polo
+              et maître nageur. Au fil des années, j’ai ressenti le besoin d’inventer
+              ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait
+              profond, celui d’allier mes différentes expériences et de transmettre
+              mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur
+              puisse avoir le plaisir de nager en toute sécurité.
+              <Icon name="quote" aria-hidden="true" />
+            </p>
+            <footer>
+              <cite>
+                <span>Quentin Vander Meulen</span>
+                Fondateur et directeur de Maître-Baigneur
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+      </Container>
+    </Section>
+  </Main>
+  <Footer />
 </BaseLayout>
 
 <style lang="scss">
-	.pedagogy {
-		&__wrapper {
-			display: grid;
-			grid-template-columns: 45% 1fr;
-			gap: var(--space-md);
-			align-items: center;
+  .pedagogy {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 45% 1fr;
+      gap: var(--space-md);
+      align-items: center;
 
-			@media screen and (max-width: 768px) {
-				grid-template-columns: 1fr;
-				grid-auto-flow: row;
-			}
-		}
-		&__title {
-			grid-column: 1 / span 2;
-			text-align: center;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+      }
+    }
+    &__title {
+      grid-column: 1 / span 2;
+      text-align: center;
 
-			@media screen and (max-width: 768px) {
-				grid-column: 1 / span 1;
-			}
-		}
-		&__content {
-			h3 {
-				font-family: var(--ff-pacifico);
-			}
-			ul {
-				list-style: none;
-				background-color: var(--color-white);
-				padding: var(--space-md);
-				border-radius: var(--regular-border-radius);
-				& > li {
-					&::before {
-						content: "✓";
-						margin-right: var(--space-sm);
-					}
-				}
-			}
-		}
-		&__images {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-rows: repeat(5, 75px);
-			grid-gap: var(--space-sm);
+      @media screen and (max-width: 768px) {
+        grid-column: 1 / span 1;
+      }
+    }
+    &__content {
+      h3 {
+        font-family: var(--ff-pacifico);
+      }
+      ul {
+        list-style: none;
+        background-color: var(--color-white);
+        padding: var(--space-md);
+        border-radius: var(--regular-border-radius);
+        & > li {
+          &::before {
+            content: "✓";
+            margin-right: var(--space-sm);
+          }
+        }
+      }
+    }
+    &__images {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 75px);
+      grid-gap: var(--space-sm);
 
-			picture {
-				overflow: hidden;
-				border-radius: var(--regular-border-radius);
-				box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+      picture {
+        overflow: hidden;
+        border-radius: var(--regular-border-radius);
+        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+          0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
-				img {
-					object-fit: cover;
-					width: 100%;
-					height: 100%;
-				}
-				&:nth-child(1) {
-					grid-column: 1 / 3;
-					grid-row: 1 / 4;
-				}
-				&:nth-child(2) {
-					grid-column: 3 / 4;
-					grid-row: 1 / 2;
-				}
-				&:nth-child(3) {
-					grid-column: 3 / 5;
-					grid-row: 2 / 4;
-				}
-				&:nth-child(4) {
-					grid-column: 1/ 2;
-					grid-row: 4 / 5;
-				}
-				&:nth-child(5) {
-					grid-column: 2 / 4;
-					grid-row: 4 / 6;
-				}
-				&:nth-child(6) {
-					grid-column: 4 / 5;
-					grid-row: 4 / 5;
-				}
-			}
-		}
-	}
-	.pedagogy {
-		&__img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-		&__content {
-			padding: 2rem;
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+        &:nth-child(1) {
+          grid-column: 1 / 3;
+          grid-row: 1 / 4;
+        }
+        &:nth-child(2) {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+        &:nth-child(3) {
+          grid-column: 3 / 5;
+          grid-row: 2 / 4;
+        }
+        &:nth-child(4) {
+          grid-column: 1/ 2;
+          grid-row: 4 / 5;
+        }
+        &:nth-child(5) {
+          grid-column: 2 / 4;
+          grid-row: 4 / 6;
+        }
+        &:nth-child(6) {
+          grid-column: 4 / 5;
+          grid-row: 4 / 5;
+        }
+      }
+    }
+  }
+  .pedagogy {
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &__content {
+      padding: 2rem;
 
-			@media screen and (min-width: 992px) {
-				padding: 0;
-			}
-		}
-	}
-	.quote {
-		&__title {
-			text-align: center;
-			margin-bottom: 2rem;
-		}
-		&__content {
-			display: flex;
-			gap: var(--space-lg);
-			align-items: center;
+      @media screen and (min-width: 992px) {
+        padding: 0;
+      }
+    }
+  }
+  .quote {
+    &__title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    &__content {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: center;
 
-			@media screen and (max-width: 992px) {
-				flex-direction: column;
-			}
+      @media screen and (max-width: 992px) {
+        flex-direction: column;
+      }
 
-			& > * {
-				flex: 1;
-			}
-			blockquote {
-				display: flex;
-				flex-direction: column;
-				gap: 1rem;
-				p {
-					text-align: justify;
-					position: relative;
+      & > * {
+        flex: 1;
+      }
+      blockquote {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        p {
+          text-align: justify;
+          position: relative;
 
-					svg {
-						width: 50%;
-						height: 50%;
-						position: absolute;
+          svg {
+            width: 50%;
+            height: 50%;
+            position: absolute;
 
-						color: var(--color-bg-light-alt);
-						z-index: -1;
+            color: var(--color-bg-light-alt);
+            z-index: -1;
 
-						&:first-of-type {
-							transform: rotate(180deg);
-							top: -25%;
-							left: -25%;
-						}
-						&:last-of-type {
-							bottom: -25%;
-							right: -25%;
-						}
-					}
-				}
-				cite {
-					span {
-						display: block;
-						font-family: var(--ff-pacifico);
-						font-weight: bold;
-						font-size: var(--fs-sm);
-					}
-				}
-			}
-		}
-		&__img {
-			max-width: 100%;
-			max-height: 100%;
+            &:first-of-type {
+              transform: rotate(180deg);
+              top: -25%;
+              left: -25%;
+            }
+            &:last-of-type {
+              bottom: -25%;
+              right: -25%;
+            }
+          }
+        }
+        cite {
+          span {
+            display: block;
+            font-family: var(--ff-pacifico);
+            font-weight: bold;
+            font-size: var(--fs-sm);
+          }
+        }
+      }
+    }
+    &__img {
+      max-width: 100%;
+      max-height: 100%;
 
-			img {
-				max-width: 100%;
-				height: auto;
-				max-height: 400px;
-				object-fit: cover;
-				border-radius: var(--regular-border-radius);
-				// 	-webkit-mask-image: url("/images/blob.svg");
-				// 	-webkit-mask-size: contain;
-				// 	-webkit-mask-position: center;
-				// 	-webkit-mask-repeat: no-repeat;
-			}
-		}
-	}
+      img {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: var(--regular-border-radius);
+        // 	-webkit-mask-image: url("/images/blob.svg");
+        // 	-webkit-mask-size: contain;
+        // 	-webkit-mask-position: center;
+        // 	-webkit-mask-repeat: no-repeat;
+      }
+    }
+  }
 </style>

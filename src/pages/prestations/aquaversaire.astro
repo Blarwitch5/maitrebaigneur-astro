@@ -8,6 +8,7 @@ import PageTitle from "@components/header/PageTitle.astro";
 import Container from "@components/Container.astro";
 import Section from "@components/Section.astro";
 import Buttons from "@components/ui/Buttons.astro";
+import Title from "@components/ui/Title.astro";
 
 import AquaversairePrices from "@components/widgets/prices/AquaversairePrices.astro";
 
@@ -38,12 +39,12 @@ const page = {
   <Main>
     <Section class="aquaversaire">
       <Container>
-        <h2 class="aquaversaire__title">
+        <Title level="2" class="aquaversaire__title">
           Maître-Baigneur organise vos anniversaires
-        </h2>
-        <h3 class="aquaversaire__title--2">
+        </Title>
+        <Title level="3" class="aquaversaire__title--2">
           Un aquaversaire, qu'est ce que c'est ?
-        </h3>
+        </Title>
         <div class="aquaversaire__content">
           <p class="aquaversaire__desc">
             La piscine peut être un lieu très amusant, mais elle comporte aussi
@@ -56,7 +57,7 @@ const page = {
             piscine.
           </p>
           <div class="aquaversaire__details">
-            <h4>À propos de nos aquaversaire</h4>
+            <Title level="4">À propos de nos aquaversaire</Title>
             <ul>
               <li>Jusqu'à 15 enfants</li>
               <li>Matériel de premiers soins</li>
@@ -75,7 +76,7 @@ const page = {
     </Section>
     <Section>
       <Container>
-        <h3>Tarifs Aquaversaire</h3>
+        <Title level="3">Tarifs Aquaversaire</Title>
         <AquaversairePrices />
       </Container>
     </Section>

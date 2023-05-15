@@ -2,6 +2,7 @@
 import Socials from "@components/Socials.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Breadcrumbs from "@components/header/Breadcrumbs.astro";
+import Title from "@components/ui/Title.astro";
 
 interface Props {
 	pageTitle: string;
@@ -22,7 +23,7 @@ const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 			</picture>
 		</div>
 		<div class="page-title__content">
-			<h1 class="page-title__title">{pageTitle}</h1>
+			<Title level="1" class="page-title__title">{pageTitle}</Title>
 			<Breadcrumbs indexText={"accueil"}>
 				<span slot="separator" class="breadcrumbs__separator" aria-hidden="true">
 					<svg

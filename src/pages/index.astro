@@ -15,6 +15,7 @@ import Faq from "@components/widgets/Faq.astro";
 import Container from "@components/Container.astro";
 import LogoCarousel from "@components/widgets/LogoCarousel.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
+import Title from "@components/ui/Title.astro";
 
 interface Props {
   title: string;
@@ -45,8 +46,8 @@ const page = {
       ariaLabel="Liste des prestations proposées par Maître-Baigneur"
     >
       <Container className="services__wrapper">
-        <div class="services__infos">
-          <h2 class="services__title">Nos prestations aquatiques</h2>
+        <div class="services__infos" data-aos="fade-right">
+          <Title level="2" class="services__title">Nos prestations aquatiques</Title>
           <p class="services__desc">
             Bienvenue chez <span class="pacifico">Maître-Baigneur</span>, votre
             solution pour apprendre à nager de manière ludique en toute sécurité
@@ -72,10 +73,8 @@ const page = {
       ariaLabel="Les atouts de Maître-Baigneur"
     >
       <Waves atTopOfSection />
-      <Container>
-        <h2 class="forces__title">
-          Pourquoi apprendre à nager avec Maître-Baigneur ?
-        </h2>
+      <Container data-aos="zoom-in">
+        <Title level="2" class="forces__title" data-aos="zoom-in">Pourquoi apprendre à nager avec Maître-Baigneur ?</Title>
         <Forces />
       </Container>
     </Section>
@@ -89,11 +88,10 @@ const page = {
     </Section>
     <Section class="faq" ariaLabel="Réponses aux questions fréquentes">
       <Container>
-        <h2>
-          Foire Aux Questions : Tout ce que vous devez savoir sur
-          Maître-Baigneur
-        </h2>
-        <p>
+        <Title level="2"  data-aos="zoom-in">Foire Aux Questions : Tout ce que vous devez savoir sur
+          Maître-Baigneur</Title>
+    
+        <p >
           Notre section FAQ vous fournit toutes les réponses aux questions les
           plus fréquentes sur Maître-Baigneur. De l'âge requis pour les cours de
           natation et bébé-nageur aux informations sur les tarifs et les
@@ -131,10 +129,8 @@ const page = {
       ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur"
     >
       <Container>
-        <h3>
-          Partenaires : Une collaboration pour des services de qualité
-          supérieure
-        </h3>
+        <Title level="3" data-aos="zoom-in">Partenaires : Une collaboration pour des services de qualité
+          supérieure</Title>
         <p>
           Nous sommes fiers de travailler avec des partenaires qui partagent
           notre passion pour l'enseignement de la natation et la sécurité

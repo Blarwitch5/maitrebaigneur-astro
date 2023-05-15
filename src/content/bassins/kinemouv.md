@@ -6,10 +6,10 @@ title: "Kinémouv'"
 pool: {
 	name: "Kinémouv'",
 	location: "Pertuis",
-	desc: "test",
+	desc: "La description du bassin de Kinémouv' est en cours de rédaction.",
 	image: {
-		webp: "/images/page-title/webp/page_kinemouv-bassins.webp",
-		jpg: "/images/page-title/page_kinemouv-bassins.jpg",
+		webp: "/images/page-title/webp/fallback.webp",
+		jpg: "/images/page-title/fallback.jpg",
 		alt: "Bassin de Kinémouv' à Pertuis"
 	},
 	address: "434 Chem. de Saint-Martin, 84120 Pertuis",

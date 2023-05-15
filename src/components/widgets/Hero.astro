@@ -20,11 +20,12 @@ const { ariaLabel } = Astro.props;
     </picture>
   </div>
   <div class="hero__content">
-    <h1 class="hero__title">
+    <h1 class="hero__title" data-aos="fade-down">
       Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span>
     </h1>
     <div class="hero__cta">
-      <Buttons
+      <Buttons 
+      data-aos="fade-right"
         href="/contact"
         class="btn btn__outline--inverted"
         text="Contactez-nous"
@@ -32,6 +33,7 @@ const { ariaLabel } = Astro.props;
         Contactez-nous
       </Buttons>
       <Buttons
+      data-aos="fade-left"
         href="https://user.clicrdv.com/maitre-baigneur"
         rel="noopener"
         class="hero-button btn btn__outline"

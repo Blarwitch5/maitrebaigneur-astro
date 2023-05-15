@@ -10,6 +10,7 @@ import Favicon from "@components/head/Favicon.astro";
 import site from "@assets/data/data.json";
 
 import "../assets/styles/main.scss";
+import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -40,7 +41,7 @@ const babySwimming = services.find((service) =>
   <body>
     <main class="page-404">
       <p>404</p>
-      <h1>🌊 Oups !</h1>
+      <Title level="1">🌊 Oups !</Title>
       <p>On dirait que cette page a été emportée par les vagues !</p>
       <p>
         Ne t'inquiète pas, notre équipe de Maîtres-Baigneurs est déjà à sa

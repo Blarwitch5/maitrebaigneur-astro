@@ -7,6 +7,7 @@ import Main from "@components/Main.astro";
 import Section from "@components/Section.astro";
 import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Title from "@components/ui/Title.astro";
 
 //data
 
@@ -35,16 +36,19 @@ const page = {
   <Main>
     <Section>
       <Container>
-        <h1>Mentions légales</h1>
+        <Title level="2">Informations légales</Title>
+
         <div>
-          <h3>Propriété intellectuelle</h3><p>
+          <Title level="3">Propriété intellectuelle</Title>
+          <p>
             Les éléments du site, tels que textes, images, icônes et design,
             sont protégés par les lois relatives à la propriété intellectuelle.
             La reproduction est interdite.
           </p>
         </div>
         <div>
-          <h3>Icônes et images</h3><p>
+          <Title level="3">Icônes et images</Title>
+          <p>
             Les icônes proviennent d'un pack acheté et de <a
               href="https://www.flaticon.com/"
               rel="nofollow"
@@ -122,7 +126,8 @@ const page = {
           </p>
         </div>
         <div>
-          <h3>Sources des images</h3><p>
+          <Title level="3">Sources des images</Title>
+          <p>
             Certaines des images utilisées sur ce site sont la propriété de
             Maître-Baigneur, d'autres ont été achetées sur <a
               href="https://stock.adobe.com/fr/"
@@ -137,7 +142,8 @@ const page = {
           </p>
         </div>
         <div>
-          <h3>Formulaire de contact</h3><p>
+          <Title level="3">Formulaire de contact</Title>
+          <p>
             Le formulaire de contact sur ce site est utilisé uniquement pour
             permettre aux utilisateurs de contacter le propriétaire du site. Les
             informations collectées ne seront utilisées que pour répondre aux
@@ -145,7 +151,8 @@ const page = {
           </p>
         </div>
         <div>
-          <h3>Limitation de responsabilité</h3><p>
+          <Title level="3">Limitation de responsabilité</Title>
+          <p>
             Le propriétaire du site décline toute responsabilité en cas de
             dommages résultant de l'utilisation du site ou de son contenu. Liens
             externes : Le site peut contenir des liens vers d'autres sites, dont
@@ -154,14 +161,16 @@ const page = {
           </p>
         </div>
         <div>
-          <h3>Modification des mentions légales</h3><p>
+          <Title level="3">Modification des mentions légales</Title>
+          <p>
             Le propriétaire du site peut modifier ces mentions légales à tout
             moment. Les utilisateurs sont invités à consulter cette page
             régulièrement pour se tenir informés des changements.
           </p>
         </div>
         <div>
-          <h3>Droit applicable</h3><p>
+          <Title level="3">Droit applicable</Title>
+          <p>
             Ces mentions légales sont soumises au droit français. Les litiges
             découlant de l'utilisation du site seront résolus par les tribunaux
             français.

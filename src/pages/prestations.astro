@@ -10,6 +10,7 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 
 import site from "@assets/data/data.json";
 import Services from "@components/widgets/Services.astro";
+import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -45,7 +46,7 @@ const page = {
       ariaLabel="Les bassins d'apprentissage de Maître-Baigneur"
     >
       <Container>
-        <h2>Nos prestations</h2>
+        <Title level="2">Nos prestations</Title>
         <p>
           Maître-Baigneur est votre partenaire pour un apprentissage ludique et
           sécurisé de la natation. Nous nous concentrons sur les cours de bébé

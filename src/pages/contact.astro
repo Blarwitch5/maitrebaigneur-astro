@@ -11,41 +11,53 @@ import Main from "@components/Main.astro";
 import Container from "@components/Container.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
+import Title from "@components/ui/Title.astro";
 
 //data
 
 const page = {
-	metaTitle: "Nous contacter",
-	description: "",
-	title: "Nous contacter",
-	imageUrl: "/images/page-title/page_contact.jpg",
-	imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
-	image: {
-		webp: "/images/page-title/webp/page_contact.webp",
-		jpg: "/images/page-title/page_contact.jpg",
-		alt: "Garçon sous l'eau tenant un téléphone près de son oreille"
-	}
+  metaTitle: "Nous contacter",
+  description: "",
+  title: "Nous contacter",
+  imageUrl: "/images/page-title/page_contact.jpg",
+  imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+  image: {
+    webp: "/images/page-title/webp/page_contact.webp",
+    jpg: "/images/page-title/page_contact.jpg",
+    alt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+  },
 };
 ---
 
 <BaseLayout title={page.title} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
 
-	<Main>
-		<Section class="form" ariaLabel="Formulaire de contact">
-			<Container>
-				<h2 class="section-title">Pour nous contacter, c'est par ici !</h2>
-				<p>
-					Vous souhaitez réserver des cours de natation à domicile ? Un aquaversaire ? Un mariage ou autre ? Ou tout simplement nous faire part de
-					votre expérience Maître-Baigneur ? <p>Vous êtes au bon endroit, n'hésitez pas à nous écrire quelques lignes, nous les lirons toutes !</p>
-				</p>
-				<Form />
-			</Container>
-		</Section>
-		<Footer />
-	</Main>
+  <Main>
+    <Section class="form" ariaLabel="Formulaire de contact">
+      <Container>
+        <Title level="2" class="section-title">
+          Pour nous contacter, c'est par ici !
+        </Title>
+        <p>
+          Vous souhaitez réserver des cours de natation à domicile ? Un
+          aquaversaire ? Un mariage ou autre ? Ou tout simplement nous faire
+          part de votre expérience Maître-Baigneur ? <p>
+            Vous êtes au bon endroit, n'hésitez pas à nous écrire quelques
+            lignes, nous les lirons toutes !
+          </p>
+        </p>
+        <Form />
+      </Container>
+    </Section>
+    <Footer />
+  </Main>
 </BaseLayout>
 
 <style></style>

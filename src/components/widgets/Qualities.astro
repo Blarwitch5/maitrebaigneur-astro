@@ -22,13 +22,13 @@ const qualities = [
 ---
 
 <Container>
-  <h2 class="qualities__title">
+  <h2 class="qualities__title" data-aos="zoom-in">
     Pourquoi apprendre à nager avec Maître-Baigneur ?
   </h2>
   <ul class="qualities__list">
     {
       qualities.map((quality) => (
-        <li class="quality">
+        <li class="quality" data-aos="fade-up">
           <Icon name={quality.icon} class="quality__icon" />
           <h3 class="quality__title">{quality.name}</h3>
           <p class="quality__txt">{quality.txt}</p>

@@ -9,6 +9,7 @@ const services = siteLinks.services;
 	{
 		services.map(service => (
 			<div
+			data-aos="zoom-in"
 				class={`service ${service.name
 					.replace(/\s|_|\(|\)/g, "-")
 					.normalize("NFD")

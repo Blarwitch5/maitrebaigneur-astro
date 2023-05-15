@@ -9,6 +9,7 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 import Section from "@components/Section.astro";
 import Container from "@components/Container.astro";
 import { Icon } from "astro-icon";
+import Title from "@components/ui/Title.astro";
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
   const poolEntries = await getCollection("bassins");
@@ -43,14 +44,14 @@ const pools = siteLinks.pools;
       <Container>
         {
           entry.data.pool.name === "Domicile" ? (
-            <h2 class="single-pool__title">
+            <Title level="2" class="single-pool__title">
               Maître-Baigneur à domicile, chez vous !
-            </h2>
+            </Title>
           ) : (
-            <h2 class="single-pool__title">
+            <Title level="2" class="single-pool__title">
               Découvrez la piscine {entry.data.pool.name} à{" "}
               {entry.data.pool.location}
-            </h2>
+            </Title>
           )
         }
 
@@ -60,10 +61,10 @@ const pools = siteLinks.pools;
           </p>
 
           <div class="single-pool__details">
-            <h3>
+            <Title level="3">
               Informations concernant notre bassin à {entry.data.pool.name}
-            </h3>
-            <h4>Prestations proposées</h4>
+            </Title>
+            <Title level="4">Prestations proposées</Title>
             <ul>
               {
                 entry.data.pool.services.map(
@@ -83,7 +84,7 @@ const pools = siteLinks.pools;
                 )
               }
             </ul>
-            <h4>Sitution géographique</h4>
+            <Title level="4">Sitution géographique</Title>
             <ul>
               <li>
                 <a
@@ -151,7 +152,9 @@ const pools = siteLinks.pools;
     </Section>
     <Section class="related-pools">
       <Container>
-        <h5>Découvrez aussi nos autres bassins d'apprentissage</h5>
+        <Title level="5">
+          Découvrez aussi nos autres bassins d'apprentissage
+        </Title>
         <ul>
           {
             pools.map((item) => {

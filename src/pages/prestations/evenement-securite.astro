@@ -9,119 +9,137 @@ import Container from "@components/Container.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import EventsPrices from "@components/widgets/prices/EventsPrices.astro";
+import Title from "@components/ui/Title.astro";
 
 //data
 const page = {
-	metaTitle: "Événements et sécurité",
-	description: "",
-	title: "Événements et sécurité",
-	imageUrl: "/images/page-title/page_surveillance.jpg",
-	imageAlt: "Couple de mariés se jettant à l'eau dans une piscine",
-	image: {
-		webp: "/images/page-title/webp/page_surveillance.webp",
-		jpg: "/images/page-title/page_surveillance.jpg",
-		alt: "Couple de mariés se jettant à l'eau dans une piscine"
-	}
+  metaTitle: "Événements et sécurité",
+  description: "",
+  title: "Événements et sécurité",
+  imageUrl: "/images/page-title/page_surveillance.jpg",
+  imageAlt: "Couple de mariés se jettant à l'eau dans une piscine",
+  image: {
+    webp: "/images/page-title/webp/page_surveillance.webp",
+    jpg: "/images/page-title/page_surveillance.jpg",
+    alt: "Couple de mariés se jettant à l'eau dans une piscine",
+  },
 };
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
 
-	<Main>
-		<Section class="event">
-			<Container>
-				<h2 class="event__title">Maître-Baigneur sécurise vos événements</h2>
-				<h3 class="event__title--2">En quoi cela consiste ?</h3>
-				<div class="event__content">
-					<p class="event__desc">
-						Vous voulez que vos événements spéciaux soient sécurisés et encadrés ? Maître-Baigneur est la solution idéale ! Nous offrons une
-						assistance complète pour tous vos besoins liés aux baignades et aux fêtes aquatiques, que ce soit pour des baptêmes, des mariages ou des
-						autres événements. Notre équipe vous garantit une sécurité totale pour que vos invités puissent profiter pleinement de la baignade. Nous
-						nous assurons que toutes les règles et réglementations de sécurité sont suivies et que tous les participants sont bien encadrés. Faites
-						appel à Maître-Baigneur et soyez assurés que vos plus belles fêtes se dérouleront en toute sécurité.
-					</p>
-					<div class="event__details">
-						<h4>À propos de la surveillance d'événements</h4>
-						<ul>
-							<li>De nuit ou de jour</li>
-							<li>Matériel de premiers soins</li>
-							<li>Matériel ludique</li>
-							<li>Sécurité assurée par un Maître-Baigneur</li>
-						</ul>
-					</div>
-				</div>
-				<img class="event__img" src="/images/page-title/page_surveillance.jpg" alt="" />
-			</Container>
-		</Section>
-		<Section>
-			<Container>
-				<h3>Tarifs pour la sécurité de vos événements</h3>
-				<EventsPrices />
-			</Container>
-		</Section>
-	</Main>
-	<Footer />
+  <Main>
+    <Section class="event">
+      <Container>
+        <Title level="2" class="event__title">
+          Maître-Baigneur sécurise vos événements
+        </Title>
+        <Title level="3" class="event__title--2">En quoi cela consiste ?</Title>
+        <div class="event__content">
+          <p class="event__desc">
+            Vous voulez que vos événements spéciaux soient sécurisés et encadrés
+            ? Maître-Baigneur est la solution idéale ! Nous offrons une
+            assistance complète pour tous vos besoins liés aux baignades et aux
+            fêtes aquatiques, que ce soit pour des baptêmes, des mariages ou des
+            autres événements. Notre équipe vous garantit une sécurité totale
+            pour que vos invités puissent profiter pleinement de la baignade.
+            Nous nous assurons que toutes les règles et réglementations de
+            sécurité sont suivies et que tous les participants sont bien
+            encadrés. Faites appel à Maître-Baigneur et soyez assurés que vos
+            plus belles fêtes se dérouleront en toute sécurité.
+          </p>
+          <div class="event__details">
+            <Title level="4">À propos de la surveillance d'événements</Title>
+            <ul>
+              <li>De nuit ou de jour</li>
+              <li>Matériel de premiers soins</li>
+              <li>Matériel ludique</li>
+              <li>Sécurité assurée par un Maître-Baigneur</li>
+            </ul>
+          </div>
+        </div>
+        <img
+          class="event__img"
+          src="/images/page-title/page_surveillance.jpg"
+          alt=""
+        />
+      </Container>
+    </Section>
+    <Section>
+      <Container>
+        <Title level="3">Tarifs pour la sécurité de vos événements</Title>
+        <EventsPrices />
+      </Container>
+    </Section>
+  </Main>
+  <Footer />
 </BaseLayout>
 
 <style lang="scss">
-	.event {
-		&__content {
-			display: flex;
-			flex-wrap: nowrap;
-			gap: var(--space-lg);
-			margin-block: var(--space-lg);
+  .event {
+    &__content {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: var(--space-lg);
+      margin-block: var(--space-lg);
 
-			@media screen and (max-width: 768px) {
-				flex-direction: column;
-			}
-			& > * {
-				flex: 1;
-			}
-		}
-		&__details {
-			background-color: var(--color-bg-light);
-			border-radius: var(--regular-border-radius);
-			padding: var(--space-lg);
-			position: relative;
-			box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+      & > * {
+        flex: 1;
+      }
+    }
+    &__details {
+      background-color: var(--color-bg-light);
+      border-radius: var(--regular-border-radius);
+      padding: var(--space-lg);
+      position: relative;
+      box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
+        0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
 
-			&::after {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				border-radius: var(--regular-border-radius);
-				background-image: url("/images/icons/event.svg");
-				background-repeat: no-repeat;
-				background-size: contain;
-				background-position: bottom right;
-				opacity: 0.05;
-			}
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--regular-border-radius);
+        background-image: url("/images/icons/event.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom right;
+        opacity: 0.05;
+      }
 
-			h4 {
-				font-family: var(--ff-pacifico);
-			}
+      h4 {
+        font-family: var(--ff-pacifico);
+      }
 
-			ul {
-				list-style: none;
-				& > li {
-					&::before {
-						content: "✓";
-						margin-right: var(--space-sm);
-					}
-				}
-			}
-		}
-		&__img {
-			width: 100%;
-			height: 400px;
-			object-fit: cover;
-			border-radius: var(--regular-border-radius);
-		}
-	}
+      ul {
+        list-style: none;
+        & > li {
+          &::before {
+            content: "✓";
+            margin-right: var(--space-sm);
+          }
+        }
+      }
+    }
+    &__img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--regular-border-radius);
+    }
+  }
 </style>

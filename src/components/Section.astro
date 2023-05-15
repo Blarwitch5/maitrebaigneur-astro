@@ -8,10 +8,10 @@ interface Props {
 const backgroundColor = Astro.props.backgroundColor ? Astro.props.backgroundColor : "white";
 const darkSection = Astro.props.darkSection === true ? "dark" : "light";
 
-const { class: className, ariaLabel } = Astro.props;
+const { class: className, ariaLabel, ...rest } = Astro.props;
 ---
 
-<section class:list={["", darkSection, className]} aria-label={ariaLabel} tabindex="0" style={`background-color: ${backgroundColor}`}>
+<section {...rest} class:list={["", darkSection, className]} aria-label={ariaLabel} tabindex="0" style={`background-color: ${backgroundColor}`}>
 	<slot />
 </section>
 

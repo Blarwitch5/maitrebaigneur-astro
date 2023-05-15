@@ -5,8 +5,10 @@ metaDesc: "meta description"
 title: "Kabanon"
 pool: {
 	name: "Kabanon des écuries de l'aube",
-	location: "St-MArc-Jaumegarde",
-	desc: "test",
+	location: "St-Marc-Jaumegarde",
+	desc: "Dans les anciennes écuries du domaine, à Saint-Marc-Jaumegarde, s’est installé le restaurant traditionnel et sa cuisine du terroir.
+
+Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux saveurs de la Provence. Tout près d’Aix-en-Provence, profitez d’un cadre propice à la détente pour vous adonner à de nombreuses activités : deux piscines, terrain de tennis, terrain de beach-volley et terrain de pétanque, nombreuses balades autour du domaine, etc.",
 	image: {
 		webp: "/images/page-title/webp/page_kabanon-bassins.webp",
 		jpg: "/images/page-title/page_kabanon-bassins.jpg",

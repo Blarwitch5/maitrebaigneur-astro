@@ -6,7 +6,7 @@ title: "Plan Form"
 pool: {
 	name: "Plan Form",
 	location: "Cabriès",
-	desc: "test",
+	desc: "Situé à Cabriès, à proximité des zones d’activités de Plan de Campagne, Maître-baigneur vous accueille toute l’année, et surtout l’hiver, à la salle de sport Plan Form. Le centre de 1700m2 vous propose de multiples activités terrestres mais surtout une piscine de 75 m² pour des conditions optimales d’enseignement de nos différentes activités aquatiques.",
 		image: {
 			webp: "/images/page-title/webp/page_planform-bassins.webp",
 			jpg: "/images/page-title/page_planform-bassins.jpg",
