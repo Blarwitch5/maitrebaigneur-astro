@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 import Container from "@components/Container.astro";
+import Title from "@components/ui/Title.astro";
 
 const qualities = [
   {
@@ -22,9 +23,9 @@ const qualities = [
 ---
 
 <Container>
-  <h2 class="qualities__title" data-aos="zoom-in">
+  <Title level="2" class="qualities__title" data-aos="zoom-in">
     Pourquoi apprendre à nager avec Maître-Baigneur ?
-  </h2>
+  </Title>
   <ul class="qualities__list">
     {
       qualities.map((quality) => (

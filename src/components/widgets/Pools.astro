@@ -1,15 +1,16 @@
 ---
 import site from "@assets/data/data.json";
 import Container from "@components/Container.astro";
+import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
 <Container>
-  <h2 class="pools__title">
+  <Title level="2" class="pools__title">
     Les bassins d'accueil à Aix-en-Provence et ses environs
-  </h2>
+  </Title>
   <p class="pools__desc">
     L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en
     bassins d’apprentissage. Nous sommes heureux de vous présenter les

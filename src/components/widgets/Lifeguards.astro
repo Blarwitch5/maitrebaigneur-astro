@@ -1,109 +1,117 @@
 ---
+import Title from "@components/ui/Title.astro";
+
 const lifeguards = [
-	{
-		name: "Quentin Vander Meulen",
-		area: "Vauvenargue – Saint-Marc-Jaumegarde – Le Tholonet – Éguilles – Luynes – Aix Est",
-		degree: "Diplômé d’État BEESAN",
-		picture: {
-			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen"
-		}
-	},
-	{
-		name: "Edouard Bahna",
-		area: "Venelles – Puyricard – Célony – Éguilles – Le-Puy-Sainte-Réparade – Saint-Cannat – Meyrargues – Aix Nord",
-		degree: "Diplômé BPJEPS-AN ",
-		picture: {
-			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen"
-		}
-	},
-	{
-		name: "Florent Astier",
-		area: "Trets – Fuveau – Rousset – Peynier – Pourrières – Puyloubier – Meyreuil – Bouc-Bel-Air – Cabriès – Aix Sud",
-		degree: "Diplômé BPJEPS-AN ",
-		picture: {
-			src: "/images/hero.jpg",
-			alt: "Quentin Vander Meulen"
-		}
-	}
+  {
+    name: "Quentin Vander Meulen",
+    area: "Vauvenargue – Saint-Marc-Jaumegarde – Le Tholonet – Éguilles – Luynes – Aix Est",
+    degree: "Diplômé d’État BEESAN",
+    picture: {
+      src: "/images/hero.jpg",
+      alt: "Quentin Vander Meulen",
+    },
+  },
+  {
+    name: "Edouard Bahna",
+    area: "Venelles – Puyricard – Célony – Éguilles – Le-Puy-Sainte-Réparade – Saint-Cannat – Meyrargues – Aix Nord",
+    degree: "Diplômé BPJEPS-AN ",
+    picture: {
+      src: "/images/hero.jpg",
+      alt: "Quentin Vander Meulen",
+    },
+  },
+  {
+    name: "Florent Astier",
+    area: "Trets – Fuveau – Rousset – Peynier – Pourrières – Puyloubier – Meyreuil – Bouc-Bel-Air – Cabriès – Aix Sud",
+    degree: "Diplômé BPJEPS-AN ",
+    picture: {
+      src: "/images/hero.jpg",
+      alt: "Quentin Vander Meulen",
+    },
+  },
 ];
 ---
 
 <div class="container">
-	<h2 class="title">Notre équipe de maîtres-nageurs</h2>
-	<p class="subtitle">
-		Nous sommes fiers de vous présenter nos Maîtres-Baigneurs (liste non exhaustive). Ils sont tous diplômés d’État et à jour de leur révision de
-		secourisme
-	</p>
-	<div class="lifeguards-list">
-		{
-			lifeguards.map(lifeguard => (
-				<div class="lifeguard">
-					<figure class="lifeguard-img">
-						<img src={lifeguard.picture.src} alt={lifeguard.picture.alt} loading="lazy" />
-					</figure>
-					<div class="lifeguard-desc">
-						<h4 class="lifeguard-name">{lifeguard.name}</h4>
-						<p class="lifeguard-degree">{lifeguard.degree}</p>
-						<p class="lifeguard-area">
-							Zone d'activité : <span class="area-list">{lifeguard.area}</span>
-						</p>
-					</div>
-				</div>
-			))
-		}
-	</div>
+  <Title level="2" class="title">Notre équipe de maîtres-nageurs</Title>
+  <p class="subtitle">
+    Nous sommes fiers de vous présenter nos Maîtres-Baigneurs (liste non
+    exhaustive). Ils sont tous diplômés d’État et à jour de leur révision de
+    secourisme
+  </p>
+  <div class="lifeguards-list">
+    {
+      lifeguards.map((lifeguard) => (
+        <div class="lifeguard">
+          <figure class="lifeguard-img">
+            <img
+              src={lifeguard.picture.src}
+              alt={lifeguard.picture.alt}
+              loading="lazy"
+            />
+          </figure>
+          <div class="lifeguard-desc">
+            <h4 class="lifeguard-name">{lifeguard.name}</h4>
+            <p class="lifeguard-degree">{lifeguard.degree}</p>
+            <p class="lifeguard-area">
+              Zone d'activité : <span class="area-list">{lifeguard.area}</span>
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
 
 <style lang="scss">
-	.lifeguards-list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		grid-gap: 2rem;
-	}
-	.lifeguard {
-		background-color: var(--color-bg-light);
-		border-radius: var(--regular-border-radius);
-		box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+  .lifeguards-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+  }
+  .lifeguard {
+    background-color: var(--color-bg-light);
+    border-radius: var(--regular-border-radius);
+    box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+      0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
-		&-img {
-			width: 100%;
-			height: 300px;
-			overflow: hidden;
-			margin: 0;
-			border-radius: var(--regular-border-radius);
+    &-img {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      margin: 0;
+      border-radius: var(--regular-border-radius);
 
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
-		&-desc {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-			padding: 1rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
 
-			> * {
-				margin: 0;
-			}
-		}
-		&-name {
-			font-family: var(--ff-pacifico);
-			text-align: center;
-			font-size: 1.5rem;
-			margin: 0;
-		}
-		&-degree {
-		}
-		&-area {
-			font-weight: bold;
+      > * {
+        margin: 0;
+      }
+    }
+    &-name {
+      font-family: var(--ff-pacifico);
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    &-degree {
+    }
+    &-area {
+      font-weight: bold;
 
-			.area-list {
-				font-weight: normal;
-			}
-		}
-	}
+      .area-list {
+        font-weight: normal;
+      }
+    }
+  }
 </style>

@@ -1,5 +1,6 @@
 ---
 import site from "@assets/data/data.json";
+import Title from "@components/ui/Title.astro";
 
 const { swimmingLevels } = site;
 const levels = swimmingLevels;
@@ -14,7 +15,9 @@ const levels = swimmingLevels;
       >
         <p class="vertical-txt">{level.name}</p>
         <div class="level__content details">
-          <h3 class="level__title">{level.name}</h3>
+          <Title level="3" class="level__title">
+            {level.name}
+          </Title>
           <p class="level__desc" set:html={level.desc} />
           <ul class="hints">
             {level.hints.map((hint) => (

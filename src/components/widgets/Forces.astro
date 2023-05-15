@@ -1,106 +1,109 @@
 ---
+import Title from "@components/ui/Title.astro";
 import { Icon } from "astro-icon";
 
 const forces = [
-	{
-		name: "Ludique",
-		txt: "Chez Maître-Baigneur, nous croyons que l'apprentissage de la natation doit être une expérience amusante et agréable. C'est pourquoi nos cours sont conçus pour être ludiques, afin que les enfants puissent découvrir les plaisirs de la natation de manière naturelle. ",
-		icon: "fun",
-	},
-	{
-		name: "Expertise",
-		txt: "Nos Maîtres-Baigneurs sont des experts en matière d'enseignement de la natation. Diplomés d'État, ils sont tous formés aux meilleures techniques et à la sécurité aquatique, et sont prêts à vous accompagner dans votre apprentissage de la natation.",
-		icon: "diploma",
-	},
-	{
-		name: "Pour tous",
-		txt: "Nous sommes ouverts à tout le monde, peu importe votre âge ou votre niveau. Nous proposons des cours de bébé-nageur pour les plus jeunes dès 3 mois, ainsi que des cours de natation pour les enfants et les adultes à partir de 3 ans.",
-		icon: "group",
-	},
+  {
+    name: "Ludique",
+    txt: "Chez Maître-Baigneur, nous croyons que l'apprentissage de la natation doit être une expérience amusante et agréable. C'est pourquoi nos cours sont conçus pour être ludiques, afin que les enfants puissent découvrir les plaisirs de la natation de manière naturelle. ",
+    icon: "fun",
+  },
+  {
+    name: "Expertise",
+    txt: "Nos Maîtres-Baigneurs sont des experts en matière d'enseignement de la natation. Diplomés d'État, ils sont tous formés aux meilleures techniques et à la sécurité aquatique, et sont prêts à vous accompagner dans votre apprentissage de la natation.",
+    icon: "diploma",
+  },
+  {
+    name: "Pour tous",
+    txt: "Nous sommes ouverts à tout le monde, peu importe votre âge ou votre niveau. Nous proposons des cours de bébé-nageur pour les plus jeunes dès 3 mois, ainsi que des cours de natation pour les enfants et les adultes à partir de 3 ans.",
+    icon: "group",
+  },
 ];
 ---
 
 <ul class="forces__list">
-	{
-		forces.map((force) => (
-			<li class="force" >
-				<Icon name={force.icon} class="force__icon" />
-				<h3 class="force__title">{force.name}</h3>
-				<p class="force__txt">{force.txt}</p>
-			</li>
-		))
-	}
+  {
+    forces.map((force) => (
+      <li class="force">
+        <Icon name={force.icon} class="force__icon" />
+        <Title level="3" class="force__title">
+          {force.name}
+        </Title>
+        <p class="force__txt">{force.txt}</p>
+      </li>
+    ))
+  }
 </ul>
 
 <style lang="scss">
-	.forces {
-		&__title {
-			text-align: left;
-		}
-		&__list {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			grid-gap: 2rem;
-			transition: all 0.3s ease-in-out;
-			padding: 0;
+  .forces {
+    &__title {
+      text-align: left;
+    }
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      transition: all 0.3s ease-in-out;
+      padding: 0;
 
-			@media screen and (max-width: 768px) {
-				grid-template-columns: repeat(1, 1fr);
-				grid-row: auto;
-			}
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row: auto;
+      }
 
-			.force {
-				color: var(--color-primary);
-				display: grid;
-				justify-content: center;
-				align-content: flex-start;
-				gap: 1rem;
+      .force {
+        color: var(--color-primary);
+        display: grid;
+        justify-content: center;
+        align-content: flex-start;
+        gap: 1rem;
 
-				@media screen and (max-width: 768px) {
-					row-gap: 0.5rem;
-					grid-template-columns: 25% 1fr;
-					grid-template-rows: repeat(2, min-content);
-				}
+        @media screen and (max-width: 768px) {
+          row-gap: 0.5rem;
+          grid-template-columns: 25% 1fr;
+          grid-template-rows: repeat(2, min-content);
+        }
 
-				&__icon {
-					display: block;
-					width: 100px;
-					height: 100px;
-					margin: 0 auto;
-					background-size: contain;
-					background-repeat: no-repeat;
-					background-position: center;
+        &__icon {
+          display: block;
+          width: 100px;
+          height: 100px;
+          margin: 0 auto;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
 
-					@media screen and (max-width: 768px) {
-						grid-row: 1 / span 2;
-						display: grid;
-						// align-items: center;
-						width: calc(100% - 0.5rem);
-						height: auto;
-					}
-				}
+          @media screen and (max-width: 768px) {
+            grid-row: 1 / span 2;
+            display: grid;
+            // align-items: center;
+            width: calc(100% - 0.5rem);
+            height: auto;
+          }
+        }
 
-				&__title {
-					margin: 0;
-					text-align: center;
-					font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
-					font-family: var(--ff-pacifico);
+        &__title {
+          margin: 0;
+          text-align: center;
+          font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+          font-family: var(--ff-pacifico);
 
-					@media screen and (max-width: 768px) {
-						grid-row: 1 / span 1;
-						text-align: left;
-					}
-				}
-				&__txt {
-					color: var(--color-primary);
-					text-align: justify;
+          @media screen and (max-width: 768px) {
+            grid-row: 1 / span 1;
+            text-align: left;
+          }
+        }
+        &__txt {
+          color: var(--color-primary);
+          text-align: justify;
 
-					@media screen and (max-width: 768px) {
-						margin: 0;
-						text-align: left;
-					}
-				}
-			}
-		}
-	}
+          @media screen and (max-width: 768px) {
+            margin: 0;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
 </style>

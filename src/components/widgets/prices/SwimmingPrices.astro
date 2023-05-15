@@ -1,6 +1,7 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
+import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const swimmingPrices = prices.swimmingLessons;
@@ -25,7 +26,7 @@ const swimmingPricesPool = swimmingPrices.pool;
 <div class="packages-container swimming">
   <div id="price-package-home">
     <div class="package">
-      <h1 class="package__title">Séance à l'unité</h1>
+      <Title level="1" class="package__title">Séance à l'unité</Title>
       <ul class="package__list">
         {
           swimmingPricesHome.formula.map(
@@ -52,7 +53,7 @@ const swimmingPricesPool = swimmingPrices.pool;
   </div>
   <div id="price-package-pool">
     <div class="package">
-      <h1 class="package__title">Séance à l'unité</h1>
+      <Title level="1" class="package__title">Séance à l'unité</Title>
       <ul class="package__list">
         {
           swimmingPricesPool.single.map(
@@ -79,7 +80,7 @@ const swimmingPricesPool = swimmingPrices.pool;
     </div>
 
     <div class="package">
-      <h1 class="package__title">Les cartes</h1>
+      <Title level="1" class="package__title">Les cartes</Title>
       <ul class="package__list">
         {
           swimmingPricesPool.cards.map(

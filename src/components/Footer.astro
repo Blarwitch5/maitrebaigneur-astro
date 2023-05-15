@@ -10,6 +10,7 @@ import GoToTop from "@components/ui/GoToTop.astro";
 import StickyBtns from "@components/ui/StickyBtns.astro";
 
 import site from "@assets/data/data.json";
+import Title from "./ui/Title.astro";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -20,7 +21,7 @@ const footerMenu = siteLinks.footerMenu;
   <Waves atTopOfSection />
   <Container>
     <div class="footer__sections">
-      <div class="footer__col brand" >
+      <div class="footer__col brand">
         <img
           class="logo"
           width="300"
@@ -28,8 +29,8 @@ const footerMenu = siteLinks.footerMenu;
           src="/images/logo.svg"
           alt="Logo Maître-Baigneur"
         />
-        <p class="slogan" >"...Le bonheur du baigneur..."</p>
-        <ul class="info" >
+        <p class="slogan">"...Le bonheur du baigneur..."</p>
+        <ul class="info">
           <li>
             <Buttons class="btn" href="tel:+33677007584">
               <span class="icon">
@@ -58,7 +59,7 @@ const footerMenu = siteLinks.footerMenu;
       </div>
 
       <div class="footer__col services" data-aos="zoom-in">
-        <h3 class="title">Nos prestations</h3>
+        <Title level="3" class="title">Nos prestations</Title>
         <ul>
           {
             services.map((service) => (
@@ -72,7 +73,8 @@ const footerMenu = siteLinks.footerMenu;
         </ul>
       </div>
       <div class="footer__col useful-links" data-aos="zoom-in">
-        <h3 class="title">Besoin d'aide ?</h3>
+        <Title level="3" class="title">Besoin d'aide ?</Title>
+
         <ul>
           {
             footerMenu.map((item) => (
@@ -90,7 +92,7 @@ const footerMenu = siteLinks.footerMenu;
         </ul>
       </div>
       <div class="footer__col insta" data-aos="zoom-in">
-        <h3 class="title">Flux Instagram</h3>
+        <Title level="3" class="title">Flux Instagram</Title>
         <InstagramFeed />
       </div>
     </div>

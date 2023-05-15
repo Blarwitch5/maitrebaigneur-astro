@@ -1,10 +1,10 @@
 ---
 import Socials from "@components/Socials.astro";
 import Buttons from "@components/ui/Buttons.astro";
+import Title from "@components/ui/Title.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 
 const { ariaLabel } = Astro.props;
-
 ---
 
 <section id="hero" class="hero" aria-label={ariaLabel}>
@@ -20,12 +20,12 @@ const { ariaLabel } = Astro.props;
     </picture>
   </div>
   <div class="hero__content">
-    <h1 class="hero__title" data-aos="fade-down">
+    <Title level="1" class="hero__title" data-aos="fade-down">
       Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span>
-    </h1>
+    </Title>
     <div class="hero__cta">
-      <Buttons 
-      data-aos="fade-right"
+      <Buttons
+        data-aos="fade-right"
         href="/contact"
         class="btn btn__outline--inverted"
         text="Contactez-nous"
@@ -33,7 +33,7 @@ const { ariaLabel } = Astro.props;
         Contactez-nous
       </Buttons>
       <Buttons
-      data-aos="fade-left"
+        data-aos="fade-left"
         href="https://user.clicrdv.com/maitre-baigneur"
         rel="noopener"
         class="hero-button btn btn__outline"

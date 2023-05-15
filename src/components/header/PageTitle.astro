@@ -5,127 +5,133 @@ import Breadcrumbs from "@components/header/Breadcrumbs.astro";
 import Title from "@components/ui/Title.astro";
 
 interface Props {
-	pageTitle: string;
-	pageImageUrlWebp: string;
-	pageImageUrl: string;
-	pageImageAlt: string;
+  pageTitle: string;
+  pageImageUrlWebp: string;
+  pageImageUrl: string;
+  pageImageAlt: string;
 }
 const { pageTitle, pageImageUrlWebp, pageImageUrl, pageImageAlt } = Astro.props;
 ---
 
 <section class="page-title">
-	<Waves />
-	<div class="container">
-		<div class="page-title__img">
-			<picture>
-				<source type="image/webp" srcset={pageImageUrlWebp} />
-				<img loading="lazy" src={pageImageUrl} alt={pageImageAlt} />
-			</picture>
-		</div>
-		<div class="page-title__content">
-			<Title level="1" class="page-title__title">{pageTitle}</Title>
-			<Breadcrumbs indexText={"accueil"}>
-				<span slot="separator" class="breadcrumbs__separator" aria-hidden="true">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						><polyline points="9 18 15 12 9 6"></polyline>
-					</svg>
-				</span>
-			</Breadcrumbs>
-		</div>
-		<div class="socials-wrapper">
-			<Socials iconVersion="light" />
-		</div>
-	</div>
+  <Waves />
+  <div class="container">
+    <div class="page-title__img">
+      <picture>
+        <source type="image/webp" srcset={pageImageUrlWebp} />
+        <img loading="lazy" src={pageImageUrl} alt={pageImageAlt} />
+      </picture>
+    </div>
+    <div class="page-title__content">
+      <Title level="1" class="page-title__title" data-aos="zoom-in">
+        {pageTitle}
+      </Title>
+      <Breadcrumbs indexText={"accueil"}>
+        <span
+          slot="separator"
+          class="breadcrumbs__separator"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </span>
+      </Breadcrumbs>
+    </div>
+    <div class="socials-wrapper">
+      <Socials iconVersion="light" />
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
-	.page-title {
-		height: 40vh;
-		min-height: 450px;
-		width: 100%;
-		position: relative;
-		padding-bottom: 2rem;
+  .page-title {
+    height: 40vh;
+    min-height: 450px;
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
 
-		&__img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100%;
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
 
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background: hsla(var(--link-color-black-hsl), 0.5);
-			}
-			picture {
-				height: 100%;
-				width: 100%;
-			}
-			img {
-				object-fit: cover;
-				width: 100%;
-				height: 100%;
-				aspect-ratio: 16 / 9;
-			}
-		}
-		&__content {
-			z-index: 2;
-			position: absolute;
-			bottom: 7rem;
-			left: 50%;
-			transform: translateX(-50%);
-			width: calc(100% - 2rem);
-			text-align: center;
-			color: var(--color-white);
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-		&__title {
-			color: #fff;
-			font-size: var(--fs-2xl);
-			margin-bottom: 0;
-			span {
-				display: block;
-				font-weight: 100;
-				font-size: 3rem;
-			}
-		}
-		&__cta {
-			display: flex;
-			align-items: center;
-			gap: 1rem;
-		}
-	}
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: hsla(var(--link-color-black-hsl), 0.5);
+      }
+      picture {
+        height: 100%;
+        width: 100%;
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 16 / 9;
+      }
+    }
+    &__content {
+      z-index: 2;
+      position: absolute;
+      bottom: 7rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 2rem);
+      text-align: center;
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &__title {
+      color: #fff;
+      font-size: var(--fs-2xl);
+      margin-bottom: 0;
+      span {
+        display: block;
+        font-weight: 100;
+        font-size: 3rem;
+      }
+    }
+    &__cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
 
-	.socials-wrapper {
-		position: absolute;
-		bottom: 2rem;
-		right: 2rem;
-		z-index: 9;
+  .socials-wrapper {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9;
 
-		@media screen and (max-width: 768px) {
-			right: 50%;
-			transform: translateX(50%);
-		}
-	}
+    @media screen and (max-width: 768px) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
 </style>

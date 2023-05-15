@@ -2,6 +2,7 @@
 import Buttons from "./ui/Buttons.astro";
 import { Icon } from "astro-icon";
 import site from "@assets/data/data.json";
+import Title from "./ui/Title.astro";
 
 const { siteLinks, swimmingLevels } = site;
 const pools = siteLinks.pools;
@@ -157,7 +158,12 @@ const levels = swimmingLevels;
     </div>
     <div class="form__field col-50">
       <label for="zip">Code postal</label>
-      <input type="text" pattern="\d{5}" title="Code postal français à 5 chiffres" name="zip" />
+      <input
+        type="text"
+        pattern="\d{5}"
+        title="Code postal français à 5 chiffres"
+        name="zip"
+      />
     </div>
     <div class="form__field col-50">
       <label for="city">Ville</label>
@@ -175,7 +181,7 @@ const levels = swimmingLevels;
     </p>
 
     <div class="col-100">
-      <h3>Aide à l'évaluation du niveau du baigneur</h3>
+      <Title level="3">Aide à l'évaluation du niveau du baigneur</Title>
       <ul class="levels">
         {
           levels.map((level) => (
@@ -321,7 +327,7 @@ const levels = swimmingLevels;
       <Icon name="calendar" /> Je réserve maintenant
     </Buttons>
     <div class="pools">
-      <h3>Nos bassins d'apprentissage</h3>
+      <Title level="3">Nos bassins d'apprentissage</Title>
       <ul>
         {
           pools.map((item) => {

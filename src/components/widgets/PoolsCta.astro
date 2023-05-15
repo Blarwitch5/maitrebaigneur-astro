@@ -1,6 +1,7 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import Container from "@components/Container.astro";
+import Title from "@components/ui/Title.astro";
 
 import site from "@assets/data/data.json";
 
@@ -10,9 +11,9 @@ const pools = siteLinks.pools;
 
 <Container className="pools__wrapper">
   <div class="pools__content" data-aos="zoom-in">
-    <h3 class="pools__title">
+    <Title level="3" class="pools__title">
       Vous êtes à la recherche d'un bassin pour apprendre à nager ?
-    </h3>
+    </Title>
     <p class="pools__desc">
       Vous êtes au bon endroit. Nous opérons aussi bien à domicile que dans nos
       bassins d’apprentissage. Choisissez un de nos bassins et commencez votre

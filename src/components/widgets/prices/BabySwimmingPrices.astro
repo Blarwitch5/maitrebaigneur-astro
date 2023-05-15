@@ -2,6 +2,7 @@
 import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
 import { Icon } from "astro-icon";
+import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const babySwimming = prices.babySwimming;
@@ -10,7 +11,7 @@ const babySwimming = prices.babySwimming;
 <div class="packages-container baby-swimming">
   <div>
     <div class="package">
-      <h1 class="package__title">Les formules</h1>
+      <Title level="1" class="package__title">Les formules</Title>
       <p class="package__info"><Icon name="warning" />2 parent par bébé</p>
 
       <ul class="package__list">

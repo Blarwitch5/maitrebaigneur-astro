@@ -1,26 +1,29 @@
 ---
-import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
+import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const diploma = prices.diploma;
 ---
 
 <div class="packages-container diploma">
-	<div>
-		<div class="package">
-			<h1 class="package__title">{diploma.name}</h1>
-			<h2 class="package__title--alt">{diploma.name_2}</h2>
+  <div>
+    <div class="package">
+      <Title level="1" class="package__title">{diploma.name}</Title>
+      <Title level="2" class="package__title--alt">{diploma.name_2}</Title>
 
-			<ul class="package__list">
-				<li class="package__item">{diploma.distance} <span class="package__price">{diploma.price}€</span></li>
-			</ul>
-		</div>
-	</div>
+      <ul class="package__list">
+        <li class="package__item">
+          {diploma.distance}
+          <span class="package__price">{diploma.price}€</span>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-	<style>
-		.container {
-			width: 100%;
-		}
-	</style>
+  <style>
+    .container {
+      width: 100%;
+    }
+  </style>
 </div>

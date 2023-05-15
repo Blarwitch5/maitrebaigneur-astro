@@ -1,6 +1,7 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
+import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const aquaversaire = prices.aquaversaire;
@@ -9,7 +10,7 @@ const aquaversaire = prices.aquaversaire;
 <div class="packages-container aquaversaire">
   <div>
     <div class="package">
-      <h1 class="package__title">{aquaversaire.name}</h1>
+      <Title level="1" class="package__title">{aquaversaire.name}</Title>
 
       <ul class="package__list">
         <li class="package__item">

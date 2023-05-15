@@ -4,6 +4,7 @@ import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
 import Buttons from "@components/ui/Buttons.astro";
 
 import site from "@assets/data/data.json";
+import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
@@ -16,13 +17,13 @@ const pools = siteLinks.pools;
       première séance. Des enveloppes et des tickets d'encaissement sont
       disponibles pour vous faciliter la tâche.
     </p>
-    <h4>Paiement en espèces</h4>
+    <Title level="4">Paiement en espèces</Title>
     <p>
       Si vous optez pour un règlement en espèces, des enveloppes sont à votre
       disposition. Nous vous invitons à prévoir l'appoint et à remplir
       soigneusement votre ticket d'encaissement.
     </p>
-    <h4>Paiement en chèques</h4>
+    <Title level="4">Paiement en chèques</Title>
     <p>
       Pour les paiements échelonnés (pour les abonnements ou les grosses
       cartes), nous acceptons les chèques à l'ordre de Maitre Baigneur. Merci de
