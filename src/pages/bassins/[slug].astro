@@ -366,7 +366,8 @@ const pools = siteLinks.pools;
         flex-basis: calc(50% - var(--space-md));
 
         @media screen and (max-width: 767px) {
-          flex-basis: calc(100% - var(--space-md));
+          flex-basis: 100%;
+          max-width: 100%;
         }
 
         &:hover {
@@ -381,6 +382,7 @@ const pools = siteLinks.pools;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          padding-right: var(--space-xs);
         }
 
         img {
