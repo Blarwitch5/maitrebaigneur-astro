@@ -131,55 +131,61 @@ const levels = swimmingLevels;
   <fieldset class="form__section" id="swimming-lessons">
     <legend>Contact pour leçons de natation à domicile</legend>
     <div class="form__field col-100">
-      <label for="name"
+      <label for="nom-natation-domicile"
         >Nom d'un des parents <span class="required">*</span></label
       >
-      <input type="text" name="name" />
+      <input type="text" name="nom-natation-domicile" />
     </div>
     <div class="form__field col-100">
-      <label for="name"
+      <label for="nom-enfants-natation-domicile"
         >Prénoms du ou des enfants <span class="required">*</span></label
       >
-      <input type="text" name="kidsNames" />
+      <input type="text" name="nom-enfants-natation-domicile" />
       <small
         >Dans le cas de plusieurs enfants, séparer les prénoms par une virgule</small
       >
     </div>
     <div class="form__field">
-      <label for="tel"
+      <label for="tel-natation-domicile"
         >Numéro de téléphone <span class="required">*</span></label
       >
-      <input type="tel" />
+      <input type="tel" name="tel-natation-domicile" />
     </div>
     <div class="form__field">
-      <label for="email">Adresse mail <span class="required">*</span></label>
-      <input type="email" name="email" />
+      <label for="email-natation-domicile"
+        >Adresse mail <span class="required">*</span></label
+      >
+      <input type="email" name="email-natation-domicile" />
     </div>
     <div class="form__field col-100">
-      <label for="address"
+      <label for="adresse-natation-domicile"
         >Adresse de la piscine <span class="required">*</span></label
       >
-      <input type="text" name="address" />
+      <input type="text" name="adresse-natation-domicile" />
     </div>
     <div class="form__field col-50">
-      <label for="zip">Code postal <span class="required">*</span></label>
+      <label for="code-postal-natation-domicile"
+        >Code postal <span class="required">*</span></label
+      >
       <input
         type="text"
         pattern="\d{5}"
         title="Code postal français à 5 chiffres"
-        name="zip"
+        name="code-postal-natation-domicile"
       />
     </div>
     <div class="form__field col-50">
-      <label for="city">Ville <span class="required">*</span></label>
-      <input type="text" name="city" />
+      <label for="ville-natation-domicile"
+        >Ville <span class="required">*</span></label
+      >
+      <input type="text" name="ville-natation-domicile" />
     </div>
     <div class="form__field col-100">
-      <label for="dates"
+      <label for="dates-natation-domicile"
         >Quand vodriez-vous réserver un cours ? <span class="required">*</span
         ></label
       >
-      <textarea name="dates" rows="3"></textarea>
+      <textarea name="dates-natation-domicile" rows="3"></textarea>
       <small>Veuillez nous fournir plusieurs dates et heures</small>
     </div>
 
@@ -212,29 +218,33 @@ const levels = swimmingLevels;
   <fieldset class="form__section" id="aquaversary">
     <legend>Contact pour un Aquaversaire</legend>
     <div class="form__field">
-      <label for="name">Nom <span class="required">*</span></label>
-      <input type="text" name="name" />
+      <label for="nom-aquaversaire">Nom <span class="required">*</span></label>
+      <input type="text" nom-aquaversaire="name" />
     </div>
     <div class="form__field">
-      <label for="firstname">Prénom <span class="required">*</span></label>
-      <input type="text" name="firstname" />
+      <label for="prenom-aquaversaire"
+        >Prénom <span class="required">*</span></label
+      >
+      <input type="text" name="prenom-aquaversaire" />
     </div>
     <div class="form__field">
-      <label for="tel"
+      <label for="tel-aquaversaire"
         >Numéro de téléphone <span class="required">*</span></label
       >
-      <input type="tel" />
+      <input type="tel" name="tel-aquaversaire" />
     </div>
     <div class="form__field">
-      <label for="email">Adresse mail <span class="required">*</span></label>
-      <input type="email" name="email" />
+      <label for="email-aquaversaire"
+        >Adresse mail <span class="required">*</span></label
+      >
+      <input type="email" name="email-aquaversaire" />
     </div>
     <div class="form__field col-100">
-      <label for="info"
+      <label for="info-aquaversaire"
         >Où ? Quand ? Et combien de baigneurs <span class="required">*</span
         ></label
       >
-      <textarea name="info" rows="3"></textarea>
+      <textarea name="info-aquaversaire" rows="3"></textarea>
       <small
         >Exemple: Je souhaite organiser un aquaversaire à Aix le 01/01/23 pour
         10 enfants...</small
@@ -246,28 +256,32 @@ const levels = swimmingLevels;
   <fieldset class="form__section" id="events">
     <legend>Contact pour de la surveillance</legend>
     <div class="form__field">
-      <label for="name">Nom <span class="required">*</span></label>
-      <input type="text" name="name" />
+      <label for="name-surveillance">Nom <span class="required">*</span></label>
+      <input type="text" name="name-surveillance" />
     </div>
     <div class="form__field">
-      <label for="firstname">Prénom <span class="required">*</span></label>
-      <input type="text" name="firstname" />
+      <label for="prenom-surveillance"
+        >Prénom <span class="required">*</span></label
+      >
+      <input type="text" name="prenom-surveillance" />
     </div>
     <div class="form__field">
-      <label for="tel"
+      <label for="tel-surveillance"
         >Numéro de téléphone <span class="required">*</span></label
       >
-      <input type="tel" required />
+      <input type="tel" name="tel-surveillance" />
     </div>
     <div class="form__field">
-      <label for="email">Adresse mail <span class="required">*</span></label>
-      <input type="email" name="email" />
+      <label for="email-surveillance"
+        >Adresse mail <span class="required">*</span></label
+      >
+      <input type="email" name="email-surveillance" />
     </div>
     <div class="form__field col-100">
-      <label for="info"
+      <label for="info-surveillance"
         >Où ? Quand ? Et combien de personnes ? Quel type d'événement ?</label
       >
-      <textarea name="info" rows="3"></textarea>
+      <textarea name="info-surveillance" rows="3"></textarea>
       <small
         >Exemple: Je souhaite sécuriser un mariage à Aix le 01/01/23 pour 50
         personnes...</small
@@ -280,26 +294,28 @@ const levels = swimmingLevels;
     <legend>Autres questions et suggestions</legend>
 
     <div class="form__field">
-      <label for="name">Nom <span class="required">*</span></label>
-      <input type="text" name="name" />
+      <label for="name-autre">Nom <span class="required">*</span></label>
+      <input type="text" name="name-autre" />
     </div>
     <div class="form__field">
-      <label for="firstname">Prénom <span class="required">*</span></label>
-      <input type="text" name="firstname" />
+      <label for="prenom-autre">Prénom <span class="required">*</span></label>
+      <input type="text" name="prenom-autre" />
     </div>
     <div class="form__field">
-      <label for="tel"
+      <label for="tel-autre"
         >Numéro de téléphone <span class="required">*</span></label
       >
-      <input type="tel" />
+      <input type="tel" name="tel-autre" />
     </div>
     <div class="form__field">
-      <label for="email">Adresse mail <span class="required">*</span></label>
-      <input type="email" name="email" />
+      <label for="email-autre"
+        >Adresse mail <span class="required">*</span></label
+      >
+      <input type="email" name="email-autre" />
     </div>
     <div class="form__field col-100">
-      <label for="info">Message <span class="required">*</span></label>
-      <textarea name="info" rows="3"></textarea>
+      <label for="info-autre">Message <span class="required">*</span></label>
+      <textarea name="info-autre" rows="3"></textarea>
     </div>
   </fieldset>
   <!-- 5th section - Baby swimmers -->
