@@ -10,7 +10,6 @@ import Forces from "@components/widgets/Forces.astro";
 import Services from "@components/widgets/Services.astro";
 import BookingCta from "@components/widgets/BookingCta.astro";
 import PoolsCta from "@components/widgets/PoolsCta.astro";
-import Testimonial from "@components/widgets/Testimonial.astro";
 import Faq from "@components/widgets/Faq.astro";
 import Container from "@components/Container.astro";
 import LogoCarousel from "@components/widgets/LogoCarousel.astro";
@@ -47,7 +46,7 @@ const page = {
     >
       <Container className="services__wrapper">
         <div class="services__infos" data-aos="fade-right">
-          <Title level="2" class="services__title">
+          <Title animate level="2" class="services__title">
             Nos prestations aquatiques
           </Title>
           <p class="services__desc">
@@ -76,7 +75,7 @@ const page = {
     >
       <Waves atTopOfSection />
       <Container data-aos="zoom-in">
-        <Title level="2" class="forces__title">
+        <Title animate level="2" class="forces__title">
           Pourquoi apprendre à nager avec Maître-Baigneur ?
         </Title>
         <Forces />
@@ -92,7 +91,7 @@ const page = {
     </Section>
     <Section class="faq" ariaLabel="Réponses aux questions fréquentes">
       <Container>
-        <Title level="2">
+        <Title animate level="2">
           Foire Aux Questions : Tout ce que vous devez savoir sur
           Maître-Baigneur
         </Title>
@@ -135,7 +134,7 @@ const page = {
       ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur"
     >
       <Container>
-        <Title level="3">
+        <Title animate level="3">
           Partenaires : Une collaboration pour des services de qualité
           supérieure
         </Title>

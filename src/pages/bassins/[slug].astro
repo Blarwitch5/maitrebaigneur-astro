@@ -44,11 +44,11 @@ const pools = siteLinks.pools;
       <Container>
         {
           entry.data.pool.name === "Domicile" ? (
-            <Title level="2" class="single-pool__title">
+            <Title animate level="2" class="single-pool__title">
               Maître-Baigneur à domicile, chez vous !
             </Title>
           ) : (
-            <Title level="2" class="single-pool__title">
+            <Title animate level="2" class="single-pool__title">
               Découvrez la piscine {entry.data.pool.name} à{" "}
               {entry.data.pool.location}
             </Title>
@@ -61,10 +61,10 @@ const pools = siteLinks.pools;
           </p>
 
           <div class="single-pool__details">
-            <Title level="3">
+            <Title animate level="3">
               Informations concernant notre bassin à {entry.data.pool.name}
             </Title>
-            <Title level="4">Prestations proposées</Title>
+            <Title animate level="4">Prestations proposées</Title>
             <ul>
               {
                 entry.data.pool.services.map(
@@ -84,7 +84,7 @@ const pools = siteLinks.pools;
                 )
               }
             </ul>
-            <Title level="4">Sitution géographique</Title>
+            <Title animate level="4">Sitution géographique</Title>
             <ul>
               <li>
                 <a
@@ -152,7 +152,7 @@ const pools = siteLinks.pools;
     </Section>
     <Section class="related-pools">
       <Container>
-        <Title level="5">
+        <Title animate level="5">
           Découvrez aussi nos autres bassins d'apprentissage
         </Title>
         <ul>

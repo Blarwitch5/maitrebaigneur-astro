@@ -2,50 +2,75 @@
 interface Props {
   level?: "1" | "2" | "3" | "4" | "5" | "6";
   class?: string;
+  animate?: boolean;
 }
 
-const { level, class: className, ...rest } = Astro.props;
+const { level, class: className, animate, ...rest } = Astro.props;
 const numLevel = Number(level);
 ---
 
 {
   numLevel === 1 && (
-    <h1 class:list={className} {...rest} data-aos="zoom-in">
+    <h1
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h1>
   )
 }
 {
   numLevel === 2 && (
-    <h2 class:list={className} {...rest} data-aos="zoom-in">
+    <h2
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h2>
   )
 }
 {
   numLevel === 3 && (
-    <h3 class:list={className} {...rest} data-aos="zoom-in">
+    <h3
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h3>
   )
 }
 {
   numLevel === 4 && (
-    <h4 class:list={className} {...rest} data-aos="zoom-in">
+    <h4
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h4>
   )
 }
 {
   numLevel === 5 && (
-    <h5 class:list={className} {...rest} data-aos="zoom-in">
+    <h5
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h5>
   )
 }
 {
   numLevel === 6 && (
-    <h6 class:list={className} {...rest} data-aos="zoom-in">
+    <h6
+      class:list={className}
+      {...rest}
+      data-aos={animate ? "zoom-in" : undefined}
+    >
       <slot />
     </h6>
   )
