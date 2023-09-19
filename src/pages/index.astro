@@ -155,17 +155,16 @@ const page = {
   /**
 	 * services section
 	 * */
-  .services {
-    &__wrapper {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: var(--space-xl);
-      padding-block: var(--space-xl);
-      @media screen and (max-width: 992px) {
-        flex-direction: column;
-      }
+  :global(.services__wrapper) {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
     }
-
+  }
+  .services {
     &__infos {
       width: calc(100% / 5 * 2);
 

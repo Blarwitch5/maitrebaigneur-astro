@@ -94,27 +94,26 @@ const page = {
 </BaseLayout>
 
 <style lang="scss">
-  .fear {
-    &__section {
-      display: grid;
-      grid-template-columns: calc((100% * 1 / 3) - 2rem) calc(
-          (100% * 2 / 3) - 2rem
-        );
-      gap: 4rem;
-      align-items: center;
-      padding-block: var(--space-md);
+  :global(.fear__section) {
+    display: grid;
+    grid-template-columns: calc((100% * 1 / 3) - 2rem) calc(
+        (100% * 2 / 3) - 2rem
+      );
+    gap: 4rem;
+    align-items: center;
+    padding-block: var(--space-md);
 
-      @media screen and (max-width: 992px) {
-        grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
-        gap: 2rem;
-      }
-
-      @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+    @media screen and (max-width: 992px) {
+      grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+      gap: 2rem;
     }
 
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .fear {
     &__img {
       overflow: hidden;
       border-radius: var(--regular-border-radius);
