@@ -1,9 +1,9 @@
 ---
 interface Props {
   fullWidth?: boolean;
-  className?: string;
+  class?: string;
 }
-const { fullWidth, className } = Astro.props;
+const { fullWidth, class: className } = Astro.props;
 ---
 
 <div class:list={[`${fullWidth ? "container-fluid" : `container`}`, className]}>
