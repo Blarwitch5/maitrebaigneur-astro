@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
 // import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://maitrebaigneur.vercel.app",
-  output: "static",
   vite: {
     build: {
       rollupOptions: {
@@ -19,7 +19,9 @@ export default defineConfig({
   server: {
     port: 8080,
   },
-  integrations: [sitemap()],
+  integrations: [react(), sitemap()],
+  // output: "server",
+
   // image({
   // 	serviceEntryPoint: "@astrojs/image/sharp",
   // }),
