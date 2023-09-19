@@ -26,6 +26,7 @@
     "astro-navbar": "^1.2.3",
     "astro-seo": "^0.7.6",
     "autoprefixer": "^10.4.15",
+    "cssnano": "^6.0.1",
     "dotenv": "^16.3.1",
     "just-validate": "^4.2.0",
     "postcss": "^8.4.29",
