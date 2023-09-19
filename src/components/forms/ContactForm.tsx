@@ -39,7 +39,7 @@ type FormInput = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
   const formcarryContactFormId: string = import.meta.env
-    .FORMCARRY_CONTACTFORM_ID as string;
+    .VITE_FORMCARRY_CONTACTFORM_ID as string;
 
   const {
     register,
