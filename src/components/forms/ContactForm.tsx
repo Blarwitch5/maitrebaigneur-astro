@@ -5,8 +5,6 @@ import * as z from "zod";
 import RgpdField from "./RgpdField.tsx";
 import SubmitBtn from "./SubmitBtn.tsx";
 
-const formcarryId: string = import.meta.env.FORMCARRY_CONTACTFORM_ID;
-
 const FormSchema = z.object({
   name: z
     .string()
@@ -40,6 +38,9 @@ const FormSchema = z.object({
 type FormInput = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
+  const formcarryContactFormId: string = import.meta.env
+    .FORMCARRY_CONTACTFORM_ID as string;
+
   const {
     register,
     handleSubmit,
@@ -59,14 +60,17 @@ const ContactForm = () => {
       // Validate using Zod
       FormSchema.parse(data);
 
-      const response = await fetch(`https://formcarry.com/s/${formcarryId}`, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://formcarry.com/s/${formcarryContactFormId}`,
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         alert("Form submitted successfully!");

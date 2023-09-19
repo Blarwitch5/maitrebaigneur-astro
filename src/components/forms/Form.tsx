@@ -88,7 +88,6 @@ const Form = () => {
                 option={option}
                 isSelected={selectedOption === option.slug}
                 onSelect={() => {
-                  console.log(`Selected option: ${option.slug}`);
                   setSelectedOption(option.slug);
                 }}
               />

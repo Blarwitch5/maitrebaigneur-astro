@@ -26,7 +26,6 @@ const OptionsRadioBtn: React.FC<OptionsRadioBtnProps> = ({
     >
       <input
         onClick={() => {
-          console.log("Radio button clicked");
           onSelect();
         }}
         type="radio"
