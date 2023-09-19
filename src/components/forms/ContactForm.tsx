@@ -5,6 +5,8 @@ import * as z from "zod";
 import RgpdField from "./RgpdField.tsx";
 import SubmitBtn from "./SubmitBtn.tsx";
 
+const formcarryId: string = import.meta.env.FORMCARRY_CONTACTFORM_ID;
+
 const FormSchema = z.object({
   name: z
     .string()
@@ -57,7 +59,7 @@ const ContactForm = () => {
       // Validate using Zod
       FormSchema.parse(data);
 
-      const response = await fetch("https://formcarry.com/s/HC17wuJuMj", {
+      const response = await fetch(`https://formcarry.com/s/${formcarryId}`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
