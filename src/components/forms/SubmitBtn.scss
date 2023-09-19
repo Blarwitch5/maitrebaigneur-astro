@@ -1,0 +1,28 @@
+button[type="submit"] {
+  margin-top: var(--space-md);
+}
+.btn {
+  text-decoration: none;
+  line-height: 1.5;
+  color: inherit;
+  width: fit-content;
+  padding: 0rem 1.2rem;
+  min-height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.btn__regular {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--color-secondary);
+      transition: all 0.3s ease;
+      border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+    }
+  }
+}

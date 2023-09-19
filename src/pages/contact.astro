@@ -4,7 +4,6 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 import "sanitize.css/forms.css";
-import Form from "@components/Form.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Section from "@components/Section.astro";
 import Main from "@components/Main.astro";
@@ -27,6 +26,8 @@ const page = {
     alt: "Garçon sous l'eau tenant un téléphone près de son oreille",
   },
 };
+
+import Form from "@components/forms/Form.tsx";
 ---
 
 <BaseLayout title={page.title} description={page.description}>
@@ -53,11 +54,9 @@ const page = {
             lignes, nous les lirons toutes !
           </p>
         </p>
-        <Form />
+        <Form client:load />
       </Container>
     </Section>
-    <Footer />
   </Main>
+  <Footer />
 </BaseLayout>
-
-<style></style>
