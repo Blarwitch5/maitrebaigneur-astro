@@ -18,30 +18,35 @@ async function fetchInstagramFeed(
 // Fetch the Instagram feed using your access token
 const accessToken: string = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
+let isInstagramFeedNotEmpty = true;
 ---
 
 <div class="instagram-grid">
   {
-    instagramFeed.map((post) => (
-      <a
-        href={post.permalink}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={post.caption}
-      >
-        <article data-key={post.id} class="instagram-post">
-          {post.media_type === "IMAGE" ? (
-            <img
-              src={post.media_url}
-              alt={post.caption}
-              class="instagram-image"
-            />
-          ) : (
-            <video src={post.media_url} controls class="instagram-image" />
-          )}
-        </article>
-      </a>
-    ))
+    isInstagramFeedNotEmpty ? (
+      <p>Flux Instagram insdisponible</p>
+    ) : (
+      instagramFeed.map((post) => (
+        <a
+          href={post.permalink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={post.caption}
+        >
+          <article data-key={post.id} class="instagram-post">
+            {post.media_type === "IMAGE" ? (
+              <img
+                src={post.media_url}
+                alt={post.caption}
+                class="instagram-image"
+              />
+            ) : (
+              <video src={post.media_url} controls class="instagram-image" />
+            )}
+          </article>
+        </a>
+      ))
+    )
   }
 </div>
 
