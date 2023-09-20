@@ -231,12 +231,14 @@ const page = {
     .tab {
       &__title {
         display: none;
+        opacity: 0;
         padding: var(--space-md);
         justify-content: center;
         font-family: var(--ff-pacifico);
         font-size: var(--fs-sm);
 
         @media screen and (max-width: 768px) {
+          opacity: 1;
           display: flex;
         }
       }
@@ -250,19 +252,19 @@ const page = {
       &__panel {
         position: relative;
         width: 100%;
-        height: 0;
+        max-height: 0;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease-in-out, height 0s linear 0.3s;
+        transition: opacity 0.3s ease-in-out, max-height 0s linear 0.3s;
 
         p {
           margin-block: 0;
         }
         &.active {
-          height: auto;
+          max-height: 100%;
           opacity: 1;
           visibility: visible;
-          transition-delay: 0s;
+          transition-delay: 0.3s;
         }
         &.previous {
           position: absolute;
@@ -326,8 +328,6 @@ const page = {
       }
     }
 
-    &__nav {
-    }
     &__content {
       .highlight-price {
         // font-family: var(--ff-raleway);
@@ -343,8 +343,6 @@ const page = {
       @media screen and (max-width: 768px) {
         padding-inline: 0;
       }
-    }
-    &__section {
     }
     &__options {
       padding: 0;

@@ -2,8 +2,7 @@
 import Favicon from "@components/head/Favicon.astro";
 import GeoTag from "@components/head/GeoTag.astro";
 
-import 'aos/dist/aos.css';
-
+import "aos/dist/aos.css";
 
 import { SEO } from "astro-seo";
 
@@ -104,12 +103,11 @@ const icbm: string = "43.5, 5.4";
     <slot />
 
     <script src="../assets/scripts/navbar.js"></script>
+    <script>
+      import AOS from "aos";
+
+      // Initialize AOS
+      AOS.init();
+    </script>
   </body>
 </html>
-
-<script>
-  import AOS from 'aos';
-
-  // Initialize AOS
-  AOS.init();
-</script>

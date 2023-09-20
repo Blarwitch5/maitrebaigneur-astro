@@ -38,8 +38,8 @@ const FormSchema = z.object({
 type FormInput = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
-  const formcarryContactFormId: string = import.meta.env
-    .VITE_FORMCARRY_CONTACTFORM_ID as string;
+  const formcarryContactFormEndpoint: string = import.meta.env
+    .FORMCARRY_CONTACTFORM_ENDPOINT as string;
 
   const {
     register,
@@ -60,17 +60,14 @@ const ContactForm = () => {
       // Validate using Zod
       FormSchema.parse(data);
 
-      const response = await fetch(
-        `https://formcarry.com/s/${formcarryContactFormId}`,
-        {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
+      const response = await fetch(formcarryContactFormEndpoint, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
 
       if (response.ok) {
         alert("Form submitted successfully!");
