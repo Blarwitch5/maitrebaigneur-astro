@@ -39,7 +39,7 @@ type FormInput = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
   const formcarryContactFormEndpoint: string = import.meta.env
-    .SECRET_FORMCARRY_CONTACTFORM_ENDPOINT as string;
+    .PUBLIC_FORMCARRY_CONTACTFORM_ENDPOINT as string;
 
   const {
     register,
