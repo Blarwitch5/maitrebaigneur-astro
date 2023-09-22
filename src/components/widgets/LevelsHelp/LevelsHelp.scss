@@ -1,0 +1,56 @@
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+  position: relative;
+  background-color: white;
+  width: calc(100% - var(--space-xl));
+  height: calc(100% - var(--space-xl));
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.btn-back {
+  all: unset;
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+
+  &::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("/src/icons/arrow_down.svg");
+    transform: rotate(90deg);
+    background-position: center;
+    background-size: 2rem;
+    background-repeat: no-repeat;
+  }
+}
