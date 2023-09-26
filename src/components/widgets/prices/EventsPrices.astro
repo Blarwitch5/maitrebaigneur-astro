@@ -1,12 +1,16 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
+import options from "@assets/data/formOptions.json";
 import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const eventsPrices = prices.events.formula;
 const eventsDayPrices = eventsPrices.day;
 const eventsNightPrices = eventsPrices.night;
+
+const formOptions = options;
+const eventOption = formOptions[3];
 ---
 
 <div class="packages-container events">
@@ -23,7 +27,7 @@ const eventsNightPrices = eventsPrices.night;
         </li>
       </ul>
       <Buttons
-        href="/contact?option=securiser+un+evenement"
+        href={`/contact?option=${eventOption.slug}`}
         class="btn btn__regular"
       >
         Demander un devis
@@ -41,7 +45,7 @@ const eventsNightPrices = eventsPrices.night;
         </li>
       </ul>
       <Buttons
-        href="/contact?option=securiser+un+evenement"
+        href={`/contact?option=${eventOption.slug}`}
         class="btn btn__regular"
       >
         Demander un devis

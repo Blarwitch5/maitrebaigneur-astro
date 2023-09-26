@@ -1,10 +1,14 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
 import site from "@assets/data/prices.json";
+import options from "@assets/data/formOptions.json";
 import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
 const aquaversaire = prices.aquaversaire;
+
+const formOptions = options;
+const aquaversaryOption = formOptions[4];
 ---
 
 <div class="packages-container aquaversaire">
@@ -28,7 +32,7 @@ const aquaversaire = prices.aquaversaire;
         </li>
       </ul>
       <Buttons
-        href="/contact?option=organiser-un-aquaversaire"
+        href={`/contact?option=${aquaversaryOption.slug}`}
         class="btn btn__regular"
         newTab
       >
