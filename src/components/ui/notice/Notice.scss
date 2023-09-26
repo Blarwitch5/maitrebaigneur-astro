@@ -1,0 +1,23 @@
+.warning-notice {
+}
+.attention-notice {
+}
+.info-notice {
+  position: relative;
+  border-radius: var(--regular-border-radius);
+  background-color: hsla(var(--link-color-bg-light-alt-hsl), 0.3);
+  border: 1px solid var(--color-bg-light-alt);
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+
+  &::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    background-image: url("/src/icons/mark.svg");
+    background-size: 1.5rem;
+    background-position: center;
+  }
+}
