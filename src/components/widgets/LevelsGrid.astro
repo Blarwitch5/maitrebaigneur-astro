@@ -11,9 +11,9 @@ const levels = swimmingLevels;
     levels.map((level) => (
       <div
         class="level panel"
-        style={`background-image:linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%,	hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.imageSrc.jpg});background-image: linear-gradient(0deg,hsla(var(--link-color-primary-hsl), 1) 0%,hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.imageSrc.webp});`}
+        style={`background-image:linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%,	hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.image.jpg});background-image: linear-gradient(0deg,hsla(var(--link-color-primary-hsl), 1) 0%,hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.image.webp});`}
       >
-        <p class="vertical-txt">{level.name}</p>
+        <p class=" vertical-txt">{level.name}</p>
         <div class="level__content details">
           <Title level="3" class="level__title">
             {level.name}
@@ -164,7 +164,7 @@ const levels = swimmingLevels;
       }
       .hint {
         transition: opacity 0.3s ease-in 0.9s;
-        opacity: 1;
+        opacity: 1 !important;
       }
     }
   }

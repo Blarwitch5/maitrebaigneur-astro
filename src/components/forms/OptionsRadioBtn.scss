@@ -24,6 +24,17 @@
       0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
   }
 
+  &.selected {
+    .card__title {
+      border: var(--radio-border-width) solid var(--color-primary);
+    }
+    &:hover {
+      .card__title {
+        border-color: var(--color-primary) !important;
+      }
+    }
+  }
+
   &.card-swimming {
     &::before {
       background-image: url("/images/icons/swimmer.svg");

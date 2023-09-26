@@ -395,7 +395,7 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
 
 <style lang="scss">
   .required {
-    color: red;
+    color: var(--color-error);
   }
   .form {
     //form variables
@@ -678,6 +678,22 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
       position: absolute;
       right: calc(var(--card-padding) + var(--radio-border-width));
       top: calc(var(--card-padding) + var(--radio-border-width));
+
+      &:checked {
+        & ~ .card__title {
+          border-color: var(--color-primary);
+        }
+      }
+      &:focus {
+        & ~ .card__title {
+          box-shadow: 0 0 0 2px var(--color-dark-gray);
+        }
+      }
+      &:disabled {
+        & ~ .card__title {
+          color: var(--color-dark-gray);
+        }
+      }
     }
 
     @supports (-webkit-appearance: none) or (-moz-appearance: none) {
@@ -731,7 +747,6 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
       flex-direction: column;
       padding-block: var(--card-padding);
       padding-inline: var(--card-padding) 4.5rem;
-
       transition: border-color 0.2s ease-out;
     }
 
@@ -748,34 +763,9 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
             }
           }
         }
-        .card {
-          &:hover {
-            .radio {
-              &:disabled {
-                border-color: var(--color-gray);
-              }
-            }
-          }
-        }
       }
     }
-    .radio {
-      &:checked {
-        & ~ .card__title {
-          border-color: var(--color-primary);
-        }
-      }
-      &:focus {
-        & ~ .card__title {
-          box-shadow: 0 0 0 2px var(--color-dark-gray);
-        }
-      }
-      &:disabled {
-        & ~ .card__title {
-          color: var(--color-dark-gray);
-        }
-      }
-    }
+
     button[type="submit"] {
       margin-top: var(--space-md);
     }
@@ -831,6 +821,7 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
       ) as HTMLInputElement;
       if (matchingButton) {
         matchingButton.checked = true;
+        console.log(matchingButton.checked);
       }
     }
   }
