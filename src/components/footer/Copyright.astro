@@ -1,23 +1,26 @@
-<p class="copyright">© <span id="year">2022</span> <strong>Maître-Baigneur</strong> – Tous droits réservés</p>
+<p class="copyright">
+  © <span id="year">2022</span> – <strong>Maître-Baigneur</strong> – Tous droits
+  réservés
+</p>
 <style lang="scss">
-	.copyright {
-		font-size: 1rem;
-		text-align: center;
-		padding: var(--space-sm);
-		margin-bottom: 0;
+  .copyright {
+    font-size: 1rem;
+    text-align: center;
+    padding: var(--space-sm);
+    margin-bottom: 0;
 
-		strong {
-			font-family: var(--ff-pacifico);
-			font-weight: 500;
-		}
-	}
+    strong {
+      font-family: var(--ff-pacifico);
+      font-weight: 500;
+    }
+  }
 </style>
 
 <script is:inline>
-	// 1. Get the current year
-	let currentYear = new Date().getFullYear();
-	// 2. Get the element with id="year" and assign it to a variable
-	let yearElement = document.getElementById("year");
-	// 3. Set the innerHTML of the element with the current year
-	yearElement.innerHTML = currentYear;
+// 1. Get the current year
+let currentYear = new Date().getFullYear();
+// 2. Get the element with id="year" and assign it to a variable
+let yearElement = document.getElementById("year");
+// 3. Set the innerHTML of the element with the current year
+yearElement.innerHTML = currentYear;
 </script>
