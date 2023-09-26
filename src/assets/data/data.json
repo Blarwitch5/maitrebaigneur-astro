@@ -225,9 +225,10 @@
   "swimmingLevels": [
     {
       "name": "Baigneur en douceur",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/0_endouceur-baigneurs.jpg",
-        "webp": "/images/niveaux/0_endouceur-baigneurs.webp"
+        "webp": "/images/niveaux/0_endouceur-baigneurs.webp",
+        "alt": "Petit baigneur reposant sa tête sur ses mains aux bord de la piscine et portant ses lunettes sur la tête"
       },
 
       "desc": "Découverte du milieu aquatique dès l'âge de 3 ans !",
@@ -238,9 +239,10 @@
     },
     {
       "name": "Mini Baigneur",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/1_mini-baigneurs.jpg",
-        "webp": "/images/niveaux/1_mini-baigneurs.webp"
+        "webp": "/images/niveaux/1_mini-baigneurs.webp",
+        "alt": "Petit baigneur avec ses lunettes sur la tête tout sourire accroché au bord de la piscine"
       },
 
       "desc": "Pour les premiers “ploufs” des Mini-Baigneurs, dites <span>« au revoir aux brassards » !</span>. Dès 3 ans, nous vous proposons les réflexes anti-noyade avec <span>« Savoir Se Sauver ! »</span>.",
@@ -251,9 +253,10 @@
     },
     {
       "name": "Petit Baigneur",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/2_petits-baigneurs.jpg",
-        "webp": "/images/niveaux/2_petits-baigneurs.webp"
+        "webp": "/images/niveaux/2_petits-baigneurs.webp",
+        "alt": "Enfant de dos s'apprêtant à sauter dans la piscine"
       },
       "desc": "<span>« Le sourire des enfants »</span> restera toujours notre priorité ! Nous pensons qu’apprendre à nager c’est bien, mais apprendre en s’amusant c’est mieux !",
       "hints": [
@@ -264,9 +267,10 @@
     },
     {
       "name": "Moyen Baigneur",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/3_moyens-baigneurs.jpg",
-        "webp": "/images/niveaux/3_moyens-baigneurs.webp"
+        "webp": "/images/niveaux/3_moyens-baigneurs.webp",
+        "alt": "Petite fille sous l'eau passant dans un cerceau"
       },
       "desc": "Vos enfants sont à l’aise dans l’eau, mais quelques leçons sont nécessaires pour la mise en place des bons mouvements de la brasse et du dos crawlé.",
       "hints": [
@@ -276,9 +280,10 @@
     },
     {
       "name": "Grand Baigneur",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/4_grands-baigneurs.jpg",
-        "webp": "/images/niveaux/4_grands-baigneurs.webp"
+        "webp": "/images/niveaux/4_grands-baigneurs.webp",
+        "alt": "Garçon au bord de la piscine portant des palmes"
       },
       "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort. <span>Mise en place des 3 nages codifiées, dos, brasse et crawl.</span>",
       "hints": [
@@ -287,9 +292,10 @@
     },
     {
       "name": "Adulte",
-      "imageSrc": {
+      "image": {
         "jpg": "/images/niveaux/5_adultes.jpg",
-        "webp": "/images/niveaux/5_adultes.webp"
+        "webp": "/images/niveaux/5_adultes.webp",
+        "alt": "Jeune femme nageant sous l'eau dans une piscine"
       },
       "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
       "hints": ["Je sais nager et mais je veux perfectionner ma nage ?"]
