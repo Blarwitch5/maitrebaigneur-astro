@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import OptionsRadioBtn from "@components/forms/OptionsRadioBtn";
 
 import SwimmingForm from "@components/forms/SwimmingForm";
@@ -75,7 +75,26 @@ const options: Option[] = [
   },
 ];
 const Form = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState<string>("");
+
+  const updateURL = (slug: string) => {
+    const newUrl = `/contact?option=${slug}`;
+    window.history.pushState({}, "", newUrl);
+
+    // After updating the URL, set the selected option
+    setSelectedOption(slug);
+  };
+
+  useEffect(() => {
+    // Parse the URL to get the 'option' query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const optionFromURL = urlParams.get("option");
+
+    if (optionFromURL) {
+      // Set the selected option if the 'option' query parameter is present
+      setSelectedOption(optionFromURL);
+    }
+  }, []);
 
   return (
     <>
@@ -88,7 +107,7 @@ const Form = () => {
                 option={option}
                 isSelected={selectedOption === option.slug}
                 onSelect={() => {
-                  setSelectedOption(option.slug);
+                  updateURL(option.slug);
                 }}
               />
             </div>
@@ -96,11 +115,13 @@ const Form = () => {
         </div>
       </fieldset>
 
-      {options.map((option) => (
-        <div key={option.slug}>
-          {selectedOption === option.slug && <option.formComponent />}
-        </div>
-      ))}
+      {options
+        .filter((option) => selectedOption === option.slug)
+        .map((option) => (
+          <div key={option.slug}>
+            <option.formComponent />
+          </div>
+        ))}
     </>
   );
 };
