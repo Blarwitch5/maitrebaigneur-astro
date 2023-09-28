@@ -65,3 +65,9 @@ main > section:last-of-type {
 .relative {
   position: relative;
 }
+
+input,
+textarea {
+  font-size: 16px; /* Set a font size that is comfortable for users without zooming */
+  max-width: 100%; /* Ensure input fields don't exceed the width of the viewport */
+}
