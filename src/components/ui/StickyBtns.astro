@@ -200,6 +200,12 @@ import { Icon } from "astro-icon";
         border-radius: var(--border-radius);
         backdrop-filter: blur(5px);
         box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3);
+        font-size: var(--fs-base);
+
+        @media screen and (hover: none) {
+          opacity: 1; /* Make it visible by default on touch devices */
+          transition: none;
+        }
       }
     }
   }

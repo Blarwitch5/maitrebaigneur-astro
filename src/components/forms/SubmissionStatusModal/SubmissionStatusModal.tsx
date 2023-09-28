@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import AnimatedIcon from "./AnimatedIcon"; // Remplacez par votre icône animée ou image
 
 interface SubmissionStatusModalProps {
   isSuccess: boolean;
@@ -11,12 +12,12 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Open the modal when it receives props
+  // Ouvrir la modal lorsque des propriétés sont reçues
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Close the modal when clicking outside it
+  // Fermer la modal en cliquant à l'extérieur
   const handleOutsideClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -25,14 +26,14 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
     }
   };
 
-  // Close the modal when pressing the Escape key
+  // Fermer la modal en appuyant sur la touche Échap
   const handleEscapeKey = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       onClose();
     }
   };
 
-  // Listen for the Escape key press
+  // Écouter la touche Échap
   useEffect(() => {
     window.addEventListener("keydown", handleEscapeKey);
     return () => {
@@ -46,19 +47,31 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
       onClick={handleOutsideClick}
     >
       <div className="modal-content">
+        {/* <CompanyLogo /> */}
         {isSuccess ? (
           <>
-            <h2>Form Submitted Successfully!</h2>
-            <p>Your form submission was successful.</p>
+            <h2>Formulaire Envoyé Avec Succès!</h2>
+            <p>Bravo! Votre formulaire a bien été expédié.</p>
+            <p>
+              Merci pour votre message, nous nous efforçons de vous répondre
+              dans les plus brefs délais.
+            </p>
           </>
         ) : (
           <>
-            <h2>Form Submission Failed</h2>
-            <p>There was an error with your form submission.</p>
+            <h2>Oops! Quelque Chose A Mal Tourné...</h2>
+            <p>
+              Oh non! Il semble y avoir eu une petite erreur
+              <a href="mailto:support@maitrebaigneur.com">le webmaster</a>nvoi
+              de votre formulaire.
+            </p>
+            <p>
+              Si l'erreur se reproduit, veuillez contacter le webmaster du site
+            </p>
           </>
         )}
         <button className="close-button" onClick={onClose}>
-          &times;
+          Fermer
         </button>
       </div>
     </div>
