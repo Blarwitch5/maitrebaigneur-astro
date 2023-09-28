@@ -13,11 +13,11 @@
 
   &::before {
     content: "";
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 3rem;
     display: block;
     background-image: url("/src/icons/mark.svg");
-    background-size: 1.5rem;
+    background-size: 100%;
     background-position: center;
   }
 }
