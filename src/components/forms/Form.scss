@@ -92,20 +92,37 @@
       background-color: var(--color-bg-light);
       border-radius: var(--regular-border-radius);
       overflow: hidden;
+      margin-bottom: var(--form-gap);
 
       &::before {
-        background-image: url("/src/icons/fun.svg");
+        content: "";
         background-position: 100%;
         background-size: 100%;
-        content: "";
         display: block;
         height: 100%;
         opacity: 0.03;
         position: absolute;
-        right: -25%;
         top: 0;
         width: 100%;
         z-index: 0;
+      }
+      &:first-child {
+        &::before {
+          background-image: url("/src/icons/single.svg");
+          right: -25%;
+        }
+      }
+      &:nth-child(2) {
+        &::before {
+          background-image: url("/src/icons/duo.svg");
+          right: -20%;
+        }
+      }
+      &:nth-child(3) {
+        &::before {
+          background-image: url("/src/icons/trio.svg");
+          right: -10%;
+        }
       }
 
       &__title {

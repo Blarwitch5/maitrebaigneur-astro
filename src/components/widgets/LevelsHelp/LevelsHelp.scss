@@ -97,16 +97,16 @@
   width: auto;
   margin: auto;
   display: flex;
-  margin-block: var(--space-xs) 0;
+  margin-block: var(--space-xs);
 
   &::before {
     //add an icon 2rem size before text
     content: "";
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 3rem;
+    height: 3rem;
     display: block;
     background-image: url("/src/icons/dialog.svg");
-    background-size: 100%;
+    background-size: 2rem;
     background-position: center;
     margin-right: var(--space-xs);
   }

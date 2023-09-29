@@ -439,85 +439,87 @@ const SwimmingForm = () => {
               <option value="3">3 nageurs</option>
             </select>
           </div>
-          {Array.from({ length: numSwimmers }).map((_, index) => (
-            <div className="col-100 fieldgroup">
-              <div key={`swimmer-${index}`}>
-                <p className="fieldgroup__title">Baigneur {index + 1}</p>
-                <div
-                  className={`form__field ${
-                    errors?.swimmers?.[index]?.name ? "error" : ""
-                  }`}
-                >
-                  <label htmlFor={`swimmers.${index}.name`}>
-                    Nom du nageur {index + 1}
-                  </label>
-                  <input
-                    type="text"
-                    id={`swimmers.${index}.name`}
-                    {...register(`swimmers.${index}.name`)}
-                    autoComplete="name"
-                  />
-                  {errors?.swimmers?.[index]?.name && (
-                    <p className="error-message">
-                      {errors?.swimmers?.[index]?.name?.message ?? ""}
-                    </p>
-                  )}
-                </div>
-                <div
-                  className={`form__field ${
-                    errors?.swimmers?.[index]?.dob ? "error" : ""
-                  }`}
-                >
-                  <label htmlFor={`swimmers.${index}.dob`}>
-                    Date de naissance du nageur {index + 1}
-                  </label>
-                  <input
-                    type="date"
-                    id={`swimmers.${index}.dob`}
-                    {...register(`swimmers.${index}.dob` as const)}
-                    autoComplete="bday"
-                  />
-                  {errors?.swimmers?.[index]?.dob && (
-                    <p className="error-message">
-                      {errors.swimmers?.[index]?.dob?.message}
-                    </p>
-                  )}
-                </div>
-                <div
-                  className={`form__field ${
-                    errors?.swimmers?.[index]?.level ? "error" : ""
-                  }`}
-                >
-                  <label htmlFor={`swimmers.${index}.level`}>
-                    Niveau du nageur {index + 1}
-                  </label>
-                  <select
-                    id={`swimmers.${index}.level`}
-                    {...register(`swimmers.${index}.level` as const)}
-                    autoComplete="on"
+          <div className="col-100 ">
+            {Array.from({ length: numSwimmers }).map((_, index) => (
+              <div className="fieldgroup" key={`swimmer-${index}`}>
+                <div>
+                  <p className="fieldgroup__title">Baigneur {index + 1}</p>
+                  <div
+                    className={`form__field ${
+                      errors?.swimmers?.[index]?.name ? "error" : ""
+                    }`}
                   >
-                    <option value="">-- Sélectionner un niveau --</option>
-                    <option value="baigneur-en-douceur">
-                      Baigneur en douceur
-                    </option>
-                    <option value="mini-baigneur">Mini baigneur</option>
-                    <option value="petit-baigneur">Petit baigneur</option>
-                    <option value="moyen-baigneur">Moyen baigneur</option>
-                    <option value="grand-baigneur">Grand baigneur</option>
-                    <option value="adulte">Adulte</option>
-                    <option value="parent-enfant">
-                      Parent enfant (moins de 3 ans)
-                    </option>
-                  </select>
-                  {errors?.swimmers?.[index]?.level && (
-                    <p className="error-message">
-                      {errors?.swimmers?.[index]?.level?.message ?? ""}
-                    </p>
-                  )}
+                    <label htmlFor={`swimmers.${index}.name`}>
+                      Nom du nageur {index + 1}
+                    </label>
+                    <input
+                      type="text"
+                      id={`swimmers.${index}.name`}
+                      {...register(`swimmers.${index}.name`)}
+                      autoComplete="name"
+                    />
+                    {errors?.swimmers?.[index]?.name && (
+                      <p className="error-message">
+                        {errors?.swimmers?.[index]?.name?.message ?? ""}
+                      </p>
+                    )}
+                  </div>
+                  <div
+                    className={`form__field ${
+                      errors?.swimmers?.[index]?.dob ? "error" : ""
+                    }`}
+                  >
+                    <label htmlFor={`swimmers.${index}.dob`}>
+                      Date de naissance du nageur {index + 1}
+                    </label>
+                    <input
+                      type="date"
+                      id={`swimmers.${index}.dob`}
+                      {...register(`swimmers.${index}.dob` as const)}
+                      autoComplete="bday"
+                    />
+                    {errors?.swimmers?.[index]?.dob && (
+                      <p className="error-message">
+                        {errors.swimmers?.[index]?.dob?.message}
+                      </p>
+                    )}
+                  </div>
+                  <div
+                    className={`form__field ${
+                      errors?.swimmers?.[index]?.level ? "error" : ""
+                    }`}
+                  >
+                    <label htmlFor={`swimmers.${index}.level`}>
+                      Niveau du nageur {index + 1}
+                    </label>
+                    <select
+                      id={`swimmers.${index}.level`}
+                      {...register(`swimmers.${index}.level` as const)}
+                      autoComplete="on"
+                    >
+                      <option value="">-- Sélectionner un niveau --</option>
+                      <option value="baigneur-en-douceur">
+                        Baigneur en douceur
+                      </option>
+                      <option value="mini-baigneur">Mini baigneur</option>
+                      <option value="petit-baigneur">Petit baigneur</option>
+                      <option value="moyen-baigneur">Moyen baigneur</option>
+                      <option value="grand-baigneur">Grand baigneur</option>
+                      <option value="adulte">Adulte</option>
+                      <option value="parent-enfant">
+                        Parent enfant (moins de 3 ans)
+                      </option>
+                    </select>
+                    {errors?.swimmers?.[index]?.level && (
+                      <p className="error-message">
+                        {errors?.swimmers?.[index]?.level?.message ?? ""}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </fieldset>
         <fieldset className="form__section rgpd" id="rgpd-section">
           <div className={`form__field col-100 ${errors.rgpd ? "error" : ""}`}>
