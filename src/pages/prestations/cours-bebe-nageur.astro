@@ -148,10 +148,27 @@ const page = {
     }
     &__txt {
       ul {
+        position: relative;
+
         list-style: none;
         background-color: var(--color-bg-light);
         padding: var(--space-md);
         border-radius: var(--regular-border-radius);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: var(--regular-border-radius);
+          background-image: url("/images/icons/baby.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: bottom right;
+          opacity: 0.05;
+        }
         & > li {
           &::before {
             content: "✓";
