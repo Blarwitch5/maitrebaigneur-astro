@@ -70,7 +70,7 @@
     flex: 0 0 100%;
 
     @media screen and (min-width: 767px) {
-      flex: 0 0 calc(50% - 10px);
+      flex: 0 0 calc(50% - calc(var(--form-gap) / 2));
     }
 
     .form__field {
@@ -80,8 +80,8 @@
       flex-direction: column;
       flex: 0 0 100%;
 
-      @media screen and (min-width: 600px) {
-        flex: 0 0 calc(50% - var(--form-gap));
+      @media screen and (min-width: 768px) {
+        flex: 0 0 calc(50% - calc(var(--form-gap) / 2));
       }
 
       &.error {
@@ -216,8 +216,6 @@
     }
   }
   &__section {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
     &.no-inputs {
       display: flex;
       flex-direction: column;

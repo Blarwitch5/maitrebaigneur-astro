@@ -8,8 +8,6 @@
   background-color: hsla(var(--link-color-bg-light-alt-hsl), 0.3);
   border: 1px solid var(--color-bg-light-alt);
   padding: var(--space-sm) var(--space-md);
-  display: flex;
-  gap: var(--space-sm);
 
   &::before {
     content: "";
@@ -19,5 +17,7 @@
     background-image: url("/src/icons/mark.svg");
     background-size: 2rem;
     background-position: center;
+    float: left;
+    margin-right: var(--space-sm);
   }
 }

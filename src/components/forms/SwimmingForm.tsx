@@ -388,7 +388,8 @@ const SwimmingForm = () => {
           />
           <div className="col-100">
             <button className="btn btn__regular btn-help" onClick={openPopup}>
-              Aide à l'évaluation du niveau du baigneur
+              Aide à l'évaluation
+              <br /> du niveau du baigneur
             </button>
 
             {isPopupOpen && (

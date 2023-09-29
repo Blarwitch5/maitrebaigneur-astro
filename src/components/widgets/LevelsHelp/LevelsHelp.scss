@@ -97,7 +97,11 @@
   width: auto;
   margin: auto;
   display: flex;
+  line-height: 1.2;
   margin-block: var(--space-xs);
+  text-align: left;
+  padding: var(--space-2xs) var(--space-md) var(--space-2xs) var(--space-sm);
+  cursor: pointer;
 
   &::before {
     //add an icon 2rem size before text
