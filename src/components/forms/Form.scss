@@ -19,10 +19,13 @@
   padding-block: 2rem;
 
   legend {
+    width: 100%;
     padding-inline: 1rem;
     font-family: var(--ff-pacifico);
     color: var(--color-primary);
     font-size: var(--fs-lg);
+    width: 100%;
+    grid-column: 1 / span 2;
   }
   &__group {
     border: none;
@@ -173,6 +176,17 @@
       &:focus {
         outline: 2px solid var(--color-primary);
         box-shadow: 1px 1px 8px 1px hsla(var(--link-color-primary-hsl), 0.5);
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        input:not([name="option"]),
+        textarea,
+        select,
+        input[type="date"] {
+          padding: 0.5rem 1rem;
+          width: 100%;
+          height: 2rem;
+        }
       }
     }
   }
