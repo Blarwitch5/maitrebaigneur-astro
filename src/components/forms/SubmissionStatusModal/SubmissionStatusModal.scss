@@ -1,34 +1,81 @@
-/* Modal Container */
 .submission-status-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure modal is above other content */
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.2s;
-}
+  z-index: 99999;
 
-/* Modal Content */
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &-content {
+    z-index: 999;
+    position: relative;
+    background-color: white;
+    width: calc(100% - var(--space-xl));
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-md);
+    gap: var(--space-md);
+    & > * {
+      margin: 0;
+    }
 
-/* Close Button */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 24px;
-  color: #888;
+    img {
+      border-radius: 50%;
+    }
+  }
+  &.success {
+    .submission-status-modal-content {
+      border: 3px var(--color-success) solid;
+
+      img {
+        background-color: var(--color-success);
+      }
+    }
+  }
+  &.error {
+    .submission-status-modal-content {
+      border: 3px var(--color-error) solid;
+    }
+
+    img {
+      background-color: var(--color-error);
+    }
+  }
+
+  .btn-back {
+    all: unset;
+    cursor: pointer;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      background-image: url("/src/icons/arrow_down.svg");
+      transform: rotate(90deg);
+      background-position: center;
+      background-size: 2rem;
+      background-repeat: no-repeat;
+    }
+  }
 }

@@ -47,11 +47,12 @@ const AquaversaryFormSchema = z.object({
   message: z.string().min(5, {
     message: "Le message doit contenir un minimum de 5 caractères.",
   }),
-  honeypot: z.string().refine((value) => value === "", {
-    message: "Honey pot doit être vide.",
-  }),
+
   rgpd: z.boolean().refine((value) => value === true, {
     message: "Vous devez accepter les conditions d'utilisation.",
+  }),
+  honeypot: z.string().refine((value) => value === "", {
+    message: "Honey pot doit être vide.",
   }),
 });
 

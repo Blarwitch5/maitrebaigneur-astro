@@ -43,14 +43,15 @@ const SurveillanceFormSchema = z.object({
       /^\+?[0-9]+$/,
       "Le numéro de téléphone ne doit contenir que des chiffres et/ou le signe + pour l'indicatif du pays"
     ),
-  honeypot: z.string().refine((value) => value === "", {
-    message: "Honey pot doit être vide.",
+  info: z.string().min(10, {
+    message: "Les informations doivent contenir un minimum de 10 caractères.",
   }),
+
   rgpd: z.boolean().refine((value) => value === true, {
     message: "Vous devez accepter les conditions d'utilisation.",
   }),
-  info: z.string().min(10, {
-    message: "Les informations doivent contenir un minimum de 10 caractères.",
+  honeypot: z.string().refine((value) => value === "", {
+    message: "Honey pot doit être vide.",
   }),
 });
 

@@ -26,7 +26,6 @@ const LevelsHelp: React.FC<React.PropsWithChildren<LevelsHelpProps>> = ({
       className="dialog"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
     >
       {isOpen && (

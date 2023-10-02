@@ -190,6 +190,7 @@
     input:not([name="option"]),
     textarea,
     select {
+      min-height: 2rem;
       background-color: var(--color-white);
       border-radius: var(--regular-border-radius);
       padding: 0.5rem;

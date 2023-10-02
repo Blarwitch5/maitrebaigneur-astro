@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+import "./SubmissionStatusModal.scss";
 // import AnimatedIcon from "./AnimatedIcon"; // Remplacez par votre icône animée ou image
 
 interface SubmissionStatusModalProps {
@@ -43,36 +45,52 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
 
   return (
     <div
-      className={`submission-status-modal ${isVisible ? "visible" : ""}`}
+      className={`submission-status-modal ${isVisible ? "visible" : ""} ${
+        isSuccess ? "success" : "error"
+      }`}
       onClick={handleOutsideClick}
+      role="dialog"
+      aria-modal="true"
     >
-      <div className="modal-content">
-        {/* <CompanyLogo /> */}
+      <div className="submission-status-modal-overlay" aria-hidden="true"></div>
+      <div className="submission-status-modal-content">
+        <button onClick={onClose} className="btn-back ">
+          Retour
+        </button>
         {isSuccess ? (
           <>
-            <h2>Formulaire Envoyé Avec Succès!</h2>
-            <p>Bravo! Votre formulaire a bien été expédié.</p>
+            <img
+              src="/src/icons/fun.svg"
+              width="128"
+              height="128"
+              alt="Petit baigneur satisfait"
+            />
+            <h2>Formulaire envoyé avec succès!</h2>
             <p>
-              Merci pour votre message, nous nous efforçons de vous répondre
-              dans les plus brefs délais.
+              Félicitations ! Votre formulaire a bien été soumis. Nous vous
+              remercions pour votre message et nous nous efforcerons de vous
+              répondre dans les plus brefs délais.
             </p>
           </>
         ) : (
           <>
-            <h2>Oops! Quelque Chose A Mal Tourné...</h2>
+            <img
+              src="/src/icons/error.svg"
+              width="128"
+              height="128"
+              alt="Petit baigneur mécontent"
+            />
+            <h2>Oops! Quelque chose s'est mal passé...</h2>
             <p>
-              Oh non! Il semble y avoir eu une petite erreur
-              <a href="mailto:support@maitrebaigneur.com">le webmaster</a>nvoi
-              de votre formulaire.
-            </p>
-            <p>
-              Si l'erreur se reproduit, veuillez contacter le webmaster du site
+              Nous rencontrons actuellement des difficultés pour traiter votre
+              formulaire. Veuillez réessayer ultérieurement ou contacter notre
+              <a href="mailto:support@maitrebaigneur.com">
+                équipe d'assistance technique
+              </a>
+              . Nous nous excusons pour les désagréments occasionnés.
             </p>
           </>
         )}
-        <button className="close-button" onClick={onClose}>
-          Fermer
-        </button>
       </div>
     </div>
   );

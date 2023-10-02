@@ -8,8 +8,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
+import Modal from "@components/ui/modal/Modal.tsx";
 import SubmitBtn from "./SubmitBtn.tsx";
-import LevelsHelp from "../widgets/LevelsHelp/LevelsHelp.tsx";
 import Notice from "@components/ui/notice/Notice.tsx";
 import HoneyPot from "@components/forms/HoneyPot/HoneyPot.tsx";
 import SubmissionStatusModal from "@components/forms/SubmissionStatusModal/SubmissionStatusModal.tsx";
@@ -127,11 +127,12 @@ const SwimmingFormSchema = z.object({
       })
     )
     .max(3), // Ensure a maximum of 3 swimmers
-  honeypot: z.string().refine((value) => value === "", {
-    message: "Honey pot doit être vide.",
-  }),
+
   rgpd: z.boolean().refine((value) => value === true, {
     message: "Vous devez accepter les conditions d'utilisation.",
+  }),
+  honeypot: z.string().refine((value) => value === "", {
+    message: "Honey pot doit être vide.",
   }),
 });
 
@@ -393,7 +394,7 @@ const SwimmingForm = () => {
             </button>
 
             {isPopupOpen && (
-              <LevelsHelp isOpen={isPopupOpen} onClose={closePopup}>
+              <Modal isOpen={isPopupOpen} onClose={closePopup}>
                 <ul className="levels">
                   {levels.map((level) => (
                     <li key={level.name}>
@@ -419,7 +420,7 @@ const SwimmingForm = () => {
                     </li>
                   ))}
                 </ul>
-              </LevelsHelp>
+              </Modal>
             )}
           </div>
           {/* Select field for the number of swimmers */}
