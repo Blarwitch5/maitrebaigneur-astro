@@ -5,8 +5,6 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import BabySwimmingPrices from "@components/widgets/prices/BabySwimmingPrices.astro";
 import Title from "@components/ui/Title.astro";
 
@@ -61,11 +59,11 @@ const page = {
     pageImageAlt={page.image.alt}
   />
   <Main>
-    <Section
+    <section
       class="baby-swimmer"
-      ariaLabel="Informations concernant la section bébé nageur"
+      aria-label="Informations concernant la section bébé nageur"
     >
-      <Container>
+      <div class="container">
         <div class="baby-swimmer__wrapper">
           <Title animate level="2" class="baby-swimmer__title">
             Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?
@@ -114,14 +112,14 @@ const page = {
             }
           </div>
         </div>
-      </Container>
-    </Section>
-    <Section>
-      <Container>
+      </div>
+    </section>
+    <section>
+      <div class="container">
         <Title animate level="3">Tarifs Bébé Baigneur</Title>
         <BabySwimmingPrices />
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

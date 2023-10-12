@@ -5,9 +5,7 @@ import Footer from "@components/Footer.astro";
 
 import "sanitize.css/forms.css";
 import PageTitle from "@components/header/PageTitle.astro";
-import Section from "@components/Section.astro";
 import Main from "@components/Main.astro";
-import Container from "@components/Container.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Title from "@components/ui/Title.astro";
@@ -41,8 +39,8 @@ import Form from "@components/forms/Form.tsx";
   />
 
   <Main>
-    <Section class="form" ariaLabel="Formulaire de contact">
-      <Container>
+    <section class="form" aria-label="Formulaire de contact">
+      <div class="container">
         <Title level="2" class="section-title" animate>
           Pour nous contacter, c'est par ici !
         </Title>
@@ -55,8 +53,8 @@ import Form from "@components/forms/Form.tsx";
           </p>
         </p>
         <Form client:load />
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

@@ -5,13 +5,11 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Hero from "@components/widgets/Hero.astro";
 import Footer from "@components/Footer.astro";
-import Section from "@components/Section.astro";
 import Forces from "@components/widgets/Forces.astro";
 import Services from "@components/widgets/Services.astro";
 import BookingCta from "@components/widgets/BookingCta.astro";
 import PoolsCta from "@components/widgets/PoolsCta.astro";
 import Faq from "@components/widgets/Faq.astro";
-import Container from "@components/Container.astro";
 import LogoCarousel from "@components/widgets/LogoCarousel.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Title from "@components/ui/Title.astro";
@@ -40,11 +38,11 @@ const page = {
     <Hero
       ariaLabel="Bannière Maître-Baigneur, apprendre à nager à Aix-en-Provence"
     />
-    <Section
+    <section
       class="services"
-      ariaLabel="Liste des prestations proposées par Maître-Baigneur"
+      aria-label="Liste des prestations proposées par Maître-Baigneur"
     >
-      <Container class="services__wrapper">
+      <div class="container services__wrapper">
         <div class="services__infos" data-aos="fade-right">
           <Title animate level="2" class="services__title">
             Nos prestations aquatiques
@@ -66,31 +64,25 @@ const page = {
           </p>
         </div>
         <Services />
-      </Container>
-    </Section>
-    <Section
-      class="forces"
-      backgroundColor="var(--color-bg-light)"
-      ariaLabel="Les atouts de Maître-Baigneur"
-    >
+      </div>
+    </section>
+    <section class="forces bg-light" aria-label="Les atouts de Maître-Baigneur">
       <Waves atTopOfSection />
-      <Container data-aos="zoom-in">
+      <div class="container" data-aos="zoom-in">
         <Title animate level="2" class="forces__title">
           Pourquoi apprendre à nager avec Maître-Baigneur ?
         </Title>
         <Forces />
-      </Container>
-    </Section>
-    <Section
-      class="booking"
-      backgroundColor="var(--color-primary)"
-      darkSection
-      ariaLabel="Commencer l'aventure Maître-Baigneur en réservant une séance"
+      </div>
+    </section>
+    <section
+      class="booking bg-primary dark"
+      aria-label="Commencer l'aventure Maître-Baigneur en réservant une séance"
     >
       <BookingCta />
-    </Section>
-    <Section class="faq" ariaLabel="Réponses aux questions fréquentes">
-      <Container>
+    </section>
+    <section class="faq" aria-label="Réponses aux questions fréquentes">
+      <div class="container">
         <Title animate level="2">
           Foire Aux Questions : Tout ce que vous devez savoir sur
           Maître-Baigneur
@@ -106,18 +98,17 @@ const page = {
           n'hésitez pas à nous contacter pour en savoir plus.
         </p>
         <Faq />
-      </Container>
-    </Section>
-    <Section
-      class="pools"
-      backgroundColor="var(--color-bg-light-alt)"
-      ariaLabel="Découvrir les bassins d'apprentissage de Maître-Baigneur"
+      </div>
+    </section>
+    <section
+      class="pools bg-light-alt"
+      aria-label="Découvrir les bassins d'apprentissage de Maître-Baigneur"
     >
       <Waves atTopOfSection />
       <PoolsCta />
-    </Section>
-    <!-- <Section class="testimonial" backgroundColor="var(--color-bg-light)" ariaLabel="Liste d'avis de clients">
-			<Container>
+    </section>
+    <!-- <section class="testimonial bg-light"  aria-label="Liste d'avis de clients">
+<div class="container">
 				<h3 class="testimonial__title">Découvrez ce que nos clients disent de nous</h3>
 				<p class="testimonial__desc">
 					Dans ces témoignages, vous pouvez découvrir les expériences de nos clients qui ont participé à l'un de nos cours. Lisez leurs histoires pour
@@ -125,15 +116,15 @@ const page = {
 					offrons. Ce sont les témoignages de nos clients satisfaits qui font de Maître-Baigneur le choix idéal pour votre apprentissage de la
 					natation.
 				</p>
-			</Container>
+			</div>
 			<Testimonial />
 			<Waves />
-		</Section> -->
-    <Section
+		</section> -->
+    <section
       class="partners"
-      ariaLabel="Liste des partenaires qui soutiennent Maître-Baigneur"
+      aria-label="Liste des partenaires qui soutiennent Maître-Baigneur"
     >
-      <Container>
+      <div class="container">
         <Title animate level="3">
           Partenaires : Une collaboration pour des services de qualité
           supérieure
@@ -145,8 +136,8 @@ const page = {
           constant sans lequel Maître-Baigneur ne serait pas possible.
         </p>
         <LogoCarousel />
-      </Container>
-    </Section>
+      </div>
+    </section>
     <Footer />
   </Main>
 </BaseLayout>

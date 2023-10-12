@@ -6,8 +6,6 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import { Icon } from "astro-icon";
 import Title from "@components/ui/Title.astro";
 // Generate a new path for every collection entry
@@ -39,9 +37,9 @@ const pools = siteLinks.pools;
     pageImageAlt={entry.data.pool.image.alt}
   />
 
-  <Main class="single-pool">
-    <Section class="single-pool">
-      <Container>
+  <Main>
+    <section class="single-pool">
+      <div class="container">
         {
           entry.data.pool.name === "Domicile" ? (
             <Title animate level="2" class="single-pool__title">
@@ -103,8 +101,8 @@ const pools = siteLinks.pools;
             </ul>
           </div>
         </div>
-      </Container>
-      <Container fullWidth>
+      </div>
+      <div class="container-fluid">
         <div class="single-pool__gallery glide">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -145,8 +143,8 @@ const pools = siteLinks.pools;
             }
           </div>
         </div>
-      </Container>
-      <Container>
+      </div>
+      <div class="container">
         <div class="related-pools">
           <Title animate level="5">
             Découvrez aussi nos autres bassins d'apprentissage
@@ -174,8 +172,8 @@ const pools = siteLinks.pools;
             }
           </ul>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
 
     <Footer />
   </Main>
@@ -305,10 +303,6 @@ const pools = siteLinks.pools;
       .glide {
         display: block;
         height: 432px;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // padding-block-end: 4rem;
         position: relative;
 
         @media screen and (max-width: 1024px) {
@@ -329,7 +323,6 @@ const pools = siteLinks.pools;
 
         &__bullet {
           background-color: var(--color-primary);
-
           border-color: var(--color-white);
           border-width: 1px;
 
@@ -403,7 +396,6 @@ const pools = siteLinks.pools;
       hoverpause: true,
       focusAt: "center",
       perView: 3,
-      // gap: 16,
       keyboard: true,
       breakpoints: {
         1024: {

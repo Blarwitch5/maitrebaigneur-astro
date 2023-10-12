@@ -5,36 +5,43 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Pools from "@components/widgets/Pools.astro";
-import Section from "@components/Section.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 
 //data
 
 const page = {
-	metaTitle: "Bassins d'apprentissage",
-	description: "",
-	title: "Bassins d'apprentissage",
-	imageUrl: "/images/page-title/fallback.jpg",
-	imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+  metaTitle: "Bassins d'apprentissage",
+  description: "",
+  title: "Bassins d'apprentissage",
+  imageUrl: "/images/page-title/fallback.jpg",
+  imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
 
-	image: {
-		webp: "/images/page-title/webp/fallback.webp",
-		jpg: "/images/page-title/fallback.jpg",
-		alt: "Vue sur des pieds trempants dans l'eau d'une piscine"
-	}
+  image: {
+    webp: "/images/page-title/webp/fallback.webp",
+    jpg: "/images/page-title/fallback.jpg",
+    alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+  },
 };
 ---
 
 <BaseLayout title={page.title} description={page.description}>
-	<SkipToContent />
-	<Header />
-	<PageTitle pageTitle={page.title} pageImageUrlWebp={page.image.webp} pageImageUrl={page.image.jpg} pageImageAlt={page.image.alt} />
+  <SkipToContent />
+  <Header />
+  <PageTitle
+    pageTitle={page.title}
+    pageImageUrlWebp={page.image.webp}
+    pageImageUrl={page.image.jpg}
+    pageImageAlt={page.image.alt}
+  />
 
-	<Main>
-		<Section class="pools" ariaLabel="Les bassins d'apprentissage de Maître-Baigneur">
-			<Pools />
-		</Section>
-		<Footer />
-	</Main>
+  <Main>
+    <section
+      class="pools"
+      aria-label="Les bassins d'apprentissage de Maître-Baigneur"
+    >
+      <Pools />
+    </section>
+    <Footer />
+  </Main>
 </BaseLayout>
 <style></style>

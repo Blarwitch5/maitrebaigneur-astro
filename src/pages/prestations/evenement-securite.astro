@@ -4,8 +4,6 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import EventsPrices from "@components/widgets/prices/EventsPrices.astro";
@@ -37,8 +35,8 @@ const page = {
   />
 
   <Main>
-    <Section class="event">
-      <Container>
+    <section class="event">
+      <div class="container">
         <Title animate level="2" class="event__title">
           Maître-Baigneur sécurise vos événements
         </Title>
@@ -75,16 +73,16 @@ const page = {
           src="/images/page-title/page_surveillance.jpg"
           alt=""
         />
-      </Container>
-    </Section>
-    <Section>
-      <Container>
+      </div>
+    </section>
+    <section>
+      <div class="container">
         <Title animate level="3">
           Tarifs pour la sécurité de vos événements
         </Title>
         <EventsPrices />
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

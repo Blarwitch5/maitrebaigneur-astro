@@ -1,11 +1,10 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
-import Container from "@components/Container.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Title from "@components/ui/Title.astro";
 ---
 
-<Container class="booking__section">
+<div class="container booking__section">
   <div class="booking__img" data-aos="fade-right">
     <picture>
       <source type="image/webp" srcset="/images/join-us.webp" />
@@ -40,7 +39,7 @@ import Title from "@components/ui/Title.astro";
     </Buttons>
   </div>
   <Waves />
-</Container>
+</div>
 
 <style lang="scss">
   :global(.booking__section) {

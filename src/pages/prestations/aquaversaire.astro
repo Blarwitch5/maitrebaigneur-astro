@@ -5,9 +5,6 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-import Container from "@components/Container.astro";
-import Section from "@components/Section.astro";
-import Buttons from "@components/ui/Buttons.astro";
 import Title from "@components/ui/Title.astro";
 
 import AquaversairePrices from "@components/widgets/prices/AquaversairePrices.astro";
@@ -37,8 +34,8 @@ const page = {
   />
 
   <Main>
-    <Section class="aquaversaire">
-      <Container>
+    <section class="aquaversaire">
+      <div class="container">
         <Title animate level="2" class="aquaversaire__title">
           Maître-Baigneur organise vos anniversaires
         </Title>
@@ -72,14 +69,14 @@ const page = {
           src="/images/aquaversaire-2.jpg"
           alt="Personnes flottant sur des bouées dans une piscines lors d'un anniversaire"
         />
-      </Container>
-    </Section>
-    <Section>
-      <Container>
+      </div>
+    </section>
+    <section>
+      <div class="container">
         <Title animate level="3">Tarifs Aquaversaire</Title>
         <AquaversairePrices />
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

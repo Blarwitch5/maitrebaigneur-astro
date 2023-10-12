@@ -1,6 +1,5 @@
 ---
 import Buttons from "@components/ui/Buttons.astro";
-import Container from "@components/Container.astro";
 import Title from "@components/ui/Title.astro";
 
 import site from "@assets/data/data.json";
@@ -9,7 +8,7 @@ const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
-<Container class="pools__wrapper">
+<div class="container pools__wrapper">
   <div class="pools__content" data-aos="zoom-in">
     <Title level="3" class="pools__title">
       Vous êtes à la recherche d'un bassin pour apprendre à nager ?
@@ -146,7 +145,7 @@ const pools = siteLinks.pools;
       </picture>
     </li>
   </ul>
-</Container>
+</div>
 
 <style lang="scss">
   :global(.pools__wrapper) {

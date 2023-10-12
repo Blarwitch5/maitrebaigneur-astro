@@ -4,8 +4,6 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Main from "@components/Main.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Title from "@components/ui/Title.astro";
 
@@ -34,8 +32,8 @@ const page = {
   />
 
   <Main>
-    <Section>
-      <Container>
+    <section>
+      <div class="container">
         <div class="legal">
           <Title animate level="2">Informations légales</Title>
           <div>
@@ -254,9 +252,9 @@ const page = {
             </ul>
           </div>
         </div>
-      </Container>
+      </div>
       <Footer />
-    </Section>
+    </section>
   </Main>
 </BaseLayout>
 

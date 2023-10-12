@@ -1,17 +1,17 @@
 ---
 interface Props {
-	class?: string;
+  class?: string;
 }
 
 const { class: className } = Astro.props;
 ---
 
 <main id="skip-content-target" class:list={className}>
-	<slot />
+  <slot />
 </main>
 
 <style>
-	main {
-		overflow: hidden;
-	}
+  main {
+    overflow: hidden;
+  }
 </style>

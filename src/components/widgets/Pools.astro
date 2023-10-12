@@ -1,13 +1,12 @@
 ---
 import site from "@assets/data/data.json";
-import Container from "@components/Container.astro";
 import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
-<Container>
+<div class="container">
   <Title level="2" class="pools__title">
     Les bassins d'accueil à Aix-en-Provence et ses environs
   </Title>
@@ -53,7 +52,7 @@ const pools = siteLinks.pools;
       </a>
     </article>
   </div>
-</Container>
+</div>
 
 <style lang="scss">
   .pools__title {

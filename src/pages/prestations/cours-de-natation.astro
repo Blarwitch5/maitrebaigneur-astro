@@ -6,8 +6,6 @@ import SkipToContent from "@components/ui/SkipToContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import LevelsGrid from "@components/widgets/LevelsGrid.astro";
 import SwimmingPrices from "@components/widgets/prices/SwimmingPrices.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
@@ -36,8 +34,8 @@ const page = {
     pageImageAlt={page.image.alt}
   />
   <Main>
-    <Section class="levels">
-      <Container>
+    <section class="levels">
+      <div class="container">
         <Title animate level="2">
           Nos groupes d’apprentissage de la natation
         </Title>
@@ -48,11 +46,11 @@ const page = {
           pédagogique afin d’apprendre en s’amusant.
         </p>
         <LevelsGrid />
-      </Container>
-    </Section>
-    <Section class="fear" backgroundColor="var(--color-bg-light-alt)">
+      </div>
+    </section>
+    <section class="fear bg-light-alt">
       <Waves atTopOfSection />
-      <Container class="fear__section">
+      <div class="container fear__section">
         <div class="fear__img" data-aos="fade-right">
           <picture>
             <source
@@ -81,14 +79,14 @@ const page = {
         </div>
 
         <Waves />
-      </Container>
-    </Section>
-    <Section class="swimming-prices">
-      <Container>
+      </div>
+    </section>
+    <section class="swimming-prices">
+      <div class="container">
         <Title animate level="3">Tarfis de nos leçons de natation</Title>
         <SwimmingPrices />
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

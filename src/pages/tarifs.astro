@@ -5,8 +5,6 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import { Icon } from "astro-icon";
 
@@ -45,8 +43,8 @@ const page = {
   />
 
   <Main>
-    <Section>
-      <Container>
+    <section>
+      <div class="container">
         <div class="pricing">
           <div>
             <Title level="2" animate>
@@ -216,8 +214,8 @@ const page = {
             </div>
           </div>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>

@@ -5,8 +5,6 @@ import Main from "@components/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
-import Section from "@components/Section.astro";
-import Container from "@components/Container.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
@@ -44,8 +42,8 @@ const page = {
   />
 
   <Main>
-    <Section>
-      <Container>
+    <section>
+      <div class="container">
         <Title level="2" animate>Foire aux questions</Title>
         <p>
           Nous avons rassemblé ici les questions les plus fréquentes que nous
@@ -162,8 +160,8 @@ const page = {
           fréquemment posées par nos clients. <br />Votre compréhension est
           grandement appréciée
         </p>
-      </Container>
-    </Section>
+      </div>
+    </section>
   </Main>
 </BaseLayout>
 <Footer />
