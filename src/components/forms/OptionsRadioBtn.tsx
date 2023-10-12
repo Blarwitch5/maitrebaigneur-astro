@@ -29,7 +29,6 @@ const OptionsRadioBtn: React.FC<OptionsRadioBtnProps> = ({
           onSelect();
         }}
         type="radio"
-        autoComplete="off"
         name="option"
         data-option={option.slug}
         value={option.value}
