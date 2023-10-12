@@ -45,12 +45,13 @@
         "href": "/bassins",
         "name": "Nos bassins d'apprentissage",
         "children": [
-          { "href": "/bassins/aquabecool", "name": "Aquabecool" },
-          { "href": "/bassins/plan-form", "name": "Plan Form" },
           {
             "href": "/bassins/kabanon",
             "name": "Kabanon des écuries de l'aube"
           },
+          { "href": "/bassins/aquabecool", "name": "Aquabecool" },
+          { "href": "/bassins/plan-form", "name": "Plan Form" },
+
           { "href": "/bassins/kinemouv", "name": "Kinémouv'" },
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
@@ -129,16 +130,17 @@
     ],
     "pools": [
       {
-        "name": "Domicile",
-        "href": "/bassins/domicile",
+        "name": "Kabanon des écuries de l'aube",
+        "href": "/bassins/kabanon",
         "image": {
-          "src": "/images/pools/domicile.jpg",
-          "alt": "Bassin à domicile"
+          "src": "/images/pools/kabanon.jpg",
+          "alt": "Bassin du Kabanon des écuries de l'aube"
         },
-        "location": "",
+        "location": "Saint-Marc-Jaumegarde",
+        "address": "Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde",
         "thumb": {
-          "jpg": "/images/thumbnails/domicile-thumb.jpg",
-          "alt": "Bassin à domicile"
+          "jpg": "/images/thumbnails/kabanon-thumb.jpg",
+          "alt": "Bassin du Kabanon des écuries de l'aube"
         }
       },
       {
@@ -155,31 +157,18 @@
           "alt": "Bassin à Aquabecool"
         }
       },
-      {
-        "name": "Kabanon des écuries de l'aube",
-        "href": "/bassins/kabanon",
-        "image": {
-          "src": "/images/pools/kabanon.jpg",
-          "alt": "Bassin du Kabanon des écuries de l'aube"
-        },
-        "location": "Saint-Marc-Jaumegarde",
-        "address": "Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde",
-        "thumb": {
-          "jpg": "/images/thumbnails/kabanon-thumb.jpg",
-          "alt": "Bassin du Kabanon des écuries de l'aube"
-        }
-      },
+
       {
         "name": "Kinémouv'",
         "href": "/bassins/kinemouv",
         "image": {
-          "src": "/images/pools/fallback.jpg",
+          "src": "/images/pools/kinemouv.jpg",
           "alt": "Bassin de Kinémouv"
         },
         "location": "Pertuis",
         "address": "434 Chemin de Saint-Martin, 84120 Pertuis",
         "thumb": {
-          "jpg": "/images/thumbnails/domicile-thumb.jpg",
+          "jpg": "/images/thumbnails/kinemouv-thumb.jpg",
           "alt": "Bassin Kinémouv'"
         }
       },
@@ -195,6 +184,19 @@
         "thumb": {
           "jpg": "/images/thumbnails/planform-thumb.jpg",
           "alt": "Bassin à Plan Form"
+        }
+      },
+      {
+        "name": "Domicile",
+        "href": "/bassins/domicile",
+        "image": {
+          "src": "/images/pools/domicile.jpg",
+          "alt": "Bassin à domicile"
+        },
+        "location": "",
+        "thumb": {
+          "jpg": "/images/thumbnails/domicile-thumb.jpg",
+          "alt": "Bassin à domicile"
         }
       }
     ],

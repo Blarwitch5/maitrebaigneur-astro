@@ -6,10 +6,21 @@ title: "Kinémouv'"
 pool: {
 	name: "Kinémouv'",
 	location: "Pertuis",
-	desc: "La description du bassin de Kinémouv' est en cours de rédaction.",
+	desc: "
+Nous sommes ravis de vous annoncer notre récent partenariat avec Kinemouv' à Pertuis, depuis 2022. Nous vous invitons chaleureusement à profiter de nos activités aquatiques :
+
+<ul>
+	<li><strong>Samedi Matin</strong> : Plongez dans le plaisir avec nos séances de bébés nageurs.</li>
+	<li><strong>Samedi Après-midi</strong> : Perfectionnez vos compétences en natation lors de nos cours dédiés.</li>
+</ul>
+Pour les adultes, nous proposons des séances dynamiques d'aquabike et d'Aquafitness les mardis et jeudis soir.
+
+De plus, notre centre vous offre des séances de kinésithérapie tous les jours, dans une ambiance conviviale.
+
+Découvrez un monde de divertissement aquatique et de bien-être dans notre établissement à Pertuis. Rejoignez-nous dès aujourd'hui pour plonger dans l'action !",
 	image: {
-		webp: "/images/page-title/webp/fallback.webp",
-		jpg: "/images/page-title/fallback.jpg",
+		webp: "/images/page-title/webp/page_kinemouv-bassins.webp",
+		jpg: "/images/page-title/page_kinemouv-bassins.jpg",
 		alt: "Bassin de Kinémouv' à Pertuis"
 	},
 	address: "434 Chem. de Saint-Martin, 84120 Pertuis",
@@ -31,19 +42,19 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/planform/planform-1.webp",
-			jpg: "/images/pools/planform/planform-1.jpg",
-			alt: "Bassin de Plan Form à Cabriès"
+			webp: "/images/pools/kinemouv/kinemouv-1.webp",
+			jpg: "/images/pools/kinemouv/kinemouv-1.jpg",
+			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			webp: "/images/pools/planform/planform-2.webp",
-			jpg: "/images/pools/planform/planform-2.jpg",
-			alt: "Bassin de Plan Form à Cabriès"
+			webp: "/images/pools/kinemouv/kinemouv-2.webp",
+			jpg: "/images/pools/kinemouv/kinemouv-2.jpg",
+			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			webp: "/images/pools/planform/planform-3.webp",
-			jpg: "/images/pools/planform/planform-3.jpg",
-			alt: "Bassin de Plan Form à Cabriès"
+			webp: "/images/pools/kinemouv/kinemouv-3.webp",
+			jpg: "/images/pools/kinemouv/kinemouv-3.jpg",
+			alt: "Bassin de Kinémouv' à Pertuis"
 		}
 	]
 }
