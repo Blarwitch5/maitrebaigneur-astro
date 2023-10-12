@@ -1,78 +1,86 @@
-<button id="closeBtn" class="close-btn">
-	<div class="close-btn__container">
-		<div class="leftright"></div>
-		<div class="rightleft"></div>
-		<label class="close">fermer</label>
-	</div>
+<button
+  id="closeBtn"
+  class="close-btn"
+  aria-label="Fermer la fenêtre"
+  title="Fermer"
+>
+  <span class="close-btn__container">
+    <span class="leftright"></span>
+    <span class="rightleft"></span>
+    <span class="close">fermer</span>
+  </span>
 </button>
 
 <style lang="scss">
-	.close-btn {
-		position: absolute;
-		top: 20px;
-		right: 45px;
-		text-decoration: none;
-		color: var(--color-white);
-		background: none;
-		border: none;
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    text-decoration: none;
+    color: var(--color-white);
+    background: none;
+    border: none;
+    span {
+      display: block;
+    }
 
-		&__container {
-			position: relative;
-			margin: auto;
-			width: 2rem;
-			height: 2rem;
-			cursor: pointer;
+    &__container {
+      position: relative;
+      margin: auto;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
 
-			.leftright {
-				height: 4px;
-				width: 2rem;
-				position: absolute;
-				margin-top: 24px;
-				background-color: var(--color-white);
-				border-radius: 2px;
-				transform: rotate(45deg);
-				transition: all 0.3s ease-in;
-			}
+      .leftright {
+        height: 4px;
+        width: 2rem;
+        position: absolute;
+        margin-top: 24px;
+        background-color: var(--color-white);
+        border-radius: 2px;
+        transform: rotate(45deg);
+        transition: all 0.3s ease-in;
+      }
 
-			.rightleft {
-				height: 4px;
-				width: 2rem;
-				position: absolute;
-				margin-top: 24px;
-				background-color: var(--color-white);
-				border-radius: 2px;
-				transform: rotate(-45deg);
-				transition: all 0.3s ease-in;
-			}
+      .rightleft {
+        height: 4px;
+        width: 2rem;
+        position: absolute;
+        margin-top: 24px;
+        background-color: var(--color-white);
+        border-radius: 2px;
+        transform: rotate(-45deg);
+        transition: all 0.3s ease-in;
+      }
 
-			label {
-				color: white;
-				font-family: var(--ff-raleway);
-				font-size: 0.6em;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				transition: all 0.3s ease-in;
-				opacity: 0;
-			}
-			.close {
-				position: absolute;
-				bottom: -1.5rem;
-				left: 50%;
-				transform: translateX(-50%);
-			}
-			&:hover {
-				.leftright {
-					transform: rotate(-45deg);
-					background-color: var(--color-secondary);
-				}
-				.rightleft {
-					transform: rotate(45deg);
-					background-color: var(--color-secondary);
-				}
-				label {
-					opacity: 1;
-				}
-			}
-		}
-	}
+      span.close {
+        color: white;
+        font-family: var(--ff-raleway);
+        font-size: 0.6em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease-in;
+        opacity: 0;
+      }
+      .close {
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      &:hover {
+        .leftright {
+          transform: rotate(-45deg);
+          background-color: var(--color-secondary);
+        }
+        .rightleft {
+          transform: rotate(45deg);
+          background-color: var(--color-secondary);
+        }
+        span.close {
+          opacity: 1;
+        }
+      }
+    }
+  }
 </style>
