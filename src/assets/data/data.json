@@ -51,7 +51,14 @@
           },
           { "href": "/bassins/aquabecool", "name": "Aquabecool" },
           { "href": "/bassins/plan-form", "name": "Plan Form" },
-
+          {
+            "href": "/bassins/les-terrasses-du-sun",
+            "name": "Les Terrasses du Sun"
+          },
+          {
+            "href": "/bassins/le-carre-d-o",
+            "name": "Le Carré d'Ô"
+          },
           { "href": "/bassins/kinemouv", "name": "Kinémouv'" },
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
@@ -184,6 +191,34 @@
         "thumb": {
           "jpg": "/images/thumbnails/planform-thumb.jpg",
           "alt": "Bassin à Plan Form"
+        }
+      },
+      {
+        "name": "Les Terrasses du Sun",
+        "href": "/bassins/les-terrasses-du-sun",
+        "image": {
+          "src": "/images/pools/les-terrasses-du-sun.jpg",
+          "alt": "Bassin des Terrasses du Sun"
+        },
+        "location": "Aix Sud Ouest",
+        "address": "165 Chem. de la Valette, 13290 Aix-en-Provence",
+        "thumb": {
+          "jpg": "/images/thumbnails/les-terrasses-du-sun-thumb.jpg",
+          "alt": "Bassin des Terrasses du Sun"
+        }
+      },
+      {
+        "name": "Le Carré d'Ô",
+        "href": "/bassins/le-carre-d-o",
+        "image": {
+          "src": "/images/pools/le-carre-d-o.jpg",
+          "alt": "Bassin du Carré d'Ô"
+        },
+        "location": "Aix Centre",
+        "address": "23 avenue de la Sainte Victoire 13100 Aix-en-Provence",
+        "thumb": {
+          "jpg": "/images/thumbnails/le-carre-d-o-thumb.jpg",
+          "alt": "Bassin du Carré d'Ô"
         }
       },
       {

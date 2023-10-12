@@ -1,6 +1,6 @@
 ---
 metaTitle: "Notre bassin d'apprentissage à Kinémouv'"
-metaDesc: "meta description"
+metaDesc: "Découvrez notre partenariat avec Kinemouv' à Pertuis pour des activités aquatiques variées. Initiez vos bébés à l'eau, perfectionnez vos compétences en natation, ou profitez de nos séances d'aquabike et d'Aquafitness pour adultes. De plus, des séances de kinésithérapie sont disponibles tous les jours. Rejoignez-nous à Pertuis pour plonger dans l'action !"
 
 title: "Kinémouv'"
 pool: {

@@ -203,6 +203,20 @@ declare module 'astro:content' {
   collection: "bassins";
   data: any
 } & { render(): Render[".md"] };
+"le-carre-d-o.md": {
+	id: "le-carre-d-o.md";
+  slug: "le-carre-d-o";
+  body: string;
+  collection: "bassins";
+  data: any
+} & { render(): Render[".md"] };
+"les-terrasses-du-sun.md": {
+	id: "les-terrasses-du-sun.md";
+  slug: "les-terrasses-du-sun";
+  body: string;
+  collection: "bassins";
+  data: any
+} & { render(): Render[".md"] };
 "plan-form.md": {
 	id: "plan-form.md";
   slug: "plan-form";

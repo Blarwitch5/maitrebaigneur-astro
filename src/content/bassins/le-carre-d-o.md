@@ -1,0 +1,55 @@
+---
+metaTitle: "Notre bassin d'apprentissage au Carréd'Ô"
+metaDesc: "Découvrez notre bassin d'apprentissage au Carré d'Ô, exploité par Maître-Baigneur pour des cours de natation et bébé nageur. Profitez d'un environnement sécurisé et adapté pour apprendre à nager dans les meilleures conditions avec nos professionnels qualifiés."
+
+title: "Le Carré d'Ô"
+pool: {
+	name: "Le Carré d'Ô",
+	location: "Aix Centre",
+	desc: "<p>Le Carré d'Ô vous ouvre ses portes dès le premier samedi qui suit les vacances scolaires. C'est l'endroit idéal pour vivre une expérience de baignade divertissante à Aix-en-Provence. Nos cours de natation sont adaptés à tous les âges, vous permettant de découvrir le plaisir de nager tout en vous amusant. Le Carré d'Ô dispose de bassins de 8 mètres sur 5, avec une profondeur de 1,30 mètre, offrant un espace spacieux pour votre apprentissage.</p>
+
+<p>Notre établissement offre un environnement sécurisé et agréable, spécialement conçu pour les bébés-nageurs, garantissant une introduction à l'eau en toute sécurité.</p>
+
+<p>Rejoignez-nous au Le Carré d'Ô pour une expérience mémorable. Nos cours se déroulent chaque samedi matin, et la température de l'eau est maintenue à un agréable 30 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p>",
+	image: {
+		webp: "/images/page-title/webp/page_le-carre-d-o-bassins.webp",
+		jpg: "/images/page-title/page_le-carre-d-o-bassins.jpg",
+		alt: "Bassin du Carré d'Ô à Aix Centre"
+	},
+	address: "23 Av. Sainte-Victoire, 13100 Aix-en-Provence",
+	link: {
+		url: "https://www.carredo-aix.com/",
+		text: "Site web du Carré d'Ô"
+	},
+	services: [
+		{
+			name: "Cours de natation",
+			icon: "swimmer",
+			href: "/prestations/cours-de-natation"
+		},
+{
+			name: "Cours Bébé nageur",
+			icon: "baby",
+			href: "/prestations/cours-bebe-nageur"
+		},
+		
+	],
+	gallery: [
+		{
+			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
+			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			alt: "Bassin du Carré d'Ô à Aix Centre"
+		},
+		{
+			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
+			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			alt: "Bassin du Carré d'Ô à Aix Centre"
+		},
+		{
+			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
+			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			alt: "Bassin du Carré d'Ô à Aix Centre"
+		}
+	]
+}
+---
