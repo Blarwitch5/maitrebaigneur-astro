@@ -1,24 +1,31 @@
 ---
 interface Props {
-	class?: string;
-	backgroundColor?: string;
-	darkSection?: boolean;
-	ariaLabel?: string;
+  class?: string;
+  backgroundColor?: string;
+  darkSection?: boolean;
+  ariaLabel?: string;
 }
-const backgroundColor = Astro.props.backgroundColor ? Astro.props.backgroundColor : "white";
+const backgroundColor = Astro.props.backgroundColor
+  ? Astro.props.backgroundColor
+  : "white";
 const darkSection = Astro.props.darkSection === true ? "dark" : "light";
 
 const { class: className, ariaLabel, ...rest } = Astro.props;
 ---
 
-<section {...rest} class:list={["", darkSection, className]} aria-label={ariaLabel} tabindex="0" style={`background-color: ${backgroundColor}`}>
-	<slot />
+<section
+  class:list={["", darkSection, className]}
+  aria-label={ariaLabel}
+  tabindex="0"
+  style={`background-color: ${backgroundColor}`}
+>
+  <slot />
 </section>
 
 <style scoped>
-	section {
-		position: relative;
-		padding-block: 4rem;
-		padding-inline: 0;
-	}
+  section {
+    position: relative;
+    padding-block: 4rem;
+    padding-inline: 0;
+  }
 </style>
