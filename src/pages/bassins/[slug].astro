@@ -103,51 +103,51 @@ const pools = siteLinks.pools;
             </ul>
           </div>
         </div>
-        <Container fullWidth>
-          <div class="single-pool__gallery glide">
-            <div class="glide__track" data-glide-el="track">
-              <ul class="glide__slides">
-                {
-                  entry.data.pool.gallery.map(
-                    (image: {
-                      webp: string | null | undefined;
-                      jpg: string | null | undefined;
-                    }) => {
-                      return (
-                        <li class="glide__slide">
-                          <picture class="container-item">
-                            <source type="image/webp" srcset={image.webp} />
-                            <img
-                              loading="lazy"
-                              src={image.jpg}
-                              alt={entry.data.pool.image.alt}
-                              height="576"
-                              width="432"
-                            />
-                          </picture>
-                        </li>
-                      );
-                    }
-                  )
-                }
-              </ul>
-            </div>
-            <div class="glide__bullets" data-glide-el="controls[nav]">
-              {
-                entry.data.pool.gallery.map((_: any, index: number) => (
-                  <button
-                    class="glide__bullet"
-                    title={`Image numéro ${index}`}
-                    data-glide-dir={`=${index}`}
-                  />
-                ))
-              }
-            </div>
-          </div>
-        </Container>
       </Container>
-      <Section class="related-pools">
-        <Container>
+      <Container fullWidth>
+        <div class="single-pool__gallery glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              {
+                entry.data.pool.gallery.map(
+                  (image: {
+                    webp: string | null | undefined;
+                    jpg: string | null | undefined;
+                  }) => {
+                    return (
+                      <li class="glide__slide">
+                        <picture class="container-item">
+                          <source type="image/webp" srcset={image.webp} />
+                          <img
+                            loading="lazy"
+                            src={image.jpg}
+                            alt={entry.data.pool.image.alt}
+                            height="576"
+                            width="432"
+                          />
+                        </picture>
+                      </li>
+                    );
+                  }
+                )
+              }
+            </ul>
+          </div>
+          <div class="glide__bullets" data-glide-el="controls[nav]">
+            {
+              entry.data.pool.gallery.map((_: any, index: number) => (
+                <button
+                  class="glide__bullet"
+                  title={`Image numéro ${index}`}
+                  data-glide-dir={`=${index}`}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </Container>
+      <Container>
+        <div class="related-pools">
           <Title animate level="5">
             Découvrez aussi nos autres bassins d'apprentissage
           </Title>
@@ -173,9 +173,10 @@ const pools = siteLinks.pools;
               })
             }
           </ul>
-        </Container>
-      </Section>
+        </div>
+      </Container>
     </Section>
+
     <Footer />
   </Main>
 
@@ -340,6 +341,7 @@ const pools = siteLinks.pools;
     }
     .related-pools {
       padding-top: 0;
+
       h5 {
         text-align: center;
         margin-block: var(--space-lg);
