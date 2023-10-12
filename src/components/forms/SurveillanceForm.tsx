@@ -80,6 +80,7 @@ const SurveillanceForm = () => {
 
       if (response.ok) {
         setIsSubmissionSuccessful(true);
+        reset();
       } else {
         setIsSubmissionSuccessful(false);
       }
@@ -98,6 +99,7 @@ const SurveillanceForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<SurveillanceFormInput>({
     resolver: zodResolver(SurveillanceFormSchema),
     defaultValues: {

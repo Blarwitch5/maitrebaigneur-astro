@@ -140,6 +140,7 @@ const SwimmingForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<SwimmingFormInput>({
     resolver: zodResolver(SwimmingFormSchema),
     defaultValues: {
@@ -207,6 +208,7 @@ const SwimmingForm = () => {
 
       if (response.ok) {
         setIsSubmissionSuccessful(true);
+        reset();
       } else {
         setIsSubmissionSuccessful(false);
       }

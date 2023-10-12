@@ -68,6 +68,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormInput>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -96,6 +97,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         setIsSubmissionSuccessful(true);
+        reset();
       } else {
         setIsSubmissionSuccessful(false);
       }

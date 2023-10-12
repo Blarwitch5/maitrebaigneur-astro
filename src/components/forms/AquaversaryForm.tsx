@@ -81,6 +81,7 @@ const AquaversaryForm = () => {
 
       if (response.ok) {
         setIsSubmissionSuccessful(true);
+        reset();
       } else {
         setIsSubmissionSuccessful(false);
       }
@@ -99,6 +100,7 @@ const AquaversaryForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<AquaversaryFormInput>({
     resolver: zodResolver(AquaversaryFormSchema),
     defaultValues: {
