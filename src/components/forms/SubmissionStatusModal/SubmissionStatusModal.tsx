@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
 import "./SubmissionStatusModal.scss";
+
+import iconSuccess from "../../../icons/fun.svg";
+import iconError from "../../../icons/error.svg";
+
 // import AnimatedIcon from "./AnimatedIcon"; // Remplacez par votre icône animée ou image
 
 interface SubmissionStatusModalProps {
@@ -60,7 +64,7 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
         {isSuccess ? (
           <>
             <img
-              src="/src/icons/fun.svg"
+              src={iconSuccess.src}
               width="128"
               height="128"
               alt="Petit baigneur satisfait"
@@ -75,12 +79,13 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
         ) : (
           <>
             <img
-              src="/src/icons/error.svg"
+              src={iconError.src}
               width="128"
               height="128"
               alt="Petit baigneur mécontent"
             />
             <h2>Oops! Quelque chose s'est mal passé...</h2>
+
             <p>
               Nous rencontrons actuellement des difficultés pour traiter votre
               formulaire. Veuillez réessayer ultérieurement ou contacter notre
