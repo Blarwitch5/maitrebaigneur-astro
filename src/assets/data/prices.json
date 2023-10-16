@@ -1,68 +1,87 @@
 {
-	"prices": {
-		"swimmingLessons": {
-			"pool": {
-				"single": [
-					{ "name": "Séance découverte", "price": 20 },
-					{ "name": "1 Séance pour 1 baigneur", "price": 25 },
-					{ "name": "1 Séance pour 2 baigneurs", "price": 40 },
-					{ "name": "1 Séance pour 3 baigneurs", "price": 50 }
-				],
-				"cards": [
-					{ "name": "Carte 5 séances", "price": 100 },
-					{ "name": "Carte 10 séances", "price": 180 },
-					{ "name": "Carte 30 séances", "price": 450 }
-				]
-			},
-			"home": {
-				"formula": [
-					{ "name": "1 Séance pour 1 baigneur", "price": 40 },
-					{ "name": "1 Séance pour 2 baigneurs", "price": 50, "extraDesc": "Soit 25€ par baigneur" },
-					{ "name": "1 Séance pour 3 baigneurs", "price": 60, "extraDesc": "Soit 20€ par baigneur" }
-				]
-			}
-		},
-		"babySwimming": {
-			"formula": [
-				{ "name": "Séance découverte", "price": 20 },
-				{ "name": "Séance unique", "price": 35 },
-				{ "name": "Carte de 5 Séances ", "price": 125, "extraDesc": "Soit 25 € la séance par bébé, valable 4 mois à partir de la 1ère séance " },
-				{ "name": "Carte de 10 séances", "price": 200, "extraDesc": "Soit 20 € la séance par bébé, valable 4 mois à partir de la 1ère séance " },
-				{ "name": "Abonnement 6 mois", "price": 300, "extraDesc": "Soit 12€ la séance par bébé" },
-				{ "name": "Abonnement 12 mois", "price": 549, "extraDesc": "Soit 11€ la séance par bébé" }
-			]
-		},
-		"aquaversaire": {
-			"name": "Sécurité et animation de votre aquaversaire",
-			"desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s’occupera de la sécurité et de l’animation pour 15 enfants maximum.",
-			"price": 300,
-			"surveillanceTime": "2",
-			"extra": {
-				"desc": "chaque heure supplémentaire",
-				"price": 100
-			}
-		},
-		"events": {
-			"formula": {
-				"day": {
-					"name": "Tarif de jour",
-					"price": 40,
-					"condition": "par heure et par Maître-Baigneur",
-					"surveillanceTime": "Entre 9h et 21h"
-				},
-				"night": {
-					"name": "Tarif de nuit",
-					"price": 50,
-					"condition": "par heure et par Maître-Baigneur",
-					"surveillanceTime": "Entre 21h et 9h"
-				}
-			}
-		},
-		"diploma": {
-			"name": "Diplôme",
-			"name_2": "Test d'aisance aquatique",
-			"distance": "50 mètres",
-			"price": 10
-		}
-	}
+  "prices": {
+    "swimmingLessons": {
+      "pool": {
+        "single": [
+          { "name": "Séance découverte", "price": 20 },
+          { "name": "1 Séance pour 1 baigneur", "price": 25 },
+          { "name": "1 Séance pour 2 baigneurs", "price": 40 },
+          { "name": "1 Séance pour 3 baigneurs", "price": 50 }
+        ],
+        "cards": [
+          { "name": "Carte 5 séances", "price": 100 },
+          { "name": "Carte 10 séances", "price": 180 },
+          { "name": "Carte 30 séances", "price": 450 }
+        ]
+      },
+      "home": {
+        "formula": [
+          { "name": "1 Séance pour 1 baigneur", "price": 40 },
+          {
+            "name": "1 Séance pour 2 baigneurs",
+            "price": 50,
+            "extraDesc": "Soit 25€ par baigneur"
+          },
+          {
+            "name": "1 Séance pour 3 baigneurs",
+            "price": 60,
+            "extraDesc": "Soit 20€ par baigneur"
+          }
+        ]
+      }
+    },
+    "babySwimming": {
+      "formula": [
+        { "name": "Séance découverte", "price": 20 },
+        { "name": "Séance unique", "price": 25 },
+        {
+          "name": "Carte de 10 séances",
+          "price": 200,
+          "extraDesc": "Soit 20 € la séance par bébé, valable 4 mois à partir de la 1ère séance "
+        },
+        {
+          "name": "Carte de 30 Séances ",
+          "price": 450,
+          "extraDesc": "Soit 15 € la séance par bébé, valable 4 mois à partir de la 1ère séance "
+        },
+        {
+          "name": "Abonnement 12 mois",
+          "price": 550,
+          "extraDesc": "Soit 11€ la séance par bébé"
+        }
+      ]
+    },
+    "aquaversaire": {
+      "name": "Sécurité et animation de votre aquaversaire",
+      "desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s’occupera de la sécurité et de l’animation pour 15 enfants maximum.",
+      "price": 300,
+      "surveillanceTime": "2",
+      "extra": {
+        "desc": "chaque heure supplémentaire",
+        "price": 100
+      }
+    },
+    "events": {
+      "formula": {
+        "day": {
+          "name": "Tarif de jour",
+          "price": 40,
+          "condition": "par heure et par Maître-Baigneur",
+          "surveillanceTime": "Entre 9h et 21h"
+        },
+        "night": {
+          "name": "Tarif de nuit",
+          "price": 50,
+          "condition": "par heure et par Maître-Baigneur",
+          "surveillanceTime": "Entre 21h et 9h"
+        }
+      }
+    },
+    "diploma": {
+      "name": "Diplôme",
+      "name_2": "Test d'aisance aquatique",
+      "distance": "50 mètres",
+      "price": 10
+    }
+  }
 }
