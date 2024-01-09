@@ -9,14 +9,11 @@ import { Icon } from "astro-icon";
     aria-expanded="false"
     title="Ouvrir ou fermer le menu"
     aria-label="Ouvrir ou fermer le menu"
-    ><Icon name="cross" /><span class="visually-hidden"
-      >Ouvrir ou fermer le menu</span
-    >
+    ><Icon name="cross" /><span class="sr-only">Ouvrir ou fermer le menu</span>
   </button>
 
   <div class="sub-btns" role="menu" aria-label="submenu" aria-hidden="true">
     <button
-      role="menuitem"
       id="facebook"
       title="Donnez votre avis sur Facebook "
       aria-label="Donnez votre avis sur Facebook"
@@ -28,7 +25,6 @@ import { Icon } from "astro-icon";
       </span>
     </button>
     <button
-      role="menuitem"
       id="google"
       title="Donnez votre avis sur Google "
       aria-label="Donnez votre avis sur Google"
@@ -40,7 +36,6 @@ import { Icon } from "astro-icon";
       </span>
     </button>
     <button
-      role="menuitem"
       id="whatsapp"
       title="Nous contacter par Whatsapp"
       aria-label="Nous contacter par Whatsapp"
@@ -52,7 +47,6 @@ import { Icon } from "astro-icon";
       </span>
     </button>
     <button
-      role="menuitem"
       id="booking"
       title="Réserver un cours"
       aria-label="Réserver un cours"

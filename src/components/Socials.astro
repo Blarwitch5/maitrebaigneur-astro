@@ -1,142 +1,149 @@
 ---
 import { Icon } from "astro-icon";
 const socials = [
-	{
-		link: "https://www.facebook.com/MaitreBaigneur/",
-		title: "Facebook",
-		icon: "facebook",
-	},
-	{
-		link: "https://www.instagram.com/maitre_baigneur_aix/",
-		title: "Instagram",
-		icon: "instagram",
-	},
-	{
-		link: "https://api.whatsapp.com/send?phone=0033677007584",
-		title: "Whastapp",
-		icon: "whatsapp",
-	},
+  {
+    link: "https://www.facebook.com/MaitreBaigneur/",
+    title: "Facebook",
+    icon: "facebook",
+  },
+  {
+    link: "https://www.instagram.com/maitre_baigneur_aix/",
+    title: "Instagram",
+    icon: "instagram",
+  },
+  {
+    link: "https://api.whatsapp.com/send?phone=0033677007584",
+    title: "Whastapp",
+    icon: "whatsapp",
+  },
 ];
 const { iconVersion } = Astro.props;
 ---
 
 <!-- Socials media -->
-<ul  class={`socials ${iconVersion}`}>
-	{
-		socials.map((social) => (
-			<li>
-				<a href={social.link} class="socials__link" title={`Visitez notre page ${social.title}`} target="_blank" rel="noopener">
-					<Icon name={social.icon} />
-				</a>
-			</li>
-		))
-	}
+<ul class={`socials ${iconVersion}`}>
+  {
+    socials.map((social) => (
+      <li>
+        <a
+          href={social.link}
+          class="socials__link"
+          title={`Visitez notre page ${social.title}`}
+          target="_blank"
+          rel="noopener"
+        >
+          <Icon name={social.icon} />
+          <span class="sr-only">{social.title}</span>
+        </a>
+      </li>
+    ))
+  }
 </ul>
 
 <style lang="scss">
-	.socials {
-		padding: 0;
-		list-style-type: none;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 1rem;
+  .socials {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
 
-		//social icons commun style
-		&__link {
-			border-radius: 50%;
-			width: 3rem;
-			height: 3rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+    //social icons commun style
+    &__link {
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-			overflow: hidden;
+      overflow: hidden;
 
-			backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
 
-			svg {
-				position: absolute;
-				width: 2rem;
-				height: 2rem;
-			}
+      svg {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+      }
 
-			&::before {
-				position: absolute;
-				content: "";
-				top: -2px;
-				bottom: -2px;
-				left: -2px;
-				right: 100%;
-				transition: 0.2s;
-				transition-timing-function: ease;
-				opacity: 0.1;
-				border-radius: inherit;
-				transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
-			}
+      &::before {
+        position: absolute;
+        content: "";
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: 100%;
+        transition: 0.2s;
+        transition-timing-function: ease;
+        opacity: 0.1;
+        border-radius: inherit;
+        transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
+      }
 
-			&:hover {
-				&::before {
-					right: -2px;
-				}
-			}
-		}
-		//if bg is dark
-		&.light {
-			.socials__link {
-				background-color: hsla(var(--link-color-white-hsl), 0.1);
-				border-radius: 50%;
-				width: 3rem;
-				height: 3rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 0.2);
-				position: relative;
-				overflow: hidden;
-				color: var(--color-white);
+      &:hover {
+        &::before {
+          right: -2px;
+        }
+      }
+    }
+    //if bg is dark
+    &.light {
+      .socials__link {
+        background-color: hsla(var(--link-color-white-hsl), 0.1);
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 0.2);
+        position: relative;
+        overflow: hidden;
+        color: var(--color-white);
 
-				&::before {
-					position: absolute;
-					content: "";
-					top: -2px;
-					bottom: -2px;
-					left: -2px;
-					right: 100%;
-					background: var(--color-white);
-					transition: 0.2s;
-					transition-timing-function: ease;
-					opacity: 0.1;
-					border-radius: inherit;
-					transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
-				}
+        &::before {
+          position: absolute;
+          content: "";
+          top: -2px;
+          bottom: -2px;
+          left: -2px;
+          right: 100%;
+          background: var(--color-white);
+          transition: 0.2s;
+          transition-timing-function: ease;
+          opacity: 0.1;
+          border-radius: inherit;
+          transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
+        }
 
-				&:hover {
-					box-shadow: inset 0 0 0px 2px var(--color-white);
-					&::before {
-						right: -2px;
-					}
-				}
-			}
-		}
-		//if bg is light
-		&.dark {
-			.socials__link {
-				background-color: hsla(var(--link-color-primary-hsl), 0.1);
-				box-shadow: inset 0 0 0px 1px hsla(var(--link-color-primary-hsl), 0.2);
-				color: var(--color-primary);
+        &:hover {
+          box-shadow: inset 0 0 0px 2px var(--color-white);
+          &::before {
+            right: -2px;
+          }
+        }
+      }
+    }
+    //if bg is light
+    &.dark {
+      .socials__link {
+        background-color: hsla(var(--link-color-primary-hsl), 0.1);
+        box-shadow: inset 0 0 0px 1px hsla(var(--link-color-primary-hsl), 0.2);
+        color: var(--color-primary);
 
-				&::before {
-					background: var(--color-primary);
-				}
+        &::before {
+          background: var(--color-primary);
+        }
 
-				&:hover {
-					box-shadow: inset 0 0 0px 2px var(--color-primary);
-					&::before {
-						right: -2px;
-					}
-				}
-			}
-		}
-	}
+        &:hover {
+          box-shadow: inset 0 0 0px 2px var(--color-primary);
+          &::before {
+            right: -2px;
+          }
+        }
+      }
+    }
+  }
 </style>

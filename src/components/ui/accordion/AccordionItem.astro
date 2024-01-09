@@ -3,107 +3,118 @@ const { header, index } = Astro.props;
 ---
 
 <li class="accordion__item">
-	<h3 class="accordion__title">
-		<button
-			id={`accordion__header-${index}`}
-			class="accordion__header"
-			aria-expanded="false"
-			aria-controls={`accordion__panel-${index}`}
-			onclick="toggleAccordionItem()"
-		>
-			{header}
-			<svg xmlns="http://www.w3.org/2000/svg" class="accordion__toggle" fill="none" viewBox="0 0 32 32">
-				<path
-					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="1.5"
-					d="m21.038 14.419-3.82 5.053a1.256 1.256 0 0 1-2.047 0l-4.178-5.053a1.49 1.49 0 0 1 1.024-2.413h8a1.49 1.49 0 0 1 1.021 2.413Z"
-					clip-rule="evenodd"></path>
-			</svg>
-		</button>
-	</h3>
-	<div id={`accordion__panel-${index}`} role="region" class="accordion__panel" aria-labelledby={`accordion__header-${index}`}>
-		<div class="panel-inner">
-			<slot />
-		</div>
-	</div>
+  <h3 class="accordion__title">
+    <span class="sr-only">{header}</span>
+    <button
+      id={`accordion__header-${index}`}
+      class="accordion__header"
+      aria-expanded="false"
+      aria-controls={`accordion__panel-${index}`}
+      onclick="toggleAccordionItem()"
+    >
+      {header}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="accordion__toggle"
+        fill="none"
+        viewBox="0 0 32 32"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="m21.038 14.419-3.82 5.053a1.256 1.256 0 0 1-2.047 0l-4.178-5.053a1.49 1.49 0 0 1 1.024-2.413h8a1.49 1.49 0 0 1 1.021 2.413Z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </button>
+  </h3>
+  <div
+    id={`accordion__panel-${index}`}
+    role="region"
+    class="accordion__panel"
+    aria-labelledby={`accordion__header-${index}`}
+  >
+    <div class="panel-inner">
+      <slot />
+    </div>
+  </div>
 </li>
 
 <style lang="scss" is:global>
-	.accordion {
-		&__item,
-		&__header {
-			width: 100%;
-			max-width: 800px;
-			margin: auto;
+  .accordion {
+    &__item,
+    &__header {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
 
-			svg {
-			}
-		}
-		&__item {
-			border-bottom: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
-			border-left: none;
-			border-right: none;
-			border-top: none;
+      svg {
+      }
+    }
+    &__item {
+      border-bottom: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
+      border-left: none;
+      border-right: none;
+      border-top: none;
 
-			&:last-of-type {
-				border-bottom: none;
-			}
-		}
-		&__title {
-			margin-block: 2rem;
-		}
-		&__header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			text-align: left;
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+    &__title {
+      margin-block: 2rem;
+    }
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
 
-			border: 0;
-			background-color: transparent;
-			font-size: 1.5rem;
-			font-family: var(--ff-pacifico);
-			font-weight: 600;
-			color: var(--color-primary);
+      border: 0;
+      background-color: transparent;
+      font-size: 1.5rem;
+      font-family: var(--ff-pacifico);
+      font-weight: 600;
+      color: var(--color-primary);
 
-			&:focus {
-				border: 0;
-				background-color: transparent;
-			}
+      &:focus {
+        border: 0;
+        background-color: transparent;
+      }
 
-			&[aria-expanded="true"] {
-				.accordion__toggle {
-					transform: rotate(180deg);
-				}
-			}
-			svg {
-				flex: 0 0 2rem;
-			}
-		}
-		&__toggle {
-			width: 2rem;
-			transition: transform 0.3s ease-in-out;
-		}
-		&__panel {
-			visibility: hidden;
-			overflow: hidden;
-			height: 0;
+      &[aria-expanded="true"] {
+        .accordion__toggle {
+          transform: rotate(180deg);
+        }
+      }
+      svg {
+        flex: 0 0 2rem;
+      }
+    }
+    &__toggle {
+      width: 2rem;
+      transition: transform 0.3s ease-in-out;
+    }
+    &__panel {
+      visibility: hidden;
+      overflow: hidden;
+      height: 0;
 
-			transition: height 0.3s ease-in-out, visibility 0s 0.3s;
-		}
-	}
+      transition: height 0.3s ease-in-out, visibility 0s 0.3s;
+    }
+  }
 
-	.panel-inner {
-		padding: 0 1rem 1.5rem 1rem;
-	}
-	.is-active {
-		padding-bottom: 1rem;
+  .panel-inner {
+    padding: 0 1rem 1.5rem 1rem;
+  }
+  .is-active {
+    padding-bottom: 1rem;
 
-		.accordion__panel {
-			visibility: visible;
-			height: auto;
-			transition: height 0.3s ease-in-out, visibility 0s 0s;
-		}
-	}
+    .accordion__panel {
+      visibility: visible;
+      height: auto;
+      transition: height 0.3s ease-in-out, visibility 0s 0s;
+    }
+  }
 </style>
