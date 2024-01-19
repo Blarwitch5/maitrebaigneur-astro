@@ -13,19 +13,19 @@
   "dependencies": {
     "@astrojs/react": "^3.0.9",
     "@astrojs/renderer-react": "^0.5.0",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/sitemap": "^3.0.5",
     "@babel/core": "^7.23.7",
     "@glidejs/glide": "^3.6.0",
     "@hookform/resolvers": "^3.3.4",
-    "@types/react": "^18.2.47",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "aos": "^2.3.4",
-    "astro": "^4.1.1",
+    "astro": "^4.2.1",
     "astro-breadcrumbs": "^1.8.1",
     "astro-icon": "^0.8.2",
     "astro-navbar": "^1.2.3",
     "astro-seo": "^0.7.6",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.3",
     "dotenv": "^16.3.1",
     "just-validate": "^4.3.0",
@@ -34,14 +34,14 @@
     "prettier-plugin-astro": "^0.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.49.2",
-    "react-router-dom": "^6.21.1",
+    "react-hook-form": "^7.49.3",
+    "react-router-dom": "^6.21.3",
     "sanitize.css": "^13.0.0",
     "title": "^3.5.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.10.7",
-    "sass": "^1.69.7"
+    "@types/node": "^20.11.5",
+    "sass": "^1.70.0"
   }
 }

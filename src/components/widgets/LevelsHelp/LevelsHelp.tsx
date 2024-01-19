@@ -30,9 +30,9 @@ const LevelsHelp: React.FC<React.PropsWithChildren<LevelsHelpProps>> = ({
     >
       {isOpen && (
         <>
-          <div className="dialog-overlay" aria-hidden="true"></div>
+          <div className="dialog-overlay" aria-hidden="true" />
           <div className="dialog-content">
-            <button onClick={onClose} className="btn-back ">
+            <button type="button" onClick={onClose} className="btn-back ">
               Retour au formulaire
             </button>
             <div className="scrollable-content">{children}</div>
