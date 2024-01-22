@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 import Socials from "@components/Socials.astro";
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import Title from "@components/ui/Title.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 
@@ -26,15 +26,15 @@ const { ariaLabel } = Astro.props;
       Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span>
     </Title>
     <div class="hero__cta">
-      <Buttons
+      <Button
         class="btn btn__outline--inverted"
         data-aos="fade-right"
         href="/contact"
         aria-label="Contactez-nous"
       >
         Contactez-nous
-      </Buttons>
-      <Buttons
+      </Button>
+      <Button
         data-aos="fade-left"
         href="https://user.clicrdv.com/maitre-baigneur"
         rel="noopener"
@@ -42,7 +42,7 @@ const { ariaLabel } = Astro.props;
         newTab
       >
         Je réserve mon cours
-      </Buttons>
+      </Button>
     </div>
   </div>
   <div class="socials__wrapper">

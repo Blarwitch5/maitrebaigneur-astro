@@ -1,13 +1,15 @@
 ---
 import Accordion from "@components/ui/accordion/Accordion.astro";
 import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 
 import site from "@assets/data/data.json";
 import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
+const summerPools = pools.filter((pool) => pool.period === "Summer");
+const allYearPools = pools.filter((pool) => pool.period === "All year");
 ---
 
 <Accordion>
@@ -31,8 +33,9 @@ const pools = siteLinks.pools;
       les dates d'encaissement si plusieurs chèques sont prévus.
     </p><p>
       Nous tenons à souligner que tous nos services doivent être réglés avant le
-      début de la séance. Par exemple, si vous avez acheté une carte de 5
-      séances à 100€, nous débiterons vos crédits au fur et à mesure.
+      début de la séance. Si vous achetez une carte de 5 séances à 100€, après
+      chaque séance ,nous mettons à jour votre nombre de séances restantes,
+      consultable dans notre livret au bord du bassin .
     </p><p>
       Les règlements à la séance sont seulements acceptés pour les séances à
       l'unité, telle qu'une séance de natation pour 1 baigneur à 25€.
@@ -44,9 +47,22 @@ const pools = siteLinks.pools;
       voici la liste :
     </p>
 
+    <h4>Été</h4>
     <ol>
       {
-        pools
+        summerPools
+          .filter((pool) => pool.name !== "Domicile")
+          .map((pool) => (
+            <li>
+              <a href={pool.href}>{pool.name}</a> : {pool.address}
+            </li>
+          ))
+      }
+    </ol>
+    <h4>Toute l'année</h4>
+    <ol>
+      {
+        allYearPools
           .filter((pool) => pool.name !== "Domicile")
           .map((pool) => (
             <li>
@@ -86,11 +102,11 @@ const pools = siteLinks.pools;
   </AccordionItem>
   <AccordionItem header="Quels sont les tarifs de Maître-Baigneur ?" index="5">
     <p>
-      Nous avons créé une <Buttons href="/tarifs">
-        page dédiée aux tarifs Maîtr-Baigneur
-      </Buttons>. Vous y trouverez des prix attractifs pour des cours de
-      natation ludiques et efficaces. Ne manquez pas cette occasion de vous
-      amuser tout en apprenant à nager avec nos experts qualifiés.
+      Nous avons créé une <Button href="/tarifs">
+        page dédiée aux tarifs Maître-Baigneur
+      </Button>. Vous y trouverez des prix attractifs pour des cours de natation
+      ludiques et efficaces. Ne manquez pas cette occasion de vous amuser tout
+      en apprenant à nager avec nos experts qualifiés.
     </p>
   </AccordionItem>
 </Accordion>

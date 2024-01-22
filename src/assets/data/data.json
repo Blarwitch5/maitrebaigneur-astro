@@ -42,6 +42,11 @@
         "icon": "event"
       },
       {
+        "href": "/prestations/aquafitness",
+        "name": "Aquafitness",
+        "icon": "fitness"
+      },
+      {
         "href": "/bassins",
         "name": "Nos bassins d'apprentissage",
         "children": [
@@ -133,6 +138,19 @@
           "src": "/images/services/surveillance-page.jpg",
           "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
         }
+      },
+      {
+        "name": "Aquafitness",
+        "href": "/prestations/aquafitness",
+        "image": {
+          "src": "/images/services/surveillance.jpg",
+          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+        },
+        "icon": "fitness",
+        "pageTitleImage": {
+          "src": "/images/services/surveillance-page.jpg",
+          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+        }
       }
     ],
     "pools": [
@@ -141,8 +159,10 @@
         "href": "/bassins/kabanon",
         "image": {
           "src": "/images/pools/kabanon.jpg",
+
           "alt": "Bassin du Kabanon des écuries de l'aube"
         },
+        "period": "Summer",
         "location": "Saint-Marc-Jaumegarde",
         "address": "Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde",
         "thumb": {
@@ -157,6 +177,7 @@
           "src": "/images/pools/aquabecool.jpg",
           "alt": "Bassin de Aquabecool"
         },
+        "period": "All year",
         "location": "Aix Sud",
         "address": "Chemin de la Blaque, 13090 Aix-en-Provence",
         "thumb": {
@@ -172,6 +193,7 @@
           "src": "/images/pools/kinemouv.jpg",
           "alt": "Bassin de Kinémouv"
         },
+        "period": "All year",
         "location": "Pertuis",
         "address": "434 Chemin de Saint-Martin, 84120 Pertuis",
         "thumb": {
@@ -186,6 +208,7 @@
           "src": "/images/pools/planform.jpg",
           "alt": "Bassin de Plan Form"
         },
+        "period": "All year",
         "location": "Cabriès",
         "address": "Parc Club de L´Arbois, Route de Calas, 13480 Cabriès",
         "thumb": {
@@ -200,6 +223,7 @@
           "src": "/images/pools/les-terrasses-du-sun.jpg",
           "alt": "Bassin des Terrasses du Sun"
         },
+        "period": "Summer",
         "location": "Aix Sud Ouest",
         "address": "165 Chem. de la Valette, 13290 Aix-en-Provence",
         "thumb": {
@@ -214,6 +238,7 @@
           "src": "/images/pools/le-carre-d-o.jpg",
           "alt": "Bassin du Carré d'Ô"
         },
+        "period": "All year",
         "location": "Aix Centre",
         "address": "23 avenue de la Sainte Victoire 13100 Aix-en-Provence",
         "thumb": {
@@ -228,6 +253,7 @@
           "src": "/images/pools/domicile.jpg",
           "alt": "Bassin à domicile"
         },
+        "period": "All year",
         "location": "",
         "thumb": {
           "jpg": "/images/thumbnails/domicile-thumb.jpg",

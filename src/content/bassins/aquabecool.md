@@ -6,7 +6,7 @@ title: "Aquabecool"
 pool: {
 	name: "Aquabecool",
 	location: "Aix Sud",
-	desc: "Bienvenue à la piscine Aquabecool, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos cours de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant. La piscine Aquabecool est sécurisée et offre un environnement agréable pour les bébés-nageurs, permettant une initiation à l'eau en toute sécurité. Rejoignez-nous à Aquabecool pour une expérience inoubliable.",
+	desc: "Bienvenue à la piscine Aquabecool, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos cours de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant.  Rejoignez-nous à Aquabecool pour une expérience inoubliable.",
 	image: {
 		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
 		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
@@ -22,11 +22,6 @@ pool: {
 			name: "Cours de natation",
 			icon: "swimmer",
 			href: "/prestations/cours-de-natation"
-		},
-		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
 		}
 	],
 	gallery: [

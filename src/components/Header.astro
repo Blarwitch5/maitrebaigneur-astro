@@ -2,7 +2,7 @@
 import SideNav from "@components/SideNav.astro";
 import ToggleBtn from "@components/header/ToggleBtn.astro";
 import Brand from "@components/header/Brand.astro";
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import { Icon } from "astro-icon";
 
 import site from "@assets/data/data.json";
@@ -21,18 +21,18 @@ const nav = siteLinks.primary;
       {
         nav.map((item) => (
           <li role="menuitem" class={`nav-item ${item.responsive}`}>
-            <Buttons href={item.href} class={`nav-link ${item.classes}`}>
+            <Button href={item.href} class={`nav-link ${item.classes}`}>
               {item.name}
-            </Buttons>
+            </Button>
           </li>
         ))
       }
       <!-- contact button -->
       <li role="menuitem" class="nav-item nav-item--icon contact">
-        <Buttons href="/contact" class="nav-link">
+        <Button href="/contact" class="nav-link">
           <span class="visually-hidden">Contact</span>
           <Icon name="contact" />
-        </Buttons>
+        </Button>
       </li>
       <!-- menu button -->
       <li role="menuitem" class="nav-item nav-item--icon">

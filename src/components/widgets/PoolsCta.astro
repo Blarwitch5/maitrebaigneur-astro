@@ -1,5 +1,5 @@
 ---
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import Title from "@components/ui/Title.astro";
 
 import site from "@assets/data/data.json";
@@ -19,9 +19,9 @@ const pools = siteLinks.pools;
       aventure Maître-Baigneur. Nous sommes impatients de vous accueillir et de
       vous aider à atteindre vos objectifs.
     </p>
-    <Buttons href="/bassins" class={`pools__btn btn btn__regular`}>
+    <Button href="/bassins" class={`pools__btn btn btn__regular`}>
       Découvrir nos bassins
-    </Buttons>
+    </Button>
   </div>
   <ul class="pools__images" data-aos="fade-left">
     <li style="--x1: 2; --x2: 6; --y1: 1; --y2: 4;">

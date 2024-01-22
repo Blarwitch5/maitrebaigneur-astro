@@ -1,7 +1,7 @@
 ---
 import Copyright from "@components/footer/Copyright.astro";
 import Socials from "@components/Socials.astro";
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import InstagramFeed from "./widgets/InstagramFeed.astro";
 import { Icon } from "astro-icon";
 import Waves from "@components//ui/shapes/Waves.astro";
@@ -31,7 +31,7 @@ const footerMenu = siteLinks.footerMenu;
         <p class="slogan">"...Le bonheur du baigneur..."</p>
         <ul class="info">
           <li>
-            <Buttons class="btn" href="tel:+33677007584">
+            <Button class="btn" href="tel:+33677007584">
               <span class="icon">
                 <Icon name="call" />
               </span>
@@ -39,15 +39,15 @@ const footerMenu = siteLinks.footerMenu;
                 >Applez Maître Baigneur au +33 6 77 00 75 84</span
               >
               +33 6 77 00 75 84
-            </Buttons>
+            </Button>
           </li>
           <li>
-            <Buttons class="btn" href="mailto:contact@maitrebaigneur.com">
+            <Button class="btn" href="mailto:contact@maitrebaigneur.com">
               <span class="icon"><Icon name="mail" /></span><span
                 class="visually-hidden"
                 >Écrivez-nous à contact@maitrebaigneur.com</span
               >contact@maitrebaigneur.com
-            </Buttons>
+            </Button>
           </li>
           <li>
             <span class="icon"><Icon name="location" /></span>Aix-en-Provence et
@@ -63,9 +63,9 @@ const footerMenu = siteLinks.footerMenu;
           {
             services.map((service) => (
               <li>
-                <Buttons class="btn" href={service.href}>
+                <Button class="btn" href={service.href}>
                   {service.name}
-                </Buttons>
+                </Button>
               </li>
             ))
           }
@@ -78,13 +78,13 @@ const footerMenu = siteLinks.footerMenu;
           {
             footerMenu.map((item) => (
               <li>
-                <Buttons
+                <Button
                   class={item.classes}
                   href={item.href}
                   newTab={item.inNewTab}
                 >
                   {item.name}
-                </Buttons>
+                </Button>
               </li>
             ))
           }

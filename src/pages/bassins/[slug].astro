@@ -102,121 +102,181 @@ const pools = siteLinks.pools;
           </div>
         </div>
       </div>
-      <div class="container-fluid">
-        <div class="single-pool__gallery">
-          <div class="track">
-            <ul class="track__list">
-              {
-                entry.data.pool.gallery.map(
-                  (
-                    image: {
-                      webp: string | null | undefined;
-                      jpg: string | null | undefined;
-                    },
-                    index: number
-                  ) => {
-                    return (
-                      <li class="track__item" id={(index + 1).toString()}>
-                        <picture class="container-item">
-                          <source type="image/webp" srcset={image.webp} />
-                          <img
-                            loading="lazy"
-                            src={image.jpg}
-                            alt={entry.data.pool.image.alt}
-                            height="576"
-                            width="432"
-                          />
-                        </picture>
-                      </li>
-                    );
-                  }
-                )
-              }
-            </ul>
-            <div class="track__indicators" aria-hidden="true">
-              {
-                entry.data.pool.gallery.map((_: any, index: number) => {
-                  return <span class="indicator" />;
-                })
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="related-pools">
-          <Title animate level="5">
-            Découvrez aussi nos autres bassins d'apprentissage
-          </Title>
-          <ul>
+    </section>
+    <div class="container-fluid">
+      <div class="single-pool__gallery">
+        <div class="track">
+          <ul class="track__list">
             {
-              pools.map((item) => {
-                if (item.name === entry.data.pool.name) {
-                  return;
-                } else {
+              entry.data.pool.gallery.map(
+                (
+                  image: {
+                    webp: string | null | undefined;
+                    jpg: string | null | undefined;
+                  },
+                  index: number
+                ) => {
                   return (
-                    <li>
-                      <a href={item.href}>
+                    <li class="track__item" id={(index + 1).toString()}>
+                      <picture class="container-item">
+                        <source type="image/webp" srcset={image.webp} />
                         <img
                           loading="lazy"
-                          src={item.thumb.jpg}
-                          alt={item.thumb.alt}
+                          src={image.jpg}
+                          alt={entry.data.pool.image.alt}
+                          height="576"
+                          width="432"
                         />
-                        {item.name}
-                      </a>
+                      </picture>
                     </li>
                   );
                 }
-              })
+              )
             }
           </ul>
+          <div class="track__indicators" aria-hidden="true">
+            {
+              entry.data.pool.gallery.map((_: any, index: number) => {
+                return <span class="indicator" />;
+              })
+            }
+          </div>
         </div>
       </div>
-    </section>
-
-    <Footer />
+    </div>
+    <div class="container">
+      <div class="related-pools">
+        <Title animate level="5">
+          Découvrez aussi nos autres bassins d'apprentissage
+        </Title>
+        <ul>
+          {
+            pools.map((item) => {
+              if (item.name === entry.data.pool.name) {
+                return;
+              } else {
+                return (
+                  <li>
+                    <a href={item.href}>
+                      <img
+                        loading="lazy"
+                        src={item.thumb.jpg}
+                        alt={item.thumb.alt}
+                      />
+                      {item.name}
+                    </a>
+                  </li>
+                );
+              }
+            })
+          }
+        </ul>
+      </div>
+    </div>
   </Main>
 
-  <style lang="scss">
-    .single-pool {
-      &__content {
-        display: grid;
-        grid-template-columns: calc((100% * 2 / 5) - 2rem) calc(
-            (100% * 3 / 5) - 2rem
-          );
-        gap: 4rem;
-        align-items: center;
-        padding-bottom: var(--space-lg);
+  <Footer />
+</PoolLayout>
 
-        @media screen and (max-width: 992px) {
-          grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
-          gap: 2rem;
-        }
+<style lang="scss">
+  .single-pool {
+    &__content {
+      display: grid;
+      grid-template-columns: calc((100% * 2 / 5) - 2rem) calc(
+          (100% * 3 / 5) - 2rem
+        );
+      gap: 4rem;
+      align-items: center;
+      padding-bottom: var(--space-lg);
+
+      @media screen and (max-width: 992px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    &__details {
+      background-color: var(--color-bg-light);
+      border-radius: var(--regular-border-radius);
+      padding: var(--space-lg);
+      box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
+        0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+
+      * {
+        margin: 0;
+      }
+      *a {
+        color: var(--color-black);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--regular-border-radius);
+        background-image: url("/images/icons/event.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom right;
+        opacity: 0.05;
+        z-index: -1;
+      }
+      h3 {
+        font-size: var(--fs-md);
+      }
+
+      h4 {
+        font-family: var(--ff-pacifico);
+        font-size: var(--fs-sm);
+      }
+
+      ul {
+        list-style: none;
+        padding-left: var(--space-sm);
+        display: block;
 
         @media screen and (max-width: 768px) {
-          grid-template-columns: 1fr;
-          gap: 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        & > li {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          a {
+            display: grid;
+            grid-template-columns: 2rem 1fr;
+            gap: var(--space-sm);
+            // flex-wrap: nowrap;
+            // align-items: center;
+            // width: 100%;
+            & > svg {
+              width: 2rem;
+              height: 2rem;
+            }
+          }
+          //
         }
       }
-      &__details {
-        background-color: var(--color-bg-light);
-        border-radius: var(--regular-border-radius);
-        padding: var(--space-lg);
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
-          0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
+    }
+    &__gallery {
+      picture {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
+        display: block;
+        height: 100%;
+        border-radius: var(--regular-border-radius);
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+          0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
-        * {
-          margin: 0;
-        }
-        *a {
-          color: var(--color-black);
-        }
-
-        &::after {
+        &:after {
           content: "";
           position: absolute;
           top: 0;
@@ -224,315 +284,250 @@ const pools = siteLinks.pools;
           width: 100%;
           height: 100%;
           border-radius: var(--regular-border-radius);
-          background-image: url("/images/icons/event.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: bottom right;
-          opacity: 0.05;
-          z-index: -1;
-        }
-        h3 {
-          font-size: var(--fs-md);
-        }
-
-        h4 {
-          font-family: var(--ff-pacifico);
-          font-size: var(--fs-sm);
-        }
-
-        ul {
-          list-style: none;
-          padding-left: var(--space-sm);
-          display: block;
-
-          @media screen and (max-width: 768px) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          & > li {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            a {
-              display: grid;
-              grid-template-columns: 2rem 1fr;
-              gap: var(--space-sm);
-              // flex-wrap: nowrap;
-              // align-items: center;
-              // width: 100%;
-              & > svg {
-                width: 2rem;
-                height: 2rem;
-              }
-            }
-            //
-          }
-        }
-      }
-      &__gallery {
-        picture {
-          position: relative;
-          display: block;
-          height: 100%;
-          border-radius: var(--regular-border-radius);
           overflow: hidden;
-          box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
-            0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
-
-          &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--regular-border-radius);
-            overflow: hidden;
-            background-image: linear-gradient(
-              0deg,
-              hsla(var(--link-color-primary-hsl), 1) 0%,
-              hsla(var(--link-color-primary-hsl), 1) 7%,
-              hsla(var(--link-color-white-hsl), 0) 36%
-            );
-            z-index: 1;
-          }
-
-          & > img {
-            border-radius: var(--regular-border-radius);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
+          background-image: linear-gradient(
+            0deg,
+            hsla(var(--link-color-primary-hsl), 1) 0%,
+            hsla(var(--link-color-primary-hsl), 1) 7%,
+            hsla(var(--link-color-white-hsl), 0) 36%
+          );
+          z-index: 1;
         }
-      }
-    }
-    .related-pools {
-      padding-top: 0;
 
-      h5 {
-        text-align: center;
-        margin-block: var(--space-lg);
-      }
-      ul {
-        padding: var(--space-md);
-        display: flex;
-        gap: var(--space-md);
-        flex-wrap: wrap;
-        max-width: 992px;
-        justify-content: center;
-        margin-inline: auto;
-        & > li {
-          list-style-type: none;
-          background-color: var(--color-bg-light-alt);
+        & > img {
           border-radius: var(--regular-border-radius);
-          box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
-            0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
-          transition: all 0.3s ease-in-out;
-          flex-basis: calc(50% - var(--space-md));
-
-          @media screen and (max-width: 767px) {
-            flex-basis: 100%;
-            max-width: 100%;
-          }
-
-          &:hover {
-            transform: translateY(-0.5rem);
-          }
-
-          a:is(a, :hover, :focus, :active) {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-family: var(--ff-pacifico);
-            display: block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-right: var(--space-xs);
-          }
-
-          img {
-            width: 100px;
-            height: 100px;
-            border-radius: var(--regular-border-radius);
-            margin-right: var(--space-md);
-          }
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
         }
       }
     }
+  }
+  .related-pools {
+    padding-top: 0;
 
-    :is(li, .indicator) {
-      --h: 204;
-      --s: 100%;
-      --l: 49%;
+    h5 {
+      text-align: center;
+      margin-block: var(--space-lg);
     }
+    ul {
+      padding: var(--space-md);
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      max-width: 992px;
+      justify-content: center;
+      margin-inline: auto;
+      & > li {
+        list-style-type: none;
+        background-color: var(--color-bg-light-alt);
+        border-radius: var(--regular-border-radius);
+        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+          0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
+        transition: all 0.3s ease-in-out;
+        flex-basis: calc(50% - var(--space-md));
 
-    .track {
-      --card-width: 400px;
-      --card-width: clamp(300px, 50vmin, 600px);
-
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-bottom: 6rem;
-
-      ul {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-        &::-webkit-scrollbar {
-          display: none;
+        @media screen and (max-width: 767px) {
+          flex-basis: 100%;
+          max-width: 100%;
         }
-        display: flex;
-        gap: 2rem;
+
+        &:hover {
+          transform: translateY(-0.5rem);
+        }
+
+        a:is(a, :hover, :focus, :active) {
+          color: var(--color-primary);
+          text-decoration: none;
+          font-family: var(--ff-pacifico);
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-right: var(--space-xs);
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: var(--regular-border-radius);
+          margin-right: var(--space-md);
+        }
+      }
+    }
+  }
+
+  :is(li, .indicator) {
+    --h: 204;
+    --s: 100%;
+    --l: 49%;
+  }
+
+  .track {
+    --card-width: 400px;
+    --card-width: clamp(300px, 50vmin, 600px);
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-bottom: 6rem;
+
+    ul {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      display: flex;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+      padding-inline: calc(50vw - (var(--card-width) * 0.5));
+      scroll-snap-type: x mandatory;
+      max-width: 100%;
+      list-style-type: none;
+      overflow: auto;
+      height: 100%;
+      align-content: center;
+      align-items: center;
+      scroll-behavior: smooth;
+      scroll-padding-inline: calc(50vw - (var(--card-width) * 0.5));
+      -webkit-overflow-scrolling: touch;
+
+      li {
+        scroll-snap-align: center;
         padding: 0;
         margin: 0;
-        padding-inline: calc(50vw - (var(--card-width) * 0.5));
-        scroll-snap-type: x mandatory;
-        max-width: 100%;
-        list-style-type: none;
-        overflow: auto;
-        height: 100%;
-        align-content: center;
-        align-items: center;
-        scroll-behavior: smooth;
-        scroll-padding-inline: calc(50vw - (var(--card-width) * 0.5));
-        -webkit-overflow-scrolling: touch;
 
-        li {
-          scroll-snap-align: center;
-          padding: 0;
-          margin: 0;
-
-          picture {
-            width: var(--card-width);
-            aspect-ratio: 4 / 3;
-          }
+        picture {
+          width: var(--card-width);
+          aspect-ratio: 4 / 3;
         }
       }
+    }
+
+    &__indicators {
+      height: 10px;
+      position: absolute;
+      top: calc(50% + ((var(--card-width) * (3 / 4)) * 0.5) + 2rem);
+      left: 50%;
+      translate: -50% 0;
+      display: flex;
+      gap: 4px;
+
+      .indicator {
+        --color: hsl(var(--h) var(--s) var(--l));
+        background: linear-gradient(var(--color), var(--color)) padding-box;
+        flex: 1;
+        border-radius: 100px;
+        height: 100%;
+        min-width: 12px;
+        padding: 0;
+        position: relative;
+
+        &::after {
+          content: "";
+          border-radius: 100px;
+          position: absolute;
+          inset: 0;
+          background: hsl(
+            calc(var(--h) + 3),
+            calc(var(--s) - 3%),
+            calc(var(--l) - 36%)
+          );
+        }
+      }
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .track {
+      timeline-scope: --one, --two, --three, --four, --five;
 
       &__indicators {
-        height: 10px;
-        position: absolute;
-        top: calc(50% + ((var(--card-width) * (3 / 4)) * 0.5) + 2rem);
-        left: 50%;
-        translate: -50% 0;
-        display: flex;
-        gap: 4px;
+        aspect-ratio: 7 / 1;
 
         .indicator {
-          --color: hsl(var(--h) var(--s) var(--l));
-          background: linear-gradient(var(--color), var(--color)) padding-box;
-          flex: 1;
-          border-radius: 100px;
-          height: 100%;
-          min-width: 12px;
-          padding: 0;
-          position: relative;
+          --buffer: calc(var(--card-width) * 0.9);
+          animation: blink both linear;
+          animation-range: contain calc(50% - var(--buffer)) contain
+            calc(50% + var(--buffer));
 
-          &::after {
-            content: "";
-            border-radius: 100px;
-            position: absolute;
-            inset: 0;
-            background: hsl(
-              calc(var(--h) + 3),
-              calc(var(--s) - 3%),
-              calc(var(--l) - 36%)
-            );
-          }
-        }
-      }
-    }
-
-    @supports (animation-timeline: scroll()) {
-      .track {
-        timeline-scope: --one, --two, --three, --four, --five;
-
-        &__indicators {
-          aspect-ratio: 7 / 1;
-
-          .indicator {
-            --buffer: calc(var(--card-width) * 0.9);
-            animation: blink both linear;
-            animation-range: contain calc(50% - var(--buffer)) contain
-              calc(50% + var(--buffer));
-
-            &:nth-of-type(1) {
-              animation-timeline: --one;
-
-              &::after {
-                animation-timeline: --one;
-              }
-            }
-            &:nth-of-type(2) {
-              animation-timeline: --two;
-
-              &::after {
-                animation-timeline: --two;
-              }
-            }
-            &:nth-of-type(3) {
-              animation-timeline: --three;
-
-              &::after {
-                animation-timeline: --three;
-              }
-            }
-            &:nth-of-type(4) {
-              animation-timeline: --four;
-
-              &::after {
-                animation-timeline: --four;
-              }
-            }
-            &:nth-of-type(5) {
-              animation-timeline: --five;
-
-              &::after {
-                animation-timeline: --five;
-              }
-            }
-            &::after {
-              --buffer: calc(var(--card-width) * 0.9);
-              opacity: 0;
-              animation: show both linear;
-              animation-range: contain calc(50% - var(--buffer)) contain
-                calc(50% + var(--buffer));
-            }
-          }
-        }
-        li {
           &:nth-of-type(1) {
-            view-timeline: --one inline;
+            animation-timeline: --one;
+
+            &::after {
+              animation-timeline: --one;
+            }
           }
           &:nth-of-type(2) {
-            view-timeline: --two inline;
+            animation-timeline: --two;
+
+            &::after {
+              animation-timeline: --two;
+            }
           }
           &:nth-of-type(3) {
-            view-timeline: --three inline;
+            animation-timeline: --three;
+
+            &::after {
+              animation-timeline: --three;
+            }
           }
           &:nth-of-type(4) {
-            view-timeline: --four inline;
+            animation-timeline: --four;
+
+            &::after {
+              animation-timeline: --four;
+            }
           }
           &:nth-of-type(5) {
-            view-timeline: --five inline;
+            animation-timeline: --five;
+
+            &::after {
+              animation-timeline: --five;
+            }
+          }
+          &::after {
+            --buffer: calc(var(--card-width) * 0.9);
+            opacity: 0;
+            animation: show both linear;
+            animation-range: contain calc(50% - var(--buffer)) contain
+              calc(50% + var(--buffer));
           }
         }
       }
-
-      @keyframes blink {
-        50% {
-          flex: 3;
+      li {
+        &:nth-of-type(1) {
+          view-timeline: --one inline;
         }
-      }
-      @keyframes show {
-        50% {
-          opacity: 1;
+        &:nth-of-type(2) {
+          view-timeline: --two inline;
+        }
+        &:nth-of-type(3) {
+          view-timeline: --three inline;
+        }
+        &:nth-of-type(4) {
+          view-timeline: --four inline;
+        }
+        &:nth-of-type(5) {
+          view-timeline: --five inline;
         }
       }
     }
-  </style>
-</PoolLayout>
+
+    @keyframes blink {
+      50% {
+        flex: 3;
+      }
+    }
+    @keyframes show {
+      50% {
+        opacity: 1;
+      }
+    }
+  }
+</style>

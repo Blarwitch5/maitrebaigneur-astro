@@ -1,5 +1,5 @@
 ---
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import site from "@assets/data/prices.json";
 import options from "@assets/data/formOptions.json";
 import Title from "@components/ui/Title.astro";
@@ -26,12 +26,12 @@ const eventOption = formOptions[3];
           >
         </li>
       </ul>
-      <Buttons
+      <Button
         href={`/contact?option=${eventOption.slug}`}
         class="btn btn__regular"
       >
         Demander un devis
-      </Buttons>
+      </Button>
     </div>
     <div class="package">
       <h1 class="package__title">{eventsNightPrices.name}</h1>
@@ -44,12 +44,12 @@ const eventOption = formOptions[3];
           >
         </li>
       </ul>
-      <Buttons
+      <Button
         href={`/contact?option=${eventOption.slug}`}
         class="btn btn__regular"
       >
         Demander un devis
-      </Buttons>
+      </Button>
     </div>
   </div>
 </div>

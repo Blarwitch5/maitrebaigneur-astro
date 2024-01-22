@@ -1,7 +1,7 @@
 ---
 import CloseBtn from "@components/header/CloseBtn.astro";
 import Socials from "@components/Socials.astro";
-import Buttons from "@components/ui/Buttons.astro";
+import Button from "@components/ui/Button.astro";
 import site from "@assets/data/data.json";
 import { Icon } from "astro-icon";
 
@@ -28,7 +28,7 @@ const logo = {
               {item.children && (
                 <li class={`nav-item dropdown`} role="menuitem">
                   <Icon name={item.icon} />
-                  <Buttons
+                  <Button
                     tabindex="0"
                     class="nav-link dropdown__toggle"
                     type="button"
@@ -37,18 +37,18 @@ const logo = {
                   >
                     {item.name}
                     <Icon name="arrow_down" />
-                  </Buttons>
+                  </Button>
 
                   <ul id="dropdown" class="dropdown__menu submenu" role="menu">
                     {item.children.map((child) => (
                       <li class={`nav-item submenu__item`} role="menuitem">
-                        <Buttons
+                        <Button
                           tabindex="0"
                           class="nav-link dropdown__title"
                           href={child.href}
                         >
                           {child.name}
-                        </Buttons>
+                        </Button>
                       </li>
                     ))}
                   </ul>
@@ -64,14 +64,14 @@ const logo = {
                   role="menuitem"
                 >
                   <Icon name={item.icon} />
-                  <Buttons
+                  <Button
                     tabindex="0"
                     class="nav-link"
                     href={item.href}
                     newTab={item.inNewTab}
                   >
                     {item.name}
-                  </Buttons>
+                  </Button>
                 </li>
               )}
             </>

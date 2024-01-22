@@ -4,7 +4,7 @@ metaDesc: "meta description"
 
 title: "Kabanon"
 pool: {
-	name: "Kabanon des écuries de l'aube",
+	name: "Kabanon",
 	location: "St-Marc-Jaumegarde",
 	desc: "Dans les anciennes écuries du domaine, à Saint-Marc-Jaumegarde, s’est installé le restaurant traditionnel et sa cuisine du terroir.
 
@@ -24,6 +24,14 @@ Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux sav
 			name: "Cours de natation",
 			icon: "swimmer",
 			href: "/prestations/cours-de-natation"
+		},{
+			name: "Cours Bébé nageur",
+			icon: "baby",
+			href: "/prestations/cours-bebe-nageur"
+		},{
+			name: "Aquafitness",
+			icon: "swimmer",
+			href: "/prestations/aquafitness"
 		}
 	],
 	gallery: [

@@ -1,5 +1,5 @@
 ---
-import Buttons from "./ui/Buttons.astro";
+import Button from "./ui/Button.astro";
 import { Icon } from "astro-icon";
 import site from "@assets/data/data.json";
 import Title from "./ui/Title.astro";
@@ -328,13 +328,13 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
       Pour vous inscrire aux cours de bébé nageur, utilisez notre nouveau
       système de réservation en ligne.
     </p>
-    <Buttons
+    <Button
       href="https://user.clicrdv.com/maitre-baigneur"
       class="btn btn__regular"
       newTab
     >
       <Icon name="calendar" /> Je réserve maintenant
-    </Buttons>
+    </Button>
   </fieldset>
   <!-- 6th section - Swimming in station -->
   <fieldset class="form__section no-inputs" id="swimming-station">
@@ -345,13 +345,13 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
         >nos bassins d'apprentissage</a
       >, utilisez notre nouveau système de réservation en ligne.
     </p>
-    <Buttons
+    <Button
       href="https://user.clicrdv.com/maitre-baigneur"
       class="btn btn__regular"
       newTab
     >
       <Icon name="calendar" /> Je réserve maintenant
-    </Buttons>
+    </Button>
     <div class="pools">
       <Title level="3">Nos bassins d'apprentissage</Title>
       <ul>
@@ -389,7 +389,7 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
     <!-- <input type="hidden" name="_gotcha" style="display:none !important" /> -->
 
     <!-- submit button -->
-    <Buttons type="submit" class="btn btn__regular">Envoyer</Buttons>
+    <Button type="submit" class="btn btn__regular">Envoyer</Button>
   </fieldset>
 </form>
 
