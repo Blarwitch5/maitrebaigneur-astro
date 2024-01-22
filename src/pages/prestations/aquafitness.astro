@@ -7,7 +7,7 @@ import Footer from "@components/Footer.astro";
 import PageTitle from "@components/header/PageTitle.astro";
 import Title from "@components/ui/Title.astro";
 
-import AquaversairePrices from "@components/widgets/prices/AquaversairePrices.astro";
+import AquafitnessPrices from "@components/widgets/prices/AquafitnessPrices.astro";
 
 //data
 
@@ -34,16 +34,16 @@ const page = {
   />
 
   <Main>
-    <section class="aquaversaire">
+    <section class="aquafitness">
       <div class="container">
-        <Title animate level="2" class="aquaversaire__title">
+        <Title animate level="2" class="aquafitness__title">
           Maître-Baigneur organise des séances d'Aquatfitness
         </Title>
-        <Title animate level="3" class="aquaversaire__title--2">
+        <Title animate level="3" class="aquafitness__title--2">
           Nos cours d'aquafitness
         </Title>
-        <div class="aquaversaire__content">
-          <p class="aquaversaire__desc">
+        <div class="aquafitness__content">
+          <p class="aquafitness__desc">
             La piscine peut être un lieu très amusant, mais elle comporte aussi
             des risques importants. Les parents peuvent maintenant profiter des
             fêtes avec piscine sans s'inquiéter grâce à Maître Baigneur. Ce
@@ -53,7 +53,7 @@ const page = {
             sûres et inoubliables en assurant la sécurité des enfants dans la
             piscine.
           </p>
-          <div class="aquaversaire__details">
+          <div class="aquafitness__details">
             <Title animate level="4">À propos de nos cours d'Aquafitness</Title>
             <ul>
               <li>Jusqu'à 5 personnes</li>
@@ -65,7 +65,7 @@ const page = {
           </div>
         </div>
         <img
-          class="aquaversaire__img"
+          class="aquafitness__img"
           src="/images/aquaversaire-2.jpg"
           alt="Personnes flottant sur des bouées dans une piscines lors d'un anniversaire"
         />
@@ -73,8 +73,8 @@ const page = {
     </section>
     <section>
       <div class="container">
-        <Title animate level="3">Tarifs Aquaversaire</Title>
-        <AquaversairePrices />
+        <Title animate level="3">Tarifs Aquafitness</Title>
+        <AquafitnessPrices />
       </div>
     </section>
   </Main>
@@ -82,7 +82,7 @@ const page = {
 </BaseLayout>
 
 <style lang="scss">
-  .aquaversaire {
+  .aquafitness {
     &__content {
       display: flex;
       flex-wrap: nowrap;

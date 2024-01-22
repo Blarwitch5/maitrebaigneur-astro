@@ -1,0 +1,36 @@
+---
+import site from "@assets/data/prices.json";
+import Title from "@components/ui/Title.astro";
+
+const { prices } = site;
+const aquafitness = prices.aquafitness;
+---
+
+<div class="packages-container aquafitness">
+  <div>
+    <div class="package">
+      <Title level="1" class="package__title">{aquafitness.name}</Title>
+
+      <ul class="package__list">
+        <li class="package__item">
+          {aquafitness.single.name}
+          <span class="package__price">{aquafitness.single.price}€</span>
+        </li>
+
+        {
+          aquafitness.cards.map((card: { name: string; price: number }) => (
+            <li class="package__item">
+              {card.name} <span class="package__price">{card.price}€</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 100%;
+  }
+</style>

@@ -9,7 +9,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' *.cdninstagram.com; media-src 'self' *.cdninstagram.com; connect-src 'self' graph.instagram.com vitals.vercel-insights.com https://formcarry.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
+          "value": "default-src 'self'; img-src 'self' *.cdninstagram.com data:; media-src 'self' *.cdninstagram.com; connect-src 'self' graph.instagram.com vitals.vercel-insights.com https://formcarry.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' ;"
         },
         {
           "key": "X-Content-Type-Options",

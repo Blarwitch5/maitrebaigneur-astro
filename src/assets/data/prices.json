@@ -82,6 +82,14 @@
       "name_2": "Test d'aisance aquatique",
       "distance": "50 mètres",
       "price": 10
+    },
+    "aquafitness": {
+      "name": "Aquafitness",
+      "single": { "name": "Séance découverte", "price": 15 },
+      "cards": [
+        { "name": "Carte 10 séances", "price": 135 },
+        { "name": "Carte 20 séances", "price": 250 }
+      ]
     }
   }
 }
