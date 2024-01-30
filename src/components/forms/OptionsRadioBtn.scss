@@ -74,6 +74,7 @@
   .radio {
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     background: #fff;
     border: var(--radio-border-width) solid var(--color-gray);
     border-radius: 50%;

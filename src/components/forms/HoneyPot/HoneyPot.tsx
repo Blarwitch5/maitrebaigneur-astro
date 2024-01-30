@@ -1,4 +1,7 @@
-interface HoneyPotProps {}
+interface HoneyPotProps {
+  className?: string;
+}
+
 const HoneyPot: React.FC<HoneyPotProps> = () => {
   return (
     <div style={{ display: "none" }}>

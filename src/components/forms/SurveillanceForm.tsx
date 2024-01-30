@@ -201,7 +201,7 @@ const SurveillanceForm = () => {
               rows={3}
               {...register("info")}
               autoComplete="off" // Disable autocomplete for custom text area
-            ></textarea>
+            />
             <small>
               Exemple: Je souhaite organiser un aquaversaire à Aix le 01/01/23
               pour 10 enfants...

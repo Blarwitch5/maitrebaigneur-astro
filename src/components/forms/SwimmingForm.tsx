@@ -1,4 +1,5 @@
 import site from "@assets/data/data.json";
+import { v4 as uuidv4 } from "uuid";
 
 const { swimmingLevels } = site;
 const levels = swimmingLevels;
@@ -390,7 +391,7 @@ const SwimmingForm = () => {
               rows={5}
               {...register("dispo")}
               autoComplete="off"
-            ></textarea>
+            />
             <small>Veuillez nous fournir plusieurs dates et heures</small>
             {errors?.dispo?.message && (
               <p className="error-message">{errors.dispo.message}</p>
@@ -403,7 +404,11 @@ const SwimmingForm = () => {
           ferons de notre mieux pour vous répondre favorablement."
           />
           <div className="col-100">
-            <button className="btn btn__regular btn-help" onClick={openPopup}>
+            <button
+              type="button"
+              className="btn btn__regular btn-help"
+              onClick={openPopup}
+            >
               Aide à l'évaluation
               <br /> du niveau du baigneur
             </button>
@@ -424,10 +429,10 @@ const SwimmingForm = () => {
                         />
                       </picture>
 
-                      <p dangerouslySetInnerHTML={{ __html: level.desc }} />
+                      <p>{level.desc}</p>
                       <ul className="hints">
-                        {level.hints.map((hint, index) => (
-                          <li className="hint" key={index}>
+                        {level.hints.map((hint) => (
+                          <li className="hint" key={uuidv4()}>
                             {hint}
                           </li>
                         ))}

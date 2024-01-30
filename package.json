@@ -14,20 +14,20 @@
     "@astrojs/react": "^3.0.9",
     "@astrojs/renderer-react": "^0.5.0",
     "@astrojs/sitemap": "^3.0.5",
-    "@babel/core": "^7.23.7",
+    "@babel/core": "^7.23.9",
     "@glidejs/glide": "^3.6.0",
     "@hookform/resolvers": "^3.3.4",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "aos": "^2.3.4",
-    "astro": "^4.2.1",
-    "astro-breadcrumbs": "^1.8.1",
+    "astro": "^4.2.6",
+    "astro-breadcrumbs": "^1.9.0",
     "astro-icon": "^0.8.2",
     "astro-navbar": "^1.2.3",
     "astro-seo": "^0.7.6",
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.3",
-    "dotenv": "^16.3.2",
+    "dotenv": "^16.4.1",
     "just-validate": "^4.3.0",
     "postcss": "^8.4.33",
     "prettier": "^2.8.8",
@@ -38,10 +38,12 @@
     "react-router-dom": "^6.21.3",
     "sanitize.css": "^13.0.0",
     "title": "^3.5.3",
+    "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.10",
+    "@types/uuid": "^9.0.8",
     "sass": "^1.70.0"
   }
 }

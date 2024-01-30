@@ -11,21 +11,31 @@ async function fetchInstagramFeed(
 ): Promise<InstagramPost[]> {
   const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${accessToken}&limit=4`;
   const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(
+      `Instagram API responded with status code ${response.status}`
+    );
+  }
+
   const data = await response.json();
+
+  if (!data.data) {
+    throw new Error("Instagram API response does not contain expected data");
+  }
+
   return data.data;
 }
 
-// Fetch the Instagram feed using your access token
 const accessToken: string = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
-let isInstagramFeedNotEmpty = true;
+let isInstagramFeedNotEmpty = instagramFeed.length > 0;
 ---
 
 <div class="instagram-grid">
-  {instagramFeed}
   {
-    isInstagramFeedNotEmpty ? (
-      <p>Flux Instagram insdisponible</p>
+    !isInstagramFeedNotEmpty ? (
+      <p>Flux Instagram indisponible</p>
     ) : (
       instagramFeed.map((post) => (
         <a

@@ -224,6 +224,13 @@ declare module 'astro:content' {
   collection: "bassins";
   data: any
 } & { render(): Render[".md"] };
+"saint-maximin.md": {
+	id: "saint-maximin.md";
+  slug: "saint-maximin";
+  body: string;
+  collection: "bassins";
+  data: any
+} & { render(): Render[".md"] };
 "set-club.md": {
 	id: "set-club.md";
   slug: "set-club";

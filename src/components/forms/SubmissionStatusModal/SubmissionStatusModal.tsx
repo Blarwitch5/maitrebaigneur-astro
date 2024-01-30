@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import "./SubmissionStatusModal.scss";
 
@@ -25,27 +25,33 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
 
   // Fermer la modal en cliquant à l'extérieur
   const handleOutsideClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (e.target === e.currentTarget) {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Escape") {
       onClose();
     }
   };
 
-  // Fermer la modal en appuyant sur la touche Échap
-  const handleEscapeKey = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      onClose();
-    }
-  };
+  const handleEscapeKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
-  // Écouter la touche Échap
   useEffect(() => {
     window.addEventListener("keydown", handleEscapeKey);
     return () => {
       window.removeEventListener("keydown", handleEscapeKey);
     };
-  }, []);
+  }, [handleEscapeKey]);
 
   return (
     <div
@@ -53,12 +59,13 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
         isSuccess ? "success" : "error"
       }`}
       onClick={handleOutsideClick}
+      onKeyDown={handleKeyDown}
       role="dialog"
       aria-modal="true"
     >
-      <div className="submission-status-modal-overlay" aria-hidden="true"></div>
+      <div className="submission-status-modal-overlay" aria-hidden="true" />
       <div className="submission-status-modal-content">
-        <button onClick={onClose} className="btn-back ">
+        <button type="button" onClick={onClose} className="btn-back ">
           Retour
         </button>
         {isSuccess ? (

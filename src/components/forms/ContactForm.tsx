@@ -203,7 +203,7 @@ const ContactForm = () => {
               rows={3}
               {...register("message")}
               autoComplete="off" // Disable autocomplete for custom text area
-            ></textarea>
+            />
             {errors?.message?.message && (
               <p className="error-message">{errors.message.message}</p>
             )}
