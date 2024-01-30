@@ -65,6 +65,7 @@
             "name": "Le Carré d'Ô"
           },
           { "href": "/bassins/kinemouv", "name": "Kinémouv'" },
+          { "href": "/bassins/saint-maximin", "name": "Saint-Maximin" },
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
         ],
@@ -244,6 +245,21 @@
         "thumb": {
           "jpg": "/images/thumbnails/le-carre-d-o-thumb.jpg",
           "alt": "Bassin du Carré d'Ô"
+        }
+      },
+      {
+        "name": "Saint-Maximin",
+        "href": "/bassins/saint-maximin",
+        "image": {
+          "src": "/images/pools/saint-maximin.jpg",
+          "alt": "Bassin à Saint-Maximin"
+        },
+        "period": "All year",
+        "location": "Saint-Maximin",
+        "address": "Saint-Maximin",
+        "thumb": {
+          "jpg": "/images/thumbnails/saintmaximin-thumb.jpg",
+          "alt": "Bassin à Saint-Maximin"
         }
       },
       {
