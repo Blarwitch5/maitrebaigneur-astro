@@ -6,7 +6,7 @@
           { "name": "Séance découverte", "price": 20 },
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
           { "name": "1 Séance pour 2 baigneurs", "price": 40 },
-          { "name": "1 Séance pour 3 baigneurs", "price": 50 }
+          { "name": "Leçon privée", "price": 30 }
         ],
         "cards": [
           { "name": "Carte 5 séances", "price": 100 },
