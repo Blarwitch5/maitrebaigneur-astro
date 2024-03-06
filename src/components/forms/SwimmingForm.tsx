@@ -174,16 +174,15 @@ const SwimmingForm = () => {
       // Create a formatted list of swimmers
       const formattedSwimmersList = data.swimmers.map((swimmer, index) => {
         return `
-        <p>
-          Baigneur ${index + 1}:<br/>
-          - Nom: ${swimmer.name}<br/>
-          - Date de naissance: ${swimmer.dob}<br/>
-          - Niveau: ${swimmer.level}<br/>
-        </p>
+          Baigneur ${index + 1}:\n
+          - Nom: ${swimmer.name}\n
+          - Date de naissance: ${swimmer.dob}\n
+          - Niveau: ${swimmer.level}\n
+       
         `;
       });
 
-      const formattedSwimmers = formattedSwimmersList.join("");
+      const formattedSwimmers = formattedSwimmersList.join("\n");
 
       const formattedData = {
         ...data,
