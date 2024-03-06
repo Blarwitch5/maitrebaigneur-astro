@@ -170,22 +170,9 @@ const SwimmingForm = () => {
     try {
       // Validate using Zod
       SwimmingFormSchema.parse(data);
-      interface Swimmer {
-        name: string;
-        dob: string;
-        level: string;
-      }
-      const formattedArraySwimmers = {
-        swimmers: JSON.stringify(data.swimmers),
-      };
-
-      // Parse the JSON string into an array of Swimmer
-      const swimmersArray: Swimmer[] = JSON.parse(
-        formattedArraySwimmers.swimmers
-      );
 
       // Create a formatted list of swimmers
-      const formattedSwimmersList = swimmersArray.map((swimmer, index) => {
+      const formattedSwimmersList = data.swimmers.map((swimmer, index) => {
         return `
         <p>
           Baigneur ${index + 1}:<br/>
@@ -196,7 +183,7 @@ const SwimmingForm = () => {
         `;
       });
 
-      const formattedSwimmers = formattedSwimmersList.join("\n");
+      const formattedSwimmers = formattedSwimmersList.join("");
 
       const formattedData = {
         ...data,
