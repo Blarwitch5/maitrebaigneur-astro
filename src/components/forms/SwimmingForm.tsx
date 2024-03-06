@@ -187,10 +187,11 @@ const SwimmingForm = () => {
       // Create a formatted list of swimmers
       const formattedSwimmersList = swimmersArray.map((swimmer, index) => {
         return `
-          Baigneur ${index + 1}:
-          - Nom: ${swimmer.name}
-          - Date de naissance: ${swimmer.dob}
-          - Niveau: ${swimmer.level}
+          Baigneur ${index + 1}:\n
+          - Nom: ${swimmer.name}\n
+          - Date de naissance: ${swimmer.dob}\n
+          - Niveau: ${swimmer.level}\n
+          \n
         `;
       });
 
