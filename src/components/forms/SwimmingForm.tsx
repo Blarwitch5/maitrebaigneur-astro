@@ -97,7 +97,10 @@ const SwimmingFormSchema = z.object({
     .regex(
       /^[0-9]+$/,
       "Le code postal doit être composé de chiffres uniquement;"
-    ),
+    )
+    .refine((value) => value.startsWith("13") || value.startsWith("84"), {
+      message: "Seules les adresses des départements 13 et 84 sont acceptées.",
+    }),
   city: z
     .string()
     .min(2, {
