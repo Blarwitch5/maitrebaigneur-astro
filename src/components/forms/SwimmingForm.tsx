@@ -54,8 +54,8 @@ const SwimmingFormSchema = z.object({
       message: "Le nom ne doit pas excéder 30 lettres.",
     })
     .regex(
-      /^[a-zA-Z-]+$/,
-      "Le nom ne doit contenir que des lettres et/ou des tirets (-)"
+      /^[a-zA-Z- ]+$/,
+      "Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces"
     ),
   firstName: z
     .string()
@@ -65,7 +65,7 @@ const SwimmingFormSchema = z.object({
     })
     .regex(
       /^[a-zA-Z-]+$/,
-      "Le prénom ne doit contenir que des lettres et/ou des tirets (-)"
+      "Le nom ne doit contenir que des lettres ou des tirets (-)"
     ),
   email: z.string().email({
     message: "Email invalide. Veuillez entrer une adresse mail valide",

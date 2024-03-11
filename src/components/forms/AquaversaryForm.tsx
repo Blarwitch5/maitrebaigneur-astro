@@ -16,8 +16,8 @@ const AquaversaryFormSchema = z.object({
       message: "Le nom ne doit pas excéder 30 lettres.",
     })
     .regex(
-      /^[a-zA-Z-]+$/,
-      "Le nom ne doit contenir que des lettres et/ou des tirets (-)"
+      /^[a-zA-Z- ]+$/,
+      "Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces"
     ),
   firstName: z
     .string()
