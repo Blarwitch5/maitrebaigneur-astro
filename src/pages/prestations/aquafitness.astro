@@ -16,9 +16,9 @@ const page = {
   description: "",
   title: "Aquafitness",
   image: {
-    webp: "/images/page-title/webp/page_aquaversaire.webp",
-    jpg: "/images/page-title/page_aquaversaire.jpg",
-    alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
+    webp: "/images/page-title/webp/page_aquafitness.webp",
+    jpg: "/images/page-title/page_aquafitness.jpg",
+    alt: "Personnes participant à un cours d'aquafitness dans une piscine",
   },
 };
 ---
@@ -37,37 +37,46 @@ const page = {
     <section class="aquafitness">
       <div class="container">
         <Title animate level="2" class="aquafitness__title">
-          Maître-Baigneur organise des séances d'Aquatfitness
+          L'aquafitness, une activité qui vous fera sourire à coup sûr grâce à
+          nos coachs de choc
         </Title>
-        <Title animate level="3" class="aquafitness__title--2">
-          Nos cours d'aquafitness
-        </Title>
+
         <div class="aquafitness__content">
           <p class="aquafitness__desc">
-            La piscine peut être un lieu très amusant, mais elle comporte aussi
-            des risques importants. Les parents peuvent maintenant profiter des
-            fêtes avec piscine sans s'inquiéter grâce à Maître Baigneur. Ce
-            service permet aux enfants de s’amuser en toute sécurité et aux
-            parents de se détendre et de profiter de la fête en toute
-            tranquillité. Maître Baigneur aide les parents à organiser des fêtes
-            sûres et inoubliables en assurant la sécurité des enfants dans la
-            piscine.
+            Voici pourquoi :<br />
+
+            <strong>Rires garantis :</strong> Se déplacer dans l'eau est toujours
+            amusant, que ce soit en sautillant ou en faisant des vagues. L'aquafitness
+            transforme votre séance d'entraînement en un moment de pur plaisir.
+            <br />
+            <strong>Tonifiez tout en vous amusant :</strong> Les mouvements dans
+            l'eau sculptent votre corps tout en douceur, sans jamais vous ennuyer.
+            Bye-bye la monotonie, bonjour la bonne humeur !
+            <br />
+            <strong>Cardio-training sans impact :</strong> Augmentation du rythme
+            cardiaque et combustion des calories sans stress pour les articulations.
+            <br />
+            <strong>Lâchez prise et relaxez-vous :</strong> L'eau a un effet apaisant
+            instantané. L'aquafitness vous permet de vous détendre tout en vous dépensant,
+            pour un bien-être total.
+            <br />
+            <strong>Entraînez-vous en musique :</strong> Rien de tel que de bouger
+            sur des rythmes entraînants pour booster votre motivation ! L'aquafitness
+            est fait pour vous !
           </p>
           <div class="aquafitness__details">
             <Title animate level="4">À propos de nos cours d'Aquafitness</Title>
             <ul>
               <li>Jusqu'à 5 personnes</li>
-              <li>Matériel de premiers soins</li>
-              <li>Matériel ludique</li>
-              <li>Sécurité assurée par un Maître-Baigneur</li>
-              <li>Animation</li>
+              <li>Matériel fourni</li>
+              <li>Temps de séance de 40 minutes</li>
             </ul>
           </div>
         </div>
         <img
           class="aquafitness__img"
-          src="/images/aquaversaire-2.jpg"
-          alt="Personnes flottant sur des bouées dans une piscines lors d'un anniversaire"
+          src="/images/services/aquafitness.jpg"
+          alt="Personnes participant à un cours d'aquafitness dans une piscine"
         />
       </div>
     </section>
@@ -103,6 +112,8 @@ const page = {
       box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
         0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
       position: relative;
+      display: flex;
+      flex-direction: column;
 
       &::after {
         content: "";

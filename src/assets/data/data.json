@@ -144,13 +144,13 @@
         "name": "Aquafitness",
         "href": "/prestations/aquafitness",
         "image": {
-          "src": "/images/services/surveillance.jpg",
-          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+          "src": "/images/services/aquafitness.jpg",
+          "alt": "Personnes participant à un cours d'aquafitness"
         },
         "icon": "fitness",
         "pageTitleImage": {
-          "src": "/images/services/surveillance-page.jpg",
-          "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
+          "src": "/images/services/aquafitness-page.jpg",
+          "alt": "Personnes participant à un cours d'aquafitness"
         }
       }
     ],
