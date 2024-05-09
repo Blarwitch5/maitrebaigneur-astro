@@ -170,19 +170,23 @@ const levels = swimmingLevels;
   }
 </style>
 <script>
-  const levels = document.querySelectorAll(".level");
-  levels[0].classList.add("active");
+  function levelsGridSetup() {
+    const levels = document.querySelectorAll(".level");
+    levels[0].classList.add("active");
 
-  levels.forEach((level) => {
-    level.addEventListener("click", () => {
-      removeActiveClasses(); // Add fuctions to remove active class first
-      level.classList.add("active");
-    });
-  });
-
-  function removeActiveClasses() {
     levels.forEach((level) => {
-      level.classList.remove("active");
+      level.addEventListener("click", () => {
+        removeActiveClasses(); // Add fuctions to remove active class first
+        level.classList.add("active");
+      });
     });
+
+    function removeActiveClasses() {
+      levels.forEach((level) => {
+        level.classList.remove("active");
+      });
+    }
   }
+  levelsGridSetup();
+  document.addEventListener("astro:after-swap", levelsGridSetup);
 </script>

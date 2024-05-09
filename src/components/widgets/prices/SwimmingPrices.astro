@@ -120,32 +120,30 @@ const swimmingPricesPool = swimmingPrices.pool;
   }
 </style>
 <script>
-  const checkBox: HTMLInputElement | null = document.getElementById(
-    "checkbox"
-  ) as HTMLInputElement;
+  function swimmingPricesSetup() {
+    const checkBox = document.getElementById("checkbox") as HTMLInputElement;
+    const pricePackageHome = document.getElementById("price-package-home");
+    const pricePackagePool = document.getElementById("price-package-pool");
+    const labels = document.querySelectorAll(".top__toggle-btn-label");
 
-  function check(): void {
-    const pricePackageHome: HTMLElement | null =
-      document.getElementById("price-package-home");
-    const pricePackagePool: HTMLElement | null =
-      document.getElementById("price-package-pool");
-    const labels: NodeListOf<HTMLLabelElement> | null =
-      document.querySelectorAll(".top__toggle-btn-label");
-
-    if (checkBox && pricePackageHome && pricePackagePool && labels) {
-      if (checkBox.checked) {
-        labels[0].classList.remove("top__toggle-btn-label--active");
-        labels[1].classList.add("top__toggle-btn-label--active");
-        pricePackageHome.style.display = "flex";
-        pricePackagePool.style.display = "none";
-      } else {
-        labels[0].classList.add("top__toggle-btn-label--active");
-        labels[1].classList.remove("top__toggle-btn-label--active");
-        pricePackageHome.style.display = "none";
-        pricePackagePool.style.display = "flex";
+    function check() {
+      if (checkBox && pricePackageHome && pricePackagePool && labels) {
+        if (checkBox.checked) {
+          labels[0].classList.remove("top__toggle-btn-label--active");
+          labels[1].classList.add("top__toggle-btn-label--active");
+          pricePackageHome.style.display = "flex";
+          pricePackagePool.style.display = "none";
+        } else {
+          labels[0].classList.add("top__toggle-btn-label--active");
+          labels[1].classList.remove("top__toggle-btn-label--active");
+          pricePackageHome.style.display = "none";
+          pricePackagePool.style.display = "flex";
+        }
       }
     }
-  }
 
-  checkBox.addEventListener("click", check);
+    checkBox.addEventListener("click", check);
+  }
+  swimmingPricesSetup();
+  document.addEventListener("astro:after-swap", swimmingPricesSetup);
 </script>

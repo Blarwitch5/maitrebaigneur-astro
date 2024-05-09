@@ -58,31 +58,4 @@ const eventOption = formOptions[3];
   .container {
     width: 100%;
   }
-
-  .packages-container #price-package-home {
-    display: none;
-  }
 </style>
-<script>
-  function check(): void {
-    const checkBox: HTMLInputElement | null = document.getElementById(
-      "checkbox"
-    ) as HTMLInputElement;
-    const pricePackageHome: HTMLElement | null =
-      document.getElementById("price-package-home");
-    const pricePackagePool: HTMLElement | null =
-      document.getElementById("price-package-pool");
-
-    if (checkBox && pricePackageHome && pricePackagePool) {
-      if (checkBox.checked) {
-        pricePackageHome.style.display = "flex";
-        pricePackagePool.style.display = "none";
-      } else {
-        pricePackageHome.style.display = "none";
-        pricePackagePool.style.display = "flex";
-      }
-    }
-  }
-
-  document.getElementById("checkbox")?.addEventListener("click", check);
-</script>

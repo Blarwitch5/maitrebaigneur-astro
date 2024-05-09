@@ -348,89 +348,95 @@ const page = {
   }
 </style>
 <script>
-  // Define the tab buttons and panels
-  const tabButtons =
-    document.querySelectorAll<HTMLButtonElement>(".tab__button");
-  const tabPanels = document.querySelectorAll<HTMLDivElement>(".tab__panel");
+  const pricesSetup = () => {
+    // Define the tab buttons and panels
+    const tabButtons =
+      document.querySelectorAll<HTMLButtonElement>(".tab__button");
+    const tabPanels = document.querySelectorAll<HTMLDivElement>(".tab__panel");
 
-  /**
-   * Shows the specified panel and hides the other panels
-   * @param panelIndex The index of the panel to show
-   */
-  function showPanel(panelIndex: number): void {
-    // Determine the current and new panels
-    const currentPanel = document.querySelector<HTMLDivElement>(
-      ".pricing__section.previous, .pricing__section.active"
-    );
-    const newPanel = tabPanels[panelIndex];
+    /**
+     * Shows the specified panel and hides the other panels
+     * @param panelIndex The index of the panel to show
+     */
+    function showPanel(panelIndex: number): void {
+      // Determine the current and new panels
+      const currentPanel = document.querySelector<HTMLDivElement>(
+        ".pricing__section.previous, .pricing__section.active"
+      );
+      const newPanel = tabPanels[panelIndex];
 
-    // Remove the "active" class from the current panel and add it to the new panel
-    if (currentPanel) {
-      currentPanel.classList.remove("active");
-      currentPanel.classList.add("previous");
-    }
-    newPanel.classList.add("active");
-    newPanel.classList.remove("previous");
-
-    // Remove the "active" and "aria-selected" attributes from all buttons
-    tabButtons.forEach((button) => {
-      button.classList.remove("active");
-      button.setAttribute("aria-selected", "false");
-    });
-
-    // Remove the "active" and "previous" classes from all panels except for the current and new panels
-    tabPanels.forEach((panel) => {
-      if (panel !== currentPanel && panel !== newPanel) {
-        panel.classList.remove("active");
-        panel.classList.remove("previous");
+      // Remove the "active" class from the current panel and add it to the new panel
+      if (currentPanel) {
+        currentPanel.classList.remove("active");
+        currentPanel.classList.add("previous");
       }
-    });
+      newPanel.classList.add("active");
+      newPanel.classList.remove("previous");
 
-    // Add the "active" and "aria-selected" attributes to the selected button
-    const selectedButtonContent =
-      tabButtons[panelIndex].querySelector<HTMLSpanElement>("span")?.innerHTML;
-    if (selectedButtonContent) {
-      const tabTitle = document.querySelector<HTMLElement>(".tab__title");
-      if (tabTitle) {
-        tabTitle.innerHTML = selectedButtonContent;
+      // Remove the "active" and "aria-selected" attributes from all buttons
+      tabButtons.forEach((button) => {
+        button.classList.remove("active");
+        button.setAttribute("aria-selected", "false");
+      });
+
+      // Remove the "active" and "previous" classes from all panels except for the current and new panels
+      tabPanels.forEach((panel) => {
+        if (panel !== currentPanel && panel !== newPanel) {
+          panel.classList.remove("active");
+          panel.classList.remove("previous");
+        }
+      });
+
+      // Add the "active" and "aria-selected" attributes to the selected button
+      const selectedButtonContent =
+        tabButtons[panelIndex].querySelector<HTMLSpanElement>(
+          "span"
+        )?.innerHTML;
+      if (selectedButtonContent) {
+        const tabTitle = document.querySelector<HTMLElement>(".tab__title");
+        if (tabTitle) {
+          tabTitle.innerHTML = selectedButtonContent;
+        }
+        tabButtons[panelIndex].classList.add("active");
+        tabButtons[panelIndex].setAttribute("aria-selected", "true");
       }
-      tabButtons[panelIndex].classList.add("active");
-      tabButtons[panelIndex].setAttribute("aria-selected", "true");
     }
-  }
 
-  // Show the first panel by default
-  showPanel(0);
+    // Show the first panel by default
+    showPanel(0);
 
-  // Add click event listeners to the tab buttons
-  tabButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      showPanel(index);
+    // Add click event listeners to the tab buttons
+    tabButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        showPanel(index);
+      });
     });
-  });
 
-  // Handle URL query parameter to select a specific tab
-  const urlParams = new URLSearchParams(window.location.search);
-  const option = urlParams.get("option");
-  if (option) {
-    const matchingButton = document.querySelector<HTMLButtonElement>(
-      `button[role='tab'][data-option='${option}']`
-    );
-    if (matchingButton) {
-      matchingButton.click();
+    // Handle URL query parameter to select a specific tab
+    const urlParams = new URLSearchParams(window.location.search);
+    const option = urlParams.get("option");
+    if (option) {
+      const matchingButton = document.querySelector<HTMLButtonElement>(
+        `button[role='tab'][data-option='${option}']`
+      );
+      if (matchingButton) {
+        matchingButton.click();
+      }
     }
-  }
 
-  // Add click event listeners to the tab buttons to update URL query parameters
-  const tabs =
-    document.querySelectorAll<HTMLInputElement>("button[role='tab']");
-  tabs.forEach((tab) => {
-    const option = tab.getAttribute("data-option") || "";
-    const url = new URL(window.location.href);
-    url.searchParams.set("option", option);
-    tab.setAttribute("data-option", url.toString());
-    tab.addEventListener("click", () => {
-      window.history.replaceState({}, "", url.toString());
+    // Add click event listeners to the tab buttons to update URL query parameters
+    const tabs =
+      document.querySelectorAll<HTMLInputElement>("button[role='tab']");
+    tabs.forEach((tab) => {
+      const option = tab.getAttribute("data-option") || "";
+      const url = new URL(window.location.href);
+      url.searchParams.set("option", option);
+      tab.setAttribute("data-option", url.toString());
+      tab.addEventListener("click", () => {
+        window.history.replaceState({}, "", url.toString());
+      });
     });
-  });
+  };
+  pricesSetup();
+  document.addEventListener("astro:after-swap", pricesSetup);
 </script>

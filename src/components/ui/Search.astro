@@ -1,131 +1,153 @@
 <form class="search">
-	<label for="search-field" class="sr-only">Rechercher :</label>
-	<input type="text" id="search-field" name="search" aria-label="Rechercher" placeholder="Recherche" />
-	<button type="button" id="clear-button" aria-label="Effacer la recherche">Effacer</button>
+  <label for="search-field" class="sr-only">Rechercher :</label>
+  <input
+    type="text"
+    id="search-field"
+    name="search"
+    aria-label="Rechercher"
+    placeholder="Recherche"
+  />
+  <button type="button" id="clear-button" aria-label="Effacer la recherche"
+    >Effacer</button
+  >
 </form>
 
-<div id="no-results-message" style="display:none">Désolé, il n'y a pas de résultat pour cette recherche</div>
+<div id="no-results-message" style="display:none">
+  Désolé, il n'y a pas de résultat pour cette recherche
+</div>
 
 <style lang="scss">
-	.search {
-		--card-line-height: 1.2em;
-		--card-padding: var(--space-md);
-		--card-radius: 20px;
-		--color-gray: #e2ebf6;
-		--color-dark-gray: #c4d1e1;
-		--radio-border-width: 2px;
-		--radio-size: var(--space-md);
-		--form-gap: var(--space-xs);
+  .search {
+    --card-line-height: 1.2em;
+    --card-padding: var(--space-md);
+    --card-radius: 20px;
+    --color-gray: #e2ebf6;
+    --color-dark-gray: #c4d1e1;
+    --radio-border-width: 2px;
+    --radio-size: var(--space-md);
+    --form-gap: var(--space-xs);
 
-		position: relative;
-		width: 100%;
-		max-width: 800px;
-		margin: auto;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
 
-		& > input {
-			width: 100%;
-			margin-block: var(--space-md);
-			background-color: var(--color-white);
-			border-radius: var(--regular-border-radius);
-			padding: var(--space-xs) 4rem;
-			border: var(--radio-border-width) solid var(--color-gray);
+    & > input {
+      width: 100%;
+      margin-block: var(--space-md);
+      background-color: var(--color-white);
+      border-radius: var(--regular-border-radius);
+      padding: var(--space-xs) 4rem;
+      border: var(--radio-border-width) solid var(--color-gray);
 
-			&::placeholder {
-				color: var(--color-dark-gray);
-			}
+      &::placeholder {
+        color: var(--color-dark-gray);
+      }
 
-			&:hover {
-				border-color: var(--color-dark-gray);
-			}
-			&:focus {
-				outline: 2px solid var(--color-primary);
-				box-shadow: 1px 1px 8px 1px hsla(var(--link-color-primary-hsl), 0.5);
-			}
-		}
-		& > button {
-			visibility: hidden;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			right: calc(var(--space-xs) / 2);
-			height: 100%;
-			color: var(--fs-sm);
-			font-size: calc(var(--fs-sm) * 0.5);
-			cursor: pointer;
-			background-color: transparent;
-			border: none;
-			transition: visibility 0.2s ease-in;
-		}
-		&::before {
-			width: 3rem;
-			height: 3rem;
-			content: "";
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			left: calc(var(--space-xs) / 2);
+      &:hover {
+        border-color: var(--color-dark-gray);
+      }
+      &:focus {
+        outline: 2px solid var(--color-primary);
+        box-shadow: 1px 1px 8px 1px hsla(var(--link-color-primary-hsl), 0.5);
+      }
+    }
+    & > button {
+      visibility: hidden;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: calc(var(--space-xs) / 2);
+      height: 100%;
+      color: var(--fs-sm);
+      font-size: calc(var(--fs-sm) * 0.5);
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      transition: visibility 0.2s ease-in;
+    }
+    &::before {
+      width: 3rem;
+      height: 3rem;
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(var(--space-xs) / 2);
 
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background-image: url(/images/icons/search.svg);
-			background-position: center;
-			background-size: 60%;
-			z-index: 9;
-			pointer-events: none;
-			opacity: 0.2;
-		}
-	}
-	.search-results {
-		padding-block: var(2rem);
-	}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url(/images/icons/search.svg);
+      background-position: center;
+      background-size: 60%;
+      z-index: 9;
+      pointer-events: none;
+      opacity: 0.2;
+    }
+  }
+  .search-results {
+    padding-block: var(2rem);
+  }
 </style>
 <script>
-	const searchInput = document.querySelector<HTMLInputElement>("#search-field")!;
-	const clearButton = document.querySelector<HTMLButtonElement>("#clear-button")!;
-	const accordionItems = document.querySelectorAll<HTMLDivElement>(".accordion__item")!;
-	const noResultsMessage = document.querySelector<HTMLDivElement>("#no-results-message")!;
+  const searchSetup = () => {
+    const searchInput =
+      document.querySelector<HTMLInputElement>("#search-field")!;
+    const clearButton =
+      document.querySelector<HTMLButtonElement>("#clear-button")!;
+    const accordionItems =
+      document.querySelectorAll<HTMLDivElement>(".accordion__item")!;
+    const noResultsMessage = document.querySelector<HTMLDivElement>(
+      "#no-results-message"
+    )!;
 
-	searchInput.addEventListener("input", () => {
-		const searchQuery = searchInput.value.trim().toLowerCase();
-		if (searchQuery === "") {
-			accordionItems.forEach(item => {
-				item.style.display = "block";
-			});
-			noResultsMessage.style.display = "none";
-			clearButton.style.visibility = "hidden";
-			return;
-		}
-		let foundMatch = false;
-		accordionItems.forEach(item => {
-			const title = item.querySelector(".accordion__title");
-			const panel = item.querySelector(".accordion__panel");
-			if (title && panel) {
-				const titleText = title.textContent?.trim().toLowerCase();
-				const panelText = panel.textContent?.trim().toLowerCase();
-				if ((titleText && titleText.includes(searchQuery)) || (panelText && panelText.includes(searchQuery))) {
-					item.style.display = "block";
-					foundMatch = true;
-				} else {
-					item.style.display = "none";
-				}
-			}
-		});
-		clearButton.style.visibility = "visible";
-		if (foundMatch) {
-			noResultsMessage.style.display = "none";
-		} else {
-			noResultsMessage.style.display = "block";
-		}
-	});
+    searchInput.addEventListener("input", () => {
+      const searchQuery = searchInput.value.trim().toLowerCase();
+      if (searchQuery === "") {
+        accordionItems.forEach((item) => {
+          item.style.display = "block";
+        });
+        noResultsMessage.style.display = "none";
+        clearButton.style.visibility = "hidden";
+        return;
+      }
+      let foundMatch = false;
+      accordionItems.forEach((item) => {
+        const title = item.querySelector(".accordion__title");
+        const panel = item.querySelector(".accordion__panel");
+        if (title && panel) {
+          const titleText = title.textContent?.trim().toLowerCase();
+          const panelText = panel.textContent?.trim().toLowerCase();
+          if (
+            (titleText && titleText.includes(searchQuery)) ||
+            (panelText && panelText.includes(searchQuery))
+          ) {
+            item.style.display = "block";
+            foundMatch = true;
+          } else {
+            item.style.display = "none";
+          }
+        }
+      });
+      clearButton.style.visibility = "visible";
+      if (foundMatch) {
+        noResultsMessage.style.display = "none";
+      } else {
+        noResultsMessage.style.display = "block";
+      }
+    });
 
-	clearButton.addEventListener("click", () => {
-		searchInput.value = "";
-		accordionItems.forEach(item => {
-			item.style.display = "block";
-		});
-		noResultsMessage.style.display = "none";
-		clearButton.style.visibility = "hidden";
-		searchInput.focus();
-	});
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      accordionItems.forEach((item) => {
+        item.style.display = "block";
+      });
+      noResultsMessage.style.display = "none";
+      clearButton.style.visibility = "hidden";
+      searchInput.focus();
+    });
+  };
+  searchSetup();
+  document.addEventListener("astro:after-swap", searchSetup);
 </script>

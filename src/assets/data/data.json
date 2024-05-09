@@ -295,6 +295,11 @@
         "classes": "btn"
       },
       {
+        "href": "/faq",
+        "name": "FAQ",
+        "classes": "btn"
+      },
+      {
         "href": "/mentions-legales",
         "name": "Mentions légales",
         "classes": "btn"
