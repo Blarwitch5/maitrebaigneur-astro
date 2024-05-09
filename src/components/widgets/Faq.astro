@@ -4,7 +4,6 @@ import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
 import Button from "@components/ui/Button.astro";
 
 import site from "@assets/data/data.json";
-import Title from "@components/ui/Title.astro";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
@@ -13,100 +12,203 @@ const allYearPools = pools.filter((pool) => pool.period === "All year");
 ---
 
 <Accordion>
-  <AccordionItem header="Quelles sont les modalités de paiement ?" index="1">
+  <AccordionItem header="Comment ça se passe ?" index="1">
     <p>
-      Nous vous informons que le paiement doit être effectué lors de votre
-      première séance. Des enveloppes et des tickets d'encaissement sont
-      disponibles pour vous faciliter la tâche.
-    </p>
-    <Title level="4">Paiement en espèces</Title>
-    <p>
-      Si vous optez pour un règlement en espèces, des enveloppes sont à votre
-      disposition. Nous vous invitons à prévoir l'appoint et à remplir
-      soigneusement votre ticket d'encaissement.
-    </p>
-    <Title level="4">Paiement en chèques</Title>
-    <p>
-      Pour les paiements échelonnés (pour les abonnements ou les grosses
-      cartes), nous acceptons les chèques à l'ordre de Maitre Baigneur. Merci de
-      bien indiquer au dos du chèque le prénom et le nom du baigneur, ainsi que
-      les dates d'encaissement si plusieurs chèques sont prévus.
+      Lorsque vous arrivez dans <a href="/bassins"
+        >votre centre Maître Baigneur</a
+      >, assurez-vous d’être là <strong
+        >15 minutes avant le début de la séance</strong
+      >.
     </p><p>
-      Nous tenons à souligner que tous nos services doivent être réglés avant le
-      début de la séance. Si vous achetez une carte de 5 séances à 100€, après
-      chaque séance ,nous mettons à jour votre nombre de séances restantes,
-      consultable dans notre livret au bord du bassin .
+      À l’entrée des vestiaires, veuillez vous déchausser. Préparez ensuite
+      votre enfant en lui mettant son maillot de bain, son bonnet et ses
+      lunettes, puis rejoignez-nous directement au bord du bassin. Nous sommes
+      probablement déjà dans l’eau avec un groupe.
     </p><p>
-      Les règlements à la séance sont seulements acceptés pour les séances à
-      l'unité, telle qu'une séance de natation pour 1 baigneur à 25€.
+      Lorsque vous utilisez les douches avant et après le cours, pensez aux
+      autres. Le réservoir d’eau chaude n’est pas inépuisable.
+    </p><p>
+      Vous pouvez attendre avec votre enfant que le cours commence. Cependant,
+      afin de ne pas perturber les enfants pendant leur cours ou de ne pas les
+      distraire, nous vous prions de bien vouloir attendre dans les espaces
+      prévus à cet effet. Vous pourrez bien sûr venir les voir à la fin de la
+      séance pour constater leurs progrès.
     </p>
   </AccordionItem>
-  <AccordionItem header="Où puis-je apprendre à nager ?" index="2">
+  <AccordionItem header="À propos de la réservation en ligne" index="2">
     <p>
-      Vous pouvez apprendre à nager dans un de nos bassins d'apprentissage. En
-      voici la liste :
-    </p>
+      <strong>Attention:</strong> Vous devez créer <strong
+        >une fiche par élève</strong
+      >.
+      <ul>
+        <li>
+          <strong>Pour les cartes individuelles :</strong> chaque baigneur doit avoir
+          une fiche individuelle pour la carte ou la prestation pour la carte ou
+          prestation <br />Par exemple, pour une séance de découverte, une
+          séance à l’unité ou une carte de 5 séances, une fiche client est créée
+          pour le baigneur concerné.
+        </li>
+        <li>
+          <strong
+            >Pour les cartes à partager (carte de 5, 10 ou 30 séances) :</strong
+          > Une fiche est créée pour chaque élève utilisant la carte ou la prestation.
+          Chaque élève correspond à une place à réserver.
+        </li>
+      </ul><br />
 
-    <h4>Été</h4>
-    <ol>
-      {
-        summerPools
-          .filter((pool) => pool.name !== "Domicile")
-          .map((pool) => (
-            <li>
-              <a href={pool.href}>{pool.name}</a> : {pool.address}
-            </li>
-          ))
-      }
-    </ol>
-    <h4>Toute l'année</h4>
-    <ol>
-      {
-        allYearPools
-          .filter((pool) => pool.name !== "Domicile")
-          .map((pool) => (
-            <li>
-              <a href={pool.href}>{pool.name}</a> : {pool.address}
-            </li>
-          ))
-      }
-    </ol>
-  </AccordionItem>
-  <AccordionItem header="En cas d'empêchement ?" index="3">
-    <p>
-      Pensez à annuler vos séances en cas absence, nous avons des délais
-      d'annulation jusqu'a 24 heures avant votre séance, afin de liberer la
-      place pour qu'un autre enfant puisse en beneficier.
-    </p><p>
-      Nous comprenons qu’il peut y avoir des aléas c’est pourquoi nous laissons
-      à tous nos clients un « joker » sur votre carte afin de ne pénaliser
-      personne. Cette séance ne sera donc pas décomptée de votre carte si c’est
-      la 1ere fois « joker», si c’est la 2 eme fois ou plus, la séance sera
-      décomptée. ( sauf sur présentation d'un justificatif )
-    </p><p>
-      Veuillez s’il vous plaît penser à annuler (dans la mesure du possible)
-      votre séance afin que nous puissions ajuster les emplois du temps et
-      permettre à un autre enfant de bénéficier d’une séance de natation. Nous
-      vous remercions pour votre compréhension. - Si vous rencontrez des
-      problèmes à la réservation,n'hésitez pas à nous appeler.
+      <p>Une réservation équivaut à une place pour un baigneur.</p>
+
+      <p>
+        Si vous avez des cartes partagées avec plusieurs baigneurs, réservez le
+        nombre de places dont vous avez besoin.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Une réservation</strong> correspond à <strong
+            >une place</strong
+          >.
+        </li><li>
+          <strong>Deux réservations</strong> correspondent à <strong
+            >deux places</strong
+          >.
+        </li><li>
+          <strong>Trois réservations</strong> correspondent à <strong
+            >trois places</strong
+          >.
+        </li>
+      </ul>
+
+      <p>
+        Assurez-vous que vos enfants soient <span class="italic"
+          >prêts et motivés</span
+        >. Il est difficile d’apprendre à nager en restant sur le bord.
+      </p><p>
+        Pour les plus jeunes, <a
+          href="https://user.clicrdv.com/maitre-baigneur"
+          target="_blank">la séance découverte</a
+        > permet également de déterminer si votre enfant est prêt ou s’il faut attendre
+        encore un peu. <strong
+          >La séance découverte nécessite une réservation.</strong
+        > Votre enfant bénéficie d’une place dans son groupe de niveau. Il ne s’agit
+        pas d’une séance d’essai, mais bien d’une séance de découverte, qui doit
+        donc être réglée avant son commencement.
+      </p>
     </p>
-  </AccordionItem>
-  <AccordionItem header="À partir de quel âge ?" index="4">
-    <p>
-      Nous leçons de natation commencent à partir de 3 ans et sont disponibles
-      pour tous les âges.
-    </p><p>
-      <strong>Il n'est jamais trop tard !</strong>
-    </p>
-    <p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
-  </AccordionItem>
-  <AccordionItem header="Quels sont les tarifs de Maître-Baigneur ?" index="5">
-    <p>
-      Nous avons créé une <Button href="/tarifs">
-        page dédiée aux tarifs Maître-Baigneur
-      </Button>. Vous y trouverez des prix attractifs pour des cours de natation
-      ludiques et efficaces. Ne manquez pas cette occasion de vous amuser tout
-      en apprenant à nager avec nos experts qualifiés.
-    </p>
+    <AccordionItem header="Quelles sont les modalités de paiement ?" index="3">
+      <p>
+        Le règlement s’effectue lors de la première séance. Des enveloppes et
+        des tickets d’encaissement sont à votre disposition.
+
+        <ul>
+          <li>
+            <strong>Pour les espèces :</strong> Des enveloppes sont disponibles.
+            Pensez à prévoir l’appoint et à bien remplir votre ticket d’encaissement.
+          </li>
+          <li>
+            <strong>Pour les chèques :</strong> Ils sont acceptés uniquement pour
+            les paiements en plusieurs fois, comme pour les abonnements ou les cartes
+            de plusieurs séances. Les chèques doivent être libellés à l’ordre de
+            Maître Baigneur. N’oubliez pas d’inscrire au dos le prénom et le nom
+            du baigneur ainsi que les dates d’encaissement si vous payez avec plusieurs
+            chèques.
+          </li>
+        </ul>
+        <br />
+        <strong>Attention :</strong> Nos prestations doivent être réglées avant le
+        début de la séance. Par exemple, une carte de 5 séances à 100€ doit être
+        réglée en une seule fois lors de la première séance. Nous débitons informatiquement
+        vos crédits au fur et à mesure des séances. Les règlements à la séance ne
+        sont acceptés que pour les séances à l’unité. Par exemple, une séance de
+        natation coûte 25€ pour un baigneur.
+      </p>
+    </AccordionItem>
+    <AccordionItem header="En cas d'empêchement ?" index="4">
+      <p>
+        Nous vous prions de bien vouloir annuler vos séances en cas d’absence.
+        Nous avons mis en place un délai d’annulation de 24 heures avant votre
+        séance. Cela permet de libérer la place pour qu’un autre enfant puisse
+        en bénéficier. Passé ce délai, la séance sera décomptée.
+      </p>
+
+      <p>
+        Nous comprenons qu’il peut y avoir des imprévus. C’est pourquoi nous
+        offrons à tous nos clients un « joker » sur leur carte, afin de ne
+        pénaliser personne.
+      </p><p>
+        Ainsi, si c’est la première fois que vous utilisez votre « joker », la
+        séance ne sera pas décomptée de votre carte. Si c’est la deuxième fois
+        ou plus, la séance sera décomptée (sauf sur présentation d’un
+        justificatif).
+      </p><p>
+        Nous vous demandons, dans la mesure du possible, de penser à annuler
+        votre séance. Cela nous permet d’ajuster les emplois du temps et offre
+        la possibilité à un autre enfant de bénéficier d’une séance de natation.
+      </p>
+
+      <p>Nous vous remercions de votre compréhension.</p>
+
+      <p>
+        Si vous rencontrez des problèmes lors de la réservation, n’hésitez pas à
+        <a href="/contact">nous contacter</a>.
+      </p>
+    </AccordionItem>
+    <AccordionItem header="Où puis-je apprendre à nager ?" index="5">
+      <p>
+        Vous pouvez apprendre à nager dans un de nos bassins d'apprentissage. En
+        voici la liste :
+      </p>
+
+      <h4>Été</h4>
+      <ol>
+        {
+          summerPools
+            .filter((pool) => pool.name !== "Domicile")
+            .map((pool) => (
+              <li>
+                <a href={pool.href} aria-label={pool.name}>
+                  {pool.name}
+                </a>{" "}
+                : {pool.address}
+              </li>
+            ))
+        }
+      </ol>
+      <br />
+      <h4>Toute l'année</h4>
+      <ol>
+        {
+          allYearPools
+            .filter((pool) => pool.name !== "Domicile")
+            .map((pool) => (
+              <li>
+                <a href={pool.href}>{pool.name}</a> : {pool.address}
+              </li>
+            ))
+        }
+      </ol>
+    </AccordionItem>
+
+    <AccordionItem header="À partir de quel âge ?" index="6">
+      <p>
+        Nous leçons de natation commencent à partir de 3 ans et sont disponibles
+        pour tous les âges.
+      </p><p>
+        <strong>Il n'est jamais trop tard !</strong>
+      </p>
+      <p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
+    </AccordionItem>
+    <AccordionItem
+      header="Quels sont les tarifs de Maître-Baigneur ?"
+      index="7"
+    >
+      <p>
+        Nous avons créé une <Button href="/tarifs">
+          page dédiée aux tarifs Maître-Baigneur
+        </Button>. Vous y trouverez des prix attractifs pour des cours de
+        natation ludiques et efficaces. Ne manquez pas cette occasion de vous
+        amuser tout en apprenant à nager avec nos experts qualifiés.
+      </p>
+    </AccordionItem>
   </AccordionItem>
 </Accordion>

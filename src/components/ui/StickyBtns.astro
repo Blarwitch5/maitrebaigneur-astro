@@ -212,22 +212,30 @@ import { Icon } from "astro-icon";
   const whatsappBtn = document.getElementById("whatsapp") as HTMLElement;
   const googleBtn = document.getElementById("google") as HTMLElement;
   const facebookBtn = document.getElementById("facebook") as HTMLElement;
+  function openInNewTab(url: string): void {
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer"; // Pour des raisons de sécurité
+    a.click();
+  }
 
   function handleBookingClick(): void {
-    window.location.href = "https://user.clicrdv.com/maitre-baigneur";
+    openInNewTab("https://user.clicrdv.com/maitre-baigneur");
   }
 
   function handleWhatsAppClick(): void {
-    window.location.href = "https://wa.me/+33677007584";
+    openInNewTab("https://wa.me/+33677007584");
   }
 
   function handleGoogleClick(): void {
-    window.location.href =
-      "https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,";
+    openInNewTab(
+      "https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,"
+    );
   }
 
   function handleFacebookClick(): void {
-    window.location.href = "https://www.facebook.com/MaitreBaigneur/reviews";
+    openInNewTab("https://www.facebook.com/MaitreBaigneur/reviews");
   }
 
   function scrollFunction(): void {

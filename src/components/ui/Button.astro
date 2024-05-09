@@ -3,7 +3,7 @@ interface Props {
   href?: string;
   class?: string;
   newTab?: boolean;
-  [x: string]: any;
+  [x: string]: unknown;
 }
 const { href, class: className, newTab, ...rest } = Astro.props;
 const Tag = href ? "a" : "button";

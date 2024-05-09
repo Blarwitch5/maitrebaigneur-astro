@@ -1,129 +1,130 @@
 ---
 interface Props {
-	href: string;
-	block?: boolean;
-	style?: "btn" | "outline" | "primary" | "inverted" | "regular";
-	class?: string;
-	[x: string]: any;
+  href: string;
+  block?: boolean;
+  style?: "btn" | "outline" | "primary" | "inverted" | "regular";
+  class?: string;
+  [x: string]: unknown;
 }
 const { href, block, style = "btn", class: className, ...rest } = Astro.props;
 
 const styles = {
-	btn: "btn",
-	outline: "btn-outline",
-	primary: "btn primary",
-	inverted: "btn btn-inverted",
-	regular: "link",
+  btn: "btn",
+  outline: "btn-outline",
+  primary: "btn primary",
+  inverted: "btn btn-inverted",
+  regular: "link",
 };
 ---
 
-<a href={href} {...rest} class:list={["", className, styles[style]]}><slot /></a>
+<a href={href} {...rest} class:list={["", className, styles[style]]}><slot /></a
+>
 
 <style lang="scss" is:global>
-	.btn {
-		text-decoration: none;
-		line-height: 1;
-		color: inherit;
+  .btn {
+    text-decoration: none;
+    line-height: 1;
+    color: inherit;
 
-		&.btn-outline {
-			color: currentColor;
-			border-radius: var(--border-radius);
-			background: none;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			position: relative;
-			transition: 0.3s;
-			overflow: hidden;
-			min-height: 48px;
-			padding: 0rem 1.2rem;
+    &.btn-outline {
+      color: currentColor;
+      border-radius: var(--border-radius);
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: 0.3s;
+      overflow: hidden;
+      min-height: 48px;
+      padding: 0rem 1.2rem;
 
-			&::after,
-			&::before {
-				position: absolute;
-				content: "";
-				transition: 0.2s;
-				transition-timing-function: ease;
-				opacity: 0.1;
-				border-radius: inherit;
-				transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
-			}
+      &::after,
+      &::before {
+        position: absolute;
+        content: "";
+        transition: 0.2s;
+        transition-timing-function: ease;
+        opacity: 0.1;
+        border-radius: inherit;
+        transition-timing-function: cubic-bezier(0.25, 0.75, 0.2, 1);
+      }
 
-			&::before {
-				top: -2px;
-				bottom: -2px;
-				left: -2px;
-				right: 100%;
-				background-color: currentColor;
-			}
-			&::after {
-				top: 0;
-				bottom: 0;
-				left: 0;
+      &::before {
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: 100%;
+        background-color: currentColor;
+      }
+      &::after {
+        top: 0;
+        bottom: 0;
+        left: 0;
 
-				right: 0;
-				box-shadow: inset 0 0 0px 1px currentColor;
-				opacity: 0.2;
-			}
+        right: 0;
+        box-shadow: inset 0 0 0px 1px currentColor;
+        opacity: 0.2;
+      }
 
-			&:hover {
-				box-shadow: inset 0 0 0px 2px currentColor;
+      &:hover {
+        box-shadow: inset 0 0 0px 2px currentColor;
 
-				&::before {
-					right: -2px;
-				}
-				&::after {
-					opacity: 1;
-				}
-			}
-		}
-		&-primary {
-			background-color: var(--color-primary);
-			color: var(--color-white);
-			transition: all 0.3s ease-in-out;
-			padding: 0.4rem 0.7rem;
-			border-radius: var(--border-radius);
-			border: 1px solid transparent;
+        &::before {
+          right: -2px;
+        }
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    &-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      transition: all 0.3s ease-in-out;
+      padding: 0.4rem 0.7rem;
+      border-radius: var(--border-radius);
+      border: 1px solid transparent;
 
-			&:hover {
-				color: var(--color-primary);
-				background-color: var(--color-bg-light);
-				transition: all 0.3s ease-in-out;
-				border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
-			}
-		}
-		&-inverted {
-		}
-		&-icon {
-		}
-		&-outline-inverted {
-			color: var(--color-primary);
-			border-radius: var(--border-radius);
-			background: none;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			position: relative;
-			transition: 0.3s;
-			overflow: hidden;
-			min-height: 48px;
-			padding: 0rem 1.2rem;
-			// box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 1);
-			background-color: var(--color-bg-light);
+      &:hover {
+        color: var(--color-primary);
+        background-color: var(--color-bg-light);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+      }
+    }
+    &-inverted {
+    }
+    &-icon {
+    }
+    &-outline-inverted {
+      color: var(--color-primary);
+      border-radius: var(--border-radius);
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: 0.3s;
+      overflow: hidden;
+      min-height: 48px;
+      padding: 0rem 1.2rem;
+      // box-shadow: inset 0 0 0px 1px hsla(var(--link-color-white-hsl), 1);
+      background-color: var(--color-bg-light);
 
-			&:hover {
-				background-color: var(--color-primary);
-				color: var(--color-white);
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
 
-				&::before {
-					left: -2px;
-				}
-			}
-		}
-	}
+        &::before {
+          left: -2px;
+        }
+      }
+    }
+  }
 
-	.link {
-		color: inherit;
-		text-decoration: wavy underline;
-	}
+  .link {
+    color: inherit;
+    text-decoration: wavy underline;
+  }
 </style>

@@ -19,7 +19,7 @@ function Notice({ type, message, className }: NoticeProps) {
   }
 
   if (className) {
-    noticeClassName += " " + className;
+    noticeClassName += ` ${className}`;
   }
 
   return <div className={noticeClassName}>{message}</div>;

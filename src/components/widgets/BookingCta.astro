@@ -37,7 +37,7 @@ import Title from "@components/ui/Title.astro";
       Je réserve ma place dès maintenant !
     </Button>
   </div>
-  <Waves />
+  <Waves atTopOfSection />
 </div>
 
 <style lang="scss">
@@ -48,7 +48,7 @@ import Title from "@components/ui/Title.astro";
       );
     gap: 4rem;
     align-items: center;
-    padding-bottom: var(--space-lg);
+    padding-top: var(--space-lg);
 
     @media screen and (max-width: 992px) {
       grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);

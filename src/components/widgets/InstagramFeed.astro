@@ -29,7 +29,7 @@ async function fetchInstagramFeed(
 
 const accessToken: string = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
-let isInstagramFeedNotEmpty = instagramFeed.length > 0;
+const isInstagramFeedNotEmpty = instagramFeed.length > 0;
 ---
 
 <div class="instagram-grid">

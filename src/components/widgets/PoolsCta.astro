@@ -16,8 +16,8 @@ const pools = siteLinks.pools;
     <p class="pools__desc">
       Vous êtes au bon endroit. Nous opérons aussi bien à domicile que dans nos
       bassins d’apprentissage. Choisissez un de nos bassins et commencez votre
-      aventure Maître-Baigneur. Nous sommes impatients de vous accueillir et de
-      vous aider à atteindre vos objectifs.
+      aventure <span class="pacifico">Maître-Baigneur</span>. Nous sommes
+      impatients de vous accueillir et de vous aider à atteindre vos objectifs.
     </p>
     <Button href="/bassins" class={`pools__btn btn btn__regular`}>
       Découvrir nos bassins
@@ -155,7 +155,7 @@ const pools = siteLinks.pools;
       );
     gap: 4rem;
     align-items: center;
-    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
 
     @media screen and (max-width: 992px) {
       grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);

@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useRef } from "react";
 
 import "./Modal.scss";
@@ -19,7 +18,7 @@ const LevelsHelp: React.FC<React.PropsWithChildren<ModalProps>> = ({
     if (isOpen && popupRef.current) {
       popupRef.current.focus();
     }
-  }, [isOpen, popupRef.current]);
+  }, [isOpen]);
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Escape") {
       onClose();
@@ -52,9 +51,9 @@ const LevelsHelp: React.FC<React.PropsWithChildren<ModalProps>> = ({
     >
       {isOpen && (
         <>
-          <div className="dialog-overlay" aria-hidden="true"></div>
+          <div className="dialog-overlay" aria-hidden="true" />
           <div className="dialog-content">
-            <button onClick={onClose} className="btn-back ">
+            <button type="button" onClick={onClose} className="btn-back">
               Retour
             </button>
             <div className="scrollable-content">{children}</div>

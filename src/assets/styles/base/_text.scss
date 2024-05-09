@@ -1,18 +1,18 @@
 :root {
-    /** Fonts Family */
-    //imported in Elementor
-    --ff-cinzel: "Cinzel", serif;
-    --ff-raleway: "Raleway", sans-serif;
-    --ff-pacifico: "Pacifico", cursive;
+  /** Fonts Family */
+  //imported in Elementor
+  --ff-cinzel: "Cinzel", serif;
+  --ff-raleway: "Raleway", sans-serif;
+  --ff-pacifico: "Pacifico", cursive;
 
-    /** Font size */
-    --fs-base: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
-    --fs-xs: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-    --fs-sm: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
-    --fs-md: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
-    --fs-lg: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
-    --fs-xl: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
-    --fs-2xl: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
+  /** Font size */
+  --fs-base: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);
+  --fs-xs: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --fs-sm: clamp(1.35rem, calc(1.28rem + 0.37vw), 1.56rem);
+  --fs-md: clamp(1.62rem, calc(1.5rem + 0.58vw), 1.95rem);
+  --fs-lg: clamp(1.94rem, calc(1.77rem + 0.87vw), 2.44rem);
+  --fs-xl: clamp(2.33rem, calc(2.08rem + 1.25vw), 3.05rem);
+  --fs-2xl: clamp(2.8rem, calc(2.45rem + 1.77vw), 3.82rem);
 }
 h1,
 h2,
@@ -20,35 +20,44 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--color-primary);
-    margin-block: 0 2rem;
-    line-height: 1.2;
+  color: var(--color-primary);
+  margin-block: 0 2rem;
+  line-height: 1.2;
 }
 h1 {
-    font-size: var(--fs-2xl);
-    font-weight: 800;
+  font-size: var(--fs-2xl);
+  font-weight: 800;
 }
 h2 {
-    font-size: var(--fs-xl);
-    font-weight: 700;
+  font-size: var(--fs-xl);
+  font-weight: 700;
 }
 h3 {
-    font-size: var(--fs-lg);
-    font-weight: 600;
+  font-size: var(--fs-lg);
+  font-weight: 600;
 }
 h4 {
-    font-size: var(--fs-md);
-    font-weight: 500;
+  font-size: var(--fs-md);
+  font-weight: 500;
 }
 h5 {
-    font-size: var(--fs-sm);
-    font-weight: 500;
+  font-size: var(--fs-sm);
+  font-weight: 500;
 }
 h6 {
-    font-size: var(--fs-xs);
-    font-weight: 500;
+  font-size: var(--fs-xs);
+  font-weight: 500;
 }
 p {
-    font-size: var(--fs-base);
-    font-weight: 400;
+  font-size: var(--fs-base);
+  font-weight: 400;
+}
+.pacifico {
+  font-family: var(--ff-pacifico);
+}
+.cinzel {
+  font-family: var(--ff-cinzel);
+}
+.raleway {
+  font-family: var(--ff-raleway);
 }

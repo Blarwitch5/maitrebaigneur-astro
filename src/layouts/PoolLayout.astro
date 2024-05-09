@@ -18,7 +18,10 @@ import "node_modules/@glidejs/glide/dist/css/glide.core.min.css";
 import "node_modules/@glidejs/glide/dist/css/glide.theme.min.css";
 
 //differents geotag for the ddifferent pools, default is aix-en-provence (10KM acurancy)
-let region: string, placename: string, position: string, icbm: string;
+let region: string;
+let placename: string;
+let position: string;
+let icbm: string;
 const currentPage = new URL(Astro.request.url).pathname as string;
 switch (true) {
   case currentPage.endsWith("aquabecool"):
@@ -77,7 +80,6 @@ const {
   openGraphDescription,
   openGraphImage,
   openGraphImageAlt,
-  canonical,
 } = Astro.props;
 ---
 
