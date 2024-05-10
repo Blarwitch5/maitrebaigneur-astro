@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import OptionsRadioBtn from "@components/forms/OptionsRadioBtn";
 import SwimmingForm from "@components/forms/SwimmingForm";

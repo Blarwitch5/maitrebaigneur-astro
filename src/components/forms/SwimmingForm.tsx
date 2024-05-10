@@ -226,7 +226,7 @@ const SwimmingForm = () => {
 
   // Function to handle the select change
   const handleNumSwimmersChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = parseInt(e.target.value, 10);
+    const selectedValue = Number.parseInt(e.target.value, 10);
     setNumSwimmers(selectedValue);
   };
 
@@ -420,7 +420,7 @@ const SwimmingForm = () => {
                         />
                       </picture>
 
-                      <p>{level.desc}</p>
+                      <p dangerouslySetInnerHTML={{ __html: level.desc }} />
                       <ul className="hints">
                         {level.hints.map((hint) => (
                           <li className="hint" key={uuidv4()}>
