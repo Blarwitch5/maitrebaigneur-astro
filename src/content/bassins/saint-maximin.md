@@ -36,6 +36,10 @@ Saint Maximin.</p>",
 			webp: "/images/pools/saint-maximin/saint-maximin-1.webp",
 			jpg: "/images/pools/saint-maximin/saint-maximin-1.jpg",
 			alt: "Bassin à Saint-Maximin"
+		},{
+			webp: "/images/pools/saint-maximin/saint-maximin-2.webp",
+			jpg: "/images/pools/saint-maximin/saint-maximin-2.jpg",
+			alt: "Bassin à Saint-Maximin"
 		}
 	]
 }
