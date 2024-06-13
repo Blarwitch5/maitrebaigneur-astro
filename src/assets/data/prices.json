@@ -65,13 +65,13 @@
       "formula": {
         "day": {
           "name": "Tarif de jour",
-          "price": 40,
+          "price": 50,
           "condition": "par heure et par Maître-Baigneur",
           "surveillanceTime": "Entre 9h et 21h"
         },
         "night": {
           "name": "Tarif de nuit",
-          "price": 50,
+          "price": 75,
           "condition": "par heure et par Maître-Baigneur",
           "surveillanceTime": "Entre 21h et 9h"
         }
