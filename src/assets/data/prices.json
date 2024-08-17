@@ -5,13 +5,29 @@
         "single": [
           { "name": "Séance découverte", "price": 20 },
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
-          { "name": "1 Séance pour 2 baigneurs", "price": 40 },
-          { "name": "Leçon privée", "price": 30 }
+          { "name": "Leçon privée", "price": 40 },
+          {
+            "name": "1 Séance pour 2 baigneurs",
+            "price": 45,
+            "extraDesc": "Soit 22,5 € la séance par baigneur"
+          }
         ],
         "cards": [
-          { "name": "Carte 5 séances", "price": 100 },
-          { "name": "Carte 10 séances", "price": 180 },
-          { "name": "Carte 30 séances", "price": 450 }
+          {
+            "name": "Carte 5 séances",
+            "price": 100,
+            "extraDesc": "Soit 20 € la séance par baigneur, valable 6 mois à partir de la 1ère séance "
+          },
+          {
+            "name": "Carte 10 séances",
+            "price": 180,
+            "extraDesc": "Soit 18 € la séance par baigneur, valable 9 mois à partir de la 1ère séance "
+          },
+          {
+            "name": "Carte 30 séances",
+            "price": 4800,
+            "extraDesc": "Soit 16 € la séance par baigneur, valable 12 mois à partir de la 1ère séance "
+          }
         ]
       },
       "home": {
@@ -33,16 +49,21 @@
     "babySwimming": {
       "formula": [
         { "name": "Séance découverte", "price": 20 },
-        { "name": "Séance unique", "price": 25 },
+        { "name": "Séance unique", "price": 30 },
+        {
+          "name": "Cours deux baigneurs",
+          "price": 45,
+          "extraDesc": "Soit 22,5 € la séance par bébé"
+        },
         {
           "name": "Carte de 10 séances",
-          "price": 200,
-          "extraDesc": "Soit 20 € la séance par bébé, valable 4 mois à partir de la 1ère séance "
+          "price": 250,
+          "extraDesc": "Soit 25 € la séance par bébé, valable 9 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte de 30 Séances ",
-          "price": 450,
-          "extraDesc": "Soit 15 € la séance par bébé, valable 4 mois à partir de la 1ère séance "
+          "price": 480,
+          "extraDesc": "Soit 16 € la séance par bébé, valable 12 mois à partir de la 1ère séance "
         },
         {
           "name": "Abonnement 12 mois",
