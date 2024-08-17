@@ -5,7 +5,7 @@
         "single": [
           { "name": "Séance découverte", "price": 20 },
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
-          { "name": "Leçon privée", "price": 40 },
+          { "name": "Leçon privée", "price": 35 },
           {
             "name": "1 Séance pour 2 baigneurs",
             "price": 45,
@@ -14,14 +14,9 @@
         ],
         "cards": [
           {
-            "name": "Carte 5 séances",
-            "price": 100,
-            "extraDesc": "Soit 20 € la séance par baigneur, valable 6 mois à partir de la 1ère séance "
-          },
-          {
             "name": "Carte 10 séances",
-            "price": 180,
-            "extraDesc": "Soit 18 € la séance par baigneur, valable 9 mois à partir de la 1ère séance "
+            "price": 190,
+            "extraDesc": "Soit 19 € la séance par baigneur, valable 9 mois à partir de la 1ère séance "
           },
           {
             "name": "Carte 30 séances",
