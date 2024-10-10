@@ -27,16 +27,16 @@
       },
       "home": {
         "formula": [
-          { "name": "1 Séance pour 1 baigneur", "price": 40 },
+          { "name": "1 Séance pour 1 baigneur", "price": 50 },
           {
-            "name": "1 Séance pour 2 baigneurs",
+            "name": "1 Séance pour 2 baigneurs de niveau équivalent",
             "price": 50,
             "extraDesc": "Soit 25€ par baigneur"
           },
           {
-            "name": "1 Séance pour 3 baigneurs",
-            "price": 60,
-            "extraDesc": "Soit 20€ par baigneur"
+            "name": "1 Séance pour 3 baigneurs de niveau équivalent",
+            "price": 50,
+            "extraDesc": "Soit 16€70 par baigneur"
           }
         ]
       }
