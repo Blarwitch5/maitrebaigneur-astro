@@ -44,7 +44,7 @@
     "babySwimming": {
       "formula": [
         { "name": "Séance découverte", "price": 20 },
-        { "name": "Séance unique", "price": 30 },
+        { "name": "Séance unique", "price": 25 },
         {
           "name": "Cours deux baigneurs",
           "price": 45,
@@ -52,8 +52,8 @@
         },
         {
           "name": "Carte de 10 séances",
-          "price": 250,
-          "extraDesc": "Soit 25 € la séance par bébé, valable 9 mois à partir de la 1ère séance "
+          "price": 190,
+          "extraDesc": "Soit 19 € la séance par bébé, valable 9 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte de 30 Séances ",
