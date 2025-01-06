@@ -32,7 +32,7 @@ const SwimmingInStationForm = () => {
       <a
         className="btn btn__regular"
         target="_blank"
-        href="https://user.clicrdv.com/maitre-baigneur"
+        href="https://user.clicrdv.com/sarl-qfe"
         rel="noopener noreferrer"
       >
         Je réserve maintenant
