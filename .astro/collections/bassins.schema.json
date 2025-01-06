@@ -1,0 +1,140 @@
+{
+  "$ref": "#/definitions/bassins",
+  "definitions": {
+    "bassins": {
+      "type": "object",
+      "properties": {
+        "metaTitle": {
+          "type": "string"
+        },
+        "metaDesc": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "pool": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "desc": {
+              "type": "string"
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "webp": {
+                  "type": "string"
+                },
+                "jpg": {
+                  "type": "string"
+                },
+                "alt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "webp",
+                "jpg",
+                "alt"
+              ],
+              "additionalProperties": false
+            },
+            "address": {
+              "type": "string"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "text"
+              ],
+              "additionalProperties": false
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "icon",
+                  "href"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "gallery": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "webp": {
+                    "type": "string"
+                  },
+                  "jpg": {
+                    "type": "string"
+                  },
+                  "alt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "webp",
+                  "jpg",
+                  "alt"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "name",
+            "location",
+            "desc",
+            "image",
+            "address",
+            "link",
+            "services",
+            "gallery"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "metaTitle",
+        "metaDesc",
+        "title",
+        "pool"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

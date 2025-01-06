@@ -1,5 +1,5 @@
 //general link style
-
+@use "../utils/variables" as *;
 main :not(ul > li) > a:not(.btn, .service__link),
 .breadcrumbs__item a,
 .legal li > a {

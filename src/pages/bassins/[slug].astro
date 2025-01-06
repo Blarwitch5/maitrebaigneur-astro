@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import PoolLayout from "@layouts/PoolLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -8,61 +7,63 @@ import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import { Icon } from "astro-icon";
 import Title from "@components/ui/Title.astro";
-// Generate a new path for every collection entry
+import { type CollectionEntry, getCollection } from 'astro:content';
+
 export async function getStaticPaths() {
   const poolEntries = await getCollection("bassins");
-  return poolEntries.map((entry) => ({
-    params: { slug: (entry as { slug: string }).slug },
-    props: { entry },
+  return poolEntries.map((poolEntry: CollectionEntry<'bassins'>) => ({
+    params: { slug: poolEntry.slug },
+    props: { poolEntry },
   }));
 }
-// Get the entry directly from the prop on render
-const { entry } = Astro.props;
-
-const { Content } = await entry.render();
+interface Props {
+  poolEntry: CollectionEntry<'bassins'>;
+}
 
 import site from "@assets/data/data.json";
+const { poolEntry }  = Astro.props;
+const { Content } = await poolEntry.render();
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
 ---
 
-<PoolLayout title={entry.data.metaTitle} description={entry.data.metaDesc}>
+<PoolLayout title={poolEntry.data.metaTitle} description={poolEntry.data.metaDesc}>
   <SkipToContent />
   <Header />
   <PageTitle
-    pageTitle={entry.data.pool.name}
-    pageImageUrlWebp={entry.data.pool.image.webp}
-    pageImageUrl={entry.data.pool.image.jpg}
-    pageImageAlt={entry.data.pool.image.alt}
+    pageTitle={poolEntry.data.pool.name}
+    pageImageUrlWebp={poolEntry.data.pool.image.webp}
+    pageImageUrl={poolEntry.data.pool.image.jpg}
+    pageImageAlt={poolEntry.data.pool.image.alt}
   />
 
   <Main>
     <section class="single-pool">
       <div class="container">
         {
-          entry.data.pool.name === "Domicile" ? (
+          poolEntry.data.pool.name === "Domicile" ? (
             <Title animate level="2" class="single-pool__title">
               Maître-Baigneur à domicile, chez vous !
             </Title>
           ) : (
             <Title animate level="2" class="single-pool__title">
-              Découvrez la piscine {entry.data.pool.name} à{" "}
-              {entry.data.pool.location}
+              Découvrez la piscine {poolEntry.data.pool.name} à{" "}
+              {poolEntry.data.pool.location}
             </Title>
           )
         }
 
         <div class="single-pool__content">
-          <div class="single-pool__desc" set:html={entry.data.pool.desc} />
+          <div class="single-pool__desc" set:html={poolEntry.data.pool.desc} />
           <div class="single-pool__details">
             <Title animate level="3">
-              Informations concernant notre bassin à {entry.data.pool.name}
+              Informations concernant notre bassin à {poolEntry.data.pool.name}
             </Title>
             <Title animate level="4">Prestations proposées</Title>
             <ul>
               {
-                entry.data.pool.services.map(
+                poolEntry.data.pool.services.map(
                   (item: {
                     href: string | URL | null | undefined;
                     icon: any;
@@ -83,17 +84,17 @@ const pools = siteLinks.pools;
             <ul>
               <li>
                 <a
-                  href={`https://maps.google.com?q=${entry.data.pool.address}`}
+                  href={`https://maps.google.com?q=${poolEntry.data.pool.address}`}
                   target="_blank"
-                  rel="noopener"><Icon name="map" />{entry.data.pool.address}</a
+                  rel="noopener"><Icon name="map" />{poolEntry.data.pool.address}</a
                 >
               </li>
               {
-                entry.data.pool.link.text !== "" ? (
+                poolEntry.data.pool.link.text !== "" ? (
                   <li>
-                    <a href={entry.data.pool.link.url} target="_blank">
+                    <a href={poolEntry.data.pool.link.url} target="_blank">
                       <Icon name="link" />
-                      {entry.data.pool.link.text}
+                      {poolEntry.data.pool.link.text}
                     </a>
                   </li>
                 ) : null
@@ -108,7 +109,7 @@ const pools = siteLinks.pools;
         <div class="track">
           <ul class="track__list">
             {
-              entry.data.pool.gallery.map(
+              poolEntry.data.pool.gallery.map(
                 (
                   image: {
                     webp: string | null | undefined;
@@ -123,7 +124,7 @@ const pools = siteLinks.pools;
                         <img
                           loading="lazy"
                           src={image.jpg}
-                          alt={entry.data.pool.image.alt}
+                          alt={poolEntry.data.pool.image.alt}
                           height="576"
                           width="432"
                         />
@@ -136,7 +137,7 @@ const pools = siteLinks.pools;
           </ul>
           <div class="track__indicators" aria-hidden="true">
             {
-              entry.data.pool.gallery.map((_: any, index: number) => {
+              poolEntry.data.pool.gallery.map((_: any, index: number) => {
                 return <span class="indicator" />;
               })
             }
@@ -152,7 +153,7 @@ const pools = siteLinks.pools;
         <ul>
           {
             pools.map((item) => {
-              if (item.name === entry.data.pool.name) {
+              if (item.name === poolEntry.data.pool.name) {
                 return;
               } else {
                 return (
