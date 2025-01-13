@@ -65,7 +65,11 @@
             "name": "Le Carré d'Ô"
           },
           { "href": "/bassins/kinemouv", "name": "Kinémouv'" },
-          { "href": "/bassins/saint-maximin", "name": "Saint-Maximin" },
+          { "href": "/bassins/saint-maximin-ete", "name": "Saint-Maximin été" },
+          {
+            "href": "/bassins/saint-maximin-balneo",
+            "name": "Saint-Maximin Balnéo"
+          },
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
         ],
@@ -248,18 +252,33 @@
         }
       },
       {
-        "name": "Saint-Maximin",
-        "href": "/bassins/saint-maximin",
+        "name": "Saint-Maximin été",
+        "href": "/bassins/saint-maximin-ete",
         "image": {
           "src": "/images/pools/saint-maximin.jpg",
           "alt": "Bassin à Saint-Maximin"
         },
-        "period": "All year",
+        "period": "Summer",
         "location": "Saint-Maximin",
         "address": "Saint-Maximin",
         "thumb": {
           "jpg": "/images/thumbnails/saintmaximin-thumb.jpg",
           "alt": "Bassin à Saint-Maximin"
+        }
+      },
+      {
+        "name": "Saint-Maximin Balnéo",
+        "href": "/bassins/saint-maximin-balneo",
+        "image": {
+          "src": "/images/pools/saint-maximin-balneo.jpg",
+          "alt": "Bassin balnéothérapie à Saint-Maximin"
+        },
+        "period": "All year",
+        "location": "Saint-Maximin",
+        "address": "Saint-Maximin",
+        "thumb": {
+          "jpg": "/images/thumbnails/saintmaximin-balneo-thumb.jpg",
+          "alt": "Bassin balnéothérapie à Saint-Maximin"
         }
       },
       {
