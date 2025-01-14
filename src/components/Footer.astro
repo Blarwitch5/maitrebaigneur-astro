@@ -1,70 +1,62 @@
 ---
-import Copyright from "@components/footer/Copyright.astro";
-import Socials from "@components/Socials.astro";
-import Button from "@components/ui/Button.astro";
-import PoolList from "@components/widgets/PoolList.astro";
-import { Icon } from "astro-icon";
-import Waves from "@components/ui/shapes/Waves.astro";
-import GoToTop from "@components/ui/GoToTop.astro";
-import StickyBtns from "@components/ui/StickyBtns.astro";
+import Copyright from '@components/footer/Copyright.astro';
+import Socials from '@components/Socials.astro';
+import Button from '@components/ui/Button.astro';
+import PoolList from '@components/widgets/PoolList.astro';
+import { Icon } from 'astro-icon';
+import Waves from '@components/ui/shapes/Waves.astro';
+import GoToTop from '@components/ui/GoToTop.astro';
+import StickyBtns from '@components/ui/StickyBtns.astro';
 
-import site from "@assets/data/data.json";
-import Title from "./ui/Title.astro";
-import { Image } from "astro:assets";
+import site from '@assets/data/data.json';
+import Title from './ui/Title.astro';
+import { Image } from 'astro:assets';
+import logo from '@assets/images/logo.svg';
 
 const { siteLinks } = site;
 const services = siteLinks.services;
 const footerMenu = siteLinks.footerMenu;
 ---
 
-<footer class="footer">
+<footer class='footer'>
   <Waves atTopOfSection />
-  <div class="container">
-    <div class="footer__sections">
-      <div class="footer__col brand">
-        <Image
-        class="logo"
-        width={300}
-        height={250}
-        src="/src/assets/images/logo.svg"
-        alt="Logo Maître-Baigneur" />
+  <div class='container'>
+    <div class='footer__sections'>
+      <div class='footer__col brand'>
+        <Image class='logo' width={300} height={250} src={logo} alt='Logo Maître-Baigneur' />
 
-        <p class="slogan">"...Le bonheur du baigneur..."</p>
-        <ul class="info">
+        <p class='slogan'>"...Le bonheur du baigneur..."</p>
+        <ul class='info'>
           <li>
-            <Button class="btn" href="tel:+33677007584">
-              <span class="icon">
-                <Icon name="call" />
+            <Button class='btn' href='tel:+33677007584'>
+              <span class='icon'>
+                <Icon name='call' />
               </span>
-              <span class="visually-hidden"
-                >Appelez Maître Baigneur au +33 6 77 00 75 84</span
-              >
+              <span class='visually-hidden'>Appelez Maître Baigneur au +33 6 77 00 75 84</span>
               +33 6 77 00 75 84
             </Button>
           </li>
           <li>
-            <Button class="btn" href="mailto:contact@maitrebaigneur.com">
-              <span class="icon"><Icon name="mail" /></span><span
-                class="visually-hidden"
+            <Button class='btn' href='mailto:contact@maitrebaigneur.com'>
+              <span class='icon'><Icon name='mail' /></span><span class='visually-hidden'
                 >Écrivez-nous à contact@maitrebaigneur.com</span
               >contact@maitrebaigneur.com
             </Button>
           </li>
           <li>
-            <span class="icon"><Icon name="location" /></span>Aix-en-Provence et
-            ses alentours
+            <span class='icon'><Icon name='location' /></span>Aix-en-Provence et ses alentours
           </li>
         </ul>
-        <Socials iconVersion="light" />
+        <Socials iconVersion='light' />
       </div>
 
-      <div class="footer__col services" data-aos="zoom-in">
-        <Title level="3" class="title">Nos prestations</Title>
+      <div class='footer__col services' data-aos='zoom-in'>
+        <Title level='3' class='title'>Nos prestations</Title>
         <ul>
           {
             services.map((service) => (
               <li>
-                <Button class="btn" href={service.href}>
+                <Button class='btn' href={service.href}>
                   {service.name}
                 </Button>
               </li>
@@ -72,18 +64,14 @@ const footerMenu = siteLinks.footerMenu;
           }
         </ul>
       </div>
-      <div class="footer__col useful-links" data-aos="zoom-in">
-        <Title level="3" class="title">Besoin d'aide ?</Title>
+      <div class='footer__col useful-links' data-aos='zoom-in'>
+        <Title level='3' class='title'>Besoin d'aide ?</Title>
 
         <ul>
           {
             footerMenu.map((item) => (
               <li>
-                <Button
-                  class={item.classes}
-                  href={item.href}
-                  newTab={item.inNewTab}
-                >
+                <Button class={item.classes} href={item.href} newTab={item.inNewTab}>
                   {item.name}
                 </Button>
               </li>
@@ -91,8 +79,8 @@ const footerMenu = siteLinks.footerMenu;
           }
         </ul>
       </div>
-      <div class="footer__col pools" data-aos="zoom-in">
-        <Title level="3" class="title">Nos bassins</Title>
+      <div class='footer__col pools' data-aos='zoom-in'>
+        <Title level='3' class='title'>Nos bassins</Title>
         <PoolList />
       </div>
     </div>
@@ -102,7 +90,7 @@ const footerMenu = siteLinks.footerMenu;
   <!-- <GoToTop /> -->
 </footer>
 
-<style lang="scss">
+<style lang='scss'>
   .footer {
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -144,8 +132,6 @@ const footerMenu = siteLinks.footerMenu;
       }
       &.services {
         grid-column: 1 / span 2;
-
-        
       }
       &.useful-links {
         grid-column: 3 / span 2;
@@ -156,7 +142,7 @@ const footerMenu = siteLinks.footerMenu;
         justify-content: center;
         flex-direction: column;
 
-        .title{
+        .title {
           text-align: center;
         }
         ul {
