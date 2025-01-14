@@ -36,17 +36,14 @@ Bébés Nageurs : Offrez à votre enfant (3 mois à 3 ans) une initiation ludiqu
 	],
 	gallery: [
 		{
-			webp: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-1.webp",
-			jpg: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-1.jpg",
+			src: "saint-maximin-balneo/saint-maximin-balneo-1.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		},{
-			webp: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-2.webp",
-			jpg: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-2.jpg",
+			src: "saint-maximin-balneo/saint-maximin-balneo-2.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		},
 		{
-			webp: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-3.webp",
-			jpg: "/images/pools/saint-maximin-balneo/saint-maximin-balneo-3.jpg",
+			src: "saint-maximin-balneo/saint-maximin-balneo-3.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		}
 	]

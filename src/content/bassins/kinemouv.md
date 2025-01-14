@@ -41,18 +41,15 @@ Découvrez un monde de divertissement aquatique et de bien-être dans notre éta
 	],
 	gallery: [
 		{
-			webp: "/images/pools/kinemouv/kinemouv-1.webp",
-			jpg: "/images/pools/kinemouv/kinemouv-1.jpg",
+			src: "kinemouv/kinemouv-1.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			webp: "/images/pools/kinemouv/kinemouv-2.webp",
-			jpg: "/images/pools/kinemouv/kinemouv-2.jpg",
+			src: "kinemouv/kinemouv-2.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			webp: "/images/pools/kinemouv/kinemouv-3.webp",
-			jpg: "/images/pools/kinemouv/kinemouv-3.jpg",
+			src: "kinemouv/kinemouv-3.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		}
 	]

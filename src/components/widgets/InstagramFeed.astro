@@ -6,59 +6,67 @@ interface InstagramPost {
   caption: string;
   permalink: string;
 }
-async function fetchInstagramFeed(
-  accessToken: string
-): Promise<InstagramPost[]> {
-  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&access_token=${accessToken}&limit=4`;
-  const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(
-      `Instagram API responded with status code ${response.status}`
+let instagramFeed: InstagramPost[] = [];
+let error: string | null = null;
+
+async function fetchInstagramFeed(): Promise<InstagramPost[]> {
+  try {
+    const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+    if (!accessToken) {
+      throw new Error('Instagram access token is missing');
+    }
+
+    const response = await fetch(
+      `https://graph.instagram.com/v18.0/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${accessToken}&limit=4`,
+      { 
+        headers: { 'Accept': 'application/json' },
+        cache: 'force-cache'
+      }
     );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || `Instagram API error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    if (!data.data || !Array.isArray(data.data)) {
+      throw new Error('Invalid response format from Instagram API');
+    }
+    return data.data || [];
+  } catch (e) {
+    console.error('Instagram feed error:', e);
+    error = e instanceof Error ? e.message : 'Erreur lors du chargement du flux Instagram';
+    return [];
   }
-
-  const data = await response.json();
-
-  if (!data.data) {
-    throw new Error("Instagram API response does not contain expected data");
-  }
-
-  return data.data;
 }
 
-const accessToken: string = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
-const instagramFeed: InstagramPost[] = await fetchInstagramFeed(accessToken);
-const isInstagramFeedNotEmpty = instagramFeed.length > 0;
+try {
+  instagramFeed = await fetchInstagramFeed();
+} catch (e) {
+  error = 'Failed to load Instagram feed';
+}
 ---
 
 <div class="instagram-grid">
-  {
-    !isInstagramFeedNotEmpty ? (
-      <p>Flux Instagram indisponible</p>
-    ) : (
-      instagramFeed.map((post) => (
-        <a
-          href={post.permalink}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={post.caption}
-        >
-          <article data-key={post.id} class="instagram-post">
-            {post.media_type === "IMAGE" ? (
-              <img
-                src={post.media_url}
-                alt={post.caption}
-                class="instagram-image"
-              />
-            ) : (
-              <video src={post.media_url} controls class="instagram-image" />
-            )}
-          </article>
-        </a>
-      ))
-    )
-  }
+  {error && <p class="error">{error}</p>}
+  
+  {!error && instagramFeed.length === 0 && (
+    <p>Aucune publication Instagram disponible</p>
+  )}
+
+  {instagramFeed.map((post) => (
+    <a href={post.permalink} target="_blank" rel="noopener noreferrer">
+      <article data-key={post.id} class="instagram-post">
+        {post.media_type === "IMAGE" ? (
+          <img src={post.media_url} alt={post.caption || ''} loading="lazy" />
+        ) : (
+          <video src={post.media_url} controls />
+        )}
+      </article>
+    </a>
+  ))}
 </div>
 
 <style lang="scss">
@@ -105,5 +113,11 @@ const isInstagramFeedNotEmpty = instagramFeed.length > 0;
       object-fit: cover;
       border-radius: 0.5rem;
     }
+  }
+  
+  .error {
+    color: var(--color-error, #dc3545);
+    text-align: center;
+    padding: 1rem;
   }
 </style>

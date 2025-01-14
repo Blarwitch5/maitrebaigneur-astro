@@ -163,7 +163,7 @@
         "name": "Kabanon",
         "href": "/bassins/kabanon",
         "image": {
-          "path": "pools/kabanon.jpg",
+          "path": "kabanon.jpg",
           "alt": "Bassin du Kabanon des écuries de l'aube"
         },
         "period": "Summer",
@@ -178,7 +178,7 @@
         "name": "Aquabecool",
         "href": "/bassins/aquabecool",
         "image": {
-          "path": "pools/aquabecool.jpg",
+          "path": "aquabecool.jpg",
           "alt": "Bassin de Aquabecool"
         },
         "period": "All year",
@@ -194,7 +194,7 @@
         "name": "Kinémouv'",
         "href": "/bassins/kinemouv",
         "image": {
-          "path": "pools/kinemouv.jpg",
+          "path": "kinemouv.jpg",
           "alt": "Bassin de Kinémouv"
         },
         "period": "All year",
@@ -209,7 +209,7 @@
         "name": "Plan Form",
         "href": "/bassins/plan-form",
         "image": {
-          "path": "pools/planform.jpg",
+          "path": "planform.jpg",
           "alt": "Bassin de Plan Form"
         },
         "period": "All year",
@@ -224,7 +224,7 @@
         "name": "Les Terrasses du Sun",
         "href": "/bassins/les-terrasses-du-sun",
         "image": {
-          "path": "pools/les-terrasses-du-sun.jpg",
+          "path": "les-terrasses-du-sun.jpg",
           "alt": "Bassin des Terrasses du Sun"
         },
         "period": "Summer",
@@ -239,7 +239,7 @@
         "name": "Le Carré d'Ô",
         "href": "/bassins/le-carre-d-o",
         "image": {
-          "path": "pools/le-carre-d-o.jpg",
+          "path": "le-carre-d-o.jpg",
           "alt": "Bassin du Carré d'Ô"
         },
         "period": "All year",
@@ -254,7 +254,7 @@
         "name": "Saint-Maximin été",
         "href": "/bassins/saint-maximin-ete",
         "image": {
-          "path": "pools/saint-maximin.jpg",
+          "path": "saint-maximin.jpg",
           "alt": "Bassin à Saint-Maximin"
         },
         "period": "Summer",
@@ -269,7 +269,7 @@
         "name": "Saint-Maximin Balnéo",
         "href": "/bassins/saint-maximin-balneo",
         "image": {
-          "path": "pools/saint-maximin-balneo.jpg",
+          "path": "saint-maximin-balneo.jpg",
           "alt": "Bassin balnéothérapie à Saint-Maximin"
         },
         "period": "All year",
@@ -284,7 +284,7 @@
         "name": "Domicile",
         "href": "/bassins/domicile",
         "image": {
-          "path": "pools/domicile.jpg",
+          "path": "domicile.jpg",
           "alt": "Bassin à domicile"
         },
         "period": "All year",
@@ -401,13 +401,13 @@
     "name": "Set Club",
     "href": "/bassins/set-club",
     "image": {
-      "src": "/pools/setclub.jpg",
+      "src": "setclub.jpg",
       "alt": "Bassin du Set Club"
     },
     "location": "Aix Ouest",
     "address": "1335 Chemin de Granet, 13090 Aix-en-Provence",
     "thumb": {
-      "jpg": "/thumbnails/setclub-thumb.jpg",
+      "jpg": "thumbnails/setclub-thumb.jpg",
       "alt": "Bassin Set Club"
     }
   }

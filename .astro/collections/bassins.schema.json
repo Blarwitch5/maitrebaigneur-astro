@@ -88,10 +88,7 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "webp": {
-                    "type": "string"
-                  },
-                  "jpg": {
+                  "src": {
                     "type": "string"
                   },
                   "alt": {
@@ -99,8 +96,7 @@
                   }
                 },
                 "required": [
-                  "webp",
-                  "jpg",
+                  "src",
                   "alt"
                 ],
                 "additionalProperties": false

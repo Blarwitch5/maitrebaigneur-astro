@@ -35,18 +35,15 @@ Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux sav
 	],
 	gallery: [
 		{
-			webp: "/images/pools/kabanon/kabanon-1.webp",
-			jpg: "/images/pools/kabanon/kabanon-1.jpg",
+			src: "kabanon/kabanon-1.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 		{
-			webp: "/images/pools/kabanon/kabanon-2.webp",
-			jpg: "/images/pools/kabanon/kabanon-2.jpg",
+			src: "kabanon/kabanon-2.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 		{
-			webp: "/images/pools/kabanon/kabanon-3.webp",
-			jpg: "/images/pools/kabanon/kabanon-3.jpg",
+			src: "kabanon/kabanon-3.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 	]

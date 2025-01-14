@@ -37,18 +37,15 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
-			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			src: "le-carre-d-o/le-carre-d-o-1.jpg",
 			alt: "Bassin du Carré d'Ô à Aix Centre"
 		},
 		{
-			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
-			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			src: "le-carre-d-o/le-carre-d-o-1.jpg",
 			alt: "Bassin du Carré d'Ô à Aix Centre"
 		},
 		{
-			webp: "/images/pools/le-carre-d-o/le-carre-d-o-1.webp",
-			jpg: "/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",
+			src: "le-carre-d-o/le-carre-d-o-1.jpg",
 			alt: "Bassin du Carré d'Ô à Aix Centre"
 		}
 	]

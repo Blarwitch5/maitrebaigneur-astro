@@ -8,6 +8,7 @@ import PageTitle from "@components/header/PageTitle.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import EventsPrices from "@components/widgets/prices/EventsPrices.astro";
 import Title from "@components/ui/Title.astro";
+import { Image } from "astro:assets";
 
 //data
 const page = {
@@ -65,11 +66,14 @@ const page = {
             </ul>
           </div>
         </div>
-        <img
+        <Image
           class="event__img"
-          src="/images/page-title/page_surveillance.jpg"
-          alt=""
+          src="/src/assets/images/page-title/page_surveillance.jpg"
+          alt="Jeune couple de mariés se jettent à l'eau dans une piscine"
+          width={1024}
+          height={575}
         />
+  
       </div>
     </section>
     <section>

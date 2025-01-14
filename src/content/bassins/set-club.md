@@ -30,23 +30,19 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/set-club/set-club-1.webp",
-			jpg: "/images/pools/set-club/set-club-1.jpg",
+			src: "set-club/set-club-1.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			webp: "/images/pools/set-club/set-club-2.webp",
-			jpg: "/images/pools/set-club/set-club-2.jpg",
+			src: "set-club/set-club-2.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			webp: "/images/pools/set-club/set-club-3.webp",
-			jpg: "/images/pools/set-club/set-club-3.jpg",
+			src: "set-club/set-club-3.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			webp: "/images/pools/set-club/set-club-4.webp",
-			jpg: "/images/pools/set-club/set-club-4.jpg",
+			src: "set-club/set-club-4.jpg",
 			alt: "Bassin au Set Club à Aix-en-Provence Ouest"
 		}
 	]

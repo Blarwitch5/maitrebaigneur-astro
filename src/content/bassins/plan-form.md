@@ -25,18 +25,15 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/planform/planform-1.webp",
-			jpg: "/images/pools/planform/planform-1.jpg",
+			src: "planform/planform-1.jpg",
 			alt: "Bassin de Plan Form à Cabriès"
 		},
 		{
-			webp: "/images/pools/planform/planform-2.webp",
-			jpg: "/images/pools/planform/planform-2.jpg",
+			src: "planform/planform-2.jpg",
 			alt: "Bassin de Plan Form à Cabriès"
 		},
 		{
-			webp: "/images/pools/planform/planform-3.webp",
-			jpg: "/images/pools/planform/planform-3.jpg",
+			src: "planform/planform-3.jpg",
 			alt: "Bassin de Plan Form à Cabriès"
 		}
 	]

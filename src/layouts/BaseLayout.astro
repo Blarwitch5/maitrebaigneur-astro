@@ -5,8 +5,7 @@ import GeoTag from "@components/head/GeoTag.astro";
 import "aos/dist/aos.css";
 
 import { SEO } from "astro-seo";
-import { ViewTransitions } from "astro:transitions";
-
+import { ClientRouter } from 'astro:transitions';
 export interface SeoProps {
   title: string;
   description: string;
@@ -98,7 +97,7 @@ const icbm: string = "43.5, 5.4";
     <!-- FAVICON -->
     <Favicon />
     <!-- /FAVICON -->
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />

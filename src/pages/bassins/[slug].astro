@@ -10,7 +10,7 @@ import Title from "@components/ui/Title.astro";
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
+import { Picture } from "astro:assets";
 
 export async function getStaticPaths() {
   const poolEntries = await getCollection("bassins");
@@ -115,24 +115,23 @@ import { images } from "@utils/images";
             {
               poolEntry.data.pool.gallery.map(
                 (
-                  image: {
-                    webp: string | null | undefined;
-                    jpg: string | null | undefined;
-                  },
+                image: {
+                  src: string;
+                  alt: string;
+                },
                   index: number
                 ) => {
                   return (
                     <li class="track__item" id={(index + 1).toString()}>
-                      <picture class="container-item">
-                        <source type="image/webp" srcset={image.webp} />
-                        <img
-                          loading="lazy"
-                          src={image.jpg}
-                          alt={poolEntry.data.pool.image.alt}
-                          height="576"
-                          width="432"
-                        />
-                      </picture>
+                      <Picture
+                        class="container-item"
+                        src={`/src/assets/images/pools/${image.src}`}
+                        alt={image.alt}
+                        width={432}
+                        height={576}
+                        formats={["webp"]}
+                        loading="lazy"
+                      />
                     </li>
                   );
                 }

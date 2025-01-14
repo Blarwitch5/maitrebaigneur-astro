@@ -1,6 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+
     "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": ".",
@@ -13,7 +15,8 @@
     "strictNullChecks": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "types": ["astro/client"]
   },
   "allowJs": true
 }

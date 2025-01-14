@@ -2,7 +2,7 @@
 import Favicon from "@components/head/Favicon.astro";
 import GeoTag from "@components/head/GeoTag.astro";
 import { SEO } from "astro-seo";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -127,7 +127,7 @@ const {
     <!-- FAVICON -->
     <Favicon />
     <!-- /FAVICON -->
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />

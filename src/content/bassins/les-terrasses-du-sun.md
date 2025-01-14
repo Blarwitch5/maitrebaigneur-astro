@@ -27,23 +27,19 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-1.webp",
-			jpg: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-1.jpg",
+	src: "les-terrasses-du-sun/les-terrasses-du-sun-1.jpg",
 			alt: "Bassin des Terrasses du Sun à Aix-en-Provence Sud Ouest"
 		},
 		{
-			webp: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-2.webp",
-			jpg: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-2.jpg",
+	src: "les-terrasses-du-sun/les-terrasses-du-sun-2.jpg",
 			alt: "Bassin des Terrasses du Sun à Aix-en-Provence Sud Ouest"
 		},
 		{
-			webp: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-3.webp",
-			jpg: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-3.jpg",
+	src: "les-terrasses-du-sun/les-terrasses-du-sun-3.jpg",
 			alt: "Bassin des Terrasses du Sun à Aix-en-Provence Sud Ouest"
 		},
 		{
-			webp: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-4.webp",
-			jpg: "/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-4.jpg",
+	src: "les-terrasses-du-sun/les-terrasses-du-sun-4.jpg",
 			alt: "Bassin des Terrasses du Sun à Aix-en-Provence Sud Ouest"
 		}
 	]

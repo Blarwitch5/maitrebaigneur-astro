@@ -40,23 +40,19 @@ pool: {
 	],
 	gallery: [
 		{
-			webp: "/images/pools/domicile/domicile-1.webp",
-			jpg: "/images/pools/domicile/domicile-1.jpg",
+			src: "domicile/domicile-1.jpg",
 			alt: "Bassin de Domicile à Aix-en-Provence"
 		},
 		{
-			webp: "/images/pools/domicile/domicile-2.webp",
-			jpg: "/images/pools/domicile/domicile-2.jpg",
+			src: "domicile/domicile-2.jpg",
 			alt: "Bassin de Domicile à Aix-en-Provence"
 		},
 		{
-			webp: "/images/pools/domicile/domicile-3.webp",
-			jpg: "/images/pools/domicile/domicile-3.jpg",
+			src: "domicile/domicile-3.jpg",
 			alt: "Bassin de Domicile à Aix-en-Provence"
 		},
 		{
-			webp: "/images/pools/domicile/domicile-4.webp",
-			jpg: "/images/pools/domicile/domicile-4.jpg",
+			src: "domicile/domicile-4.jpg",
 			alt: "Bassin de Domicile à Aix-en-Provence"
 		},
 	]

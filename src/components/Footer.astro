@@ -2,9 +2,9 @@
 import Copyright from "@components/footer/Copyright.astro";
 import Socials from "@components/Socials.astro";
 import Button from "@components/ui/Button.astro";
-// import InstagramFeed from "./widgets/InstagramFeed.astro";
+import PoolList from "@components/widgets/PoolList.astro";
 import { Icon } from "astro-icon";
-import Waves from "@components//ui/shapes/Waves.astro";
+import Waves from "@components/ui/shapes/Waves.astro";
 import GoToTop from "@components/ui/GoToTop.astro";
 import StickyBtns from "@components/ui/StickyBtns.astro";
 
@@ -28,7 +28,7 @@ const footerMenu = siteLinks.footerMenu;
         height={250}
         src="/src/assets/images/logo.svg"
         alt="Logo Maître-Baigneur" />
- 
+
         <p class="slogan">"...Le bonheur du baigneur..."</p>
         <ul class="info">
           <li>
@@ -91,10 +91,9 @@ const footerMenu = siteLinks.footerMenu;
           }
         </ul>
       </div>
-      <div class="footer__col insta" data-aos="zoom-in">
-        <Title level="3" class="title">Flux Instagram</Title>
-        <!-- <InstagramFeed /> -->
-        à venir
+      <div class="footer__col pools" data-aos="zoom-in">
+        <Title level="3" class="title">Nos bassins</Title>
+        <PoolList />
       </div>
     </div>
     <Copyright />
@@ -122,12 +121,12 @@ const footerMenu = siteLinks.footerMenu;
 
     &__sections {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--space-md);
     }
     &__col {
       &.brand {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 4;
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
@@ -136,29 +135,30 @@ const footerMenu = siteLinks.footerMenu;
         text-align: center;
         z-index: 2;
       }
-      &.insta {
+      &.pools {
         text-align: center;
-        grid-column: 5 / span 2;
+        grid-column: 1 / span 4;
         @media screen and (max-width: 1024px) {
-          grid-column: 1 / span 6;
+          grid-column: 1 / span 4;
         }
       }
       &.services {
         grid-column: 1 / span 2;
 
-        @media screen and (max-width: 1024px) {
-          grid-column: 1 / span 3;
-        }
+        
       }
       &.useful-links {
         grid-column: 3 / span 2;
-
-        @media screen and (max-width: 1024px) {
-          grid-column: 4 / span 3;
-        }
       }
       &.services,
       &.useful-links {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .title{
+          text-align: center;
+        }
         ul {
           text-align: left;
 

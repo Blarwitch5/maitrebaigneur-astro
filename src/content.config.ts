@@ -28,8 +28,7 @@ const poolsCollection = defineCollection({
       ),
       gallery: z.array(
         z.object({
-          webp: z.string(),
-          jpg: z.string(),
+          src: z.string(),
           alt: z.string(),
         })
       ),
