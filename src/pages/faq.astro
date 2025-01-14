@@ -1,33 +1,35 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Main from "@components/Main.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Main from '@components/Main.astro';
 
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import Accordion from "@components/ui/accordion/Accordion.astro";
-import AccordionItem from "@components/ui/accordion/AccordionItem.astro";
-import Search from "@components/ui/Search.astro";
-import Button from "@components/ui/Button.astro";
-import Title from "@components/ui/Title.astro";
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import Accordion from '@components/ui/accordion/Accordion.astro';
+import AccordionItem from '@components/ui/accordion/AccordionItem.astro';
+import Search from '@components/ui/Search.astro';
+import Button from '@components/ui/Button.astro';
+import Title from '@components/ui/Title.astro';
+
+import fallback from '@assets/images/page-title/fallback.jpg';
 
 //data
-import site from "@assets/data/data.json";
+import site from '@assets/data/data.json';
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
-const summerPools = pools.filter((pool) => pool.period === "Summer");
-const allYearPools = pools.filter((pool) => pool.period === "All year");
+const summerPools = pools.filter((pool) => pool.period === 'Summer');
+const allYearPools = pools.filter((pool) => pool.period === 'All year');
 
 const page = {
-  metaTitle: "Foire aux questions",
-  description: "",
-  title: "FAQ",
+  metaTitle: 'Foire aux questions',
+  description: '',
+  title: 'FAQ',
 
   image: {
-    jpg: "page-title/fallback.jpg",
-    alt: "Foire Aux Questions",
+    jpg: fallback,
+    alt: 'Foire Aux Questions',
   },
 };
 ---
@@ -35,21 +37,16 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
 
   <Main>
     <section>
-      <div class="container">
-        <Title level="2" animate>Foire aux questions</Title>
+      <div class='container'>
+        <Title level='2' animate>Foire aux questions</Title>
         <p>
-          Nous avons rassemblé ici les questions les plus fréquentes que nous
-          recevons de la part de nos baigneurs pour vous aider à trouver
-          rapidement les informations que vous cherchez. Si vous ne trouvez pas
-          réponse à vos interrogations, veuillez <a href="/contact"
+          Nous avons rassemblé ici les questions les plus fréquentes que nous recevons de la part de
+          nos baigneurs pour vous aider à trouver rapidement les informations que vous cherchez. Si
+          vous ne trouvez pas réponse à vos interrogations, veuillez <a href='/contact'
             >nous contacter</a
           > à l'aide du formulaire prévu à cet effet.
         </p>
@@ -60,172 +57,143 @@ const page = {
         <!--Accordion panels-->
 
         <Accordion>
-          <AccordionItem header="Comment ça se passe ?" index="1">
+          <AccordionItem header='Comment ça se passe ?' index='1'>
             <p>
-              Lorsque vous arrivez dans <a href="/bassins"
-                >votre centre Maître Baigneur</a
-              >, assurez-vous d’être là <strong
-                >15 minutes avant le début de la séance</strong
-              >.
+              Lorsque vous arrivez dans <a href='/bassins'>votre centre Maître Baigneur</a>,
+              assurez-vous d’être là <strong>15 minutes avant le début de la séance</strong>.
             </p><p>
-              À l’entrée des vestiaires, veuillez vous déchausser. Préparez
-              ensuite votre enfant en lui mettant son maillot de bain, son
-              bonnet et ses lunettes, puis rejoignez-nous directement au bord du
-              bassin. Nous sommes probablement déjà dans l’eau avec un groupe.
+              À l’entrée des vestiaires, veuillez vous déchausser. Préparez ensuite votre enfant en
+              lui mettant son maillot de bain, son bonnet et ses lunettes, puis rejoignez-nous
+              directement au bord du bassin. Nous sommes probablement déjà dans l’eau avec un
+              groupe.
             </p><p>
-              Lorsque vous utilisez les douches avant et après le cours, pensez
-              aux autres. Le réservoir d’eau chaude n’est pas inépuisable.
+              Lorsque vous utilisez les douches avant et après le cours, pensez aux autres. Le
+              réservoir d’eau chaude n’est pas inépuisable.
             </p><p>
-              Vous pouvez attendre avec votre enfant que le cours commence.
-              Cependant, afin de ne pas perturber les enfants pendant leur cours
-              ou de ne pas les distraire, nous vous prions de bien vouloir
-              attendre dans les espaces prévus à cet effet. Vous pourrez bien
-              sûr venir les voir à la fin de la séance pour constater leurs
-              progrès.
+              Vous pouvez attendre avec votre enfant que le cours commence. Cependant, afin de ne
+              pas perturber les enfants pendant leur cours ou de ne pas les distraire, nous vous
+              prions de bien vouloir attendre dans les espaces prévus à cet effet. Vous pourrez bien
+              sûr venir les voir à la fin de la séance pour constater leurs progrès.
             </p>
           </AccordionItem>
-          <AccordionItem header="À propos de la réservation en ligne" index="2">
+          <AccordionItem header='À propos de la réservation en ligne' index='2'>
             <p>
-              <strong>Attention:</strong> Vous devez créer <strong
-                >une fiche par élève</strong
-              >.
+              <strong>Attention:</strong> Vous devez créer <strong>une fiche par élève</strong>.
               <ul>
                 <li>
-                  <strong>Pour les cartes individuelles :</strong> chaque baigneur
-                  doit avoir une fiche individuelle pour la carte ou la prestation
-                  pour la carte ou prestation <br />Par exemple, pour une séance
-                  de découverte, une séance à l’unité ou une carte de 5 séances,
-                  une fiche client est créée pour le baigneur concerné.
+                  <strong>Pour les cartes individuelles :</strong> chaque baigneur doit avoir une fiche
+                  individuelle pour la carte ou la prestation pour la carte ou prestation <br />Par
+                  exemple, pour une séance de découverte, une séance à l’unité ou une carte de 5
+                  séances, une fiche client est créée pour le baigneur concerné.
                 </li>
                 <li>
-                  <strong
-                    >Pour les cartes à partager (carte de 5, 10 ou 30 séances) :</strong
-                  > Une fiche est créée pour chaque élève utilisant la carte ou la
-                  prestation. Chaque élève correspond à une place à réserver.
+                  <strong>Pour les cartes à partager (carte de 5, 10 ou 30 séances) :</strong> Une fiche
+                  est créée pour chaque élève utilisant la carte ou la prestation. Chaque élève correspond
+                  à une place à réserver.
                 </li>
               </ul><br />
 
               <p>Une réservation équivaut à une place pour un baigneur.</p>
 
               <p>
-                Si vous avez des cartes partagées avec plusieurs baigneurs,
-                réservez le nombre de places dont vous avez besoin.
+                Si vous avez des cartes partagées avec plusieurs baigneurs, réservez le nombre de
+                places dont vous avez besoin.
               </p>
 
               <ul>
                 <li>
-                  <strong>Une réservation</strong> correspond à <strong
-                    >une place</strong
-                  >.
+                  <strong>Une réservation</strong> correspond à <strong>une place</strong>.
                 </li><li>
-                  <strong>Deux réservations</strong> correspondent à <strong
-                    >deux places</strong
-                  >.
+                  <strong>Deux réservations</strong> correspondent à <strong>deux places</strong>.
                 </li><li>
-                  <strong>Trois réservations</strong> correspondent à <strong
-                    >trois places</strong
-                  >.
+                  <strong>Trois réservations</strong> correspondent à <strong>trois places</strong>.
                 </li>
               </ul>
 
               <p>
-                Assurez-vous que vos enfants soient <span class="underline"
-                  >prêts et motivés</span
-                >. Il est difficile d’apprendre à nager en restant sur le bord.
+                Assurez-vous que vos enfants soient <span class='underline'>prêts et motivés</span>.
+                Il est difficile d’apprendre à nager en restant sur le bord.
               </p><p>
-                Pour les plus jeunes, <a
-                  href="https://user.clicrdv.com/sarl-qfe"
-                  target="_blank">la séance découverte</a
-                > permet également de déterminer si votre enfant est prêt ou s’il
-                faut attendre encore un peu. <strong
-                  >La séance découverte nécessite une réservation.</strong
-                > Votre enfant bénéficie d’une place dans son groupe de niveau. Il
-                ne s’agit pas d’une séance d’essai, mais bien d’une séance de découverte,
-                qui doit donc être réglée avant son commencement.
+                Pour les plus jeunes, <a href='https://user.clicrdv.com/sarl-qfe' target='_blank'
+                  >la séance découverte</a
+                > permet également de déterminer si votre enfant est prêt ou s’il faut attendre encore
+                un peu. <strong>La séance découverte nécessite une réservation.</strong> Votre enfant
+                bénéficie d’une place dans son groupe de niveau. Il ne s’agit pas d’une séance d’essai,
+                mais bien d’une séance de découverte, qui doit donc être réglée avant son commencement.
               </p>
             </p>
           </AccordionItem>
 
-          <AccordionItem
-            header="Quelles sont les modalités de paiement ?"
-            index="3"
-          >
+          <AccordionItem header='Quelles sont les modalités de paiement ?' index='3'>
             <p>
-              Le règlement s’effectue lors de la première séance. Des enveloppes
-              et des tickets d’encaissement sont à votre disposition.
+              Le règlement s’effectue lors de la première séance. Des enveloppes et des tickets
+              d’encaissement sont à votre disposition.
 
               <ul>
                 <li>
-                  <strong>Pour les espèces :</strong> Des enveloppes sont disponibles.
-                  Pensez à prévoir l’appoint et à bien remplir votre ticket d’encaissement.
+                  <strong>Pour les espèces :</strong> Des enveloppes sont disponibles. Pensez à prévoir
+                  l’appoint et à bien remplir votre ticket d’encaissement.
                 </li>
                 <li>
-                  <strong>Pour les chèques :</strong> Ils sont acceptés uniquement
-                  pour les paiements en plusieurs fois, comme pour les abonnements
-                  ou les cartes de plusieurs séances. Les chèques doivent être libellés
-                  à l’ordre de Maître Baigneur. N’oubliez pas d’inscrire au dos le
-                  prénom et le nom du baigneur ainsi que les dates d’encaissement
-                  si vous payez avec plusieurs chèques.
+                  <strong>Pour les chèques :</strong> Ils sont acceptés uniquement pour les paiements
+                  en plusieurs fois, comme pour les abonnements ou les cartes de plusieurs séances. Les
+                  chèques doivent être libellés à l’ordre de Maître Baigneur. N’oubliez pas d’inscrire
+                  au dos le prénom et le nom du baigneur ainsi que les dates d’encaissement si vous payez
+                  avec plusieurs chèques.
                 </li>
               </ul>
               <br />
-              <strong>Attention :</strong> Nos prestations doivent être réglées avant
-              le début de la séance. Par exemple, une carte de 5 séances à 100€ doit
-              être réglée en une seule fois lors de la première séance. Nous débitons
-              informatiquement vos crédits au fur et à mesure des séances. Les règlements
-              à la séance ne sont acceptés que pour les séances à l’unité. Par exemple,
-              une séance de natation coûte 25€ pour un baigneur.
+              <strong>Attention :</strong> Nos prestations doivent être réglées avant le début de la
+              séance. Par exemple, une carte de 5 séances à 100€ doit être réglée en une seule fois lors
+              de la première séance. Nous débitons informatiquement vos crédits au fur et à mesure des
+              séances. Les règlements à la séance ne sont acceptés que pour les séances à l’unité. Par
+              exemple, une séance de natation coûte 25€ pour un baigneur.
             </p>
           </AccordionItem>
-          <AccordionItem header="En cas d'empêchement ?" index="4">
+          <AccordionItem header="En cas d'empêchement ?" index='4'>
             <p>
-              Nous vous prions de bien vouloir annuler vos séances en cas
-              d’absence. Nous avons mis en place un délai d’annulation de 24
-              heures avant votre séance. Cela permet de libérer la place pour
-              qu’un autre enfant puisse en bénéficier. Passé ce délai, la séance
-              sera décomptée.
+              Nous vous prions de bien vouloir annuler vos séances en cas d’absence. Nous avons mis
+              en place un délai d’annulation de 24 heures avant votre séance. Cela permet de libérer
+              la place pour qu’un autre enfant puisse en bénéficier. Passé ce délai, la séance sera
+              décomptée.
             </p>
 
             <p>
-              Nous comprenons qu’il peut y avoir des imprévus. C’est pourquoi
-              nous offrons à tous nos clients un « joker » sur leur carte, afin
-              de ne pénaliser personne.
+              Nous comprenons qu’il peut y avoir des imprévus. C’est pourquoi nous offrons à tous
+              nos clients un « joker » sur leur carte, afin de ne pénaliser personne.
             </p><p>
-              Ainsi, si c’est la première fois que vous utilisez votre « joker
-              », la séance ne sera pas décomptée de votre carte. Si c’est la
-              deuxième fois ou plus, la séance sera décomptée (sauf sur
-              présentation d’un justificatif).
+              Ainsi, si c’est la première fois que vous utilisez votre « joker », la séance ne sera
+              pas décomptée de votre carte. Si c’est la deuxième fois ou plus, la séance sera
+              décomptée (sauf sur présentation d’un justificatif).
             </p><p>
-              Nous vous demandons, dans la mesure du possible, de penser à
-              annuler votre séance. Cela nous permet d’ajuster les emplois du
-              temps et offre la possibilité à un autre enfant de bénéficier
-              d’une séance de natation.
+              Nous vous demandons, dans la mesure du possible, de penser à annuler votre séance.
+              Cela nous permet d’ajuster les emplois du temps et offre la possibilité à un autre
+              enfant de bénéficier d’une séance de natation.
             </p>
 
             <p>Nous vous remercions de votre compréhension.</p>
 
             <p>
-              Si vous rencontrez des problèmes lors de la réservation, n’hésitez
-              pas à
-              <a href="/contact">nous contacter</a>.
+              Si vous rencontrez des problèmes lors de la réservation, n’hésitez pas à
+              <a href='/contact'>nous contacter</a>.
             </p>
           </AccordionItem>
-          <AccordionItem header="Où puis-je apprendre à nager ?" index="5">
+          <AccordionItem header='Où puis-je apprendre à nager ?' index='5'>
             <p>
-              Vous pouvez apprendre à nager dans un de nos bassins
-              d'apprentissage. En voici la liste :
+              Vous pouvez apprendre à nager dans un de nos bassins d'apprentissage. En voici la
+              liste :
             </p>
 
             <h4>Été</h4>
             <ol>
               {
                 summerPools
-                  .filter((pool) => pool.name !== "Domicile")
+                  .filter((pool) => pool.name !== 'Domicile')
                   .map((pool) => (
                     <li>
                       <a href={pool.href} aria-label={pool.name}>
                         {pool.name}
-                      </a>{" "}
+                      </a>{' '}
                       : {pool.address}
                     </li>
                   ))
@@ -236,7 +204,7 @@ const page = {
             <ol>
               {
                 allYearPools
-                  .filter((pool) => pool.name !== "Domicile")
+                  .filter((pool) => pool.name !== 'Domicile')
                   .map((pool) => (
                     <li>
                       <a href={pool.href}>{pool.name}</a> : {pool.address}
@@ -246,33 +214,27 @@ const page = {
             </ol>
           </AccordionItem>
 
-          <AccordionItem header="À partir de quel âge ?" index="6">
+          <AccordionItem header='À partir de quel âge ?' index='6'>
             <p>
-              Nous leçons de natation commencent à partir de 3 ans et sont
-              disponibles pour tous les âges.
+              Nous leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les
+              âges.
             </p><p>
               <strong>Il n'est jamais trop tard !</strong>
             </p>
-            <p>
-              Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.
-            </p>
+            <p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
           </AccordionItem>
-          <AccordionItem
-            header="Quels sont les tarifs de Maître-Baigneur ?"
-            index="7"
-          >
+          <AccordionItem header='Quels sont les tarifs de Maître-Baigneur ?' index='7'>
             <p>
-              Nous avons créé une <Button href="/tarifs">
+              Nous avons créé une <Button href='/tarifs'>
                 page dédiée aux tarifs Maître-Baigneur
-              </Button>. Vous y trouverez des prix attractifs pour des cours de
-              natation ludiques et efficaces. Ne manquez pas cette occasion de
-              vous amuser tout en apprenant à nager avec nos experts qualifiés.
+              </Button>. Vous y trouverez des prix attractifs pour des cours de natation ludiques et
+              efficaces. Ne manquez pas cette occasion de vous amuser tout en apprenant à nager avec
+              nos experts qualifiés.
             </p>
           </AccordionItem>
           <p>
-            Nous travaillons actuellement à enrichir cette page avec les
-            questions fréquemment posées par nos clients. <br />Votre
-            compréhension est grandement appréciée
+            Nous travaillons actuellement à enrichir cette page avec les questions fréquemment
+            posées par nos clients. <br />Votre compréhension est grandement appréciée
           </p>
         </Accordion>
       </div>

@@ -1,14 +1,16 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Main from "@components/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Main from '@components/Main.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
 
-import site from "@assets/data/data.json";
-import Services from "@components/widgets/Services.astro";
-import Title from "@components/ui/Title.astro";
+import site from '@assets/data/data.json';
+import Services from '@components/widgets/Services.astro';
+import Title from '@components/ui/Title.astro';
+
+import fallback from '@assets/images/page-title/fallback.jpg';
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -16,12 +18,12 @@ const services = siteLinks.services;
 //data
 
 const page = {
-  metaTitle: "Nos prestations",
-  description: "",
-  title: "Nos prestations",
+  metaTitle: 'Nos prestations',
+  description: '',
+  title: 'Nos prestations',
 
   image: {
-    jpg: "page-title/fallback.jpg",
+    jpg: fallback,
     alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
   },
 };
@@ -30,30 +32,22 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
 
   <Main>
-    <section
-      class="services"
-      aria-label="Les bassins d'apprentissage de Maître-Baigneur"
-    >
-      <div class="container">
-        <Title level="2" animate>Nos prestations</Title>
+    <section class='services' aria-label="Les bassins d'apprentissage de Maître-Baigneur">
+      <div class='container'>
+        <Title level='2' animate>Nos prestations</Title>
         <p>
-          Maître-Baigneur est votre partenaire pour un apprentissage ludique et
-          sécurisé de la natation. Nous nous concentrons sur les cours de bébé
-          nageur dès 3 mois et les cours de natation dès 3 ans, en proposant des
-          sessions en petits groupes pour une attention personnalisée. Notre
-          philosophie est d'apprendre en s'amusant.
+          Maître-Baigneur est votre partenaire pour un apprentissage ludique et sécurisé de la
+          natation. Nous nous concentrons sur les cours de bébé nageur dès 3 mois et les cours de
+          natation dès 3 ans, en proposant des sessions en petits groupes pour une attention
+          personnalisée. Notre philosophie est d'apprendre en s'amusant.
         </p>
         <p>
-          En plus de ces prestations, nous offrons la surveillance d'événements
-          et l'organisation d'aquaversaires. Rejoignez Maître-Baigneur pour
-          vivre des moments aquatiques inoubliables !
+          En plus de ces prestations, nous offrons la surveillance d'événements et l'organisation
+          d'aquaversaires. Rejoignez Maître-Baigneur pour vivre des moments aquatiques inoubliables
+          !
         </p>
         <Services />
       </div>

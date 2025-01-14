@@ -1,22 +1,23 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Main from "@components/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Pools from "@components/widgets/Pools.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Main from '@components/Main.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Pools from '@components/widgets/Pools.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+
+import fallback from '@assets/images/page-title/fallback.jpg';
 
 //data
 
 const page = {
   metaTitle: "Bassins d'apprentissage",
-  description: "",
+  description: '',
   title: "Bassins d'apprentissage",
-  
 
   image: {
-    jpg: "page-title/fallback.jpg",
+    jpg: fallback,
     alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
   },
 };
@@ -25,17 +26,10 @@ const page = {
 <BaseLayout title={page.title} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
 
   <Main>
-    <section
-      class="pools"
-      aria-label="Les bassins d'apprentissage de Maître-Baigneur"
-    >
+    <section class='pools' aria-label="Les bassins d'apprentissage de Maître-Baigneur">
       <Pools />
     </section>
     <Footer />

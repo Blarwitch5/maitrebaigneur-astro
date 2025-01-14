@@ -1,23 +1,25 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Main from "@components/Main.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Main from '@components/Main.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
 
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import EventsPrices from "@components/widgets/prices/EventsPrices.astro";
-import Title from "@components/ui/Title.astro";
-import { Image } from "astro:assets";
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import EventsPrices from '@components/widgets/prices/EventsPrices.astro';
+import Title from '@components/ui/Title.astro';
+import { Image } from 'astro:assets';
+
+import evenement from '@assets/images/page-title/page_surveillance.jpg';
 
 //data
 const page = {
-  metaTitle: "Événements et sécurité",
-  description: "",
-  title: "Événements et sécurité",
+  metaTitle: 'Événements et sécurité',
+  description: '',
+  title: 'Événements et sécurité',
 
   image: {
-    jpg: "page-title/page_surveillance.jpg",
+    jpg: evenement,
     alt: "Couple de mariés se jettant à l'eau dans une piscine",
   },
 };
@@ -26,38 +28,28 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
 
   <Main>
-    <section class="event">
-      <div class="container">
-        <Title animate level="2" class="event__title">
+    <section class='event'>
+      <div class='container'>
+        <Title animate level='2' class='event__title'>
           Maître-Baigneur sécurise vos événements
         </Title>
-        <Title animate level="3" class="event__title--2">
-          En quoi cela consiste ?
-        </Title>
-        <div class="event__content">
-          <p class="event__desc">
-            Vous voulez que vos événements spéciaux soient sécurisés et encadrés
-            ? Maître-Baigneur est la solution idéale ! Nous offrons une
-            assistance complète pour tous vos besoins liés aux baignades et aux
-            fêtes aquatiques, que ce soit pour des baptêmes, des mariages ou des
-            autres événements. Notre équipe vous garantit une sécurité totale
-            pour que vos invités puissent profiter pleinement de la baignade.
-            Nous nous assurons que toutes les règles et réglementations de
-            sécurité sont suivies et que tous les participants sont bien
-            encadrés. Faites appel à Maître-Baigneur et soyez assurés que vos
-            plus belles fêtes se dérouleront en toute sécurité.
+        <Title animate level='3' class='event__title--2'> En quoi cela consiste ? </Title>
+        <div class='event__content'>
+          <p class='event__desc'>
+            Vous voulez que vos événements spéciaux soient sécurisés et encadrés ? Maître-Baigneur
+            est la solution idéale ! Nous offrons une assistance complète pour tous vos besoins liés
+            aux baignades et aux fêtes aquatiques, que ce soit pour des baptêmes, des mariages ou
+            des autres événements. Notre équipe vous garantit une sécurité totale pour que vos
+            invités puissent profiter pleinement de la baignade. Nous nous assurons que toutes les
+            règles et réglementations de sécurité sont suivies et que tous les participants sont
+            bien encadrés. Faites appel à Maître-Baigneur et soyez assurés que vos plus belles fêtes
+            se dérouleront en toute sécurité.
           </p>
-          <div class="event__details">
-            <Title animate level="4">
-              À propos de la surveillance d'événements
-            </Title>
+          <div class='event__details'>
+            <Title animate level='4'> À propos de la surveillance d'événements </Title>
             <ul>
               <li>De nuit ou de jour</li>
               <li>Matériel de premiers soins</li>
@@ -67,20 +59,17 @@ const page = {
           </div>
         </div>
         <Image
-          class="event__img"
-          src="/src/assets/images/page-title/page_surveillance.jpg"
+          class='event__img'
+          src='/src/assets/images/page-title/page_surveillance.jpg'
           alt="Jeune couple de mariés se jettent à l'eau dans une piscine"
           width={1024}
           height={575}
         />
-  
       </div>
     </section>
     <section>
-      <div class="container">
-        <Title animate level="3">
-          Tarifs pour la sécurité de vos événements
-        </Title>
+      <div class='container'>
+        <Title animate level='3'> Tarifs pour la sécurité de vos événements </Title>
         <EventsPrices />
       </div>
     </section>
@@ -88,7 +77,7 @@ const page = {
   <Footer />
 </BaseLayout>
 
-<style lang="scss">
+<style lang='scss'>
   .event {
     &__content {
       display: flex;
@@ -108,18 +97,19 @@ const page = {
       border-radius: var(--regular-border-radius);
       padding: var(--space-lg);
       position: relative;
-      box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
+      box-shadow:
+        0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
         0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         border-radius: var(--regular-border-radius);
-        background-image: url("/images/icons/event.svg");
+        background-image: url('/images/icons/event.svg');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: bottom right;
@@ -134,7 +124,7 @@ const page = {
         list-style: none;
         & > li {
           &::before {
-            content: "✓";
+            content: '✓';
             margin-right: var(--space-sm);
           }
         }

@@ -1,29 +1,31 @@
 ---
-import {Picture} from "astro:assets";
+import { Picture } from 'astro:assets';
 // Framework imports
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Main from "@components/Main.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Main from '@components/Main.astro';
 
 // UI Components
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Title from "@components/ui/Title.astro";
-import Button from "@components/ui/Button.astro";
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Title from '@components/ui/Title.astro';
+import Button from '@components/ui/Button.astro';
 
 // Feature Components
-import LevelsGrid from "@components/widgets/LevelsGrid.astro";
-import SwimmingPrices from "@components/widgets/prices/SwimmingPrices.astro";
-import Waves from "@components/ui/shapes/Waves.astro";
+import LevelsGrid from '@components/widgets/LevelsGrid.astro';
+import SwimmingPrices from '@components/widgets/prices/SwimmingPrices.astro';
+import Waves from '@components/ui/shapes/Waves.astro';
+
+import natation from '@assets/images/page-title/page_natation.jpg';
 
 // Data
 const page = {
-  metaTitle: "Cours de natation",
-  description: "",
-  title: "Cours de natation",
+  metaTitle: 'Cours de natation',
+  description: '',
+  title: 'Cours de natation',
   image: {
-    jpg: "/page-title/page_natation.jpg",
+    jpg: natation,
     alt: "Petite fille avec lunettes de natation nageant sous l'eau tout sourire",
   },
 };
@@ -32,60 +34,49 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
   <Main>
-    <section class="levels">
-      <div class="container">
-        <Title animate level="2">
-          Nos groupes d’apprentissage de la natation
-        </Title>
+    <section class='levels'>
+      <div class='container'>
+        <Title animate level='2'> Nos groupes d’apprentissage de la natation </Title>
         <p>
-          Grâce à la pédagogie Maître-Baigneur, nager ne sera plus jamais une
-          corvée ! Finis les clichés sur l’apprentissage de la natation
-          classique avec les ceintures… Place désormais à du matériel ludique et
-          pédagogique afin d’apprendre en s’amusant.
+          Grâce à la pédagogie Maître-Baigneur, nager ne sera plus jamais une corvée ! Finis les
+          clichés sur l’apprentissage de la natation classique avec les ceintures… Place désormais à
+          du matériel ludique et pédagogique afin d’apprendre en s’amusant.
         </p>
         <LevelsGrid />
       </div>
     </section>
-    <section class="fear bg-light-alt">
+    <section class='fear bg-light-alt'>
       <Waves atTopOfSection />
-      <div class="container fear__section">
-        <div class="fear__img" data-aos="fade-right">
+      <div class='container fear__section'>
+        <div class='fear__img' data-aos='fade-right'>
           <picture>
             <Picture
               src={'/src/assets/images/niveaux/6_peur-du-baigneur.jpg'}
-              alt="Illustration de la peur du baigneur"
+              alt='Illustration de la peur du baigneur'
               width={800}
               height={600}
-              formats={["webp"]}
+              formats={['webp']}
             />
           </picture>
         </div>
-        <div class="fear__content" data-aos="zoom-in">
-          <Title animate level="4" class="fear__title">
-            La peur du baigneur
-          </Title>
-          <p class="fear__txt">
+        <div class='fear__content' data-aos='zoom-in'>
+          <Title animate level='4' class='fear__title'> La peur du baigneur </Title>
+          <p class='fear__txt'>
             Libérez-vous, jetez-vous à l’eau !<br />
-            Nous sommes là pour vous aider à vaincre votre crainte du monde aquatique.
-            L’Aquaphobie ne sera plus qu’un mauvais souvenir.
+            Nous sommes là pour vous aider à vaincre votre crainte du monde aquatique. L’Aquaphobie ne
+            sera plus qu’un mauvais souvenir.
           </p>
-          <Button href="tel:+33677007584" class:list="btn btn__regular">
-            Parlons-en !
-          </Button>
+          <Button href='tel:+33677007584' class:list='btn btn__regular'> Parlons-en ! </Button>
         </div>
 
         <Waves />
       </div>
     </section>
-    <section class="swimming-prices">
-      <div class="container">
-        <Title animate level="3">Tarfis de nos leçons de natation</Title>
+    <section class='swimming-prices'>
+      <div class='container'>
+        <Title animate level='3'>Tarfis de nos leçons de natation</Title>
         <SwimmingPrices />
       </div>
     </section>
@@ -93,12 +84,10 @@ const page = {
   <Footer />
 </BaseLayout>
 
-<style lang="scss">
+<style lang='scss'>
   :global(.fear__section) {
     display: grid;
-    grid-template-columns: calc((100% * 1 / 3) - 2rem) calc(
-        (100% * 2 / 3) - 2rem
-      );
+    grid-template-columns: calc((100% * 1 / 3) - 2rem) calc((100% * 2 / 3) - 2rem);
     gap: 4rem;
     align-items: center;
     padding-block: var(--space-md);

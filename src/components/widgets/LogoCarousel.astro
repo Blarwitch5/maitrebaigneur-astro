@@ -1,61 +1,63 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture } from 'astro:assets';
+import aquabecool from '@assets/images/partners/aquabecool-partner.jpg';
+import kabanon from '@assets/images/partners/kabanon-partner.jpg';
+import planform from '@assets/images/partners/planform-partner.jpg';
+import kinemouv from '@assets/images/partners/kinemouv-partner.jpg';
 
 const partners = [
   {
-    name: "Aquabecool",
+    name: 'Aquabecool',
     logo: {
-      url: "partners/aquabecool-partner.jpg",
-      alt: "Logo Aquabecool Aix-en-Provence",
+      url: aquabecool,
+      alt: 'Logo Aquabecool Aix-en-Provence',
     },
   },
 
   {
     name: "Kabanon des écuries de l'aube",
     logo: {
-      url: "partners/kabanon-partner.jpg",
+      url: kabanon,
       alt: "Logo Kabanon des écuries de l'aube",
     },
   },
   {
-    name: "Plan Form",
+    name: 'Plan Form',
     logo: {
-      url: "partners/planform-partner.jpg",
-      alt: "Logo Plan Form",
+      url: planform,
+      alt: 'Logo Plan Form',
     },
   },
   {
     name: "Kinémouv'",
     logo: {
-      url: "partners/kinemouv-partner.jpg",
-     alt: "Logo Kinémouv'",
+      url: kinemouv,
+      alt: "Logo Kinémouv'",
     },
   },
 ];
-
 ---
 
-<div class="partners">
+<div class='partners'>
   {
     partners.map((partner) => {
       return (
-        <div class="partners__item">
+        <div class='partners__item'>
           <Picture
             height={250}
             width={250}
             alt={partner.logo.alt}
-            formats={["webp"]}
-            src={`/src/assets/images/${partner.logo.url}`}
+            formats={['webp']}
+            src={partner.logo.url}
           />
-       </div>
+        </div>
       );
     })
   }
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .partners {
-    
     position: relative;
     width: 100%;
     display: flex;
@@ -63,15 +65,12 @@ const partners = [
     justify-content: center;
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
-
-   
     }
     & > div {
       position: relative;
       @media screen and (max-width: 768px) {
         flex: 0 0 50%;
-      
-    }
+      }
     }
     &__item {
       padding: var(--space-sm);

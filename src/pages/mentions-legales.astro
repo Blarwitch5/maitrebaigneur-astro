@@ -1,21 +1,23 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Main from "@components/Main.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import Title from "@components/ui/Title.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Main from '@components/Main.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import Title from '@components/ui/Title.astro';
+
+import fallback from '@assets/images/page-title/fallback.jpg';
 
 //data
 
 const page = {
-  metaTitle: "Mentions légales",
-  description: "",
-  title: "Mentions légales",
+  metaTitle: 'Mentions légales',
+  description: '',
+  title: 'Mentions légales',
   image: {
-    jpg: "page-title/fallback.jpg",
-    alt: "Mentions légales",
+    jpg: fallback,
+    alt: 'Mentions légales',
   },
 };
 ---
@@ -23,234 +25,202 @@ const page = {
 <BaseLayout title={page.title} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
 
   <Main>
     <section>
-      <div class="container">
-        <div class="legal">
-          <Title animate level="2">Informations légales</Title>
+      <div class='container'>
+        <div class='legal'>
+          <Title animate level='2'>Informations légales</Title>
           <div>
-            <Title animate level="3">Propriété intellectuelle</Title>
+            <Title animate level='3'>Propriété intellectuelle</Title>
             <p>
-              Les éléments du site, tels que textes, images, icônes et design,
-              sont protégés par les lois relatives à la propriété
-              intellectuelle. La reproduction est interdite sans autorisation
-              préalable.
+              Les éléments du site, tels que textes, images, icônes et design, sont protégés par les
+              lois relatives à la propriété intellectuelle. La reproduction est interdite sans
+              autorisation préalable.
             </p>
           </div>
           <div>
-            <Title animate level="3">Icônes et images</Title>
+            <Title animate level='3'>Icônes et images</Title>
             <p>
               Les icônes proviennent d'un pack acheté et de <a
-                href="https://www.flaticon.com/"
-                rel="nofollow"
-                target="_blank">Flaticon.com</a
+                href='https://www.flaticon.com/'
+                rel='nofollow'
+                target='_blank'>Flaticon.com</a
               > (soumises à leur licence).
-              <ul class="legal">
+              <ul class='legal'>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/nager_7115059?related_id=7115059"
-                    title="Icône d'un nageur"
-                    >Icône nageur créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/nager_7115059?related_id=7115059'
+                    title="Icône d'un nageur">Icône nageur créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/la-natation_8282538?related_id=8282538"
-                    title="Icône d'un plongeur"
-                    >Icône plongeur créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/la-natation_8282538?related_id=8282538'
+                    title="Icône d'un plongeur">Icône plongeur créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/pieds_7583538?term=pieds&page=1&position=96&origin=search&related_id=7583538"
-                    title="Icône de pieds"
-                    >Icône pieds créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/pieds_7583538?term=pieds&page=1&position=96&origin=search&related_id=7583538'
+                    title='Icône de pieds'>Icône pieds créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/anniversaire_817930?term=f%C3%AAte+dinosaure&page=1&position=2&origin=search&related_id=817930"
-                    title="Icône anniversaire"
-                    >Icône anniversaire créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/anniversaire_817930?term=f%C3%AAte+dinosaure&page=1&position=2&origin=search&related_id=817930'
+                    title='Icône anniversaire'>Icône anniversaire créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/chaise-de-sauveteur_2124694?term=sauveteur&page=1&position=8&origin=search&related_id=2124694"
-                    title="Icône surveillance"
-                    >Icône surveillance créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/chaise-de-sauveteur_2124694?term=sauveteur&page=1&position=8&origin=search&related_id=2124694'
+                    title='Icône surveillance'>Icône surveillance créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/diplome_2327439?term=diploma&page=1&position=2&origin=style&related_id=2327439"
-                    title="Icône diplôme"
-                    >Icône diplôme créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/diplome_2327439?term=diploma&page=1&position=2&origin=style&related_id=2327439'
+                    title='Icône diplôme'>Icône diplôme créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/sauveteur_7535369?term=bouee&page=1&position=75&origin=style&related_id=7535369"
-                    title="Icône bouée"
-                    >Icône bouée créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/sauveteur_7535369?term=bouee&page=1&position=75&origin=style&related_id=7535369'
+                    title='Icône bouée'>Icône bouée créée par Freepik - Flaticon</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://www.flaticon.com/fr/icone-gratuite/nageur_3124285?term=nageur&page=1&position=10&origin=style&related_id=3124285"
-                    title="Icône nageur 2"
-                    >Icône nageur 2 créée par Freepik - Flaticon</a
+                    href='https://www.flaticon.com/fr/icone-gratuite/nageur_3124285?term=nageur&page=1&position=10&origin=style&related_id=3124285'
+                    title='Icône nageur 2'>Icône nageur 2 créée par Freepik - Flaticon</a
                   >
                 </li>
               </ul>
             </p>
             <p>
               Les images appartiennent à Maître-Baigneur, <a
-                href="https://stock.adobe.com/fr/"
-                rel="nofollow"
-                target="_blank">Adobe Stock (achats)</a
-              > et <a
-                href="https://www.pexels.com/"
-                rel="nofollow"
-                target="_blank">Pexels.com</a
-              > (libres de droit).
+                href='https://stock.adobe.com/fr/'
+                rel='nofollow'
+                target='_blank'>Adobe Stock (achats)</a
+              > et <a href='https://www.pexels.com/' rel='nofollow' target='_blank'>Pexels.com</a> (libres
+              de droit).
             </p>
           </div>
           <div>
-            <Title animate level="3">Sources des images</Title>
+            <Title animate level='3'>Sources des images</Title>
             <p>
-              Certaines des images utilisées sur ce site sont la propriété de
-              Maître-Baigneur, d'autres ont été achetées sur <a
-                href="https://stock.adobe.com/fr/"
-                rel="nofollow"
-                target="_blank">Adobe Stock</a
+              Certaines des images utilisées sur ce site sont la propriété de Maître-Baigneur,
+              d'autres ont été achetées sur <a
+                href='https://stock.adobe.com/fr/'
+                rel='nofollow'
+                target='_blank'>Adobe Stock</a
               > et certaines sont issues de <a
-                href="https://www.pexels.com/"
-                rel="nofollow"
-                target="_blank">Pexels.com</a
-              >. Toutes les images sont soumises aux termes de la licence
-              applicable.
+                href='https://www.pexels.com/'
+                rel='nofollow'
+                target='_blank'>Pexels.com</a
+              >. Toutes les images sont soumises aux termes de la licence applicable.
             </p>
           </div>
           <div>
-            <Title animate level="3">Formulaire de contact</Title>
+            <Title animate level='3'>Formulaire de contact</Title>
             <p>
-              Les formulaires de contact sur ce site sont utilisés uniquement
-              pour permettre aux utilisateurs de contacter le propriétaire du
-              site. Les informations collectées peuvent inclure des données
-              personnelles telles que le nom, l'adresse e-mail, et d'autres
-              informations nécessaires pour répondre aux demandes des
-              utilisateurs.
+              Les formulaires de contact sur ce site sont utilisés uniquement pour permettre aux
+              utilisateurs de contacter le propriétaire du site. Les informations collectées peuvent
+              inclure des données personnelles telles que le nom, l'adresse e-mail, et d'autres
+              informations nécessaires pour répondre aux demandes des utilisateurs.
             </p>
           </div><div>
-            <Title animate level="3">Finalité du traitement</Title>
+            <Title animate level='3'>Finalité du traitement</Title>
             <p>
-              Les données personnelles collectées via les formulaires de contact
-              ne seront utilisées que dans le but de répondre aux demandes des
-              utilisateurs. Aucune autre utilisation ne sera faite de ces
-              données sans le consentement explicite de l'utilisateur.
+              Les données personnelles collectées via les formulaires de contact ne seront utilisées
+              que dans le but de répondre aux demandes des utilisateurs. Aucune autre utilisation ne
+              sera faite de ces données sans le consentement explicite de l'utilisateur.
             </p>
           </div><div>
-            <Title animate level="3">Conservation des données</Title>
+            <Title animate level='3'>Conservation des données</Title>
             <p>
-              Les données personnelles collectées via le formulaire de contact
-              seront conservées pendant la durée nécessaire pour répondre aux
-              demandes des utilisateurs. Elles seront ensuite supprimées de nos
-              systèmes, sauf indication contraire de l'utilisateur.
+              Les données personnelles collectées via le formulaire de contact seront conservées
+              pendant la durée nécessaire pour répondre aux demandes des utilisateurs. Elles seront
+              ensuite supprimées de nos systèmes, sauf indication contraire de l'utilisateur.
             </p>
           </div>
           <div>
-            <Title animate level="3">Droit d'accès et de rectification</Title>
+            <Title animate level='3'>Droit d'accès et de rectification</Title>
             <p>
-              Conformément à la réglementation en vigueur, les utilisateurs
-              disposent d'un droit d'accès, de rectification, de suppression et
-              d'opposition concernant leurs données personnelles. Pour exercer
-              ces droits, veuillez contacter le propriétaire du site via les
-              coordonnées fournies ci-dessous.
+              Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit
+              d'accès, de rectification, de suppression et d'opposition concernant leurs données
+              personnelles. Pour exercer ces droits, veuillez contacter le propriétaire du site via
+              les coordonnées fournies ci-dessous.
             </p>
           </div>
           <div>
-            <Title animate level="3">Cookies</Title>
+            <Title animate level='3'>Cookies</Title>
             <p>
-              Ce site peut utiliser des cookies pour améliorer l'expérience de
-              l'utilisateur. Les utilisateurs seront informés de l'utilisation
-              des cookies et auront la possibilité de les accepter ou de les
-              refuser lors de leur première visite sur le site.
+              Ce site peut utiliser des cookies pour améliorer l'expérience de l'utilisateur. Les
+              utilisateurs seront informés de l'utilisation des cookies et auront la possibilité de
+              les accepter ou de les refuser lors de leur première visite sur le site.
             </p>
           </div>
           <div>
-            <Title animate level="3">Liens externes</Title>
+            <Title animate level='3'>Liens externes</Title>
             <p>
-              Le site peut contenir des liens vers d'autres sites, dont le
-              propriétaire du site n'est pas responsable du contenu ou des
-              pratiques en matière de protection des données de ces sites tiers.
+              Le site peut contenir des liens vers d'autres sites, dont le propriétaire du site
+              n'est pas responsable du contenu ou des pratiques en matière de protection des données
+              de ces sites tiers.
             </p>
           </div>
           <div>
-            <Title animate level="3">
-              Modification des mentions légales et de la politique de
-              confidentialité
+            <Title animate level='3'>
+              Modification des mentions légales et de la politique de confidentialité
             </Title>
             <p>
-              Le propriétaire du site se réserve le droit de modifier ces
-              mentions légales et la politique de confidentialité à tout moment.
-              Les utilisateurs sont invités à consulter ces documents
-              régulièrement pour se tenir informés des changements.
+              Le propriétaire du site se réserve le droit de modifier ces mentions légales et la
+              politique de confidentialité à tout moment. Les utilisateurs sont invités à consulter
+              ces documents régulièrement pour se tenir informés des changements.
             </p>
           </div>
           <div>
-            <Title animate level="3">
-              Droit applicable et juridiction compétente
-            </Title>
+            <Title animate level='3'> Droit applicable et juridiction compétente </Title>
             <p>
-              Ces mentions légales et la politique de confidentialité sont
-              soumises au droit français. Tout litige découlant de l'utilisation
-              du site sera de la compétence exclusive des tribunaux français.
+              Ces mentions légales et la politique de confidentialité sont soumises au droit
+              français. Tout litige découlant de l'utilisation du site sera de la compétence
+              exclusive des tribunaux français.
             </p>
           </div>
           <div>
-            <Title animate level="3">Coordonnées</Title>
+            <Title animate level='3'>Coordonnées</Title>
             <ul>
               <li>
-                <span class="bold">Nom du propiétaire</span> : Quentin Vander Meulen
+                <span class='bold'>Nom du propiétaire</span> : Quentin Vander Meulen
                 <ul>
                   <li>
-                    Email: <a href="mailto:contact@maitrebaigneur.com"
-                      >contact@maitrebaigneur.com</a
+                    Email: <a href='mailto:contact@maitrebaigneur.com'>contact@maitrebaigneur.com</a
                     >
                   </li>
                   <li>
-                    Téléphone: <a href="tel:+33677007584">+33 6 77 00 75 84</a>
+                    Téléphone: <a href='tel:+33677007584'>+33 6 77 00 75 84</a>
                   </li>
                   <li>N° SIRET: 90011121200016</li>
                   <li>N° SIREN: 900111212</li>
-                  <li>
-                    Adresse: 1581 chemin de Repentance, 13100 Aix-en-Provence
-                  </li>
+                  <li>Adresse: 1581 chemin de Repentance, 13100 Aix-en-Provence</li>
                 </ul>
               </li>
               <li>
-                <span class="bold">Webmaster</span> : Romain Blary
+                <span class='bold'>Webmaster</span> : Romain Blary
                 <ul>
                   <li>
-                    Email: <a href="mailto:contact@romainblary.com"
-                      >contact@romainblary.com</a
-                    >
+                    Email: <a href='mailto:contact@romainblary.com'>contact@romainblary.com</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <span class="bold">Hébergeur</span> : <br />
+                <span class='bold'>Hébergeur</span> : <br />
                 Vercel Inc.<br />
                 440 N Barranca Ave #4133<br />
                 Covina, CA 91723<br />
-                <a href="mailto:privacy@vercel.com">privacy@vercel.com</a>
+                <a href='mailto:privacy@vercel.com'>privacy@vercel.com</a>
               </li>
             </ul>
           </div>

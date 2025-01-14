@@ -1,67 +1,63 @@
 ---
-import Socials from "@components/Socials.astro";
-import Waves from "@components/ui/shapes/Waves.astro";
-import Breadcrumbs from "@components/header/Breadcrumbs.astro";
-import Title from "@components/ui/Title.astro";
-import { Picture } from "astro:assets";
+import Socials from '@components/Socials.astro';
+import Waves from '@components/ui/shapes/Waves.astro';
+import Breadcrumbs from '@components/header/Breadcrumbs.astro';
+import Title from '@components/ui/Title.astro';
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   pageTitle: string;
-  pageImagePath: string;
+  pageImagePath: ImageMetadata;
   pageImageAlt: string;
 }
 
 const { pageTitle, pageImagePath, pageImageAlt } = Astro.props;
 
 // Import dynamique des images avec sous-dossiers
-const imagePath = `/src/assets/images/${pageImagePath}`;
 ---
 
-<section class="page-title">
+<section class='page-title'>
   <Waves />
-  <div class="container">
-    <div class="page-title__img">
+  <div class='container'>
+    <div class='page-title__img'>
       <Picture
-        src={imagePath}
+        src={pageImagePath}
         alt={pageImageAlt}
         width={1920}
         height={1080}
-        formats={["webp"]}
-        class="page-title__image"
+        formats={['webp']}
+        class='page-title__image'
       />
     </div>
-    <div class="page-title__content">
-      <Title level="1" class="page-title__title" data-aos="zoom-in">
+    <div class='page-title__content'>
+      <Title level='1' class='page-title__title' data-aos='zoom-in'>
         {pageTitle}
       </Title>
-      <Breadcrumbs indexText={"accueil"}>
-        <span
-          slot="separator"
-          class="breadcrumbs__separator"
-          aria-hidden="true"
-        >
+      <Breadcrumbs indexText={'accueil'}>
+        <span slot='separator' class='breadcrumbs__separator' aria-hidden='true'>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><polyline points="9 18 15 12 9 6"></polyline>
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            ><polyline points='9 18 15 12 9 6'></polyline>
           </svg>
         </span>
       </Breadcrumbs>
     </div>
-    <div class="socials-wrapper">
-      <Socials iconVersion="light" />
+    <div class='socials-wrapper'>
+      <Socials iconVersion='light' />
     </div>
   </div>
 </section>
 
-<style lang="scss">
+<style lang='scss'>
   .page-title {
     height: 40vh;
     min-height: 450px;
@@ -81,7 +77,7 @@ const imagePath = `/src/assets/images/${pageImagePath}`;
       height: 100%;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         bottom: 0;

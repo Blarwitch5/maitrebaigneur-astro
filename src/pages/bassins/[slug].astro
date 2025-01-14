@@ -1,19 +1,19 @@
 ---
-import PoolLayout from "@layouts/PoolLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Main from "@components/Main.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import { Icon } from "astro-icon";
-import Title from "@components/ui/Title.astro";
+import PoolLayout from '@layouts/PoolLayout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Main from '@components/Main.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import { Icon } from 'astro-icon';
+import Title from '@components/ui/Title.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
-import { Image } from "astro:assets";
-import { Picture } from "astro:assets";
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 
 export async function getStaticPaths() {
-  const poolEntries = await getCollection("bassins");
+  const poolEntries = await getCollection('bassins');
   return poolEntries.map((poolEntry: CollectionEntry<'bassins'>) => ({
     params: { slug: poolEntry.slug },
     props: { poolEntry },
@@ -23,14 +23,17 @@ interface Props {
   poolEntry: CollectionEntry<'bassins'>;
 }
 
-import site from "@assets/data/data.json";
-const { poolEntry }  = Astro.props;
+import site from '@assets/data/data.json';
+const { poolEntry } = Astro.props;
 // const { Content } = await poolEntry.render();
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
 
-import { images } from "@utils/images";
+import { images } from '@utils/images';
+
+// Importer les images dans une collection de contenus pour optimiser les images et utiliser dans Image
+import fallback from '@assets/images/page-title/fallback.jpg';
 ---
 
 <PoolLayout title={poolEntry.data.metaTitle} description={poolEntry.data.metaDesc}>
@@ -38,41 +41,36 @@ import { images } from "@utils/images";
   <Header />
   <PageTitle
     pageTitle={poolEntry.data.pool.name}
-    pageImagePath={poolEntry.data.pool.image.jpg}
+    pageImagePath={fallback}
     pageImageAlt={poolEntry.data.pool.image.alt}
   />
 
   <Main>
-    <section class="single-pool">
-      <div class="container">
+    <section class='single-pool'>
+      <div class='container'>
         {
-          poolEntry.data.pool.name === "Domicile" ? (
-            <Title animate level="2" class="single-pool__title">
+          poolEntry.data.pool.name === 'Domicile' ? (
+            <Title animate level='2' class='single-pool__title'>
               Maître-Baigneur à domicile, chez vous !
             </Title>
           ) : (
-            <Title animate level="2" class="single-pool__title">
-              Découvrez la piscine {poolEntry.data.pool.name} à{" "}
-              {poolEntry.data.pool.location}
+            <Title animate level='2' class='single-pool__title'>
+              Découvrez la piscine {poolEntry.data.pool.name} à {poolEntry.data.pool.location}
             </Title>
           )
         }
 
-        <div class="single-pool__content">
-          <div class="single-pool__desc" set:html={poolEntry.data.pool.desc} />
-          <div class="single-pool__details">
-            <Title animate level="3">
+        <div class='single-pool__content'>
+          <div class='single-pool__desc' set:html={poolEntry.data.pool.desc} />
+          <div class='single-pool__details'>
+            <Title animate level='3'>
               Informations concernant notre bassin à {poolEntry.data.pool.name}
             </Title>
-            <Title animate level="4">Prestations proposées</Title>
+            <Title animate level='4'>Prestations proposées</Title>
             <ul>
               {
                 poolEntry.data.pool.services.map(
-                  (item: {
-                    href: string | URL | null | undefined;
-                    icon: any;
-                    name: unknown;
-                  }) => {
+                  (item: { href: string | URL | null | undefined; icon: any; name: unknown }) => {
                     return (
                       <li>
                         <a href={item.href}>
@@ -84,20 +82,20 @@ import { images } from "@utils/images";
                 )
               }
             </ul>
-            <Title animate level="4">Sitution géographique</Title>
+            <Title animate level='4'>Sitution géographique</Title>
             <ul>
               <li>
                 <a
                   href={`https://maps.google.com?q=${poolEntry.data.pool.address}`}
-                  target="_blank"
-                  rel="noopener"><Icon name="map" />{poolEntry.data.pool.address}</a
+                  target='_blank'
+                  rel='noopener'><Icon name='map' />{poolEntry.data.pool.address}</a
                 >
               </li>
               {
-                poolEntry.data.pool.link.text !== "" ? (
+                poolEntry.data.pool.link.text !== '' ? (
                   <li>
-                    <a href={poolEntry.data.pool.link.url} target="_blank">
-                      <Icon name="link" />
+                    <a href={poolEntry.data.pool.link.url} target='_blank'>
+                      <Icon name='link' />
                       {poolEntry.data.pool.link.text}
                     </a>
                   </li>
@@ -108,29 +106,29 @@ import { images } from "@utils/images";
         </div>
       </div>
     </section>
-    <div class="container-fluid">
-      <div class="single-pool__gallery">
-        <div class="track">
-          <ul class="track__list">
+    <div class='container-fluid'>
+      <div class='single-pool__gallery'>
+        <div class='track'>
+          <ul class='track__list'>
             {
               poolEntry.data.pool.gallery.map(
                 (
-                image: {
-                  src: string;
-                  alt: string;
-                },
+                  image: {
+                    src: string;
+                    alt: string;
+                  },
                   index: number
                 ) => {
                   return (
-                    <li class="track__item" id={(index + 1).toString()}>
+                    <li class='track__item' id={(index + 1).toString()}>
                       <Picture
-                        class="container-item"
+                        class='container-item'
                         src={`/src/assets/images/pools/${image.src}`}
                         alt={image.alt}
                         width={432}
                         height={576}
-                        formats={["webp"]}
-                        loading="lazy"
+                        formats={['webp']}
+                        loading='lazy'
                       />
                     </li>
                   );
@@ -138,21 +136,19 @@ import { images } from "@utils/images";
               )
             }
           </ul>
-          <div class="track__indicators" aria-hidden="true">
+          <div class='track__indicators' aria-hidden='true'>
             {
               poolEntry.data.pool.gallery.map((_: any, index: number) => {
-                return <span class="indicator" />;
+                return <span class='indicator' />;
               })
             }
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="related-pools">
-        <Title animate level="5">
-          Découvrez aussi nos autres bassins d'apprentissage
-        </Title>
+    <div class='container'>
+      <div class='related-pools'>
+        <Title animate level='5'> Découvrez aussi nos autres bassins d'apprentissage </Title>
         <ul>
           {
             pools.map((item) => {
@@ -163,8 +159,12 @@ import { images } from "@utils/images";
                   <li>
                     <a href={item.href}>
                       <Image
-                        src={images[`/src/assets/images/thumbnails/${item.thumb.jpg.replace('/thumbnails/', '')}`].default}
-                        alt={item.thumb.alt || ""}
+                        src={
+                          images[
+                            `/src/assets/images/thumbnails/${item.thumb.jpg.replace('/thumbnails/', '')}`
+                          ].default
+                        }
+                        alt={item.thumb.alt || ''}
                       />
                       {item.name}
                     </a>
@@ -181,13 +181,11 @@ import { images } from "@utils/images";
   <Footer />
 </PoolLayout>
 
-<style lang="scss">
+<style lang='scss'>
   .single-pool {
     &__content {
       display: grid;
-      grid-template-columns: calc((100% * 2 / 5) - 2rem) calc(
-          (100% * 3 / 5) - 2rem
-        );
+      grid-template-columns: calc((100% * 2 / 5) - 2rem) calc((100% * 3 / 5) - 2rem);
       gap: 4rem;
       align-items: center;
       padding-bottom: var(--space-lg);
@@ -201,7 +199,8 @@ import { images } from "@utils/images";
       background-color: var(--color-bg-light);
       border-radius: var(--regular-border-radius);
       padding: var(--space-lg);
-      box-shadow: 0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
+      box-shadow:
+        0 10px 15px -3px hsla(var(--link-color-secondary-hsl), 0.1),
         0 4px 6px -4px hsla(var(--link-color-secondary-hsl), 0.1);
       position: relative;
       display: flex;
@@ -216,14 +215,14 @@ import { images } from "@utils/images";
       }
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         border-radius: var(--regular-border-radius);
-        background-image: url("/images/icons/event.svg");
+        background-image: url('/images/icons/event.svg');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: bottom right;
@@ -276,11 +275,12 @@ import { images } from "@utils/images";
         height: 100%;
         border-radius: var(--regular-border-radius);
         overflow: hidden;
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+        box-shadow:
+          0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
           0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -327,7 +327,8 @@ import { images } from "@utils/images";
         list-style-type: none;
         background-color: var(--color-bg-light-alt);
         border-radius: var(--regular-border-radius);
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+        box-shadow:
+          0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
           0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
         transition: all 0.3s ease-in-out;
         flex-basis: calc(50% - var(--space-md));
@@ -438,15 +439,11 @@ import { images } from "@utils/images";
         position: relative;
 
         &::after {
-          content: "";
+          content: '';
           border-radius: 100px;
           position: absolute;
           inset: 0;
-          background: hsl(
-            calc(var(--h) + 3),
-            calc(var(--s) - 3%),
-            calc(var(--l) - 36%)
-          );
+          background: hsl(calc(var(--h) + 3), calc(var(--s) - 3%), calc(var(--l) - 36%));
         }
       }
     }
@@ -462,8 +459,7 @@ import { images } from "@utils/images";
         .indicator {
           --buffer: calc(var(--card-width) * 0.9);
           animation: blink both linear;
-          animation-range: contain calc(50% - var(--buffer)) contain
-            calc(50% + var(--buffer));
+          animation-range: contain calc(50% - var(--buffer)) contain calc(50% + var(--buffer));
 
           &:nth-of-type(1) {
             animation-timeline: --one;
@@ -504,8 +500,7 @@ import { images } from "@utils/images";
             --buffer: calc(var(--card-width) * 0.9);
             opacity: 0;
             animation: show both linear;
-            animation-range: contain calc(50% - var(--buffer)) contain
-              calc(50% + var(--buffer));
+            animation-range: contain calc(50% - var(--buffer)) contain calc(50% + var(--buffer));
           }
         }
       }

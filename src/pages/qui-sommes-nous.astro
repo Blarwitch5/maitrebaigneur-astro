@@ -1,50 +1,52 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Main from "@components/Main.astro";
-import Qualities from "@components/widgets/Qualities.astro";
-import Waves from "@components/ui/shapes/Waves.astro";
-import { Icon } from "astro-icon";
-import { Picture } from "astro:assets";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import Title from "@components/ui/Title.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Main from '@components/Main.astro';
+import Qualities from '@components/widgets/Qualities.astro';
+import Waves from '@components/ui/shapes/Waves.astro';
+import { Icon } from 'astro-icon';
+import { Picture } from 'astro:assets';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import Title from '@components/ui/Title.astro';
+
+import quisommesnous from '@assets/images/page-title/page_quisommesnous.jpg';
 
 //data
 
 const page = {
-  metaTitle: "Qui sommes-nous ?",
-  description: "",
-  title: "Qui sommes-nous ?",
+  metaTitle: 'Qui sommes-nous ?',
+  description: '',
+  title: 'Qui sommes-nous ?',
 
   image: {
-    jpg: "page-title/page_quisommesnous.jpg",
-    alt: "Maître-Baigneur apprenant un garçon à nager",
+    jpg: quisommesnous,
+    alt: 'Maître-Baigneur apprenant un garçon à nager',
   },
   gallery: [
     {
-      jpg: "nager-en-groupe.jpg",
+      jpg: 'nager-en-groupe.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
     {
-      jpg: "nager-en-groupe-3.jpg",
+      jpg: 'nager-en-groupe-3.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe avec enfants nageant sur le dos ",
     },
     {
-      jpg: "nager-en-groupe-2.jpg",
+      jpg: 'nager-en-groupe-2.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe montrant l'exercice",
     },
     {
-      jpg: "nager-en-groupe-4.jpg",
+      jpg: 'nager-en-groupe-4.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
     {
-      jpg: "nager-en-groupe-5.jpg",
+      jpg: 'nager-en-groupe-5.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager",
     },
     {
-      jpg: "nager-en-groupe-4.jpg",
+      jpg: 'nager-en-groupe-4.jpg',
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
   ],
@@ -54,27 +56,18 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
   <Main>
-    <section class="qualities" aria-label="Maître-Baigneur en trois mots">
+    <section class='qualities' aria-label='Maître-Baigneur en trois mots'>
       <Qualities />
     </section>
-    <section
-      class="pedagogy bg-light"
-      aria-label="La philosophie Maître-Baigneur"
-    >
-      <div class="container">
+    <section class='pedagogy bg-light' aria-label='La philosophie Maître-Baigneur'>
+      <div class='container'>
         <Waves atTopOfSection={true} />
-        <div class="pedagogy__wrapper">
-          <Title animate level="2" class="pedagogy__title">
-            La philosophie Maître-Baigneur
-          </Title>
+        <div class='pedagogy__wrapper'>
+          <Title animate level='2' class='pedagogy__title'> La philosophie Maître-Baigneur </Title>
 
-          <div class="pedagogy__images">
+          <div class='pedagogy__images'>
             {
               page.gallery.map((image) => {
                 return (
@@ -83,75 +76,64 @@ const page = {
                     alt={image.alt}
                     width={400}
                     height={300}
-                    formats={["webp"]}
+                    formats={['webp']}
                   />
-            
                 );
               })
             }
           </div>
-          <div class="pedagogy__content">
-            <Title animate level="3">Nager en groupe</Title>
+          <div class='pedagogy__content'>
+            <Title animate level='3'>Nager en groupe</Title>
             <p>
-              Les avantages de notre pédagogie en petits groupes pour
-              l'apprentissage de la natation sont nombreux :
+              Les avantages de notre pédagogie en petits groupes pour l'apprentissage de la natation
+              sont nombreux :
               <ul>
                 <li>
-                  Renforce l'esprit d'équipe, la solidarité, la confiance en soi
-                  et favorise l'autonomie des élèves.
+                  Renforce l'esprit d'équipe, la solidarité, la confiance en soi et favorise
+                  l'autonomie des élèves.
                 </li>
                 <li>Améliore la sécurité en évitant les dangers de l'eau.</li>
                 <li>Développe les compétences sociales et la coordination.</li>
+                <li>Améliore les capacités cognitives et la condition physique générale.</li>
                 <li>
-                  Améliore les capacités cognitives et la condition physique
-                  générale.
-                </li>
-                <li>
-                  Il est important de ne pas interrompre l'apprentissage pour
-                  éviter une régression brutale des acquis.
+                  Il est important de ne pas interrompre l'apprentissage pour éviter une régression
+                  brutale des acquis.
                 </li>
               </ul>
-              En résumé, notre pédagogie en petits groupes pour l'apprentissage de
-              la natation permet aux élèves de travailler en équipe, de gagner en
-              confiance en soi, d'améliorer leur sécurité, leurs compétences sociales,
-              leur coordination, leurs capacités cognitives et leur condition physique.
-              Il est essentiel de maintenir une continuité dans l'apprentissage pour
-              éviter toute régression des acquis.
+              En résumé, notre pédagogie en petits groupes pour l'apprentissage de la natation permet
+              aux élèves de travailler en équipe, de gagner en confiance en soi, d'améliorer leur sécurité,
+              leurs compétences sociales, leur coordination, leurs capacités cognitives et leur condition
+              physique. Il est essentiel de maintenir une continuité dans l'apprentissage pour éviter
+              toute régression des acquis.
             </p>
           </div>
         </div>
         <Waves />
       </div>
     </section>
-    <section
-      class="quote"
-      aria-label="Le mot du directeur Quentin Vander Meulen"
-    >
-      <div class="container">
-        <Title animate level="2" class="quote__title">Le mot du patron</Title>
-        <div class="quote__content">
-          <div class="quote__img">
-            <Picture 
-              src="/src/assets/images/quentin.jpg"
-              alt="Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur"
+    <section class='quote' aria-label='Le mot du directeur Quentin Vander Meulen'>
+      <div class='container'>
+        <Title animate level='2' class='quote__title'>Le mot du patron</Title>
+        <div class='quote__content'>
+          <div class='quote__img'>
+            <Picture
+              src='/src/assets/images/quentin.jpg'
+              alt='Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur'
               width={500}
               height={500}
-              formats={["webp"]}
+              formats={['webp']}
             />
-            
           </div>
           <blockquote>
             <p>
-              <Icon name="quote" aria-hidden="true" />
-              Je me souviens du plaisir que j’avais enfant à passer des heures à
-              m’amuser dans l’eau. Aujourd’hui, près de 30 ans après, j’en ai fait
-              mon métier : athlète de haut niveau, joueur professionnel de water-polo
-              et maître nageur. Au fil des années, j’ai ressenti le besoin d’inventer
-              ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait
-              profond, celui d’allier mes différentes expériences et de transmettre
-              mon savoir au travers d’une pédagogie ludique, pour que chaque baigneur
-              puisse avoir le plaisir de nager en toute sécurité.
-              <Icon name="quote" aria-hidden="true" />
+              <Icon name='quote' aria-hidden='true' />
+              Je me souviens du plaisir que j’avais enfant à passer des heures à m’amuser dans l’eau.
+              Aujourd’hui, près de 30 ans après, j’en ai fait mon métier : athlète de haut niveau, joueur
+              professionnel de water-polo et maître nageur. Au fil des années, j’ai ressenti le besoin
+              d’inventer ma pédagogie, en créant ma propre école, Maître-Baigneur. Un souhait profond,
+              celui d’allier mes différentes expériences et de transmettre mon savoir au travers d’une
+              pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité.
+              <Icon name='quote' aria-hidden='true' />
             </p>
             <footer>
               <cite>
@@ -167,7 +149,7 @@ const page = {
   <Footer />
 </BaseLayout>
 
-<style lang="scss">
+<style lang='scss'>
   .pedagogy {
     &__wrapper {
       display: grid;
@@ -199,7 +181,7 @@ const page = {
         border-radius: var(--regular-border-radius);
         & > li {
           &::before {
-            content: "✓";
+            content: '✓';
             margin-right: var(--space-sm);
           }
         }
@@ -214,7 +196,8 @@ const page = {
       picture {
         overflow: hidden;
         border-radius: var(--regular-border-radius);
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+        box-shadow:
+          0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
           0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
         img {

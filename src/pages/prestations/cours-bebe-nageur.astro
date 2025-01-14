@@ -1,43 +1,45 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import PageTitle from "@components/header/PageTitle.astro";
-import Main from "@components/Main.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import BabySwimmingPrices from "@components/widgets/prices/BabySwimmingPrices.astro";
-import Title from "@components/ui/Title.astro";
-import {Picture} from "astro:assets";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageTitle from '@components/header/PageTitle.astro';
+import Main from '@components/Main.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import BabySwimmingPrices from '@components/widgets/prices/BabySwimmingPrices.astro';
+import Title from '@components/ui/Title.astro';
+import { Picture } from 'astro:assets';
+
+import bebenageur from '@assets/images/page-title/page_bebenageur-2.jpg';
 
 //data
 const page = {
-  metaTitle: "Cours bébé nageur",
-  description: "",
-  title: "Cours bébé nageur",
+  metaTitle: 'Cours bébé nageur',
+  description: '',
+  title: 'Cours bébé nageur',
 
   image: {
-    jpg: "page-title/page_bebenageur-2.jpg",
+    jpg: bebenageur,
     alt: "Garçon en bas âge nageant sous l'eau",
   },
   gallery: [
     {
-      jpg: "bebe-nageur/bebe-nageur.jpg",
+      jpg: 'bebe-nageur/bebe-nageur.jpg',
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: "bebe-nageur/bebe-nageur-3.jpg",
+      jpg: 'bebe-nageur/bebe-nageur-3.jpg',
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: "bebe-nageur/bebe-nageur-2.jpg",
+      jpg: 'bebe-nageur/bebe-nageur-2.jpg',
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: "bebe-nageur/bebe-nageur-4.jpg",
+      jpg: 'bebe-nageur/bebe-nageur-4.jpg',
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: "bebe-nageur/bebe-nageur-4.jpg",
+      jpg: 'bebe-nageur/bebe-nageur-4.jpg',
       alt: "Garçon en bas âge nageant sous l'eau",
     },
   ],
@@ -47,57 +49,42 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle
-    pageTitle={page.title}
-    pageImagePath={page.image.jpg}
-    pageImageAlt={page.image.alt}
-  />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
   <Main>
-    <section
-      class="baby-swimmer"
-      aria-label="Informations concernant la section bébé nageur"
-    >
-      <div class="container">
-        <div class="baby-swimmer__wrapper">
-          <Title animate level="2" class="baby-swimmer__title">
+    <section class='baby-swimmer' aria-label='Informations concernant la section bébé nageur'>
+      <div class='container'>
+        <div class='baby-swimmer__wrapper'>
+          <Title animate level='2' class='baby-swimmer__title'>
             Qu’est-ce que le bébé-nageur avec Maître-Baigneur ?
           </Title>
-          <div class="baby-swimmer__txt">
+          <div class='baby-swimmer__txt'>
             <p>
-              Offrez à votre bébé un moment privilégié d'éveil et de motricité
-              dans une eau chaude et une ambiance ludique. Nos cours de
-              bébé-baigneur sont conçus pour :
+              Offrez à votre bébé un moment privilégié d'éveil et de motricité dans une eau chaude
+              et une ambiance ludique. Nos cours de bébé-baigneur sont conçus pour :
               <ul>
                 <li>Favoriser le bien-être et l'amusement de votre enfant</li>
                 <li>Respecter notre pédagogie axée sur la découverte</li>
-                <li>
-                  Mettre en place des activités favorisant la motricité et la
-                  découverte
-                </li>
+                <li>Mettre en place des activités favorisant la motricité et la découverte</li>
                 <li>Proposer une ambiance propice au développement</li>
-                <li>
-                  Accompagner les parents et le bébé dans une expérience unique
-                  de complicité
-                </li>
+                <li>Accompagner les parents et le bébé dans une expérience unique de complicité</li>
               </ul>
 
-              Nos éducateurs spécialisés sont formés pour vous accompagner dans
-              cette nouvelle expérience. Découvrez dès maintenant notre
-              programme pour le développement de votre bébé dans une ambiance
-              propice à l'épanouissement.
+              Nos éducateurs spécialisés sont formés pour vous accompagner dans cette nouvelle
+              expérience. Découvrez dès maintenant notre programme pour le développement de votre
+              bébé dans une ambiance propice à l'épanouissement.
             </p>
           </div>
-          <div class="baby-swimmer__images">
+          <div class='baby-swimmer__images'>
             {
               page.gallery.map((galleryImage) => {
                 return (
-                <Picture
-              src={`/src/assets/images/${galleryImage.jpg}`}
-              alt={galleryImage.alt}
-              width={300}
-              height={400}
-              formats={["webp"]}
-            />
+                  <Picture
+                    src={`/src/assets/images/${galleryImage.jpg}`}
+                    alt={galleryImage.alt}
+                    width={300}
+                    height={400}
+                    formats={['webp']}
+                  />
                 );
               })
             }
@@ -106,8 +93,8 @@ const page = {
       </div>
     </section>
     <section>
-      <div class="container">
-        <Title animate level="3">Tarifs Bébé Baigneur</Title>
+      <div class='container'>
+        <Title animate level='3'>Tarifs Bébé Baigneur</Title>
         <BabySwimmingPrices />
       </div>
     </section>
@@ -115,7 +102,7 @@ const page = {
   <Footer />
 </BaseLayout>
 
-<style lang="scss">
+<style lang='scss'>
   .baby-swimmer {
     &__wrapper {
       display: grid;
@@ -145,14 +132,14 @@ const page = {
         border-radius: var(--regular-border-radius);
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           border-radius: var(--regular-border-radius);
-          background-image: url("/images/icons/baby.svg");
+          background-image: url('/images/icons/baby.svg');
           background-repeat: no-repeat;
           background-size: contain;
           background-position: bottom right;
@@ -160,7 +147,7 @@ const page = {
         }
         & > li {
           &::before {
-            content: "✓";
+            content: '✓';
             margin-right: var(--space-sm);
           }
         }
@@ -175,7 +162,8 @@ const page = {
       picture {
         overflow: hidden;
         border-radius: var(--regular-border-radius);
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
+        box-shadow:
+          0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.1),
           0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.1);
 
         img {
