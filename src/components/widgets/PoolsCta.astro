@@ -1,11 +1,12 @@
 ---
 import Button from "@components/ui/Button.astro";
 import Title from "@components/ui/Title.astro";
-
+import { Picture } from "astro:assets";
 import site from "@assets/data/data.json";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
+import { images } from "@utils/images";
 ---
 
 <div class="container pools__wrapper">
@@ -25,124 +26,84 @@ const pools = siteLinks.pools;
   </div>
   <ul class="pools__images" data-aos="fade-left">
     <li style="--x1: 2; --x2: 6; --y1: 1; --y2: 4;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="../images/thumbnails/webp/kabanon-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/kabanon-thumb.jpg"
-          alt="Piscine Kabanon des écuries de l'aube"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/kabanon-thumb.jpg'].default}
+        alt="Piscine Kabanon des écuries de l'aube"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 6; --x2: 8; --y1: 2; --y2: 4;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/domicile-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/domicile-thumb.jpg"
-          alt="Piscine à domicile"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/domicile-thumb.jpg'].default}
+        alt="Piscine à domicile"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 1; --x2: 4; --y1: 4; --y2: 7;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/planform_2-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/planform_2-thumb.jpg"
-          alt="Piscine Plan Form"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/planform_2-thumb.jpg'].default}
+        alt="Piscine Plan Form"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 4; --x2: 7; --y1: 4; --y2: 7;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/domicile_2-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/domicile_2-thumb.jpg"
-          alt="Piscine à domicile"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/domicile_2-thumb.jpg'].default}
+        alt="Piscine à domicile"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 7; --x2: 9; --y1: 4; --y2: 6;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/planform-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/planform-thumb.jpg"
-          alt="Piscine Planform"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/planform-thumb.jpg'].default}
+        alt="Piscine Planform"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 2; --x2: 4; --y1: 7; --y2: 9;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/kabanon_2-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/kabanon_2-thumb.jpg"
-          alt="Piscine Kabanon des écuries de l'aube"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/kabanon_2-thumb.jpg'].default}
+        alt="Piscine Kabanon des écuries de l'aube"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 4; --x2: 7; --y1: 7; --y2: 10;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/aquabecool-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/aquabecool-thumb.jpg"
-          alt="Piscine Aquabecool"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/aquabecool-thumb.jpg'].default}
+        alt="Piscine Aquabecool"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
     <li style="--x1: 7; --x2: 10; --y1: 6; --y2: 9;">
-      <picture class="partners__item scroll__item">
-        <source
-          type="image/webp"
-          srcset="/images/thumbnails/webp/kinemouv-thumb.webp"
-        />
-        <img
-          loading="lazy"
-          src="/images/thumbnails/kinemouv-thumb.jpg"
-          alt="Piscine Kinémouv'"
-          height="300"
-          width="300"
-        />
-      </picture>
+      <Picture
+        class="partners__item scroll__item"
+        src={images['/src/assets/images/thumbnails/kinemouv-thumb.jpg'].default}
+        alt="Piscine Kinémouv'"
+        width={300}
+        height={300}
+        formats={["webp"]}
+      />
     </li>
   </ul>
 </div>

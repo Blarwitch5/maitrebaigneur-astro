@@ -95,13 +95,13 @@
         "name": "Cours de natation",
         "href": "/prestations/cours-de-natation",
         "image": {
-          "src": "/images/services/natation.jpg",
+          "path": "services/natation.jpg",
           "alt": "Fillette nageant sous l'eau en souriant"
         },
         "icon": "swimmer",
 
         "pageTitleImage": {
-          "src": "/images/services/natation-page.jpg",
+          "src": "/services/natation-page.jpg",
           "alt": "Fillette nageant sous l'eau en souriant"
         }
       },
@@ -109,12 +109,12 @@
         "name": "Cours bébé nageur",
         "href": "/prestations/cours-bebe-nageur",
         "image": {
-          "src": "/images/services/bebe-nageur.jpg",
+          "path": "services/bebe-nageur.jpg",
           "alt": "Bébé nageur sous l'eau"
         },
         "icon": "baby",
         "pageTitleImage": {
-          "jpg": "/images/services/bebe-nageur-page.jpg",
+          "jpg": "/services/bebe-nageur-page.jpg",
           "alt": "Bébé nageur sous l'eau"
         }
       },
@@ -122,12 +122,12 @@
         "name": "Aquaversaire",
         "href": "/prestations/aquaversaire",
         "image": {
-          "src": "/images/services/aquaversaire.jpg",
+          "path": "services/aquaversaire.jpg",
           "alt": "Groupes d'enfants s'amusant dans une piscine"
         },
         "icon": "aquaversaire",
         "pageTitleImage": {
-          "src": "/images/services/aquaversaire-page.jpg",
+          "src": "/services/aquaversaire-page.jpg",
           "alt": "Groupes d'enfants s'amusant dans une piscine"
         }
       },
@@ -135,12 +135,12 @@
         "name": "Surveillance",
         "href": "/prestations/evenement-securite",
         "image": {
-          "src": "/images/services/surveillance.jpg",
+          "path": "services/surveillance.jpg",
           "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
         },
         "icon": "event",
         "pageTitleImage": {
-          "src": "/images/services/surveillance-page.jpg",
+          "src": "/services/surveillance-page.jpg",
           "alt": "Couple de jeunes mariés se jetant dans une piscine habillés"
         }
       },
@@ -148,30 +148,29 @@
         "name": "Aquafitness",
         "href": "/prestations/aquafitness",
         "image": {
-          "src": "/images/services/aquafitness.jpg",
+          "path": "services/aquafitness.jpg",
           "alt": "Personnes participant à un cours d'aquafitness"
         },
         "icon": "fitness",
         "pageTitleImage": {
-          "src": "/images/services/aquafitness-page.jpg",
+          "src": "/services/aquafitness-page.jpg",
           "alt": "Personnes participant à un cours d'aquafitness"
         }
       }
     ],
     "pools": [
       {
-        "name": "Kabanon des écuries de l'aube",
+        "name": "Kabanon",
         "href": "/bassins/kabanon",
         "image": {
-          "src": "/images/pools/kabanon.jpg",
-
+          "path": "pools/kabanon.jpg",
           "alt": "Bassin du Kabanon des écuries de l'aube"
         },
         "period": "Summer",
         "location": "Saint-Marc-Jaumegarde",
         "address": "Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde",
         "thumb": {
-          "jpg": "/images/thumbnails/kabanon-thumb.jpg",
+          "jpg": "/thumbnails/kabanon-thumb.jpg",
           "alt": "Bassin du Kabanon des écuries de l'aube"
         }
       },
@@ -179,14 +178,14 @@
         "name": "Aquabecool",
         "href": "/bassins/aquabecool",
         "image": {
-          "src": "/images/pools/aquabecool.jpg",
+          "path": "pools/aquabecool.jpg",
           "alt": "Bassin de Aquabecool"
         },
         "period": "All year",
         "location": "Aix Sud",
         "address": "Chemin de la Blaque, 13090 Aix-en-Provence",
         "thumb": {
-          "jpg": "/images/thumbnails/aquabecool-thumb.jpg",
+          "jpg": "/thumbnails/aquabecool-thumb.jpg",
           "alt": "Bassin à Aquabecool"
         }
       },
@@ -195,14 +194,14 @@
         "name": "Kinémouv'",
         "href": "/bassins/kinemouv",
         "image": {
-          "src": "/images/pools/kinemouv.jpg",
+          "path": "pools/kinemouv.jpg",
           "alt": "Bassin de Kinémouv"
         },
         "period": "All year",
         "location": "Pertuis",
         "address": "434 Chemin de Saint-Martin, 84120 Pertuis",
         "thumb": {
-          "jpg": "/images/thumbnails/kinemouv-thumb.jpg",
+          "jpg": "/thumbnails/kinemouv-thumb.jpg",
           "alt": "Bassin Kinémouv'"
         }
       },
@@ -210,14 +209,14 @@
         "name": "Plan Form",
         "href": "/bassins/plan-form",
         "image": {
-          "src": "/images/pools/planform.jpg",
+          "path": "pools/planform.jpg",
           "alt": "Bassin de Plan Form"
         },
         "period": "All year",
         "location": "Cabriès",
         "address": "Parc Club de L´Arbois, Route de Calas, 13480 Cabriès",
         "thumb": {
-          "jpg": "/images/thumbnails/planform-thumb.jpg",
+          "jpg": "/thumbnails/planform-thumb.jpg",
           "alt": "Bassin à Plan Form"
         }
       },
@@ -225,14 +224,14 @@
         "name": "Les Terrasses du Sun",
         "href": "/bassins/les-terrasses-du-sun",
         "image": {
-          "src": "/images/pools/les-terrasses-du-sun.jpg",
+          "path": "pools/les-terrasses-du-sun.jpg",
           "alt": "Bassin des Terrasses du Sun"
         },
         "period": "Summer",
         "location": "Aix Sud Ouest",
         "address": "165 Chem. de la Valette, 13290 Aix-en-Provence",
         "thumb": {
-          "jpg": "/images/thumbnails/les-terrasses-du-sun-thumb.jpg",
+          "jpg": "/thumbnails/les-terrasses-du-sun-thumb.jpg",
           "alt": "Bassin des Terrasses du Sun"
         }
       },
@@ -240,14 +239,14 @@
         "name": "Le Carré d'Ô",
         "href": "/bassins/le-carre-d-o",
         "image": {
-          "src": "/images/pools/le-carre-d-o.jpg",
+          "path": "pools/le-carre-d-o.jpg",
           "alt": "Bassin du Carré d'Ô"
         },
         "period": "All year",
         "location": "Aix Centre",
         "address": "23 avenue de la Sainte Victoire 13100 Aix-en-Provence",
         "thumb": {
-          "jpg": "/images/thumbnails/le-carre-d-o-thumb.jpg",
+          "jpg": "/thumbnails/le-carre-d-o-thumb.jpg",
           "alt": "Bassin du Carré d'Ô"
         }
       },
@@ -255,14 +254,14 @@
         "name": "Saint-Maximin été",
         "href": "/bassins/saint-maximin-ete",
         "image": {
-          "src": "/images/pools/saint-maximin.jpg",
+          "path": "pools/saint-maximin.jpg",
           "alt": "Bassin à Saint-Maximin"
         },
         "period": "Summer",
         "location": "Saint-Maximin",
         "address": "Saint-Maximin",
         "thumb": {
-          "jpg": "/images/thumbnails/saintmaximin-thumb.jpg",
+          "jpg": "/thumbnails/saintmaximin-thumb.jpg",
           "alt": "Bassin à Saint-Maximin"
         }
       },
@@ -270,14 +269,14 @@
         "name": "Saint-Maximin Balnéo",
         "href": "/bassins/saint-maximin-balneo",
         "image": {
-          "src": "/images/pools/saint-maximin-balneo.jpg",
+          "path": "pools/saint-maximin-balneo.jpg",
           "alt": "Bassin balnéothérapie à Saint-Maximin"
         },
         "period": "All year",
         "location": "Saint-Maximin",
         "address": "Saint-Maximin",
         "thumb": {
-          "jpg": "/images/thumbnails/saintmaximin-balneo-thumb.jpg",
+          "jpg": "/thumbnails/saintmaximin-balneo-thumb.jpg",
           "alt": "Bassin balnéothérapie à Saint-Maximin"
         }
       },
@@ -285,13 +284,13 @@
         "name": "Domicile",
         "href": "/bassins/domicile",
         "image": {
-          "src": "/images/pools/domicile.jpg",
+          "path": "pools/domicile.jpg",
           "alt": "Bassin à domicile"
         },
         "period": "All year",
         "location": "",
         "thumb": {
-          "jpg": "/images/thumbnails/domicile-thumb.jpg",
+          "jpg": "/thumbnails/domicile-thumb.jpg",
           "alt": "Bassin à domicile"
         }
       }
@@ -329,8 +328,7 @@
     {
       "name": "Baigneur en douceur",
       "image": {
-        "jpg": "/images/niveaux/0_endouceur-baigneurs.jpg",
-        "webp": "/images/niveaux/0_endouceur-baigneurs.webp",
+        "jpg": "0_endouceur-baigneurs.jpg",
         "alt": "Petit baigneur reposant sa tête sur ses mains aux bord de la piscine et portant ses lunettes sur la tête"
       },
 
@@ -343,8 +341,7 @@
     {
       "name": "Mini Baigneur",
       "image": {
-        "jpg": "/images/niveaux/1_mini-baigneurs.jpg",
-        "webp": "/images/niveaux/1_mini-baigneurs.webp",
+        "jpg": "1_mini-baigneurs.jpg",
         "alt": "Petit baigneur avec ses lunettes sur la tête tout sourire accroché au bord de la piscine"
       },
 
@@ -357,8 +354,7 @@
     {
       "name": "Petit Baigneur",
       "image": {
-        "jpg": "/images/niveaux/2_petits-baigneurs.jpg",
-        "webp": "/images/niveaux/2_petits-baigneurs.webp",
+        "jpg": "2_petits-baigneurs.jpg",
         "alt": "Enfant de dos s'apprêtant à sauter dans la piscine"
       },
       "desc": "<span>« Le sourire des enfants »</span> restera toujours notre priorité ! Nous pensons qu’apprendre à nager c’est bien, mais apprendre en s’amusant c’est mieux !",
@@ -371,8 +367,7 @@
     {
       "name": "Moyen Baigneur",
       "image": {
-        "jpg": "/images/niveaux/3_moyens-baigneurs.jpg",
-        "webp": "/images/niveaux/3_moyens-baigneurs.webp",
+        "jpg": "3_moyens-baigneurs.jpg",
         "alt": "Petite fille sous l'eau passant dans un cerceau"
       },
       "desc": "Vos enfants sont à l’aise dans l’eau, mais quelques leçons sont nécessaires pour la mise en place des bons mouvements de la brasse et du dos crawlé.",
@@ -384,8 +379,7 @@
     {
       "name": "Grand Baigneur",
       "image": {
-        "jpg": "/images/niveaux/4_grands-baigneurs.jpg",
-        "webp": "/images/niveaux/4_grands-baigneurs.webp",
+        "jpg": "4_grands-baigneurs.jpg",
         "alt": "Garçon au bord de la piscine portant des palmes"
       },
       "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort. <span>Mise en place des 3 nages codifiées, dos, brasse et crawl.</span>",
@@ -396,8 +390,7 @@
     {
       "name": "Adulte",
       "image": {
-        "jpg": "/images/niveaux/5_adultes.jpg",
-        "webp": "/images/niveaux/5_adultes.webp",
+        "jpg": "5_adultes.jpg",
         "alt": "Jeune femme nageant sous l'eau dans une piscine"
       },
       "desc": "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d’aisance et de confort.<span> « Il n’y a pas d’âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
@@ -408,13 +401,13 @@
     "name": "Set Club",
     "href": "/bassins/set-club",
     "image": {
-      "src": "/images/pools/setclub.jpg",
+      "src": "/pools/setclub.jpg",
       "alt": "Bassin du Set Club"
     },
     "location": "Aix Ouest",
     "address": "1335 Chemin de Granet, 13090 Aix-en-Provence",
     "thumb": {
-      "jpg": "/images/thumbnails/setclub-thumb.jpg",
+      "jpg": "/thumbnails/setclub-thumb.jpg",
       "alt": "Bassin Set Club"
     }
   }

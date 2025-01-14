@@ -26,8 +26,7 @@ const page = {
   title: "FAQ",
 
   image: {
-    webp: "/images/page-title/webp/fallback.webp",
-    jpg: "/images/page-title/fallback.jpg",
+    jpg: "page-title/fallback.jpg",
     alt: "Foire Aux Questions",
   },
 };
@@ -38,8 +37,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 

@@ -8,6 +8,7 @@ import PageTitle from "@components/header/PageTitle.astro";
 import Title from "@components/ui/Title.astro";
 
 import AquaversairePrices from "@components/widgets/prices/AquaversairePrices.astro";
+import { Image } from "astro:assets";
 
 //data
 
@@ -16,8 +17,7 @@ const page = {
   description: "",
   title: "Aquaversaire",
   image: {
-    webp: "/images/page-title/webp/page_aquaversaire.webp",
-    jpg: "/images/page-title/page_aquaversaire.jpg",
+    jpg: "page-title/page_aquaversaire.jpg",
     alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
   },
 };
@@ -28,8 +28,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 
@@ -64,11 +63,14 @@ const page = {
             </ul>
           </div>
         </div>
-        <img
-          class="aquaversaire__img"
-          src="/images/aquaversaire-2.jpg"
+        <Image
+          src="/src/assets/images/aquaversaire-2.jpg"
           alt="Personnes flottant sur des bouées dans une piscines lors d'un anniversaire"
+          class="aquaversaire__img"
+          width={1024}
+          height={575}
         />
+
       </div>
     </section>
     <section>

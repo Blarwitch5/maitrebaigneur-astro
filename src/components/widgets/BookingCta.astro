@@ -1,4 +1,6 @@
 ---
+
+import { Picture } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import Waves from "@components/ui/shapes/Waves.astro";
 import Title from "@components/ui/Title.astro";
@@ -6,17 +8,12 @@ import Title from "@components/ui/Title.astro";
 
 <div class="container booking__section">
   <div class="booking__img" data-aos="fade-right">
-    <picture>
-      <source type="image/webp" srcset="/images/join-us.webp" />
-      <img
-        loading="lazy"
-        src="/images/join-us.jpg"
-        alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
-        class=""
-        height="600"
-        width="800"
-      />
-    </picture>
+    <Picture
+    src="/images/join-us.jpg"
+    alt="Maître-Baigneur en action apprenant à nager à deux enfants avec du matériel pédagogique"
+    width={600}
+    height={800}
+  />    
   </div>
   <div class="booking__content" data-aos="zoom-in">
     <Title level="4" class="booking__title">

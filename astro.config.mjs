@@ -20,7 +20,6 @@ export default defineConfig({
 	},
 	integrations: [react(), sitemap()],
 	renderOptions: {
-		// Ajoutez 'https://*.cdninstagram.com' à la liste des sources d'images autorisées
 		imgSources: ["https://*.cdninstagram.com"],
 	},
 });

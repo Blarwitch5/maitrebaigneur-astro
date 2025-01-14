@@ -11,7 +11,6 @@ const poolsCollection = defineCollection({
       location: z.string(),
       desc: z.string(),
       image: z.object({
-        webp: z.string(),
         jpg: z.string(),
         alt: z.string(),
       }),

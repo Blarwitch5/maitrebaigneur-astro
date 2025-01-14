@@ -14,11 +14,9 @@ const page = {
   metaTitle: "Événements et sécurité",
   description: "",
   title: "Événements et sécurité",
-  imageUrl: "/images/page-title/page_surveillance.jpg",
-  imageAlt: "Couple de mariés se jettant à l'eau dans une piscine",
+
   image: {
-    webp: "/images/page-title/webp/page_surveillance.webp",
-    jpg: "/images/page-title/page_surveillance.jpg",
+    jpg: "page-title/page_surveillance.jpg",
     alt: "Couple de mariés se jettant à l'eau dans une piscine",
   },
 };
@@ -29,8 +27,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 

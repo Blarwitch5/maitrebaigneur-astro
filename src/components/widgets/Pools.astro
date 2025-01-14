@@ -1,6 +1,13 @@
 ---
-import site from "@assets/data/data.json";
+// Framework imports
+import { Image } from "astro:assets";
+
+// UI Components
 import Title from "@components/ui/Title.astro";
+
+// Utils & Data
+import site from "@assets/data/data.json";
+import { images } from "@utils/images";
 
 const { siteLinks } = site;
 const pools = siteLinks.pools;
@@ -27,11 +34,10 @@ const pools = siteLinks.pools;
             .toLowerCase()}`}
         >
           <a href={pool.href} class="pool__link">
-            <img
-              loading="lazy"
+            <Image
               class="pool__img"
-              src={pool.image.src}
-              alt={pool.image.alt}
+              src={images[`/src/assets/images/${pool.image.path}`].default}
+              alt={pool.image.alt || ""}
             />
             <div class="pool__info">
               <h3 class="pool__title">{pool.name}</h3>

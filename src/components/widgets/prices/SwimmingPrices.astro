@@ -142,7 +142,7 @@ const swimmingPricesPool = swimmingPrices.pool;
       }
     }
 
-    checkBox.addEventListener("click", check);
+    checkBox?.addEventListener("click", check);
   }
   swimmingPricesSetup();
   document.addEventListener("astro:after-swap", swimmingPricesSetup);

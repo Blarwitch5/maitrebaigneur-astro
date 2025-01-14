@@ -16,11 +16,9 @@ const page = {
   metaTitle: "Nous contacter",
   description: "",
   title: "Nous contacter",
-  imageUrl: "/images/page-title/page_contact.jpg",
-  imageAlt: "Garçon sous l'eau tenant un téléphone près de son oreille",
+
   image: {
-    webp: "/images/page-title/webp/page_contact.webp",
-    jpg: "/images/page-title/page_contact.jpg",
+    jpg: "page-title/page_contact.jpg",
     alt: "Garçon sous l'eau tenant un téléphone près de son oreille",
   },
 };
@@ -33,8 +31,7 @@ import Form from "@components/forms/Form.tsx";
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 

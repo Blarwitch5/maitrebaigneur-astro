@@ -10,6 +10,7 @@ import StickyBtns from "@components/ui/StickyBtns.astro";
 
 import site from "@assets/data/data.json";
 import Title from "./ui/Title.astro";
+import { Image } from "astro:assets";
 
 const { siteLinks } = site;
 const services = siteLinks.services;
@@ -21,13 +22,13 @@ const footerMenu = siteLinks.footerMenu;
   <div class="container">
     <div class="footer__sections">
       <div class="footer__col brand">
-        <img
-          class="logo"
-          width="300"
-          height="250"
-          src="/images/logo.svg"
-          alt="Logo Maître-Baigneur"
-        />
+        <Image
+        class="logo"
+        width={300}
+        height={250}
+        src="/src/assets/images/logo.svg"
+        alt="Logo Maître-Baigneur" />
+ 
         <p class="slogan">"...Le bonheur du baigneur..."</p>
         <ul class="info">
           <li>

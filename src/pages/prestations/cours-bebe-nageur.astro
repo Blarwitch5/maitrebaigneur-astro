@@ -7,6 +7,7 @@ import Main from "@components/Main.astro";
 import SkipToContent from "@components/ui/SkipToContent.astro";
 import BabySwimmingPrices from "@components/widgets/prices/BabySwimmingPrices.astro";
 import Title from "@components/ui/Title.astro";
+import {Picture} from "astro:assets";
 
 //data
 const page = {
@@ -15,34 +16,28 @@ const page = {
   title: "Cours bébé nageur",
 
   image: {
-    webp: "/images/page-title/webp/page_bebenageur-2.webp",
-    jpg: "/images/page-title/page_bebenageur-2.jpg",
+    jpg: "page-title/page_bebenageur-2.jpg",
     alt: "Garçon en bas âge nageant sous l'eau",
   },
   gallery: [
     {
-      webp: "/images/bebe-nageur/bebe-nageur.webp",
-      jpg: "/images/bebe-nageur/bebe-nageur.jpg",
+      jpg: "bebe-nageur/bebe-nageur.jpg",
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      webp: "/images/bebe-nageur/bebe-nageur-3.webp",
-      jpg: "/images/bebe-nageur/bebe-nageur-3.jpg",
+      jpg: "bebe-nageur/bebe-nageur-3.jpg",
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      webp: "/images/bebe-nageur/bebe-nageur-2.webp",
-      jpg: "/images/bebe-nageur/bebe-nageur-2.jpg",
+      jpg: "bebe-nageur/bebe-nageur-2.jpg",
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      webp: "/images/bebe-nageur/bebe-nageur-4.webp",
-      jpg: "/images/bebe-nageur/bebe-nageur-4.jpg",
+      jpg: "bebe-nageur/bebe-nageur-4.jpg",
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      webp: "/images/bebe-nageur/bebe-nageur-4.webp",
-      jpg: "/images/bebe-nageur/bebe-nageur-4.jpg",
+      jpg: "bebe-nageur/bebe-nageur-4.jpg",
       alt: "Garçon en bas âge nageant sous l'eau",
     },
   ],
@@ -54,8 +49,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
   <Main>
@@ -95,18 +89,15 @@ const page = {
           </div>
           <div class="baby-swimmer__images">
             {
-              page.gallery.map((image) => {
+              page.gallery.map((galleryImage) => {
                 return (
-                  <picture>
-                    <source type="image/webp" srcset={image.webp} />
-                    <img
-                      loading="lazy"
-                      src={image.jpg}
-                      alt={image.alt}
-                      height="300"
-                      width="400"
-                    />
-                  </picture>
+                <Picture
+              src={`/src/assets/images/${galleryImage.jpg}`}
+              alt={galleryImage.alt}
+              width={300}
+              height={400}
+              formats={["webp"]}
+            />
                 );
               })
             }

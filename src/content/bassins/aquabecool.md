@@ -8,8 +8,7 @@ pool: {
 	location: "Aix Sud",
 	desc: "Bienvenue à la piscine Aquabecool, le lieu idéal pour apprendre à nager de manière innovante et ludique à Aix-en-Provence. Avec nos cours de natation adaptés à tous les âges, vous pourrez découvrir les joies de la natation tout en vous amusant.  Rejoignez-nous à Aquabecool pour une expérience inoubliable.",
 	image: {
-		webp: "/images/page-title/webp/page_aquabecool-bassins.webp",
-		jpg: "/images/page-title/page_aquabecool-bassins.jpg",
+		jpg: "page-title/page_aquabecool-bassins.jpg",
 		alt: "Bassin de Aquabecool à Aix-en-Provence"
 	},
 	address: "700 Chem. de la Beauvalle, 13090 Aix-en-Provence",

@@ -10,8 +10,7 @@ pool: {
 perfectionnement pour les adultes.</p><p>N'hésitez plus et venez voir Florent à
 Saint Maximin.</p>",
 	image: {
-		webp: "/images/page-title/webp/page_saintmaximin-bassins.webp",
-		jpg: "/images/page-title/page_saintmaximin-bassins.jpg",
+		jpg: "page-title/page_saintmaximin-bassins.jpg",
 		alt: "Bassin à Saint-Maximin"
 	},
 	address: "05 bis chemin du petit ruisseau, 83470 Saint Maximin",

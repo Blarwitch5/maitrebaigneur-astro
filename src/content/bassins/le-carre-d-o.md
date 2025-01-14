@@ -14,8 +14,7 @@ pool: {
 
 <p>Rejoignez-nous au Le Carré d'Ô pour une expérience mémorable. Nos cours se déroulent chaque samedi matin, et la température de l'eau est maintenue à un agréable 30 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p>",
 	image: {
-		webp: "/images/page-title/webp/page_le-carre-d-o-bassins.webp",
-		jpg: "/images/page-title/page_le-carre-d-o-bassins.jpg",
+		jpg: "page-title/page_le-carre-d-o-bassins.jpg",
 		alt: "Bassin du Carré d'Ô à Aix Centre"
 	},
 	address: "23 Av. Sainte-Victoire, 13100 Aix-en-Provence",

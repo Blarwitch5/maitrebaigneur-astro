@@ -21,9 +21,8 @@ const LevelsHelp: React.FC<React.PropsWithChildren<LevelsHelpProps>> = ({
   }, [isOpen]);
 
   return (
-    <div
+    <dialog
       className="dialog"
-      role="dialog"
       aria-modal="true"
       aria-describedby="dialog-description"
     >
@@ -38,7 +37,7 @@ const LevelsHelp: React.FC<React.PropsWithChildren<LevelsHelpProps>> = ({
           </div>
         </>
       )}
-    </div>
+    </dialog>
   );
 };
 

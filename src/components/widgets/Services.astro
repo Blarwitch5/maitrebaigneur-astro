@@ -1,8 +1,11 @@
 ---
 import site from "@assets/data/data.json";
 
+import { Picture } from "astro:assets";
+
 const { siteLinks } = site;
 const services = siteLinks.services;
+import { images } from "@utils/images";
 ---
 
 <div class="services__grid">
@@ -17,7 +20,12 @@ const services = siteLinks.services;
 					.toLowerCase()}`}
 			>
 				<a href={service.href} class="service__link">
-					<img loading="lazy" class="service__img" src={service.image.src} alt={service.image.alt} />
+					<Picture
+              class="service__img"
+              src={images[`/src/assets/images/${service.image.path}`].default}
+              alt={service.image.alt || ""}
+            />
+					
 					<h3 class="service__title">{service.name}</h3>
 				</a>
 			</div>
@@ -95,9 +103,15 @@ const services = siteLinks.services;
 					justify-content: center;
 					align-items: center;
 					flex-direction: column;
+
+					> * {
+						display: flex;
+    				justify-content: center;
+					}
 				}
 
 				&__img {
+				
 					width: 130%;
 					height: 100%;
 

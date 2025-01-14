@@ -13,12 +13,10 @@ const page = {
   metaTitle: "Bassins d'apprentissage",
   description: "",
   title: "Bassins d'apprentissage",
-  imageUrl: "/images/page-title/fallback.jpg",
-  imageAlt: "Vue sur des pieds trempants dans l'eau d'une piscine",
+  
 
   image: {
-    webp: "/images/page-title/webp/fallback.webp",
-    jpg: "/images/page-title/fallback.jpg",
+    jpg: "page-title/fallback.jpg",
     alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
   },
 };
@@ -29,8 +27,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 

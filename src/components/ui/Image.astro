@@ -5,7 +5,7 @@ interface Props {
 	imgSrc: string;
 	alt: string;
 	tag?: boolean;
-	[x: string]: any;
+	[x: string]: string | boolean | undefined;
 }
 const { webpSrc, class: className, imgSrc, alt } = Astro.props;
 ---

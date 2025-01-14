@@ -1,56 +1,53 @@
 ---
+import { Picture } from "astro:assets";
+
 const partners = [
   {
     name: "Aquabecool",
     logo: {
-      imgUrlWebp: "/images/partners/aquabecool-partner.webp",
-      imgUrl: "/images/partners/aquabecool-partner.jpg",
-      imgAlt: "Logo Aquabecool Aix-en-Provence",
+      url: "partners/aquabecool-partner.jpg",
+      alt: "Logo Aquabecool Aix-en-Provence",
     },
   },
 
   {
     name: "Kabanon des écuries de l'aube",
     logo: {
-      imgUrlWebp: "/images/partners/kabanon-partner.webp",
-      imgUrl: "/images/partners/kabanon-partner.jpg",
-      imgAlt: "Logo Kabanon des écuries de l'aube",
+      url: "partners/kabanon-partner.jpg",
+      alt: "Logo Kabanon des écuries de l'aube",
     },
   },
   {
     name: "Plan Form",
     logo: {
-      imgUrlWebp: "/images/partners/planform-partner.webp",
-      imgUrl: "/images/partners/planform-partner.jpg",
-      imgAlt: "Logo Plan Form",
+      url: "partners/planform-partner.jpg",
+      alt: "Logo Plan Form",
     },
   },
   {
     name: "Kinémouv'",
     logo: {
-      imgUrlWebp: "/images/partners/kinemouv-partner.webp",
-      imgUrl: "/images/partners/kinemouv-partner.jpg",
-      imgAlt: "Logo Kinémouv'",
+      url: "partners/kinemouv-partner.jpg",
+     alt: "Logo Kinémouv'",
     },
   },
 ];
+
 ---
 
 <div class="partners">
   {
     partners.map((partner) => {
-      const { imgUrlWebp, imgUrl, imgAlt } = partner.logo;
       return (
-        <picture class="partners__item scroll__item">
-          <source type="image/webp" srcset={imgUrlWebp} />
-          <img
-            width="250"
-            height="250"
-            loading="lazy"
-            src={imgUrl}
-            alt={imgAlt}
+        <div class="partners__item">
+          <Picture
+            height={250}
+            width={250}
+            alt={partner.logo.alt}
+            formats={["webp"]}
+            src={`/src/assets/images/${partner.logo.url}`}
           />
-        </picture>
+       </div>
       );
     })
   }
@@ -58,21 +55,23 @@ const partners = [
 
 <style lang="scss">
   .partners {
-    & > div {
-      position: relative;
-    }
+    
     position: relative;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
 
-      & > picture {
+   
+    }
+    & > div {
+      position: relative;
+      @media screen and (max-width: 768px) {
         flex: 0 0 50%;
-      }
+      
+    }
     }
     &__item {
       padding: var(--space-sm);

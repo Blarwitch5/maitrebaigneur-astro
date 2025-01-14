@@ -11,6 +11,7 @@ const { header, index } = Astro.props;
       aria-expanded="false"
       aria-controls={`accordion__panel-${index}`}
       onclick="toggleAccordionItem()"
+      aria-label={`Ouvrir ou fermer ${header}`}
     >
       {header}
       <svg
@@ -34,6 +35,7 @@ const { header, index } = Astro.props;
     role="region"
     class="accordion__panel"
     aria-labelledby={`accordion__header-${index}`}
+    aria-hidden="true"
   >
     <div class="panel-inner">
       <slot />

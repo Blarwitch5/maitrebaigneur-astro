@@ -1,17 +1,35 @@
 ---
 import site from "@assets/data/data.json";
 import Title from "@components/ui/Title.astro";
+import { getImage } from "astro:assets";
+import { images } from "@utils/images";
 
 const { swimmingLevels } = site;
 const levels = swimmingLevels;
+
+// Optimisez les images en background
+const optimizedBackgrounds = await Promise.all(
+  levels.map(async (level) => {
+    const imagePath = `/src/assets/images/niveaux/${level.image.jpg}`;
+    const optimized = await getImage({
+      src: images[imagePath].default,
+      format: 'webp',
+    });
+    return {
+      ...level,
+      backgroundImage: optimized.src
+    };
+  })
+);
 ---
 
 <div class="levels__grid">
   {
-    levels.map((level) => (
+    optimizedBackgrounds.map((level) => (
       <div
         class="level panel"
-        style={`background-image:linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%,	hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.image.jpg});background-image: linear-gradient(0deg,hsla(var(--link-color-primary-hsl), 1) 0%,hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.image.webp});`}
+        style={`
+          background-image:linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%,	hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.backgroundImage});`}
       >
         <p class=" vertical-txt">{level.name}</p>
         <div class="level__content details">
@@ -172,7 +190,9 @@ const levels = swimmingLevels;
 <script>
   function levelsGridSetup() {
     const levels = document.querySelectorAll(".level");
-    levels[0].classList.add("active");
+    if (levels.length > 0) {
+      levels[0].classList.add("active");
+    }
 
     levels.forEach((level) => {
       level.addEventListener("click", () => {

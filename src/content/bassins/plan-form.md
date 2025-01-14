@@ -8,8 +8,7 @@ pool: {
 	location: "Cabriès",
 	desc: "Situé à Cabriès, à proximité des zones d’activités de Plan de Campagne, Maître-baigneur vous accueille toute l’année, et surtout l’hiver, à la salle de sport Plan Form. Le centre de 1700m2 vous propose de multiples activités terrestres mais surtout une piscine de 75 m² pour des conditions optimales d’enseignement de nos différentes activités aquatiques.",
 		image: {
-			webp: "/images/page-title/webp/page_planform-bassins.webp",
-			jpg: "/images/page-title/page_planform-bassins.jpg",
+			jpg: "page-title/page_planform-bassins.jpg",
 			alt: "Bassin de Planform à Cabriès"
 		},
 	address: "Parc Club de l'Arbois Parc Club de l'Arbois, 13480, Cabriès",

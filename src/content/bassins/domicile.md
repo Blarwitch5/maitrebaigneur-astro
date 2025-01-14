@@ -8,8 +8,7 @@ pool: {
 	location: "Aix-en-Provence",
 	desc: "Vous avez une piscine à la maison ? Profitez de cours de natation sur mesure avec nos maîtres-nageurs diplômés d'État, formés aux gestes de secourisme. Nous nous déplaçons chez vous avec du matériel professionnel adapté à l'âge et au niveau des baigneurs, pour un apprentissage optimal dans la bonne humeur. Profitez de nos prestations personnalisés tout en restant chez vous !",
 	image: {
-		webp: "/images/pools/domicile/domicile-1.webp",
-		jpg: "/images/page-title/page_domicile-bassins.jpg",
+		jpg: "page-title/page_domicile-bassins.jpg",
 		alt: "Bassin de Domicile à Aix-en-Provence"
 	},
 	address: "Aix-en-Provence et alentours",

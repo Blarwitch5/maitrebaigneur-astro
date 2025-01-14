@@ -10,17 +10,18 @@ import Title from "@components/ui/Title.astro";
 import AquafitnessPrices from "@components/widgets/prices/AquafitnessPrices.astro";
 
 //data
-
 const page = {
   metaTitle: "Aquafitness",
   description: "",
   title: "Aquafitness",
   image: {
-    webp: "/images/page-title/webp/page_aquafitness.webp",
-    jpg: "/images/page-title/page_aquafitness.jpg",
+    jpg: "page-title/page_aquafitness.jpg",
     alt: "Personnes participant à un cours d'aquafitness dans une piscine",
   },
 };
+import { Image } from 'astro:assets';
+import { images } from "@utils/images";
+
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
@@ -28,8 +29,7 @@ const page = {
   <Header />
   <PageTitle
     pageTitle={page.title}
-    pageImageUrlWebp={page.image.webp}
-    pageImageUrl={page.image.jpg}
+    pageImagePath={page.image.jpg}
     pageImageAlt={page.image.alt}
   />
 
@@ -74,11 +74,14 @@ const page = {
             </ul>
           </div>
         </div>
-        <img
-          class="aquafitness__img"
-          src="/images/services/aquafitness.jpg"
-          alt="Personnes participant à un cours d'aquafitness dans une piscine"
+        <Image 
+        class="aquafitness__img"
+        src="/src/assets/images/services/aquafitness.jpg"
+        alt="Personnes participant à un cours d'aquafitness dans une piscine"
+        width={1024}
+        height={575}
         />
+  
       </div>
     </section>
     <section>

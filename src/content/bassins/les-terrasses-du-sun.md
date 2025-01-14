@@ -10,8 +10,7 @@ pool: {
 
 <p>Nos cours ont lieu chaque matin de la semaine, offrant une opportunité de développer vos compétences en natation dans un environnement agréable. Venez découvrir le plaisir de la natation dans une atmosphère unique et conviviale.</p>",
 	image: {
-		webp: "/images/page-title/webp/page_les-terrasses-du-sun-bassins.webp",
-		jpg: "/images/page-title/page_les-terrasses-du-sun-bassins.jpg",
+		jpg: "page-title/page_les-terrasses-du-sun-bassins.jpg",
 		alt: "Bassin des Terrasses du Sun à Aix-en-Provence"
 	},
 	address: "165 Chem. de la Valette, 13290 Aix-en-Provence",
