@@ -18,6 +18,7 @@ import SwimmingPrices from '@components/widgets/prices/SwimmingPrices.astro';
 import Waves from '@components/ui/shapes/Waves.astro';
 
 import natation from '@assets/images/page-title/page_natation.jpg';
+import fear from '@assets/images/niveaux/6_peur-du-baigneur.jpg';
 
 // Data
 const page = {
@@ -53,7 +54,7 @@ const page = {
       <div class='container fear__section'>
         <div class='fear__img' data-aos='fade-right'>
           <Picture
-            src={'/src/assets/images/niveaux/6_peur-du-baigneur.jpg'}
+            src={fear}
             alt='Illustration de la peur du baigneur'
             width={800}
             height={600}
@@ -75,7 +76,7 @@ const page = {
     </section>
     <section class='swimming-prices'>
       <div class='container'>
-        <Title animate level='3'>Tarfis de nos leçons de natation</Title>
+        <Title animate level='3'>Tarifs de nos leçons de natation</Title>
         <SwimmingPrices />
       </div>
     </section>

@@ -13,13 +13,13 @@ interface Props {
 
 const { ariaLabel } = Astro.props;
 
-const heroImagePath = '/src/assets/images/hero.jpg';
+import hero from '@assets/images/hero.jpg';
 ---
 
 <section id='hero' class='hero' aria-label={ariaLabel}>
   <div class='hero__img'>
     <Image
-      src={heroImagePath}
+      src={hero}
       alt="Enfant s'amusant sous l'eau avec les pouces en l'air"
       width={1920}
       height={1080}

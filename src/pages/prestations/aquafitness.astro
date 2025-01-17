@@ -10,6 +10,7 @@ import Title from '@components/ui/Title.astro';
 import AquafitnessPrices from '@components/widgets/prices/AquafitnessPrices.astro';
 
 import aquafitness from '@assets/images/page-title/page_aquafitness.jpg';
+import aquafitness2 from '@assets/images/services/aquafitness.jpg';
 
 //data
 const page = {
@@ -70,7 +71,7 @@ import { Image } from 'astro:assets';
         </div>
         <Image
           class='aquafitness__img'
-          src='/src/assets/images/services/aquafitness.jpg'
+          src={aquafitness2}
           alt="Personnes participant à un cours d'aquafitness dans une piscine"
           width={1024}
           height={575}
