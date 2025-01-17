@@ -8,7 +8,7 @@ pool: {
 	location: "Aix Ouest",
 	desc: "test",
 	image: {
-		jpg: "page-title/page_setclub-bassins.jpg",
+		path: "../../assets/images/page-title/page_setclub-bassins.jpg",
 		alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 	},
 	address: "1335 Chemin de Granet Les Granettes, 13090, Aix-en-Provence France",
@@ -30,19 +30,19 @@ pool: {
 	],
 	gallery: [
 		{
-			src: "set-club/set-club-1.jpg",
+			path: "../../assets/images/pools/set-club/set-club-1.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			src: "set-club/set-club-2.jpg",
+			path: "../../assets/images/pools/set-club/set-club-2.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			src: "set-club/set-club-3.jpg",
+			path: "../../assets/images/pools/set-club/set-club-3.jpg",
 			alt: "Bassin de Set Club à Aix-en-Provence Ouest"
 		},
 		{
-			src: "set-club/set-club-4.jpg",
+			path: "../../assets/images/pools/set-club/set-club-4.jpg",
 			alt: "Bassin au Set Club à Aix-en-Provence Ouest"
 		}
 	]

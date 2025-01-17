@@ -1,7 +1,7 @@
 {
-  "$ref": "#/definitions/bassins",
+  "$ref": "#/definitions/pools",
   "definitions": {
-    "bassins": {
+    "pools": {
       "type": "object",
       "properties": {
         "metaTitle": {

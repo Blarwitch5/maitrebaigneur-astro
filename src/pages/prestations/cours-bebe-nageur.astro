@@ -11,6 +11,11 @@ import { Picture } from 'astro:assets';
 
 import bebenageur from '@assets/images/page-title/page_bebenageur-2.jpg';
 
+import bebenageur1 from '@assets/images/bebe-nageur/bebe-nageur.jpg';
+import bebenageur2 from '@assets/images/bebe-nageur/bebe-nageur-2.jpg';
+import bebenageur3 from '@assets/images/bebe-nageur/bebe-nageur-3.jpg';
+import bebenageur4 from '@assets/images/bebe-nageur/bebe-nageur-4.jpg';
+
 //data
 const page = {
   metaTitle: 'Cours bébé nageur',
@@ -18,28 +23,28 @@ const page = {
   title: 'Cours bébé nageur',
 
   image: {
-    jpg: bebenageur,
+    path: bebenageur,
     alt: "Garçon en bas âge nageant sous l'eau",
   },
   gallery: [
     {
-      jpg: 'bebe-nageur/bebe-nageur.jpg',
+      path: bebenageur1,
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: 'bebe-nageur/bebe-nageur-3.jpg',
+      path: bebenageur3,
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: 'bebe-nageur/bebe-nageur-2.jpg',
+      path: bebenageur2,
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: 'bebe-nageur/bebe-nageur-4.jpg',
+      path: bebenageur4,
       alt: "Garçon en bas âge nageant sous l'eau",
     },
     {
-      jpg: 'bebe-nageur/bebe-nageur-4.jpg',
+      path: bebenageur4,
       alt: "Garçon en bas âge nageant sous l'eau",
     },
   ],
@@ -49,7 +54,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
   <Main>
     <section class='baby-swimmer' aria-label='Informations concernant la section bébé nageur'>
       <div class='container'>
@@ -79,7 +84,7 @@ const page = {
               page.gallery.map((galleryImage) => {
                 return (
                   <Picture
-                    src={`/src/assets/images/${galleryImage.jpg}`}
+                    src={galleryImage.path}
                     alt={galleryImage.alt}
                     width={300}
                     height={400}

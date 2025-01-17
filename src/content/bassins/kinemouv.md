@@ -19,7 +19,7 @@ De plus, notre centre vous offre des séances de kinésithérapie tous les jours
 
 Découvrez un monde de divertissement aquatique et de bien-être dans notre établissement à Pertuis. Rejoignez-nous dès aujourd'hui pour plonger dans l'action !",
 	image: {
-		jpg: "page-title/page_kinemouv-bassins.jpg",
+		path: "../../assets/images/page-title/page_kinemouv-bassins.jpg",
 		alt: "Bassin de Kinémouv' à Pertuis"
 	},
 	address: "434 Chem. de Saint-Martin, 84120 Pertuis",
@@ -41,15 +41,15 @@ Découvrez un monde de divertissement aquatique et de bien-être dans notre éta
 	],
 	gallery: [
 		{
-			src: "kinemouv/kinemouv-1.jpg",
+			path: "../../assets/images/pools/kinemouv/kinemouv-1.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			src: "kinemouv/kinemouv-2.jpg",
+			path: "../../assets/images/pools/kinemouv/kinemouv-2.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		},
 		{
-			src: "kinemouv/kinemouv-3.jpg",
+			path: "../../assets/images/pools/kinemouv/kinemouv-3.jpg",
 			alt: "Bassin de Kinémouv' à Pertuis"
 		}
 	]

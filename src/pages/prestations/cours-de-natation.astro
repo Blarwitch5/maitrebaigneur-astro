@@ -22,10 +22,11 @@ import natation from '@assets/images/page-title/page_natation.jpg';
 // Data
 const page = {
   metaTitle: 'Cours de natation',
-  description: '',
+  description:
+    "Découvrez les cours de natation ludiques et pédagogiques de Maître Baigneur. Que vous soyez débutant ou confirmé, nos groupes d'apprentissage vous permettront d'apprendre à nager en vous amusant, dès 3 ans. Réservez vos séances en ligne !",
   title: 'Cours de natation',
   image: {
-    jpg: natation,
+    path: natation,
     alt: "Petite fille avec lunettes de natation nageant sous l'eau tout sourire",
   },
 };
@@ -34,7 +35,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
   <Main>
     <section class='levels'>
       <div class='container'>
@@ -51,15 +52,13 @@ const page = {
       <Waves atTopOfSection />
       <div class='container fear__section'>
         <div class='fear__img' data-aos='fade-right'>
-          <picture>
-            <Picture
-              src={'/src/assets/images/niveaux/6_peur-du-baigneur.jpg'}
-              alt='Illustration de la peur du baigneur'
-              width={800}
-              height={600}
-              formats={['webp']}
-            />
-          </picture>
+          <Picture
+            src={'/src/assets/images/niveaux/6_peur-du-baigneur.jpg'}
+            alt='Illustration de la peur du baigneur'
+            width={800}
+            height={600}
+            formats={['webp']}
+          />
         </div>
         <div class='fear__content' data-aos='zoom-in'>
           <Title animate level='4' class='fear__title'> La peur du baigneur </Title>

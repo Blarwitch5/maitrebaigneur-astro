@@ -16,7 +16,7 @@ const page = {
   description: '',
   title: 'Mentions légales',
   image: {
-    jpg: fallback,
+    path: fallback,
     alt: 'Mentions légales',
   },
 };
@@ -25,7 +25,7 @@ const page = {
 <BaseLayout title={page.title} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section>

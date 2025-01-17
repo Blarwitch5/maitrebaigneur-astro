@@ -1,163 +1,156 @@
 ---
-import site from "@assets/data/data.json";
+import { Picture } from 'astro:assets';
 
-import { Picture } from "astro:assets";
-
-const { siteLinks } = site;
-const services = siteLinks.services;
-import { images } from "@utils/images";
+import services from '@assets/data/services.ts';
 ---
 
-<div class="services__grid">
-	{
-		services.map(service => (
-			<div
-			data-aos="zoom-in"
-				class={`service ${service.name
-					.replace(/\s|_|\(|\)/g, "-")
-					.normalize("NFD")
-					.replace(/\p{Diacritic}/gu, "")
-					.toLowerCase()}`}
-			>
-				<a href={service.href} class="service__link">
-					<Picture
-              class="service__img"
-              src={images[`/src/assets/images/${service.image.path}`].default}
-              alt={service.image.alt || ""}
-            />
-					
-					<h3 class="service__title">{service.name}</h3>
-				</a>
-			</div>
-		))
-	}
+<div class='services__grid'>
+  {
+    services.map((service) => (
+      <div
+        data-aos='zoom-in'
+        class={`service ${service.name
+          .replace(/\s|_|\(|\)/g, '-')
+          .normalize('NFD')
+          .replace(/\p{Diacritic}/gu, '')
+          .toLowerCase()}`}
+      >
+        <a href={service.href} class='service__link'>
+          <Picture class='service__img' src={service.image.path} alt={service.image.alt || ''} />
+
+          <h3 class='service__title'>{service.name}</h3>
+        </a>
+      </div>
+    ))
+  }
 </div>
 
-<style lang="scss">
-	.services {
-		&__grid {
-			width: calc(100% / 5 * 3);
-			width: 100%;
-			display: grid;
-			position: relative;
-			grid-template-columns: repeat(2, auto);
-			@media screen and (max-width: 992px) {
-				width: 100%;
-			}
+<style lang='scss'>
+  .services {
+    &__grid {
+      width: calc(100% / 5 * 3);
+      width: 100%;
+      display: grid;
+      position: relative;
+      grid-template-columns: repeat(2, auto);
+      @media screen and (max-width: 992px) {
+        width: 100%;
+      }
 
-			@media screen and (max-width: 768px) {
-				grid-template-columns: repeat(1, auto);
-			}
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(1, auto);
+      }
 
-			.service {
-				position: relative;
-				transition: all 0.3s ease-in-out;
-				&:hover {
-					.service__img {
-						transform: translateY(-0.5rem);
-					}
-				}
+      .service {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          .service__img {
+            transform: translateY(-0.5rem);
+          }
+        }
 
-				&:nth-child(even) {
-					margin-top: var(--space-2xl);
-					@media screen and (max-width: 768px) {
-						margin-top: unset;
-					}
-					&:nth-child(even) {
-						margin-bottom: calc(-1 * var(--space-2xl));
-						@media screen and (max-width: 768px) {
-							margin-bottom: unset;
-						}
-					}
-				}
-				&:nth-child(1) {
-					.service__img {
-						-webkit-mask-image: url("/src/icons/blob2.svg");
-					}
-				}
-				&:nth-child(2) {
-					.service__img {
-						-webkit-mask-image: url("/src/icons/blob3.svg");
-					}
-				}
-				&:nth-child(3) {
-					&::after {
-						background-image: url("/src/icons/blob4.svg");
-						background-position: center center;
-						background-repeat: no-repeat;
-						background-size: contain;
-						transform: translate(1rem, 1rem);
-					}
-					.service__img {
-						-webkit-mask-image: url("/src/icons/blob4.svg");
-					}
-				}
-				&:nth-child(4) {
-					.service__img {
-						-webkit-mask-image: url("/src/icons/blob5.svg");
-					}
-				}
-				&__link {
-					text-decoration: none;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
+        &:nth-child(even) {
+          margin-top: var(--space-2xl);
+          @media screen and (max-width: 768px) {
+            margin-top: unset;
+          }
+          &:nth-child(even) {
+            margin-bottom: calc(-1 * var(--space-2xl));
+            @media screen and (max-width: 768px) {
+              margin-bottom: unset;
+            }
+          }
+        }
+        &:nth-child(1) {
+          .service__img {
+            -webkit-mask-image: url('/src/icons/blob2.svg');
+          }
+        }
+        &:nth-child(2) {
+          .service__img {
+            -webkit-mask-image: url('/src/icons/blob3.svg');
+          }
+        }
+        &:nth-child(3) {
+          &::after {
+            background-image: url('/src/icons/blob4.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transform: translate(1rem, 1rem);
+          }
+          .service__img {
+            -webkit-mask-image: url('/src/icons/blob4.svg');
+          }
+        }
+        &:nth-child(4) {
+          .service__img {
+            -webkit-mask-image: url('/src/icons/blob5.svg');
+          }
+        }
+        &__link {
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
 
-					> * {
-						display: flex;
-    				justify-content: center;
-					}
-				}
+          > * {
+            display: flex;
+            justify-content: center;
+          }
+        }
 
-				&__img {
-				
-					width: 130%;
-					height: 100%;
+        &__img {
+          width: 130%;
+          height: 100%;
 
-					// max-width: 100%;
-					height: auto;
-					object-fit: cover;
-					-webkit-mask-image: url("/src/icons/blob2.svg");
-					-webkit-mask-size: auto;
-					-webkit-mask-position: center;
-					-webkit-mask-repeat: no-repeat;
+          // max-width: 100%;
+          height: auto;
+          object-fit: cover;
+          -webkit-mask-image: url('/src/icons/blob2.svg');
+          -webkit-mask-size: auto;
+          -webkit-mask-position: center;
+          -webkit-mask-repeat: no-repeat;
 
-					transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
 
-					&::after {
-						content: "";
-						position: absolute;
-						background-color: red !important;
-						display: block;
-						top: 1rem;
-						left: 1rem;
-						width: 100%;
-						height: 100%;
+          &::after {
+            content: '';
+            position: absolute;
+            background-color: red !important;
+            display: block;
+            top: 1rem;
+            left: 1rem;
+            width: 100%;
+            height: 100%;
 
-						z-index: 0;
-						box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3), 0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
-					}
-				}
+            z-index: 0;
+            box-shadow:
+              0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
+              0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
+          }
+        }
 
-				&__title {
-					font-family: var(--ff-pacifico);
-					font-size: var(--fs-sm);
-					padding: 0.5rem;
-					width: calc(100% - 2rem);
-					text-align: center;
-					margin: 0 auto;
-					background-color: var(--color-white);
-					border-radius: var(--border-radius);
-				}
-			}
-		}
+        &__title {
+          font-family: var(--ff-pacifico);
+          font-size: var(--fs-sm);
+          padding: 0.5rem;
+          width: calc(100% - 2rem);
+          text-align: center;
+          margin: 0 auto;
+          background-color: var(--color-white);
+          border-radius: var(--border-radius);
+        }
+      }
+    }
 
-		&__title {
-			text-align: left;
-		}
-		&__desc {
-			margin-block: 4rem 4rem;
-		}
-	}
+    &__title {
+      text-align: left;
+    }
+    &__desc {
+      margin-block: 4rem 4rem;
+    }
+  }
 </style>

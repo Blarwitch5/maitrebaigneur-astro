@@ -14,7 +14,7 @@ Bébés Nageurs : Offrez à votre enfant (3 mois à 3 ans) une initiation ludiqu
 
 <p>Rejoignez-nous et découvrez les plaisirs de l’eau en toute sérénité !</p>",
 	image: {
-		jpg: "page-title/page_saintmaximin-balneo-bassins.jpg",
+		path: "../../assets/images/page-title/page_saintmaximin-balneo-bassins.jpg",
 		alt: "Bassin balnéothérapie à Saint-Maximin"
 	},
 	address: "Adresse Zone Bonneval, 345 chemin du chevalier, 83470 Saint-Maximin-la-Sainte-Baume",
@@ -36,14 +36,14 @@ Bébés Nageurs : Offrez à votre enfant (3 mois à 3 ans) une initiation ludiqu
 	],
 	gallery: [
 		{
-			src: "saint-maximin-balneo/saint-maximin-balneo-1.jpg",
+			path: "../../assets/images/pools/saint-maximin-balneo/saint-maximin-balneo-1.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		},{
-			src: "saint-maximin-balneo/saint-maximin-balneo-2.jpg",
+			path: "../../assets/images/pools/saint-maximin-balneo/saint-maximin-balneo-2.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		},
 		{
-			src: "saint-maximin-balneo/saint-maximin-balneo-3.jpg",
+			path: "../../assets/images/pools/saint-maximin-balneo/saint-maximin-balneo-3.jpg",
 			alt: "Bassin balnéothérapie à Saint-Maximin"
 		}
 	]

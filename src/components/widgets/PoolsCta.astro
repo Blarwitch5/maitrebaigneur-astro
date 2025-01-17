@@ -2,13 +2,19 @@
 import Button from '@components/ui/Button.astro';
 import Title from '@components/ui/Title.astro';
 import { Picture } from 'astro:assets';
-import site from '@assets/data/data.json';
-import kabanonThumb from '@assets/images/thumbnails/kabanon-thumb.jpg';
-import domicileThumb from '@assets/images/thumbnails/domicile-thumb.jpg';
+import fallbackImg from '@assets/images/page-title/fallback.jpg';
 
-const { siteLinks } = site;
-const pools = siteLinks.pools;
-import { images } from '@utils/images';
+import poolsData from '@assets/data/pools.ts';
+const gridPositions = [
+  { x1: 2, x2: 6, y1: 1, y2: 4 },
+  { x1: 6, x2: 8, y1: 2, y2: 4 },
+  { x1: 1, x2: 4, y1: 4, y2: 7 },
+  { x1: 4, x2: 7, y1: 4, y2: 7 },
+  { x1: 7, x2: 9, y1: 4, y2: 6 },
+  { x1: 2, x2: 4, y1: 7, y2: 9 },
+  { x1: 4, x2: 7, y1: 7, y2: 10 },
+  { x1: 7, x2: 10, y1: 6, y2: 9 },
+];
 ---
 
 <div class='container pools__wrapper'>
@@ -25,86 +31,22 @@ import { images } from '@utils/images';
     <Button href='/bassins' class={`pools__btn btn btn__regular`}> Découvrir nos bassins </Button>
   </div>
   <ul class='pools__images' data-aos='fade-left'>
-    <li style='--x1: 2; --x2: 6; --y1: 1; --y2: 4;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={kabanonThumb}
-        alt="Piscine Kabanon des écuries de l'aube"
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 6; --x2: 8; --y1: 2; --y2: 4;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={domicileThumb}
-        alt='Piscine à domicile'
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 1; --x2: 4; --y1: 4; --y2: 7;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/planform_2-thumb.jpg'].default}
-        alt='Piscine Plan Form'
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 4; --x2: 7; --y1: 4; --y2: 7;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/domicile_2-thumb.jpg'].default}
-        alt='Piscine à domicile'
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 7; --x2: 9; --y1: 4; --y2: 6;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/planform-thumb.jpg'].default}
-        alt='Piscine Planform'
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 2; --x2: 4; --y1: 7; --y2: 9;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/kabanon_2-thumb.jpg'].default}
-        alt="Piscine Kabanon des écuries de l'aube"
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 4; --x2: 7; --y1: 7; --y2: 10;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/aquabecool-thumb.jpg'].default}
-        alt='Piscine Aquabecool'
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
-    <li style='--x1: 7; --x2: 10; --y1: 6; --y2: 9;'>
-      <Picture
-        class='partners__item scroll__item'
-        src={images['/src/assets/images/thumbnails/kinemouv-thumb.jpg'].default}
-        alt="Piscine Kinémouv'"
-        width={300}
-        height={300}
-        formats={['webp']}
-      />
-    </li>
+    {
+      poolsData.slice(0, 8).map((pool, index) => (
+        <li
+          style={`--x1: ${gridPositions[index].x1}; --x2: ${gridPositions[index].x2}; --y1: ${gridPositions[index].y1}; --y2: ${gridPositions[index].y2};`}
+        >
+          <Picture
+            class='partners__item scroll__item'
+            src={pool.image.path || fallbackImg}
+            alt={pool.image.alt}
+            width={300}
+            height={300}
+            formats={['webp']}
+          />
+        </li>
+      ))
+    }
   </ul>
 </div>
 

@@ -15,20 +15,18 @@ import Title from '@components/ui/Title.astro';
 import fallback from '@assets/images/page-title/fallback.jpg';
 
 //data
-import site from '@assets/data/data.json';
-
-const { siteLinks } = site;
-const pools = siteLinks.pools;
+import pools from '@assets/data/pools.ts';
 const summerPools = pools.filter((pool) => pool.period === 'Summer');
 const allYearPools = pools.filter((pool) => pool.period === 'All year');
 
 const page = {
   metaTitle: 'Foire aux questions',
-  description: '',
+  description:
+    "Découvrez les réponses aux questions les plus fréquentes sur Maître Baigneur et notre approche pédagogique innovante pour l'apprentissage de la natation en petits groupes.",
   title: 'FAQ',
 
   image: {
-    jpg: fallback,
+    path: fallback,
     alt: 'Foire Aux Questions',
   },
 };
@@ -37,7 +35,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section>

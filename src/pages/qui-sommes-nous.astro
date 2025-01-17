@@ -13,50 +13,69 @@ import Title from '@components/ui/Title.astro';
 
 import quisommesnous from '@assets/images/page-title/page_quisommesnous.jpg';
 
-//data
+import nagerEnGroupe from '@assets/images/nager-en-groupe/nager-en-groupe.jpg';
+import nagerEnGroupe2 from '@assets/images/nager-en-groupe/nager-en-groupe-2.jpg';
+import nagerEnGroupe3 from '@assets/images/nager-en-groupe/nager-en-groupe-3.jpg';
+import nagerEnGroupe4 from '@assets/images/nager-en-groupe/nager-en-groupe-4.jpg';
+import nagerEnGroupe5 from '@assets/images/nager-en-groupe/nager-en-groupe-5.jpg';
 
-const page = {
+//data
+interface GalleryImage {
+  path: ImageMetadata;
+  alt: string;
+}
+interface Page {
+  metaTitle: string;
+  description: string;
+  title: string;
+  image: GalleryImage;
+  gallery: GalleryImage[];
+}
+const page: Page = {
   metaTitle: 'Qui sommes-nous ?',
-  description: '',
+  description:
+    "Découvrez Maître Baigneur et notre approche pédagogique innovante pour l'apprentissage de la natation en petits groupes. Apprenez les avantages de notre méthode en termes de sécurité, de développement des compétences sociales et physiques",
   title: 'Qui sommes-nous ?',
 
   image: {
-    jpg: quisommesnous,
+    path: quisommesnous,
     alt: 'Maître-Baigneur apprenant un garçon à nager',
   },
   gallery: [
     {
-      jpg: 'nager-en-groupe.jpg',
+      path: nagerEnGroupe,
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
     {
-      jpg: 'nager-en-groupe-3.jpg',
+      path: nagerEnGroupe3,
       alt: "Maître-Baigneur lors d'un cours en petit groupe avec enfants nageant sur le dos ",
     },
     {
-      jpg: 'nager-en-groupe-2.jpg',
+      path: nagerEnGroupe2,
       alt: "Maître-Baigneur lors d'un cours en petit groupe montrant l'exercice",
     },
     {
-      jpg: 'nager-en-groupe-4.jpg',
+      path: nagerEnGroupe4,
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
     {
-      jpg: 'nager-en-groupe-5.jpg',
+      path: nagerEnGroupe5,
       alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager",
     },
     {
-      jpg: 'nager-en-groupe-4.jpg',
+      path: nagerEnGroupe4,
       alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
     },
   ],
 };
+
+import quentin from '@assets/images/quentin.jpg';
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
   <Main>
     <section class='qualities' aria-label='Maître-Baigneur en trois mots'>
       <Qualities />
@@ -72,7 +91,7 @@ const page = {
               page.gallery.map((image) => {
                 return (
                   <Picture
-                    src={`/src/assets/images/nager-en-groupe/${image.jpg}`}
+                    src={image.path}
                     alt={image.alt}
                     width={400}
                     height={300}
@@ -117,7 +136,7 @@ const page = {
         <div class='quote__content'>
           <div class='quote__img'>
             <Picture
-              src='/src/assets/images/quentin.jpg'
+              src={quentin}
               alt='Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur'
               width={500}
               height={500}

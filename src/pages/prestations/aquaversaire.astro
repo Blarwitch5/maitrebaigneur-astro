@@ -15,10 +15,11 @@ import aquaversaire from '@assets/images/page-title/page_aquaversaire.jpg';
 
 const page = {
   metaTitle: 'Aquaversaire',
-  description: '',
+  description:
+    "Maître Baigneur organise des aquaversaires, des fêtes d'anniversaire en piscine avec un maître-nageur pour assurer la sécurité et l'animation des enfants. Jusqu'à 15 enfants, matériel de premiers soins et ludique inclus.",
   title: 'Aquaversaire',
   image: {
-    jpg: aquaversaire,
+    path: aquaversaire,
     alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
   },
 };
@@ -27,7 +28,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='aquaversaire'>

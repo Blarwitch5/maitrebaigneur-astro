@@ -27,7 +27,7 @@ const page = {
   title: ' Nos tarifs',
 
   image: {
-    jpg: tarifs,
+    path: tarifs,
     alt: "Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main",
   },
 };
@@ -36,7 +36,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section>

@@ -1,58 +1,51 @@
 ---
 // Framework imports
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
 // UI Components
-import Title from "@components/ui/Title.astro";
+import Title from '@components/ui/Title.astro';
 
-// Utils & Data
-import site from "@assets/data/data.json";
-import { images } from "@utils/images";
-
-const { siteLinks } = site;
-const pools = siteLinks.pools;
+import poolsData from '@assets/data/pools.ts';
 ---
 
-<div class="container">
-  <Title level="2" class="pools__title">
+<div class='container'>
+  <Title level='2' class='pools__title'>
     Les bassins d'accueil à Aix-en-Provence et ses environs
   </Title>
-  <p class="pools__desc">
-    L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en
-    bassins d’apprentissage. Nous sommes heureux de vous présenter les
-    établissements avec lesquels nous collaborons pour vous offrir une
-    expérience de qualité dans un cadre magnifique.
+  <p class='pools__desc'>
+    L’équipe de Maître-Baigneur exerce à la fois à domicile mais également en bassins
+    d’apprentissage. Nous sommes heureux de vous présenter les établissements avec lesquels nous
+    collaborons pour vous offrir une expérience de qualité dans un cadre magnifique.
   </p>
-  <div class="pools__grid">
+  <div class='pools__grid'>
     {
-      pools.map((pool) => (
+      poolsData.map((pool) => (
         <article
           class={`pool ${pool.name
-            .replace(/\s|_|\(|\)/g, "-")
-            .normalize("NFD")
-            .replace(/\p{Diacritic}/gu, "")
+            .replace(/\s|_|\(|\)/g, '-')
+            .normalize('NFD')
+            .replace(/\p{Diacritic}/gu, '')
             .toLowerCase()}`}
         >
-          <a href={pool.href} class="pool__link">
+          <a href={pool.href} class='pool__link'>
             <Image
-              class="pool__img"
-              src={images[`/src/assets/images/pools/${pool.image.path}`].default}
-              alt={pool.image.alt || ""}
+              class='pool__img'
+              src={pool.image.path}
+              alt={pool.image.alt || ''}
+              width={300}
+              height={300}
             />
-            <div class="pool__info">
-              <h3 class="pool__title">{pool.name}</h3>
-              <span class="pool__location">{pool.location}</span>
+            <div class='pool__info'>
+              <h3 class='pool__title'>{pool.name}</h3>
+              <span class='pool__location'>{pool.location}</span>
             </div>
           </a>
         </article>
       ))
     }
     <article class=`pool`>
-      <a
-        href="/contact?option=autres-questions-ou-suggestions"
-        class="pool__link"
-      >
-        <div class="pool__info">
+      <a href='/contact?option=autres-questions-ou-suggestions' class='pool__link'>
+        <div class='pool__info'>
           Vous souhaitez collaborer<br /> avec Maître-Baigneur ?
         </div>
       </a>
@@ -60,7 +53,7 @@ const pools = siteLinks.pools;
   </div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .pools__title {
     text-align: center;
   }
@@ -88,7 +81,8 @@ const pools = siteLinks.pools;
     border-radius: 25px;
     overflow: hidden;
     background-color: var(--color-bg-light-alt);
-    box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
+    box-shadow:
+      0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
       0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
     transition: all 0.3s ease-in-out;
     height: 250px;

@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,astro,md,json}\" --plugin=prettier-plugin-astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.1.4",
+    "@astrojs/react": "^4.1.5",
     "@astrojs/renderer-react": "^0.5.0",
     "@astrojs/sitemap": "^3.2.1",
     "@babel/core": "^7.26.0",
@@ -21,7 +21,7 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "aos": "^2.3.4",
-    "astro": "^5.1.6",
+    "astro": "^5.1.7",
     "astro-breadcrumbs": "^1.10.0",
     "astro-icon": "^0.8.2",
     "astro-navbar": "^1.2.3",
@@ -30,7 +30,7 @@
     "cssnano": "^6.1.2",
     "dotenv": "^16.4.7",
     "just-validate": "^4.3.0",
-    "postcss": "^8.5.0",
+    "postcss": "^8.5.1",
     "prettier": "^2.8.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
-    "@types/node": "^20.17.12",
+    "@types/node": "^20.17.14",
     "@types/uuid": "^9.0.8",
     "prettier": "^3.1.0",
     "prettier-plugin-astro": "^0.13.0",

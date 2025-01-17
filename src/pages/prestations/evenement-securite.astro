@@ -15,11 +15,12 @@ import evenement from '@assets/images/page-title/page_surveillance.jpg';
 //data
 const page = {
   metaTitle: 'Événements et sécurité',
-  description: '',
+  description:
+    'Maître-Baigneur vous propose une assistance complète pour tous vos besoins liés aux baignades et aux fêtes aquatiques, que ce soit pour des baptêmes, des mariages ou des autres événements. Notre équipe vous garantit une sécurité totale pour que vos invités puissent profiter pleinement de la baignade.  ',
   title: 'Événements et sécurité',
 
   image: {
-    jpg: evenement,
+    path: evenement,
     alt: "Couple de mariés se jettant à l'eau dans une piscine",
   },
 };
@@ -28,7 +29,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='event'>

@@ -10,7 +10,7 @@ pool: {
 
 Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux saveurs de la Provence. Tout près d’Aix-en-Provence, profitez d’un cadre propice à la détente pour vous adonner à de nombreuses activités : deux piscines, terrain de tennis, terrain de beach-volley et terrain de pétanque, nombreuses balades autour du domaine, etc.",
 	image: {
-		jpg: "page-title/page_kabanon-bassins.jpg",
+		path: "../../assets/images/page-title/page_kabanon-bassins.jpg",
 		alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 	},
 	address: "Chemin Aube, 13100 Saint-Marc-Jaumegarde, Aix-en-Provence France",
@@ -35,15 +35,15 @@ Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux sav
 	],
 	gallery: [
 		{
-			src: "kabanon/kabanon-1.jpg",
+			path: "../../assets/images/pools/kabanon/kabanon-1.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 		{
-			src: "kabanon/kabanon-2.jpg",
+			path: "../../assets/images/pools/kabanon/kabanon-2.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 		{
-			src: "kabanon/kabanon-3.jpg",
+			path: "../../assets/images/pools/kabanon/kabanon-3.jpg",
 			alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
 		},
 	]

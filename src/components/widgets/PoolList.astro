@@ -2,22 +2,19 @@
 // Framework imports
 import { Image } from 'astro:assets';
 
-// Utils & Data
-import site from '@assets/data/data.json';
-import { images } from '@utils/images';
-
-const { siteLinks } = site;
-const pools = siteLinks.pools;
+import poolsData from '@assets/data/pools.ts';
 ---
 
 <div>
   {
-    pools.map((pool) => (
+    poolsData.map((pool) => (
       <a href={pool.href}>
         <Image
           class='pool__img'
-          src={images[`/src/assets/images/pools/${pool.image.path}`].default}
+          src={pool.image.path}
           alt={pool.image.alt || ''}
+          width={48}
+          height={32}
         />
         <h4>{pool.name}</h4>
       </a>

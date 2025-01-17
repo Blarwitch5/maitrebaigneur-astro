@@ -1,52 +1,52 @@
 ---
-import CloseBtn from "@components/header/CloseBtn.astro";
-import Socials from "@components/Socials.astro";
-import Button from "@components/ui/Button.astro";
-import site from "@assets/data/data.json";
-import { Icon } from "astro-icon";
+import CloseBtn from '@components/header/CloseBtn.astro';
+import Socials from '@components/Socials.astro';
+import Button from '@components/ui/Button.astro';
+import site from '@assets/data/data.json';
+import { Icon } from 'astro-icon';
+
+import { Image } from 'astro:assets';
 
 const { siteLinks } = site;
 const secondaryNav = siteLinks.secondary;
 
 //data
+import logoImg from '@assets/images/logo.svg';
+
 const logo = {
-  src: "/images/logo.svg",
+  path: logoImg,
   width: 200,
   height: 200,
-  alt: "Logo Maître-Baigneur",
+  alt: 'Logo Maître-Baigneur',
 };
 ---
 
-<div id="modal" class="modal">
-  <div class="modal__content">
-    <img src={logo.src} alt={logo.alt} class="logo" width="200" />
-    <nav class="sidenav" id="side-navigation" aria-label="Maître-Baigneur">
-      <ul class="navbar-nav" role="menu" aria-label="Menu de navigation">
+<div id='modal' class='modal'>
+  <div class='modal__content'>
+    <Image src={logo.path} alt={logo.alt} class='logo' width='200' />
+    <nav class='sidenav' id='side-navigation' aria-label='Maître-Baigneur'>
+      <ul class='navbar-nav' role='menu' aria-label='Menu de navigation'>
         {
           secondaryNav.map((item) => (
             <>
               {item.children && (
-                <li class={`nav-item dropdown`} role="menuitem">
+                <li class={`nav-item dropdown`} role='menuitem'>
                   <Icon name={item.icon} />
                   <Button
-                    tabindex="0"
-                    class="nav-link dropdown__toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="dropdown"
+                    tabindex='0'
+                    class='nav-link dropdown__toggle'
+                    type='button'
+                    aria-expanded='false'
+                    aria-controls='dropdown'
                   >
                     {item.name}
-                    <Icon name="arrow_down" />
+                    <Icon name='arrow_down' />
                   </Button>
 
-                  <ul id="dropdown" class="dropdown__menu submenu" role="menu">
+                  <ul id='dropdown' class='dropdown__menu submenu' role='menu'>
                     {item.children.map((child) => (
-                      <li class={`nav-item submenu__item`} role="menuitem">
-                        <Button
-                          tabindex="0"
-                          class="nav-link dropdown__title"
-                          href={child.href}
-                        >
+                      <li class={`nav-item submenu__item`} role='menuitem'>
+                        <Button tabindex='0' class='nav-link dropdown__title' href={child.href}>
                           {child.name}
                         </Button>
                       </li>
@@ -57,19 +57,14 @@ const logo = {
               {!item.children && (
                 <li
                   class={`nav-item ${item.name
-                    .replace(/\s|_|\(|\)/g, "-")
-                    .normalize("NFD")
-                    .replace(/\p{Diacritic}/gu, "")
+                    .replace(/\s|_|\(|\)/g, '-')
+                    .normalize('NFD')
+                    .replace(/\p{Diacritic}/gu, '')
                     .toLowerCase()}`}
-                  role="menuitem"
+                  role='menuitem'
                 >
                   <Icon name={item.icon} />
-                  <Button
-                    tabindex="0"
-                    class="nav-link"
-                    href={item.href}
-                    newTab={item.inNewTab}
-                  >
+                  <Button tabindex='0' class='nav-link' href={item.href} newTab={item.inNewTab}>
                     {item.name}
                   </Button>
                 </li>
@@ -78,14 +73,14 @@ const logo = {
           ))
         }
       </ul>
-      <Socials iconVersion="light" />
+      <Socials iconVersion='light' />
     </nav>
     <!-- close button -->
     <CloseBtn />
   </div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .modal {
     height: 100%;
     // overflow: hidden;
@@ -100,10 +95,10 @@ const logo = {
     transition: transform 0.3s linear;
     transform: translateX(0%);
 
-    &[data-state="opened"] {
+    &[data-state='opened'] {
       transform: translateX(-100%);
     }
-    &[data-state="closed"] {
+    &[data-state='closed'] {
       transform: translateX(0%);
     }
 
@@ -216,7 +211,9 @@ const logo = {
       padding-inline: 2rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out 0.1s, margin-top 0.3s ease,
+      transition:
+        max-height 0.3s ease-out 0.1s,
+        margin-top 0.3s ease,
         padding-block 0.3s ease;
       background-color: hsla(var(--link-color-white-hsl), 0.1);
       border-radius: var(--small-border-radius);

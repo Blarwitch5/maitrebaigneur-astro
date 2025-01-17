@@ -23,7 +23,7 @@ const page = {
   title: 'Nos prestations',
 
   image: {
-    jpg: fallback,
+    path: fallback,
     alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
   },
 };
@@ -32,7 +32,7 @@ const page = {
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='services' aria-label="Les bassins d'apprentissage de Maître-Baigneur">

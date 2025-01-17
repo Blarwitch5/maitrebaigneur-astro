@@ -16,11 +16,12 @@ import contact from '@assets/images/page-title/page_contact.jpg';
 
 const page = {
   metaTitle: 'Nous contacter',
-  description: '',
+  description:
+    'Contactez Maître-Baigneur pour toutes vos questions sur nos cours de natation, nos services et nos activités aquatiques. Nous sommes à votre écoute !',
   title: 'Nous contacter',
 
   image: {
-    jpg: contact,
+    path: contact,
     alt: "Garçon sous l'eau tenant un téléphone près de son oreille",
   },
 };
@@ -31,7 +32,7 @@ import Form from '@components/forms/Form.tsx';
 <BaseLayout title={page.title} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='form' aria-label='Formulaire de contact'>

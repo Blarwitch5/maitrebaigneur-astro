@@ -14,10 +14,11 @@ import aquafitness from '@assets/images/page-title/page_aquafitness.jpg';
 //data
 const page = {
   metaTitle: 'Aquafitness',
-  description: '',
+  description:
+    "Découvrez l'aquafitness, une activité aquatique amusante et bénéfique pour votre forme. Avec Maître Baigneur, profitez de séances encadrées par des coachs qualifiés dans des bassins adaptés. Tonifiez votre corps tout en vous détendant grâce aux bienfaits de l'eau.",
   title: 'Aquafitness',
   image: {
-    jpg: aquafitness,
+    path: aquafitness,
     alt: "Personnes participant à un cours d'aquafitness dans une piscine",
   },
 };
@@ -27,7 +28,7 @@ import { Image } from 'astro:assets';
 <BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='aquafitness'>

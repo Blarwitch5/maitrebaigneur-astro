@@ -13,11 +13,12 @@ import fallback from '@assets/images/page-title/fallback.jpg';
 
 const page = {
   metaTitle: "Bassins d'apprentissage",
-  description: '',
+  description:
+    "Découvrez les bassins d'apprentissage de Maître-Baigneur, où nos éducateurs utilisent la pédagogie Maître-Baigneur pour enseigner la natation à des enfants de 3 à 12 ans.",
   title: "Bassins d'apprentissage",
 
   image: {
-    jpg: fallback,
+    path: fallback,
     alt: "Vue sur des pieds trempants dans l'eau d'une piscine",
   },
 };
@@ -26,7 +27,7 @@ const page = {
 <BaseLayout title={page.title} description={page.description}>
   <SkipToContent />
   <Header />
-  <PageTitle pageTitle={page.title} pageImagePath={page.image.jpg} pageImageAlt={page.image.alt} />
+  <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
 
   <Main>
     <section class='pools' aria-label="Les bassins d'apprentissage de Maître-Baigneur">

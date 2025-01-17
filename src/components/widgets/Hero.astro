@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
-import Socials from "@components/Socials.astro";
-import Button from "@components/ui/Button.astro";
-import Title from "@components/ui/Title.astro";
-import Waves from "@components/ui/shapes/Waves.astro";
+import { Image } from 'astro:assets';
+import Socials from '@components/Socials.astro';
+import Button from '@components/ui/Button.astro';
+import Title from '@components/ui/Title.astro';
+import Waves from '@components/ui/shapes/Waves.astro';
 
-import { images } from "@utils/images";
+import { images } from '@utils/images';
 
 interface Props {
   ariaLabel: string;
@@ -16,47 +16,47 @@ const { ariaLabel } = Astro.props;
 const heroImagePath = '/src/assets/images/hero.jpg';
 ---
 
-<section id="hero" class="hero" aria-label={ariaLabel}>
-  <div class="hero__img">
+<section id='hero' class='hero' aria-label={ariaLabel}>
+  <div class='hero__img'>
     <Image
-      src={images[heroImagePath].default}
+      src={heroImagePath}
       alt="Enfant s'amusant sous l'eau avec les pouces en l'air"
       width={1920}
       height={1080}
-      loading="eager"
+      loading='eager'
     />
   </div>
-  <div class="hero__content">
-    <Title level="1" class="hero__title" data-aos="fade-down">
+  <div class='hero__content'>
+    <Title level='1' class='hero__title' data-aos='fade-down'>
       Apprendre à nager en s'amusant <br /><span>avec Maître-Baigneur</span>
     </Title>
-    <div class="hero__cta">
+    <div class='hero__cta'>
       <Button
-        class="btn btn__outline--inverted"
-        data-aos="fade-right"
-        href="/contact"
-        aria-label="Contactez-nous"
+        class='btn btn__outline--inverted'
+        data-aos='fade-right'
+        href='/contact'
+        aria-label='Contactez-nous'
       >
         Contactez-nous
       </Button>
       <Button
-        data-aos="fade-left"
-        href="https://user.clicrdv.com/sarl-qfe"
-        rel="noopener"
-        class="hero-button btn btn__outline"
+        data-aos='fade-left'
+        href='https://user.clicrdv.com/sarl-qfe'
+        rel='noopener'
+        class='hero-button btn btn__outline'
         newTab
       >
         Je réserve mon cours
       </Button>
     </div>
   </div>
-  <div class="socials__wrapper">
-    <Socials iconVersion="light" />
+  <div class='socials__wrapper'>
+    <Socials iconVersion='light' />
   </div>
   <Waves />
 </section>
 
-<style lang="scss">
+<style lang='scss'>
   .hero {
     position: relative;
     height: 90vh;
@@ -73,7 +73,7 @@ const heroImagePath = '/src/assets/images/hero.jpg';
       justify-content: center;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         bottom: 0;
@@ -163,15 +163,14 @@ const heroImagePath = '/src/assets/images/hero.jpg';
     animation-timing-function: ease-out;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 20%;
       right: 25%;
       width: 33%;
       height: 33%;
       border: 2px solid;
-      border-color: hsla(var(--link-color-white-hsl), 0.8) transparent
-        transparent transparent;
+      border-color: hsla(var(--link-color-white-hsl), 0.8) transparent transparent transparent;
       border-radius: 50%;
       transform: rotate(45deg);
     }

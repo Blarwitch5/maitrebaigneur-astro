@@ -1,8 +1,12 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from 'astro/loaders';
+
 
 const poolsCollection = defineCollection({
-  type: "content",
-  schema: z.object({
+
+  loader: glob({ pattern: "**/*.md", base: "./src/content/bassins" }),
+
+  schema: ({image}) => z.object({
     metaTitle: z.string(),
     metaDesc: z.string(),
     title: z.string(),
@@ -11,7 +15,7 @@ const poolsCollection = defineCollection({
       location: z.string(),
       desc: z.string(),
       image: z.object({
-        jpg: z.string(),
+        path: image(),
         alt: z.string(),
       }),
       address: z.string(),
@@ -28,7 +32,7 @@ const poolsCollection = defineCollection({
       ),
       gallery: z.array(
         z.object({
-          src: z.string(),
+          path: image(),
           alt: z.string(),
         })
       ),

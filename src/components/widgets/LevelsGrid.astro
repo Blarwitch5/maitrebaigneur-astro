@@ -1,45 +1,43 @@
 ---
-import site from "@assets/data/data.json";
-import Title from "@components/ui/Title.astro";
-import { getImage } from "astro:assets";
-import { images } from "@utils/images";
+import Title from '@components/ui/Title.astro';
+import { getImage } from 'astro:assets';
+import levels from '@assets/data/levels.ts';
 
-const { swimmingLevels } = site;
-const levels = swimmingLevels;
-
-// Optimisez les images en background
+// Optimiser les images de fond au build
 const optimizedBackgrounds = await Promise.all(
   levels.map(async (level) => {
-    const imagePath = `/src/assets/images/niveaux/${level.image.jpg}`;
     const optimized = await getImage({
-      src: images[imagePath].default,
+      src: level.image.path,
       format: 'webp',
     });
     return {
       ...level,
-      backgroundImage: optimized.src
+      backgroundImage: optimized.src,
     };
   })
 );
 ---
 
-<div class="levels__grid">
+<div class='levels__grid'>
   {
     optimizedBackgrounds.map((level) => (
       <div
-        class="level panel"
-        style={`
-          background-image:linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%,	hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%), url(${level.backgroundImage});`}
+        class='level panel'
+        style={`background-image: linear-gradient(0deg, 
+          hsla(var(--link-color-primary-hsl), 1) 0%,
+          hsla(var(--link-color-primary-hsl), 1) 7%, 
+          hsla(var(--link-color-white-hsl), 0) 75%), 
+          url('${level.backgroundImage}');`}
       >
-        <p class=" vertical-txt">{level.name}</p>
-        <div class="level__content details">
-          <Title level="3" class="level__title">
+        <p class=' vertical-txt'>{level.name}</p>
+        <div class='level__content details'>
+          <Title level='3' class='level__title'>
             {level.name}
           </Title>
-          <p class="level__desc" set:html={level.desc} />
-          <ul class="hints">
+          <p class='level__desc' set:html={level.desc} />
+          <ul class='hints'>
             {level.hints.map((hint) => (
-              <li class="hint">{hint}</li>
+              <li class='hint'>{hint}</li>
             ))}
           </ul>
         </div>
@@ -48,7 +46,7 @@ const optimizedBackgrounds = await Promise.all(
   }
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .levels__grid {
     display: flex;
     width: 100%;
@@ -71,11 +69,14 @@ const optimizedBackgrounds = await Promise.all(
     flex: 0.5;
     margin: 10px;
     position: relative;
-    transition: flex 0.7s ease-in, filter 0.7s ease-in;
+    transition:
+      flex 0.7s ease-in,
+      filter 0.7s ease-in;
     display: flex;
     flex-direction: column;
     filter: grayscale(0.75);
-    box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
+    box-shadow:
+      0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
       0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 
     .vertical-txt {
@@ -84,7 +85,9 @@ const optimizedBackgrounds = await Promise.all(
       position: absolute;
       z-index: 30;
       opacity: 1;
-      transition: top 0.35s, opacity 0.3s ease-in 0.5s;
+      transition:
+        top 0.35s,
+        opacity 0.3s ease-in 0.5s;
       transform-origin: 0 0;
       font-size: 1.5rem;
       font-family: var(--ff-pacifico);
@@ -189,24 +192,24 @@ const optimizedBackgrounds = await Promise.all(
 </style>
 <script>
   function levelsGridSetup() {
-    const levels = document.querySelectorAll(".level");
+    const levels = document.querySelectorAll('.level');
     if (levels.length > 0) {
-      levels[0].classList.add("active");
+      levels[0].classList.add('active');
     }
 
     levels.forEach((level) => {
-      level.addEventListener("click", () => {
+      level.addEventListener('click', () => {
         removeActiveClasses(); // Add fuctions to remove active class first
-        level.classList.add("active");
+        level.classList.add('active');
       });
     });
 
     function removeActiveClasses() {
       levels.forEach((level) => {
-        level.classList.remove("active");
+        level.classList.remove('active');
       });
     }
   }
   levelsGridSetup();
-  document.addEventListener("astro:after-swap", levelsGridSetup);
+  document.addEventListener('astro:after-swap', levelsGridSetup);
 </script>
