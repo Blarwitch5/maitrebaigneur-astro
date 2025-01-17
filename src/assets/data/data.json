@@ -119,19 +119,5 @@
         "classes": "btn"
       }
     ]
-  },
-  "backup": {
-    "name": "Set Club",
-    "href": "/bassins/set-club",
-    "image": {
-      "src": "setclub.jpg",
-      "alt": "Bassin du Set Club"
-    },
-    "location": "Aix Ouest",
-    "address": "1335 Chemin de Granet, 13090 Aix-en-Provence",
-    "thumb": {
-      "jpg": "thumbnails/setclub-thumb.jpg",
-      "alt": "Bassin Set Club"
-    }
   }
 }
