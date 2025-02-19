@@ -18,7 +18,13 @@ export default defineConfig({
 	server: {
 		port: 8080,
 	},
-	integrations: [react(), sitemap()],
+	integrations: [
+		react(),
+		sitemap({
+			lastmod: new Date(),
+			changefreq: "weekly",
+		}),
+	],
 	renderOptions: {
 		imgSources: ["https://*.cdninstagram.com"],
 	},

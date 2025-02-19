@@ -4,7 +4,7 @@ const robotsTxt = `
 User-agent: *
 Allow: /
 
-Sitemap: ${new URL("sitemap-index.xml", import.meta.env.SITE).href}
+Sitemap: https://maitrebaigneur.com/sitemap-index.xml
 `.trim();
 
 export const GET: APIRoute = () => {
