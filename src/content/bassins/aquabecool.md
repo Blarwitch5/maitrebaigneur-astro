@@ -29,11 +29,11 @@ pool: {
 			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
 		},
 		{
-			path: "../../assets/images/pools/aquabecool/aquabecool-2.jpg",
+			path: "../../assets/images/pools/aquabecool/aquabecool-1.jpg",
 			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
 		},
 		{
-			path: "../../assets/images/pools/aquabecool/aquabecool-3.jpg",
+			path: "../../assets/images/pools/aquabecool/aquabecool-1.jpg",
 			alt: "Bassin de Aquabecool à Aix-en-Provence Sud"
 		}
 	]
