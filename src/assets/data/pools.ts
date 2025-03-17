@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 
 
 import kabanonImg from '../images/pools/kabanon.jpg';
-import aquabecoolImg from '../images/pools/aquabecool.jpg';
+import aquabecoolImg from '../images/pools/fallback.jpg';
 import kinemouvImg from '../images/pools/kinemouv.jpg';
 import planformImg from '../images/pools/planform.jpg';
 import lesTerrassesDuSunImg from '../images/pools/les-terrasses-du-sun.jpg';
