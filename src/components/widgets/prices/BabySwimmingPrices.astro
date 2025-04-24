@@ -1,38 +1,34 @@
 ---
-import Button from "@components/ui/Button.astro";
-import site from "@assets/data/prices.json";
-import { Icon } from "astro-icon";
-import Title from "@components/ui/Title.astro";
+import Button from '@components/ui/Button.astro';
+import site from '@assets/data/prices.json';
+import { Icon } from 'astro-icon';
+import Title from '@components/ui/Title.astro';
 
 const { prices } = site;
 const babySwimming = prices.babySwimming;
 ---
 
-<div class="packages-container baby-swimming">
+<div class='packages-container baby-swimming'>
   <div>
-    <div class="package">
-      <Title level="1" class="package__title">Les formules</Title>
-      <p class="package__info"><Icon name="warning" />2 parents par bébé</p>
+    <div class='package'>
+      <Title level='1' class='package__title'>Les formules</Title>
+      <p class='package__info'><Icon name='warning' />2 parents par bébé</p>
 
-      <ul class="package__list">
+      <ul class='package__list'>
         {
-          babySwimming.formula.map(
-            (item: { name: string; price: number; extraDesc?: string }) => {
-              return (
-                <li class="package__item">
-                  {item.name} <span class="package__price">{item.price}€</span>
-                  {item.extraDesc && (
-                    <span class="package__extra-desc">{item.extraDesc}</span>
-                  )}
-                </li>
-              );
-            }
-          )
+          babySwimming.formula.map((item: { name: string; price: number; extraDesc?: string }) => {
+            return (
+              <li class='package__item'>
+                {item.name} <span class='package__price'>{item.price}€</span>
+                {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
+              </li>
+            );
+          })
         }
       </ul>
       <Button
-        href="https://user.clicrdv.com/sarl-qfe"
-        class="btn btn__regular"
+        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+        class='btn btn__regular'
         newTab
       >
         Réserver

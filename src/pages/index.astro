@@ -1,18 +1,18 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import SkipToContent from "@components/ui/SkipToContent.astro";
-import Main from "@components/Main.astro";
-import Header from "@components/Header.astro";
-import Hero from "@components/widgets/Hero.astro";
-import Footer from "@components/Footer.astro";
-import Forces from "@components/widgets/Forces.astro";
-import Services from "@components/widgets/Services.astro";
-import BookingCta from "@components/widgets/BookingCta.astro";
-import PoolsCta from "@components/widgets/PoolsCta.astro";
-import Faq from "@components/widgets/Faq.astro";
-import LogoCarousel from "@components/widgets/LogoCarousel.astro";
-import Waves from "@components/ui/shapes/Waves.astro";
-import Title from "@components/ui/Title.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SkipToContent from '@components/ui/SkipToContent.astro';
+import Main from '@components/Main.astro';
+import Header from '@components/Header.astro';
+import Hero from '@components/widgets/Hero.astro';
+import Footer from '@components/Footer.astro';
+import Forces from '@components/widgets/Forces.astro';
+import Services from '@components/widgets/Services.astro';
+import BookingCta from '@components/widgets/BookingCta.astro';
+import PoolsCta from '@components/widgets/PoolsCta.astro';
+import Faq from '@components/widgets/Faq.astro';
+import LogoCarousel from '@components/widgets/LogoCarousel.astro';
+import Waves from '@components/ui/shapes/Waves.astro';
+import Title from '@components/ui/Title.astro';
 
 interface Props {
   title: string;
@@ -20,96 +20,81 @@ interface Props {
 }
 const page = {
   title:
-    "Plongez dans l’univers de Maître-Baigneur : Apprendre à nager et Bébé Nageur - La magie de la pédagogie",
+    'Plongez dans l’univers de Maître-Baigneur : Apprendre à nager et Bébé Nageur - La magie de la pédagogie',
   description:
     "Apprenez à nager avec nos cours de natation innovants et ludiques pour tous les âges à Aix-en-Provence. Découvrez nos cours bébé-nageur pour une initiation à l'eau, amusante mais sécurisée.",
-  image: "/images/og/og.jpg",
+  image: '/images/og/og.jpg',
 };
 ---
 
-<BaseLayout
-  title={page.title}
-  description={page.description}
-  openGraphImage={page.image}
->
+<BaseLayout title={page.title} description={page.description} openGraphImage={page.image}>
   <SkipToContent />
   <Header />
   <Main>
-    <Hero
-      ariaLabel="Bannière Maître-Baigneur, apprendre à nager à Aix-en-Provence"
-    />
-    <section class="faq" aria-label="Réponses aux questions fréquentes">
-      <div class="container">
-        <Title animate level="2">
+    <Hero ariaLabel='Bannière Maître-Baigneur, apprendre à nager à Aix-en-Provence' />
+    <section class='faq' aria-label='Réponses aux questions fréquentes'>
+      <div class='container'>
+        <Title animate level='2'>
           Plongez dans l’univers Maître-Baigneur : la magie de la pédagogie
         </Title>
 
         <p>
-          Bienvenue chez <span class="pacifico">Maître-Baigneur</span>,
+          Bienvenue chez <span class='pacifico'>Maître-Baigneur</span>,
         </p>
         <p>
-          Si c’est votre <strong>première visite</strong>, nous vous invitons à
-          vous inscrire à <a
-            href="https://user.clicrdv.com/sarl-qfe"
-            target="_blank">une séance découverte</a
-          >. Cela vous permettra de faire notre connaissance et de découvrir
-          notre pédagogie. Cette première séance nous aidera à évaluer si le
-          niveau de la classe est adapté à votre enfant ou s’il faut envisager
-          un changement de classe. Nous pourrons également estimer le nombre de
-          séances nécessaires pour votre enfant. Après cette séance découverte,
-          vous aurez toutes les informations nécessaires pour prendre la
-          meilleure décision pour votre enfant.
+          Si c’est votre <strong>première visite</strong>, nous vous invitons à vous inscrire à <a
+            href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+            target='_blank'>une séance découverte</a
+          >. Cela vous permettra de faire notre connaissance et de découvrir notre pédagogie. Cette
+          première séance nous aidera à évaluer si le niveau de la classe est adapté à votre enfant
+          ou s’il faut envisager un changement de classe. Nous pourrons également estimer le nombre
+          de séances nécessaires pour votre enfant. Après cette séance découverte, vous aurez toutes
+          les informations nécessaires pour prendre la meilleure décision pour votre enfant.
         </p>
         <p>
-          Pour faciliter votre arrivée, voici quelques indications :
-          Présentez-vous <strong>15 minutes avant le début de la séance</strong>
-          afin d’avoir le temps de préparer votre enfant et qu’il puisse être détendu
-          en arrivant au bord du bassin. Si possible, laissez votre enfant suivre
-          son cours à distance (sauf pour les bébés nageurs). Tous nos éducateurs
-          sont formés à la pédagogie Maître-Baigneur et prendront grand soin de lui.
+          Pour faciliter votre arrivée, voici quelques indications : Présentez-vous <strong
+            >15 minutes avant le début de la séance</strong
+          >
+          afin d’avoir le temps de préparer votre enfant et qu’il puisse être détendu en arrivant au
+          bord du bassin. Si possible, laissez votre enfant suivre son cours à distance (sauf pour les
+          bébés nageurs). Tous nos éducateurs sont formés à la pédagogie Maître-Baigneur et prendront
+          grand soin de lui.
         </p>
         <p>
-          Pour le règlement merci de <strong>prévoir l’appoint</strong>, le
-          règlement se fera au bord du bassin, vous aurez des <strong
-            >enveloppes</strong
-          > ainsi qu’<strong>un ticket</strong> à compléter sur place, il ne restera
-          plus qu’à glisser le tout dans la boîte au bord de la piscine.
+          Pour le règlement merci de <strong>prévoir l’appoint</strong>, le règlement se fera au
+          bord du bassin, vous aurez des <strong>enveloppes</strong> ainsi qu’<strong
+            >un ticket</strong
+          > à compléter sur place, il ne restera plus qu’à glisser le tout dans la boîte au bord de la
+          piscine.
         </p>
         <Faq />
       </div>
     </section>
 
-    <section class="forces bg-light" aria-label="Les atouts de Maître-Baigneur">
+    <section class='forces bg-light' aria-label='Les atouts de Maître-Baigneur'>
       <Waves atTopOfSection />
-      <div class="container" data-aos="zoom-in">
-        <Title animate level="2" class="forces__title">
+      <div class='container' data-aos='zoom-in'>
+        <Title animate level='2' class='forces__title'>
           Pourquoi apprendre à nager avec Maître-Baigneur ?
         </Title>
         <Forces />
       </div>
     </section>
-    <section
-      class="services"
-      aria-label="Liste des prestations proposées par Maître-Baigneur"
-    >
-      <div class="container services__wrapper">
-        <div class="services__infos" data-aos="fade-right">
-          <Title animate level="2" class="services__title">
-            Nos prestations aquatiques
-          </Title>
-          <p class="services__desc">
-            <span class="pacifico">Maître-Baigneur</span>, votre solution pour
-            apprendre à nager de manière ludique en toute sécurité dès l'âge de
-            3 ans. Nous proposons également des cours de bébé-nageur pour une
-            initiation à l'eau dès 3 mois. Outre nos services de natation, nous
-            organisons également des aquaversaires pour les plus grands et
-            sommes à votre disposition pour surveiller vos événements
-            aquatiques.
+    <section class='services' aria-label='Liste des prestations proposées par Maître-Baigneur'>
+      <div class='container services__wrapper'>
+        <div class='services__infos' data-aos='fade-right'>
+          <Title animate level='2' class='services__title'> Nos prestations aquatiques </Title>
+          <p class='services__desc'>
+            <span class='pacifico'>Maître-Baigneur</span>, votre solution pour apprendre à nager de
+            manière ludique en toute sécurité dès l'âge de 3 ans. Nous proposons également des cours
+            de bébé-nageur pour une initiation à l'eau dès 3 mois. Outre nos services de natation,
+            nous organisons également des aquaversaires pour les plus grands et sommes à votre
+            disposition pour surveiller vos événements aquatiques.
           </p>
           <p>
             <strong
-              >Rejoignez notre équipe d'experts dès aujourd'hui pour découvrir
-              les plaisirs de la natation !!</strong
+              >Rejoignez notre équipe d'experts dès aujourd'hui pour découvrir les plaisirs de la
+              natation !!</strong
             >
           </p>
         </div>
@@ -118,35 +103,30 @@ const page = {
     </section>
 
     <section
-      class="booking bg-primary dark"
+      class='booking bg-primary dark'
       aria-label="Commencer l'aventure Maître-Baigneur en réservant une séance"
     >
       <BookingCta />
     </section>
 
     <section
-      class="pools bg-light-alt"
+      class='pools bg-light-alt'
       aria-label="Découvrir les bassins d'apprentissage de Maître-Baigneur"
     >
       <Waves />
       <PoolsCta />
     </section>
 
-    <section
-      class="partners"
-      aria-label="Liste des partenaires qui soutiennent Maître-Baigneur"
-    >
-      <div class="container">
-        <Title animate level="3">
-          Partenaires : Une collaboration pour des services de qualité
-          supérieure
+    <section class='partners' aria-label='Liste des partenaires qui soutiennent Maître-Baigneur'>
+      <div class='container'>
+        <Title animate level='3'>
+          Partenaires : Une collaboration pour des services de qualité supérieure
         </Title>
         <p>
-          Nous sommes fiers de travailler avec des partenaires qui partagent
-          notre passion pour l'enseignement de la natation et la sécurité
-          aquatique. Nous les remercions chaleureusement pour leur soutien
-          constant sans lequel
-          <span class="pacifico">Maître-Baigneur</span> ne serait pas possible.
+          Nous sommes fiers de travailler avec des partenaires qui partagent notre passion pour
+          l'enseignement de la natation et la sécurité aquatique. Nous les remercions
+          chaleureusement pour leur soutien constant sans lequel
+          <span class='pacifico'>Maître-Baigneur</span> ne serait pas possible.
         </p>
         <LogoCarousel />
       </div>
@@ -155,7 +135,7 @@ const page = {
   <Footer />
 </BaseLayout>
 
-<style lang="scss">
+<style lang='scss'>
   /**
 	 * services section
 	 * */

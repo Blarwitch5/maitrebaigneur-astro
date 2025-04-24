@@ -1,7 +1,7 @@
 ---
-import Button from "@components/ui/Button.astro";
-import site from "@assets/data/prices.json";
-import Title from "@components/ui/Title.astro";
+import Button from '@components/ui/Button.astro';
+import site from '@assets/data/prices.json';
+import Title from '@components/ui/Title.astro';
 
 const { prices } = site;
 const swimmingPrices = prices.swimmingLessons;
@@ -10,37 +10,29 @@ const swimmingPricesHome = swimmingPrices.home;
 const swimmingPricesPool = swimmingPrices.pool;
 ---
 
-<div class="top">
-  <div class="top__toggle-btn">
-    <span class="top__toggle-btn-label top__toggle-btn-label--active"
-      >En bassin</span
-    >
-    <label class="top__toggle-btn-switch" for="checkbox">
-      <input
-        type="checkbox"
-        id="checkbox"
-        aria-label="Chenger entre bassin et domicile"
-      />
-      <span class="top__toggle-btn-slider top__toggle-btn-slider--round"></span>
+<div class='top'>
+  <div class='top__toggle-btn'>
+    <span class='top__toggle-btn-label top__toggle-btn-label--active'>En bassin</span>
+    <label class='top__toggle-btn-switch' for='checkbox'>
+      <input type='checkbox' id='checkbox' aria-label='Chenger entre bassin et domicile' />
+      <span class='top__toggle-btn-slider top__toggle-btn-slider--round'></span>
     </label>
-    <span class="top__toggle-btn-label">À domicile</span>
+    <span class='top__toggle-btn-label'>À domicile</span>
   </div>
 </div>
 
-<div class="packages-container swimming">
-  <div id="price-package-home">
-    <div class="package">
-      <Title level="1" class="package__title">Séance à l'unité</Title>
-      <ul class="package__list">
+<div class='packages-container swimming'>
+  <div id='price-package-home'>
+    <div class='package'>
+      <Title level='1' class='package__title'>Séance à l'unité</Title>
+      <ul class='package__list'>
         {
           swimmingPricesHome.formula.map(
             (item: { name: string; price: number; extraDesc?: string }) => {
               return (
-                <li class="package__item">
-                  {item.name} <span class="package__price">{item.price}€</span>
-                  {item.extraDesc && (
-                    <span class="package__extra-desc">{item.extraDesc}</span>
-                  )}
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
                 </li>
               );
             }
@@ -48,26 +40,24 @@ const swimmingPricesPool = swimmingPrices.pool;
         }
       </ul>
       <Button
-        href="https://user.clicrdv.com/sarl-qfe"
-        class="btn btn__regular"
+        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+        class='btn btn__regular'
       >
         Réserver
       </Button>
     </div>
   </div>
-  <div id="price-package-pool">
-    <div class="package">
-      <Title level="1" class="package__title">Séance à l'unité</Title>
-      <ul class="package__list">
+  <div id='price-package-pool'>
+    <div class='package'>
+      <Title level='1' class='package__title'>Séance à l'unité</Title>
+      <ul class='package__list'>
         {
           swimmingPricesPool.single.map(
             (item: { name: string; price: number; extraDesc?: string }) => {
               return (
-                <li class="package__item">
-                  {item.name} <span class="package__price">{item.price}€</span>
-                  {item.extraDesc && (
-                    <span class="package__extra-desc">{item.extraDesc}</span>
-                  )}
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
                 </li>
               );
             }
@@ -75,26 +65,24 @@ const swimmingPricesPool = swimmingPrices.pool;
         }
       </ul>
       <Button
-        href="https://user.clicrdv.com/sarl-qfe"
-        class="btn btn__regular"
+        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+        class='btn btn__regular'
         newTab
       >
         Réserver
       </Button>
     </div>
 
-    <div class="package">
-      <Title level="1" class="package__title">Les cartes</Title>
-      <ul class="package__list">
+    <div class='package'>
+      <Title level='1' class='package__title'>Les cartes</Title>
+      <ul class='package__list'>
         {
           swimmingPricesPool.cards.map(
             (item: { name: string; price: number; extraDesc?: string }) => {
               return (
-                <li class="package__item">
-                  {item.name} <span class="package__price">{item.price}€</span>
-                  {item.extraDesc && (
-                    <span class="package__extra-desc">{item.extraDesc}</span>
-                  )}
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
                 </li>
               );
             }
@@ -102,8 +90,8 @@ const swimmingPricesPool = swimmingPrices.pool;
         }
       </ul>
       <Button
-        href="https://user.clicrdv.com/sarl-qfe"
-        class="btn btn__regular"
+        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+        class='btn btn__regular'
         newTab
       >
         Réserver
@@ -112,7 +100,7 @@ const swimmingPricesPool = swimmingPrices.pool;
   </div>
 </div>
 
-<style lang="scss">
+<style lang='scss'>
   .packages-container {
     #price-package-home {
       display: none;
@@ -121,29 +109,29 @@ const swimmingPricesPool = swimmingPrices.pool;
 </style>
 <script>
   function swimmingPricesSetup() {
-    const checkBox = document.getElementById("checkbox") as HTMLInputElement;
-    const pricePackageHome = document.getElementById("price-package-home");
-    const pricePackagePool = document.getElementById("price-package-pool");
-    const labels = document.querySelectorAll(".top__toggle-btn-label");
+    const checkBox = document.getElementById('checkbox') as HTMLInputElement;
+    const pricePackageHome = document.getElementById('price-package-home');
+    const pricePackagePool = document.getElementById('price-package-pool');
+    const labels = document.querySelectorAll('.top__toggle-btn-label');
 
     function check() {
       if (checkBox && pricePackageHome && pricePackagePool && labels) {
         if (checkBox.checked) {
-          labels[0].classList.remove("top__toggle-btn-label--active");
-          labels[1].classList.add("top__toggle-btn-label--active");
-          pricePackageHome.style.display = "flex";
-          pricePackagePool.style.display = "none";
+          labels[0].classList.remove('top__toggle-btn-label--active');
+          labels[1].classList.add('top__toggle-btn-label--active');
+          pricePackageHome.style.display = 'flex';
+          pricePackagePool.style.display = 'none';
         } else {
-          labels[0].classList.add("top__toggle-btn-label--active");
-          labels[1].classList.remove("top__toggle-btn-label--active");
-          pricePackageHome.style.display = "none";
-          pricePackagePool.style.display = "flex";
+          labels[0].classList.add('top__toggle-btn-label--active');
+          labels[1].classList.remove('top__toggle-btn-label--active');
+          pricePackageHome.style.display = 'none';
+          pricePackagePool.style.display = 'flex';
         }
       }
     }
 
-    checkBox?.addEventListener("click", check);
+    checkBox?.addEventListener('click', check);
   }
   swimmingPricesSetup();
-  document.addEventListener("astro:after-swap", swimmingPricesSetup);
+  document.addEventListener('astro:after-swap', swimmingPricesSetup);
 </script>
