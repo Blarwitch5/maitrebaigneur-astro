@@ -4,6 +4,8 @@ import site from '@assets/data/prices.json';
 import { Icon } from 'astro-icon';
 import Title from '@components/ui/Title.astro';
 
+import { reservationLink } from '@assets/data/data.json';
+
 const { prices } = site;
 const babySwimming = prices.babySwimming;
 ---
@@ -26,13 +28,7 @@ const babySwimming = prices.babySwimming;
           })
         }
       </ul>
-      <Button
-        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
-        class='btn btn__regular'
-        newTab
-      >
-        Réserver
-      </Button>
+      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
     </div>
   </div>
 </div>

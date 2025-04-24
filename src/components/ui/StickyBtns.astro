@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
+
+import { reservationLink } from '@assets/data/data.json';
 ---
 
 <div class='sticky-btn'>
@@ -204,7 +206,7 @@ import { Icon } from 'astro-icon';
     }
   }
 </style>
-<script>
+<script define:vars={{ reservationLink }}>
   const stickyBtnsSetup = () => {
     type ButtonAction = 'show' | 'hide';
 
@@ -222,7 +224,7 @@ import { Icon } from 'astro-icon';
     }
 
     function handleBookingClick(): void {
-      openInNewTab('https://maitrebaigneur.liberfit.fr/customportal/login#%0A');
+      openInNewTab(reservationLink);
     }
 
     function handleWhatsAppClick(): void {

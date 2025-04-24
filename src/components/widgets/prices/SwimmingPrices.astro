@@ -8,6 +8,8 @@ const swimmingPrices = prices.swimmingLessons;
 const swimmingPricesHome = swimmingPrices.home;
 
 const swimmingPricesPool = swimmingPrices.pool;
+
+import { reservationLink } from '@assets/data/data.json';
 ---
 
 <div class='top'>
@@ -39,12 +41,7 @@ const swimmingPricesPool = swimmingPrices.pool;
           )
         }
       </ul>
-      <Button
-        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
-        class='btn btn__regular'
-      >
-        Réserver
-      </Button>
+      <Button href={reservationLink} class='btn btn__regular'> Réserver </Button>
     </div>
   </div>
   <div id='price-package-pool'>
@@ -64,13 +61,7 @@ const swimmingPricesPool = swimmingPrices.pool;
           )
         }
       </ul>
-      <Button
-        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
-        class='btn btn__regular'
-        newTab
-      >
-        Réserver
-      </Button>
+      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
     </div>
 
     <div class='package'>
@@ -89,13 +80,7 @@ const swimmingPricesPool = swimmingPrices.pool;
           )
         }
       </ul>
-      <Button
-        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
-        class='btn btn__regular'
-        newTab
-      >
-        Réserver
-      </Button>
+      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
     </div>
   </div>
 </div>

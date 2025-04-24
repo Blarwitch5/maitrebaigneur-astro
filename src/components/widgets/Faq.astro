@@ -6,6 +6,8 @@ import Button from '@components/ui/Button.astro';
 import pools from '@assets/data/pools.ts';
 const summerPools = pools.filter((pool) => pool.period === 'Summer');
 const allYearPools = pools.filter((pool) => pool.period === 'All year');
+
+import { reservationLink } from '@assets/data/data.json';
 ---
 
 <Accordion>
@@ -65,10 +67,8 @@ const allYearPools = pools.filter((pool) => pool.period === 'All year');
         Assurez-vous que vos enfants soient <span class='italic'>prêts et motivés</span>. Il est
         difficile d’apprendre à nager en restant sur le bord.
       </p><p>
-        Pour les plus jeunes, <a
-          href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
-          target='_blank'>la séance découverte</a
-        > permet également de déterminer si votre enfant est prêt ou s’il faut attendre encore un peu.
+        Pour les plus jeunes, <a href={reservationLink} target='_blank'>la séance découverte</a> permet
+        également de déterminer si votre enfant est prêt ou s’il faut attendre encore un peu.
         <strong>La séance découverte nécessite une réservation.</strong> Votre enfant bénéficie d’une
         place dans son groupe de niveau. Il ne s’agit pas d’une séance d’essai, mais bien d’une séance
         de découverte, qui doit donc être réglée avant son commencement.

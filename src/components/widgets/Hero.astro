@@ -7,6 +7,8 @@ import Waves from '@components/ui/shapes/Waves.astro';
 
 import { images } from '@utils/images';
 
+import { reservationLink } from '@assets/data/data.json';
+
 interface Props {
   ariaLabel: string;
 }
@@ -41,7 +43,7 @@ import hero from '@assets/images/hero.jpg';
       </Button>
       <Button
         data-aos='fade-left'
-        href='https://maitrebaigneur.liberfit.fr/customportal/login#%0A'
+        href={reservationLink}
         rel='noopener'
         class='hero-button btn btn__outline'
         newTab

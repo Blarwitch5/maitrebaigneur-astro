@@ -1,3 +1,6 @@
+import data from '../../assets/data/data.json' with { type: 'json' };
+const  reservationLink  = data.reservationLink;
+
 const BabySwimmerForm = () => {
   return (
     <fieldset className="form__section no-inputs" id="baby">
@@ -10,7 +13,7 @@ const BabySwimmerForm = () => {
       <a
         className="btn btn__regular"
         target="_blank"
-        href="https://maitrebaigneur.liberfit.fr/customportal/login#%0A"
+        href={reservationLink}
         rel="noopener noreferrer"
       >
         Je réserve maintenant

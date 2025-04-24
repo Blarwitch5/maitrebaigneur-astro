@@ -1,25 +1,13 @@
-import data from "@assets/data/data.json";
+import data from '../../assets/data/data.json' with { type: 'json' };
+import pools from '../../assets/data/pools.ts';
+console.log(pools)
+
+const reservationLink = data.reservationLink;
+
 import "./Form.scss";
 
-interface Pool {
-  name: string;
-  href: string;
-  thumb: {
-    jpg: string;
-    alt: string;
-  };
-}
-
-interface SiteData {
-  siteLinks: {
-    pools?: Pool[];
-  };
-}
-
-const { siteLinks } = data as SiteData;
-const pools = siteLinks?.pools || [];
-
 const SwimmingInStationForm = () => {
+
   return (
     <fieldset className="form__section no-inputs" id="swimming-station">
       <legend>Cours de natation en bassin d'apprentissage</legend>
@@ -32,7 +20,7 @@ const SwimmingInStationForm = () => {
       <a
         className="btn btn__regular"
         target="_blank"
-        href="https://maitrebaigneur.liberfit.fr/customportal/login#%0A"
+        href={reservationLink}
         rel="noopener noreferrer"
       >
         Je réserve maintenant
@@ -40,11 +28,14 @@ const SwimmingInStationForm = () => {
       <div className="pools">
         <h3>Nos bassins d'apprentissage</h3>
         <ul>
-          {pools.map((item) => (
+          {
+          pools.map((item) => (
             <li key={item.name}>
               <a href={item.href}>
-                <img loading="lazy" src={item.thumb.jpg} alt={item.thumb.alt} />
+                <img loading="lazy" src={item.image.path.src} alt={item.image.alt} />
                 <span>{item.name}</span>
+                
+
               </a>
             </li>
           ))}
