@@ -34,8 +34,6 @@ const SwimmingInStationForm = () => {
               <a href={item.href}>
                 <img loading="lazy" src={item.image.path.src} alt={item.image.alt} />
                 <span>{item.name}</span>
-                
-
               </a>
             </li>
           ))}

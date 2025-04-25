@@ -10,6 +10,7 @@ import leCarreDOImg from '../images/pools/le-carre-d-o.jpg';
 import saintMaximinImg from '../images/pools/saint-maximin.jpg';
 import saintMaximinBalneoImg from '../images/pools/saint-maximin-balneo.jpg';
 import domicileImg from '../images/pools/domicile.jpg';
+import hygieSportSanteImg from '../images/pools/hygie-sport-sante.jpg';
 
 
 interface Pool {
@@ -123,6 +124,17 @@ const pools: Pool[] = [
     "address": "Saint-Maximin",
     
   },
+  {
+    "name": "Hygie Sport Santé",
+    "href": "/bassins/hygie-sport-sante",
+    "image": {
+      "path": hygieSportSanteImg,
+      "alt": "Bassin à Bouc-Bel-Air"
+    },
+    "period": "All year",
+    "location": "Bouc-Bel-Air",
+    "address": "55 Chemin de le pinède, 13320 Bouc-Bel-Air"
+    },
   {
     "name": "Domicile",
     "href": "/bassins/domicile",

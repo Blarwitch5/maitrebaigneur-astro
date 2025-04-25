@@ -70,6 +70,10 @@
             "href": "/bassins/saint-maximin-balneo",
             "name": "Saint-Maximin Balnéo"
           },
+          {
+            "href": "/bassins/hygie-sport-sante",
+            "name": "Hygie Sport Santé"
+          },
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
         ],
