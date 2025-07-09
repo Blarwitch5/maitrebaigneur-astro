@@ -1,6 +1,5 @@
 import data from '../../assets/data/data.json' with { type: 'json' };
 import pools from '../../assets/data/pools.ts';
-console.log(pools)
 
 const reservationLink = data.reservationLink;
 

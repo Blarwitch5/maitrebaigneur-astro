@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 
-import OptionsRadioBtn from "@components/forms/OptionsRadioBtn";
-import SwimmingForm from "@components/forms/SwimmingForm";
-import AquaversaryForm from "@components/forms/AquaversaryForm";
-import SurveillanceForm from "@components/forms/SurveillanceForm";
-import ContactForm from "@components/forms/ContactForm";
-import BabySwimmerForm from "@components/forms/BabySwimmerForm";
-import SwimminginstationForm from "@components/forms/SwimmingInStationForm";
+import OptionsRadioBtn from "./OptionsRadioBtn.tsx";
+import SwimmingForm from "./SwimmingForm.tsx";
+import AquaversaryForm from "./AquaversaryForm.tsx";
+import SurveillanceForm from "./SurveillanceForm.tsx";
+import ContactForm from "./ContactForm.tsx";
+import BabySwimmerForm from "./BabySwimmerForm.tsx";
+import SwimminginstationForm from "./SwimmingInStationForm.tsx";
 
-// Import the options data from the JSON file
-import optionsData from "../../assets/data/formOptions.json";
+// Import the options data from the JSON file with the new Astro syntax
+import optionsData from "../../assets/data/formOptions.json" with { type: "json" };
 
 // Define the Option type
 interface Option {

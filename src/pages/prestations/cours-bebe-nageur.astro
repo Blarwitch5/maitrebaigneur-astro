@@ -94,12 +94,30 @@ const page = {
               })
             }
           </div>
+          <div class='baby-swimmer__info'>
+            <h3>Informations importantes</h3>
+            <ul>
+              <li>Les cours durent <strong>30 minutes</strong>.</li>
+              <li>Les cours sont exclusivement réservés aux bébés.</li>
+              <li>
+                Pour ceux qui ne sont <strong>pas encore totalement propres</strong>, une <strong>
+                  couche aquatique est obligatoire
+                </strong>, portée sous le maillot de bain de leur choix, afin d'assurer un bon
+                maintien.
+              </li>
+              <li>
+                Les parents peuvent accompagner leur enfant seul ou à deux, avec le maillot de bain
+                de leur choix.
+              </li><li>Le port du bonnet et des lunettes de piscine n’est pas obligatoire.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
     <section>
       <div class='container'>
         <Title animate level='3'>Tarifs Bébé Baigneur</Title>
+
         <BabySwimmingPrices />
       </div>
     </section>
@@ -122,6 +140,16 @@ const page = {
     }
     &__title {
       grid-column: 1 / span 2;
+
+      @media screen and (max-width: 768px) {
+        grid-column: 1 / span 1;
+      }
+    }
+    &__info {
+      grid-column: 1 / span 2;
+      padding: var(--space-md);
+      background-color: var(--color-bg-light-alt);
+      border-radius: var(--regular-border-radius);
 
       @media screen and (max-width: 768px) {
         grid-column: 1 / span 1;

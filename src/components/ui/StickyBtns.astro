@@ -208,14 +208,13 @@ import { reservationLink } from '@assets/data/data.json';
 </style>
 <script define:vars={{ reservationLink }}>
   const stickyBtnsSetup = () => {
-    type ButtonAction = 'show' | 'hide';
+    const stickyBtns = document.querySelector('.sticky-btn');
+    const bookingBtn = document.getElementById('booking');
+    const whatsappBtn = document.getElementById('whatsapp');
+    const googleBtn = document.getElementById('google');
+    const facebookBtn = document.getElementById('facebook');
 
-    const stickyBtns = document.querySelector('.sticky-btn') as HTMLElement;
-    const bookingBtn = document.getElementById('booking') as HTMLElement;
-    const whatsappBtn = document.getElementById('whatsapp') as HTMLElement;
-    const googleBtn = document.getElementById('google') as HTMLElement;
-    const facebookBtn = document.getElementById('facebook') as HTMLElement;
-    function openInNewTab(url: string): void {
+    function openInNewTab(url) {
       const a = document.createElement('a');
       a.href = url;
       a.target = '_blank';
@@ -223,25 +222,25 @@ import { reservationLink } from '@assets/data/data.json';
       a.click();
     }
 
-    function handleBookingClick(): void {
+    function handleBookingClick() {
       openInNewTab(reservationLink);
     }
 
-    function handleWhatsAppClick(): void {
+    function handleWhatsAppClick() {
       openInNewTab('https://wa.me/+33677007584');
     }
 
-    function handleGoogleClick(): void {
+    function handleGoogleClick() {
       openInNewTab(
         'https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,'
       );
     }
 
-    function handleFacebookClick(): void {
+    function handleFacebookClick() {
       openInNewTab('https://www.facebook.com/MaitreBaigneur/reviews');
     }
 
-    function scrollFunction(): void {
+    function scrollFunction() {
       const scroll = document.body.scrollTop || document.documentElement.scrollTop;
       const subBtns = [bookingBtn, whatsappBtn, googleBtn, facebookBtn];
 
@@ -259,21 +258,22 @@ import { reservationLink } from '@assets/data/data.json';
 
     window.addEventListener('scroll', scrollFunction);
 
-    const mainBtn = document.getElementById('main-btn') as HTMLElement;
-    const subBtns = document.querySelector('.sub-btns') as HTMLElement;
-    const childButtons = Array.from(subBtns.children, (child) => child as HTMLElement).reverse();
+    const mainBtn = document.getElementById('main-btn');
+    const subBtns = document.querySelector('.sub-btns');
+    const childButtons = Array.from(subBtns.children).reverse();
 
     childButtons.forEach((btn) => {
-      (btn as HTMLElement).style.opacity = '0';
+      btn.style.opacity = '0';
     });
 
-    function animateButtons(buttons: HTMLElement[], action: ButtonAction): void {
+    function animateButtons(buttons, action) {
       buttons.forEach((btn, index) => {
         setTimeout(() => {
           btn.style.opacity = action === 'show' ? '1' : '0';
         }, index * 100);
       });
     }
+
     mainBtn.addEventListener('click', function () {
       const isExpanded = mainBtn.getAttribute('aria-expanded') === 'true';
 

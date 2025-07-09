@@ -55,7 +55,6 @@
             "name": "Kabanon des écuries de l'aube"
           },
           { "href": "/bassins/aquabecool", "name": "Aquabecool" },
-          { "href": "/bassins/plan-form", "name": "Plan Form" },
           {
             "href": "/bassins/les-terrasses-du-sun",
             "name": "Les Terrasses du Sun"
@@ -70,10 +69,7 @@
             "href": "/bassins/saint-maximin-balneo",
             "name": "Saint-Maximin Balnéo"
           },
-          {
-            "href": "/bassins/hygie-sport-sante",
-            "name": "Hygie Sport Santé"
-          },
+
           { "href": "/bassins/domicile", "name": "Domicile" },
           { "href": "/bassins", "name": "Tous les bassins" }
         ],
@@ -126,4 +122,3 @@
   },
   "reservationLink": "https://maitrebaigneur.liberfit.fr/customportal/login#%0A"
 }
-

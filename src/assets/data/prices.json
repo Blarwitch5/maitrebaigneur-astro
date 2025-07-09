@@ -9,9 +9,14 @@
         ],
         "cards": [
           {
+            "name": "Carte 5 séances",
+            "price": 115,
+            "extraDesc": "Soit 23 € la séance par baigneur, valable 3 mois à partir de la 1ère séance "
+          },
+          {
             "name": "Carte 10 séances",
             "price": 190,
-            "extraDesc": "Soit 19 € la séance par baigneur, valable 12 mois à partir de la 1ère séance "
+            "extraDesc": "Soit 19 € la séance par baigneur, valable 6 mois à partir de la 1ère séance "
           },
           {
             "name": "Carte 30 séances",
@@ -40,11 +45,16 @@
       "formula": [
         { "name": "Séance découverte", "price": 20 },
         { "name": "Séance unique", "price": 25 },
+        {
+          "name": "Carte 5 séances",
+          "price": 115,
+          "extraDesc": "Soit 23 € la séance par bébé, valable 3 mois à partir de la 1ère séance "
+        },
 
         {
           "name": "Carte de 10 séances",
           "price": 190,
-          "extraDesc": "Soit 19 € la séance par bébé, valable 12 mois à partir de la 1ère séance "
+          "extraDesc": "Soit 19 € la séance par bébé, valable 6 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte de 30 Séances ",
@@ -52,9 +62,9 @@
           "extraDesc": "Soit 16 € la séance par bébé, valable 12 mois à partir de la 1ère séance "
         },
         {
-          "name": "Abonnement 12 mois",
-          "price": 550,
-          "extraDesc": "Maximum une séance par semaine soit 11€ par séance pour 52 séances sur une année"
+          "name": "Abonnement individuel de 6 mois",
+          "price": 390,
+          "extraDesc": "Maximum une séance par semaine soit 15€ par séance "
         }
       ]
     },
