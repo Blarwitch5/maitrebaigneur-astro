@@ -15,6 +15,7 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/renderer-react": "^0.5.0",
     "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/vercel": "^8.2.1",
     "@babel/core": "^7.26.10",
     "@glidejs/glide": "^3.7.1",
     "@hookform/resolvers": "^3.10.0",
