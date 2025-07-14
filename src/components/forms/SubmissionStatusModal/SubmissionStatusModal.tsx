@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from 'react';
 
-import "./SubmissionStatusModal.scss";
+import './SubmissionStatusModal.scss';
 
-import iconSuccess from "../../../icons/fun.svg";
-import iconError from "../../../icons/error.svg";
+import iconSuccess from '../../../icons/fun.svg';
+import iconError from '../../../icons/error.svg';
 
 // import AnimatedIcon from "./AnimatedIcon"; // Remplacez par votre icône animée ou image
 
@@ -12,10 +12,7 @@ interface SubmissionStatusModalProps {
   onClose: () => void;
 }
 
-const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
-  isSuccess,
-  onClose,
-}) => {
+const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({ isSuccess, onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Ouvrir la modal lorsque des propriétés sont reçues
@@ -24,22 +21,20 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
   }, []);
 
   // Fermer la modal en cliquant à l'extérieur
-  const handleOutsideClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const handleOutsideClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Escape") {
+    if (event.key === 'Escape') {
       onClose();
     }
   };
 
   const handleEscapeKey = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         onClose();
       }
     },
@@ -47,16 +42,16 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
   );
 
   useEffect(() => {
-    window.addEventListener("keydown", handleEscapeKey);
+    window.addEventListener('keydown', handleEscapeKey);
     return () => {
-      window.removeEventListener("keydown", handleEscapeKey);
+      window.removeEventListener('keydown', handleEscapeKey);
     };
   }, [handleEscapeKey]);
 
   return (
     <div
-      className={`submission-status-modal ${isVisible ? "visible" : ""} ${
-        isSuccess ? "success" : "error"
+      className={`submission-status-modal ${isVisible ? 'visible' : ''} ${
+        isSuccess ? 'success' : 'error'
       }`}
       onClick={handleOutsideClick}
       onKeyDown={handleKeyDown}
@@ -70,36 +65,23 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({
         </button>
         {isSuccess ? (
           <>
-            <img
-              src={iconSuccess.src}
-              width="128"
-              height="128"
-              alt="Petit baigneur satisfait"
-            />
+            <img src={iconSuccess.src} width="128" height="128" alt="Petit baigneur satisfait" />
             <h2>Formulaire envoyé avec succès!</h2>
             <p>
-              Félicitations ! Votre formulaire a bien été soumis. Nous vous
-              remercions pour votre message et nous nous efforcerons de vous
-              répondre dans les plus brefs délais.
+              Félicitations ! Votre formulaire a bien été soumis. Nous vous remercions pour votre
+              message et nous nous efforcerons de vous répondre dans les plus brefs délais.
             </p>
           </>
         ) : (
           <>
-            <img
-              src={iconError.src}
-              width="128"
-              height="128"
-              alt="Petit baigneur mécontent"
-            />
+            <img src={iconError.src} width="128" height="128" alt="Petit baigneur mécontent" />
             <h2>Oops! Quelque chose s'est mal passé...</h2>
 
             <p>
-              Nous rencontrons actuellement des difficultés pour traiter votre
-              formulaire. Veuillez réessayer ultérieurement ou contacter notre
-              <a href="mailto:support@maitrebaigneur.com">
-                équipe d'assistance technique
-              </a>
-              . Nous nous excusons pour les désagréments occasionnés.
+              Nous rencontrons actuellement des difficultés pour traiter votre formulaire. Veuillez
+              réessayer ultérieurement ou contacter notre{' '}
+              <a href="mailto:support@maitrebaigneur.com">équipe d'assistance technique</a>. Nous
+              nous excusons pour les désagréments occasionnés.
             </p>
           </>
         )}

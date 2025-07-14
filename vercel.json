@@ -12,7 +12,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' *.cdninstagram.com data:; media-src 'self' *.cdninstagram.com; connect-src 'self' graph.instagram.com vitals.vercel-insights.com https://formcarry.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' ;"
+          "value": "default-src 'self'; img-src 'self' *.cdninstagram.com data:; media-src 'self' *.cdninstagram.com; connect-src 'self' graph.instagram.com vitals.vercel-insights.com https://formcarry.com https://formcarry.io https://*.formcarry.com https://*.formcarry.io; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' ;"
         },
         {
           "key": "X-Content-Type-Options",
