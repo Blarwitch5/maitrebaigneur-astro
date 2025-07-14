@@ -7,7 +7,7 @@
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
           { "name": "Leçon privée", "price": 35 }
         ],
-        "cards": [
+        "formula": [
           {
             "name": "Carte 5 séances",
             "price": 115,
@@ -22,6 +22,11 @@
             "name": "Carte 30 séances",
             "price": 480,
             "extraDesc": "Soit 16 € la séance par baigneur, valable 12 mois à partir de la 1ère séance "
+          },
+          {
+            "name": "Abonnement individuel de 6 mois",
+            "price": 390,
+            "extraDesc": "Maximum une séance par semaine soit 15€ par séance "
           }
         ]
       },

@@ -65,10 +65,10 @@ import { reservationLink } from '@assets/data/data.json';
     </div>
 
     <div class='package'>
-      <Title level='1' class='package__title'>Les cartes</Title>
+      <Title level='1' class='package__title'>Cartes et abonnements</Title>
       <ul class='package__list'>
         {
-          swimmingPricesPool.cards.map(
+          swimmingPricesPool.formula.map(
             (item: { name: string; price: number; extraDesc?: string }) => {
               return (
                 <li class='package__item'>
