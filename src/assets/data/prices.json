@@ -24,9 +24,9 @@
             "extraDesc": "Soit 16 € la séance par baigneur, valable 12 mois à partir de la 1ère séance "
           },
           {
-            "name": "Abonnement individuel de 6 mois",
-            "price": 390,
-            "extraDesc": "Maximum une séance par semaine soit 15€ par séance "
+            "name": "Abonnement individuel de 10 mois",
+            "price": 550,
+            "extraDesc": "Maximum une séance par semaine soit 13€ par séance | possibilité de paiement en 5 fois sans frais"
           }
         ]
       },
@@ -67,9 +67,9 @@
           "extraDesc": "Soit 16 € la séance par bébé, valable 12 mois à partir de la 1ère séance "
         },
         {
-          "name": "Abonnement individuel de 6 mois",
-          "price": 390,
-          "extraDesc": "Maximum une séance par semaine soit 15€ par séance "
+          "name": "Abonnement individuel de 10 mois",
+          "price": 550,
+          "extraDesc": "Maximum une séance par semaine soit 13€ par séance | possibilité de paiement en 5 fois sans frais"
         }
       ]
     },
