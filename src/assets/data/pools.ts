@@ -8,8 +8,6 @@ import leCarreDOImg from '../images/pools/le-carre-d-o.jpg';
 import saintMaximinImg from '../images/pools/saint-maximin.jpg';
 import saintMaximinBalneoImg from '../images/pools/saint-maximin-balneo.jpg';
 import domicileImg from '../images/pools/domicile.jpg';
-// import hygieSportSanteImg from '../images/pools/hygie-sport-sante.jpg';
-// import planformImg from '../images/pools/planform.jpg';
 
 interface Pool {
   name: string;
@@ -82,7 +80,7 @@ const pools: Pool[] = [
     address: '23 avenue de la Sainte Victoire 13100 Aix-en-Provence',
   },
   {
-    name: 'Saint-Maximin été',
+    name: 'Saint-Maximin Summer',
     href: '/bassins/saint-maximin-ete',
     image: {
       path: saintMaximinImg,
@@ -128,7 +126,7 @@ export default pools;
 //       path: domicileImg,
 //       alt: 'Bassin de Plan Form',
 //     },
-//     period: 'All year',
+//     period: 'Toute l\'année',
 //     location: 'Cabriès',
 //     address: '',
 //   },
@@ -139,7 +137,7 @@ export default pools;
 //       path: domicileImg,
 //       alt: 'Bassin à Bouc-Bel-Air',
 //     },
-//     period: 'All year',
+//     period: 'Toute l\'année',
 //     location: 'Bouc-Bel-Air',
 //     address: '55 Chemin de le pinède, 13320 Bouc-Bel-Air',
 //   },

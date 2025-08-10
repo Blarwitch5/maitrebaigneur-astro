@@ -38,6 +38,13 @@ import poolsData from '@assets/data/pools.ts';
             <div class='pool__info'>
               <h3 class='pool__title'>{pool.name}</h3>
               <span class='pool__location'>{pool.location}</span>
+              <span class='pool__period'>
+                {pool.period === 'All year'
+                  ? "Toute l'année"
+                  : pool.period === 'Summer'
+                    ? 'Été'
+                    : pool.period}
+              </span>
             </div>
           </a>
         </article>
@@ -106,6 +113,10 @@ import poolsData from '@assets/data/pools.ts';
       margin: 0 !important;
     }
 
+    &__period {
+      color: var(--color-white);
+    }
+
     &__link {
       text-decoration: none;
       display: flex;
@@ -142,8 +153,8 @@ import poolsData from '@assets/data/pools.ts';
       width: 80%;
     }
     &__location {
-      position: absolute;
-      bottom: -1rem;
+      // position: absolute;
+      // bottom: -1rem;
       background: hsla(var(--link-color-white-hsl), 0.7);
       padding: 0.1rem 1rem;
       border-radius: 100vh;
