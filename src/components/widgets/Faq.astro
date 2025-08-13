@@ -8,6 +8,7 @@ const summerPools = pools.filter((pool) => pool.period === 'Summer');
 const allYearPools = pools.filter((pool) => pool.period === 'All year');
 
 import { reservationLink } from '@assets/data/data.json';
+const shopLink = reservationLink;
 ---
 
 <Accordion>
@@ -85,24 +86,14 @@ import { reservationLink } from '@assets/data/data.json';
       <p></p>
       <AccordionItem header='Quelles sont les modalités de paiement ?' index='3'>
         <p>
-          Le règlement s’effectue lors de la première séance. Des enveloppes et des tickets
-          d’encaissement sont à votre disposition.
+          Le règlement s’effectue avant la réservation directement sur <a href={shopLink}
+            >notre boutique en ligne</a
+          >.
 
-          <ul>
-            <li>
-              <strong>Pour les chèques :</strong> Ils sont acceptés uniquement pour les paiements en
-              plusieurs fois, comme pour les abonnements ou les cartes de plusieurs séances. Les chèques
-              doivent être libellés à l’ordre de Maître Baigneur. N’oubliez pas d’inscrire au dos le
-              prénom et le nom du baigneur ainsi que les dates d’encaissement si vous payez avec plusieurs
-              chèques.
-            </li>
-          </ul>
-          <br />
-          <strong>Attention :</strong> Nos prestations doivent être réglées avant le début de la séance.
-          Par exemple, une carte de 5 séances à 100€ doit être réglée en une seule fois lors de la première
-          séance. Nous débitons informatiquement vos crédits au fur et à mesure des séances. Les règlements
-          à la séance ne sont acceptés que pour les séances à l’unité. Par exemple, une séance de natation
-          coûte 25€ pour un baigneur.
+          <br /><br />
+          <strong>Informations utiles :</strong>
+          Nous proposons des paiements en plusieurs fois sans frais pour les plus gros abonnements (carte
+          de 30 ou abonnement annuel).
         </p>
       </AccordionItem>
       <AccordionItem header="En cas d'empêchement ?" index='4'>
@@ -164,21 +155,20 @@ import { reservationLink } from '@assets/data/data.json';
       </AccordionItem>
 
       <AccordionItem header='À partir de quel âge ?' index='6'>
+        <p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
+
         <p>
-          Nous leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les
+          Nos leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les
           âges.
         </p><p>
           <strong>Il n'est jamais trop tard !</strong>
         </p>
-        <p>Nos cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois.</p>
       </AccordionItem>
       <AccordionItem header='Quels sont les tarifs de Maître-Baigneur ?' index='7'>
         <p>
           Nous avons créé une <Button href='/tarifs'>
             page dédiée aux tarifs Maître-Baigneur
-          </Button>. Vous y trouverez des prix attractifs pour des cours de natation ludiques et
-          efficaces. Ne manquez pas cette occasion de vous amuser tout en apprenant à nager avec nos
-          experts qualifiés.
+          </Button>. Vous y trouverez des prix attractifs pour des cours de natation.
         </p>
       </AccordionItem>
     </p>
