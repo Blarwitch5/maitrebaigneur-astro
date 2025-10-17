@@ -19,6 +19,11 @@ interface Pool {
   period: string;
   location: string;
   address: string;
+  services: {
+    name: string;
+    icon: string;
+    href: string;
+  }[];
 }
 
 const pools: Pool[] = [
@@ -32,6 +37,23 @@ const pools: Pool[] = [
     period: 'Summer',
     location: 'Saint-Marc-Jaumegarde',
     address: 'Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+      {
+        name: 'Aquafitness',
+        icon: 'swimmer',
+        href: '/prestations/aquafitness',
+      },
+    ],
   },
   {
     name: 'Aquabecool',
@@ -43,6 +65,13 @@ const pools: Pool[] = [
     period: 'All year',
     location: 'Aix Sud',
     address: 'Chemin de la Blaque, 13090 Aix-en-Provence',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+    ],
   },
 
   {
@@ -55,6 +84,18 @@ const pools: Pool[] = [
     period: 'All year',
     location: 'Pertuis',
     address: '434 Chemin de Saint-Martin, 84120 Pertuis',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+    ],
   },
 
   {
@@ -67,6 +108,13 @@ const pools: Pool[] = [
     period: 'Summer',
     location: 'Aix Sud Ouest',
     address: '165 Chem. de la Valette, 13290 Aix-en-Provence',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+    ],
   },
   {
     name: "Le Carré d'Ô",
@@ -78,6 +126,18 @@ const pools: Pool[] = [
     period: 'All year',
     location: 'Aix Centre',
     address: '23 avenue de la Sainte Victoire 13100 Aix-en-Provence',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+    ],
   },
   {
     name: 'Saint-Maximin Summer',
@@ -89,6 +149,18 @@ const pools: Pool[] = [
     period: 'Summer',
     location: 'Saint-Maximin',
     address: 'Saint-Maximin',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+    ],
   },
   {
     name: 'Saint-Maximin Balnéo',
@@ -100,6 +172,18 @@ const pools: Pool[] = [
     period: 'All year',
     location: 'Saint-Maximin',
     address: 'Saint-Maximin',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+    ],
   },
 
   {
@@ -112,6 +196,28 @@ const pools: Pool[] = [
     period: 'All year',
     location: '',
     address: '',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Cours Bébé nageur',
+        icon: 'baby',
+        href: '/prestations/cours-bebe-nageur',
+      },
+      {
+        name: 'Événements & Sécurité',
+        icon: 'event',
+        href: '/prestations/evenement-securite',
+      },
+      {
+        name: 'Aquaversaire',
+        icon: 'aquaversaire',
+        href: '/prestations/aquaversaire',
+      },
+    ],
   },
 ];
 
