@@ -1,3 +1,6 @@
 {
-	"cSpell.words": ["astrojs"]
+	"cSpell.words": ["astrojs"],
+	"eslint.enable": true,
+	"typescript.validate.enable": false,
+	"javascript.validate.enable": false
 }
