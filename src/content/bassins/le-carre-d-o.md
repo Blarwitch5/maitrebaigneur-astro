@@ -6,13 +6,7 @@ title: "Le Carré d'Ô"
 pool: {
 	name: "Le Carré d'Ô",
 	location: "Aix Centre",
-	desc: "<p>Le Carré d'Ô vous accueille chaque samedi et dimanche pour une expérience de baignade divertissante au centre ville d'Aix-en-Provence proche du parking Bellegarde . Nos cours de bébés nageurs (4-36 mois) et de natation (dès 3 ans ), vous permettant de découvrir le plaisir de nager tout en vous amusant. Les bassins de 8 mètres sur 5, avec une profondeur de 1,30 mètre, offrent un espace spacieux pour votre apprentissage.</p>
-
-<p>Notre établissement assure un environnement sécurisé et adapté aux bébés-nageurs, garantissant une introduction à l'eau en toute sécurité. Rejoignez-nous au Carré d'Ô pour des cours chaque samedi et dimanche, avec une température d'eau maintenue à 32 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p>
-
-<p>Notre établissement offre un environnement sécurisé et agréable, spécialement conçu pour les bébés-nageurs, garantissant une introduction à l'eau en toute sécurité.</p>
-
-<p>Rejoignez-nous au Le Carré d'Ô pour une expérience mémorable. Nos cours se déroulent chaque samedi matin, et la température de l'eau est maintenue à un agréable 30 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p>",
+	desc: "<p>Le Carré d'Ô vous accueille chaque samedi et dimanche pour une expérience de baignade divertissante au centre ville d'Aix-en-Provence proche du parking Bellegarde . Nos cours de bébés nageurs (4-36 mois) et de natation (dès 3 ans ), vous permettant de découvrir le plaisir de nager tout en vous amusant. Les bassins de 8 mètres sur 5, avec une profondeur de 1,30 mètre, offrent un espace spacieux pour votre apprentissage.</p><p>Notre établissement assure un environnement sécurisé et adapté aux bébés-nageurs, garantissant une introduction à l'eau en toute sécurité. Rejoignez-nous au Carré d'Ô pour des cours chaque samedi et dimanche, avec une température d'eau maintenue à 32 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p><p>Notre établissement offre un environnement sécurisé et agréable, spécialement conçu pour les bébés-nageurs, garantissant une introduction à l'eau en toute sécurité.</p><p>Rejoignez-nous au Le Carré d'Ô pour une expérience mémorable. Nos cours se déroulent chaque samedi matin, et la température de l'eau est maintenue à un agréable 30 degrés pour votre confort. Nous sommes impatients de vous accueillir et de vous faire découvrir la magie de la natation.</p>",
 	image: {
 		path: "../../assets/images/page-title/page_le-carre-d-o-bassins.jpg",
 		alt: "Bassin du Carré d'Ô à Aix Centre"

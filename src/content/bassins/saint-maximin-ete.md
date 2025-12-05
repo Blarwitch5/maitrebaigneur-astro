@@ -6,9 +6,7 @@ title: "Saint-Maximin été"
 pool: {
 	name: "Saint-Maximin été",
 	location: "Saint Maximin",
-	desc: "<p>Il ne manquait plus que ça à Saint Maximin: Dans ce bassin uniquement ouvert l'été, vos enfants pourrons découvrir les joies de l'eau. Chauffé et couvert, ils pourront nager quelque soit les conditions climatiques.</p><p>De mai a juin du lundi au dimanche, nous vous accueillons dans de l'eau maintenue à 30°C. Nos techniques d'apprentissages ludiques et rapides permettrons a vos enfants d'apprendre et progresser quel que soit leur niveau tout en s'amusant. Cours de bébé nageur à la demande, réflexes anti noyade et apprentissage de la natation à partir de 3 ans, et aquaphobie/
-perfectionnement pour les adultes.</p><p>N'hésitez plus et venez voir Florent à
-Saint Maximin.</p>",
+	desc: "<p>Il ne manquait plus que ça à Saint Maximin: Dans ce bassin uniquement ouvert l'été, vos enfants pourrons découvrir les joies de l'eau. Chauffé et couvert, ils pourront nager quelque soit les conditions climatiques.</p><p>De mai a juin du lundi au dimanche, nous vous accueillons dans de l'eau maintenue à 30°C. Nos techniques d'apprentissages ludiques et rapides permettrons a vos enfants d'apprendre et progresser quel que soit leur niveau tout en s'amusant. Cours de bébé nageur à la demande, réflexes anti noyade et apprentissage de la natation à partir de 3 ans, et aquaphobie/perfectionnement pour les adultes.</p><p>N'hésitez plus et venez voir Florent à Saint Maximin.</p>",
 
 	image: {
 		path: "../../assets/images/page-title/page_saintmaximin-bassins.jpg",
@@ -43,4 +41,3 @@ Saint Maximin.</p>",
 	]
 }
 ---
-

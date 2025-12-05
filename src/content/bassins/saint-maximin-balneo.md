@@ -8,11 +8,7 @@ title: "Saint-Maximin Balnéo"
 pool: {
 	name: "Saint-Maximin Balnéo",
 	location: "Saint Maximin",
-	desc: "<p>Plongez dans notre bassin chauffé à une température agréable de 33°C, avec une profondeur sécurisée de 1,20 m. Parfait pour la détente et la tranquillité d'esprit, notre piscine est idéale pour toute la famille.</p><ul><li>
-Natation : Apprenez à nager ou perfectionnez votre technique avec des cours adaptés à tous les âges et niveaux.</li><li>
-Bébés Nageurs : Offrez à votre enfant (3 mois à 3 ans) une initiation ludique à l’eau dans un cadre sécurisé.</li></ul>
-
-<p>Rejoignez-nous et découvrez les plaisirs de l’eau en toute sérénité !</p>",
+	desc: "<p>Plongez dans notre bassin chauffé à une température agréable de 33°C, avec une profondeur sécurisée de 1,20 m. Parfait pour la détente et la tranquillité d'esprit, notre piscine est idéale pour toute la famille.<ul><li>Natation : Apprenez à nager ou perfectionnez votre technique avec des cours adaptés à tous les âges et niveaux.</li><li>Bébés Nageurs : Offrez à votre enfant (3 mois à 3 ans) une initiation ludique à l’eau dans un cadre sécurisé.</li></ul></p><p>Rejoignez-nous et découvrez les plaisirs de l’eau en toute sérénité !</p>",
 	image: {
 		path: "../../assets/images/page-title/page_saintmaximin-balneo-bassins.jpg",
 		alt: "Bassin balnéothérapie à Saint-Maximin"
