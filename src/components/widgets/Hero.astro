@@ -15,18 +15,51 @@ interface Props {
 
 const { ariaLabel } = Astro.props;
 
-import hero from '@assets/images/hero.jpg';
+// Import des images hero disponibles
+import hero1 from '@assets/images/hero-1.jpg';
+import hero2 from '@assets/images/hero-2.jpg';
+import hero3 from '@assets/images/hero-3.jpg';
+import hero4 from '@assets/images/hero-4.jpg';
+
+// Tableau des images hero avec leurs alt text
+const heroImages = [
+  {
+    path: hero1,
+    alt: "Enfant plongeant sous l'eau rejoignant les bras du maître nageur",
+  },
+  {
+    path: hero2,
+    alt: 'Enfant apprenant à nager avec le maître nageur',
+  },
+  {
+    path: hero3,
+    alt: "Fille nageant sous l'eau avec un flotteur et ses lunettes de plongée",
+  },
+  {
+    path: hero4,
+    alt: 'Trois enfants nageant sur une planche vers le maître nageur',
+  },
+];
+
+// Sélection aléatoire de l'image de départ
+const startIndex = Math.floor(Math.random() * heroImages.length);
 ---
 
 <section id='hero' class='hero' aria-label={ariaLabel}>
   <div class='hero__img'>
-    <Image
-      src={hero}
-      alt="Enfant s'amusant sous l'eau avec les pouces en l'air"
-      width={1920}
-      height={1080}
-      loading='eager'
-    />
+    {
+      heroImages.map((hero, index) => (
+        <div class={`hero__img-item ${index === startIndex ? 'active' : ''}`} data-index={index}>
+          <Image
+            src={hero.path}
+            alt={hero.alt}
+            width={1920}
+            height={1080}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        </div>
+      ))
+    }
   </div>
   <div class='hero__content'>
     <Title level='1' class='hero__title' data-aos='fade-down'>
@@ -65,6 +98,7 @@ import hero from '@assets/images/hero.jpg';
     min-height: 550px;
 
     &__img {
+      z-index: 0;
       position: absolute;
       top: 0;
       bottom: 0;
@@ -73,6 +107,7 @@ import hero from '@assets/images/hero.jpg';
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
 
       &::before {
         content: '';
@@ -81,17 +116,35 @@ import hero from '@assets/images/hero.jpg';
         bottom: 0;
         left: 0;
         right: 0;
-        background: hsla(var(--link-color-black-hsl), 0.5);
-      }
-      picture {
-        height: 100%;
-        width: 100%;
+        background: hsla(var(--link-color-black-hsl), 0.4);
+        z-index: 2;
       }
 
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
+      &-item {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        z-index: 0;
+
+        &.active {
+          opacity: 1;
+          z-index: 1;
+        }
+
+        picture {
+          height: 100%;
+          width: 100%;
+        }
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
       }
     }
     &__content {
@@ -187,3 +240,64 @@ import hero from '@assets/images/hero.jpg';
     }
   }
 </style>
+
+<script>
+  (function () {
+    const heroImages = document.querySelectorAll('.hero__img-item');
+    if (heroImages.length <= 1) return;
+
+    // Créer un cycle aléatoire avec toutes les images
+    const createRandomCycle = () => {
+      const indices = Array.from({ length: heroImages.length }, (_, i) => i);
+      // Mélanger le tableau (algorithme Fisher-Yates)
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      return indices;
+    };
+
+    // Trouver l'index de l'image actuellement active
+    const activeIndex = Array.from(heroImages).findIndex((img) => img.classList.contains('active'));
+
+    // Créer le premier cycle aléatoire avec toutes les images
+    let currentCycle = createRandomCycle();
+    let cycleIndex = 0;
+
+    // Si une image est déjà active, commencer le cycle à l'image suivante
+    if (activeIndex !== -1) {
+      const activeInCycle = currentCycle.indexOf(activeIndex);
+      if (activeInCycle !== -1) {
+        // Commencer après l'image actuellement active
+        cycleIndex = (activeInCycle + 1) % currentCycle.length;
+      }
+    }
+
+    const changeImage = () => {
+      // Retirer la classe active de toutes les images
+      heroImages.forEach((img) => img.classList.remove('active'));
+
+      // Si on a fini le cycle, créer un nouveau cycle aléatoire
+      if (cycleIndex >= currentCycle.length) {
+        currentCycle = createRandomCycle();
+        cycleIndex = 0;
+      }
+
+      // Afficher l'image suivante du cycle
+      const nextIndex = currentCycle[cycleIndex];
+      heroImages[nextIndex].classList.add('active');
+
+      // Passer à l'image suivante
+      cycleIndex++;
+
+      // Si on a fini le cycle, créer un nouveau cycle pour la prochaine fois
+      if (cycleIndex >= currentCycle.length) {
+        currentCycle = createRandomCycle();
+        cycleIndex = 0;
+      }
+    };
+
+    // Changer l'image toutes les 5 secondes
+    setInterval(changeImage, 5000);
+  })();
+</script>
