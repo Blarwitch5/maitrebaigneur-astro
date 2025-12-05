@@ -42,11 +42,6 @@
         "icon": "event"
       },
       {
-        "href": "/prestations/aquafitness",
-        "name": "Aquafitness",
-        "icon": "fitness"
-      },
-      {
         "href": "/bassins",
         "name": "Nos bassins d'apprentissage",
         "children": [

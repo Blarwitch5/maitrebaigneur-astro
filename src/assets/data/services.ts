@@ -4,13 +4,11 @@ import natationPageTitle from '@assets/images/page-title/page_natation.jpg';
 import bebeNageurPageTitle from '@assets/images/page-title/page_bebenageur.jpg';
 import aquaversairePageTitle from '@assets/images/page-title/page_aquaversaire.jpg';
 import surveillancePageTitle from '@assets/images/page-title/page_surveillance.jpg';
-import aquafitnessPageTitle from '@assets/images/page-title/page_aquafitness.jpg';
 
 import natationImg from '@assets/images/services/natation.jpg';
 import bebeNageurImg from '@assets/images/services/bebe-nageur.jpg';
 import aquaversaireImg from '@assets/images/services/aquaversaire.jpg';
 import surveillanceImg from '@assets/images/services/surveillance.jpg';
-import aquafitnessImg from '@assets/images/services/aquafitness.jpg';
 
 interface Services {
   name: string;
@@ -78,19 +76,6 @@ const services: Services[] = [
     pageTitleImage: {
       path: surveillancePageTitle,
       alt: 'Couple de jeunes mariés se jetant dans une piscine habillés',
-    },
-  },
-  {
-    name: 'Aquafitness',
-    href: '/prestations/aquafitness',
-    image: {
-      path: aquafitnessImg,
-      alt: "Personnes participant à un cours d'aquafitness",
-    },
-    icon: 'fitness',
-    pageTitleImage: {
-      path: aquafitnessPageTitle,
-      alt: "Personnes participant à un cours d'aquafitness",
     },
   },
 ];

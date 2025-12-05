@@ -9,19 +9,19 @@
         ],
         "formula": [
           {
-            "name": "Abonnement 10 mois",
-            "price": 13,
-            "extraDesc": "Soit 550 € l'abonnement individuel, valable 10 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
+            "name": "Abonnement 12 mois",
+            "price": 12,
+            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
           },
           {
-            "name": "Carte 30 séances",
-            "price": 16,
-            "extraDesc": "Soit 480 € la carte, valable 12 mois à partir de la 1ère séance"
+            "name": "Carte 20 séances",
+            "price": 18,
+            "extraDesc": "Soit 360 € la carte, valable 12 mois à partir de la 1ère séance"
           },
           {
             "name": "Carte 10 séances",
-            "price": 19,
-            "extraDesc": "Soit 190 € la carte, valable 6 mois à partir de la 1ère séance "
+            "price": 20,
+            "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
           },
           {
             "name": "Carte 5 séances",
@@ -49,19 +49,19 @@
     "babySwimming": {
       "formula": [
         {
-          "name": "Abonnement 10 mois",
-          "price": 13,
-          "extraDesc": "Soit 550 € l'abonnement individuel, valable 10 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
+          "name": "Abonnement 12 mois",
+          "price": 12,
+          "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
         },
         {
-          "name": "Carte de 30 Séances ",
-          "price": 16,
-          "extraDesc": "Soit 480 € la carte, valable 12 mois à partir de la 1ère séance "
+          "name": "Carte de 20 Séances ",
+          "price": 18,
+          "extraDesc": "Soit 360 € la carte, valable 12 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte de 10 séances",
-          "price": 19,
-          "extraDesc": "Soit 190 € la carte, valable 6 mois à partir de la 1ère séance "
+          "price": 20,
+          "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte 5 séances",
