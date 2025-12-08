@@ -16,7 +16,7 @@
           {
             "name": "Carte 20 séances",
             "price": 18,
-            "extraDesc": "Soit 360 € la carte, valable 12 mois à partir de la 1ère séance"
+            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance"
           },
           {
             "name": "Carte 10 séances",
@@ -56,7 +56,7 @@
         {
           "name": "Carte de 20 Séances ",
           "price": 18,
-          "extraDesc": "Soit 360 € la carte, valable 12 mois à partir de la 1ère séance "
+          "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
         },
         {
           "name": "Carte de 10 séances",
