@@ -8,9 +8,125 @@ import { reservationLink } from '@assets/data/data.json';
 
 const { prices } = site;
 const babySwimming = prices.babySwimming;
+const babySwimmingHome = babySwimming.home;
+
+const babySwimmingPool = babySwimming.pool;
 ---
 
+<div class='top'>
+  <div class='top__toggle-btn'>
+    <span class='top__toggle-btn-label top__toggle-btn-label--active'>En bassin</span>
+    <label class='top__toggle-btn-switch' for='checkbox-baby'>
+      <input type='checkbox' id='checkbox-baby' aria-label='Changer entre bassin et domicile' />
+      <span class='top__toggle-btn-slider top__toggle-btn-slider--round'></span>
+    </label>
+    <span class='top__toggle-btn-label'>À domicile</span>
+  </div>
+</div>
+
 <div class='packages-container baby-swimming'>
+  <div id='price-package-home-baby'>
+    <div class='package'>
+      <Title level='1' class='package__title'>Séance à l'unité</Title>
+      <p class='package__info'>
+        <Icon name='warning' /> Attention l'eau de la piscine doit être à 30°C minimum
+      </p>
+      <ul class='package__list'>
+        {
+          babySwimmingHome.formula.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Button href={reservationLink} class='btn btn__regular'> Réserver </Button>
+    </div>
+  </div>
+  <div id='price-package-pool-baby'>
+    <div class='package'>
+      <Title level='1' class='package__title'>Séance à l'unité</Title>
+
+      <ul class='package__list'>
+        {
+          babySwimmingPool.single.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
+    </div>
+
+    <div class='package'>
+      <Title level='1' class='package__title'>Nos formules</Title>
+      <ul class='package__list'>
+        {
+          babySwimmingPool.formula.map(
+            (item: { name: string; price: number; extraDesc?: string }) => {
+              return (
+                <li class='package__item'>
+                  {item.name} <span class='package__price'>{item.price}€</span>
+                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
+                </li>
+              );
+            }
+          )
+        }
+      </ul>
+      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
+    </div>
+  </div>
+</div>
+
+<style lang='scss'>
+  .packages-container {
+    #price-package-home-baby {
+      display: none;
+    }
+  }
+</style>
+<script>
+  function babySwimmingSetup() {
+    const checkBoxBaby = document.getElementById('checkbox-baby') as HTMLInputElement;
+    const pricePackageHomeBaby = document.getElementById('price-package-home-baby');
+    const pricePackagePoolBaby = document.getElementById('price-package-pool-baby');
+    const labels = document.querySelectorAll('.top__toggle-btn-label');
+
+    function check() {
+      if (checkBoxBaby && pricePackageHomeBaby && pricePackagePoolBaby && labels) {
+        if (checkBoxBaby.checked) {
+          labels[0].classList.remove('top__toggle-btn-label--active');
+          labels[1].classList.add('top__toggle-btn-label--active');
+          pricePackageHomeBaby.style.display = 'flex';
+          pricePackagePoolBaby.style.display = 'none';
+        } else {
+          labels[0].classList.add('top__toggle-btn-label--active');
+          labels[1].classList.remove('top__toggle-btn-label--active');
+          pricePackageHomeBaby.style.display = 'none';
+          pricePackagePoolBaby.style.display = 'flex';
+        }
+      }
+    }
+
+    checkBoxBaby?.addEventListener('click', check);
+  }
+  babySwimmingSetup();
+  document.addEventListener('astro:after-swap', babySwimmingSetup);
+</script>
+
+<!-- <div class='packages-container baby-swimming'>
   <div>
     <div class='package'>
       <Title level='1' class='package__title'>Les formules</Title>
@@ -37,4 +153,4 @@ const babySwimming = prices.babySwimming;
   .container {
     width: 100%;
   }
-</style>
+</style> -->

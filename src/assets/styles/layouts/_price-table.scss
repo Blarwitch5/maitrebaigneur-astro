@@ -1,4 +1,4 @@
-@use "../utils/variables" as *;
+@use '../utils/variables' as *;
 .packages-container {
   display: flex;
   justify-content: center;
@@ -24,6 +24,7 @@
 
   //horizontal scrolling on mobile for tables with 2 items
   &.swimming #price-package-pool,
+  &.baby-swimming #price-package-pool-baby,
   &.events > div {
     @media screen and (max-width: 768px) {
       width: 100vw;
@@ -89,9 +90,19 @@
     margin: 0;
     display: flex;
     gap: var(--space-2xs);
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+
+    @media screen and (max-width: 768px) {
+      align-items: center;
+    }
 
     svg {
-      width: 1.5rem;
+      width: 2.5rem;
+      @media screen and (max-width: 768px) {
+        width: 1.5rem;
+      }
     }
   }
 
@@ -184,7 +195,7 @@
     width: 60px;
     height: 34px;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       opacity: 0;
       width: 0;
       height: 0;
@@ -217,7 +228,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       height: 26px;
       width: 26px;
       left: 4px;
