@@ -9,24 +9,20 @@
         ],
         "formula": [
           {
-            "name": "Abonnement 12 mois",
+            "name": "Pack 12 mois | 50 séances",
             "price": 12,
-            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
+            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
           },
+
           {
-            "name": "Pack 9 mois, 20 séances",
-            "price": 18,
-            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance"
-          },
-          {
-            "name": "Pack 6 mois, 10 séances",
+            "name": "Pack 6 mois | 10 séances",
             "price": 20,
             "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
           },
           {
-            "name": "Pack 3 mois, 5 séances",
+            "name": "Pack 6 mois | 5 séances",
             "price": 23,
-            "extraDesc": "Soit 115 € la carte, valable 3 mois à partir de la 1ère séance "
+            "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
           }
         ]
       },
@@ -49,24 +45,20 @@
     "babySwimming": {
       "formula": [
         {
-          "name": "Abonnement 12 mois",
+          "name": "Pack 12 mois | 50 séances",
           "price": 12,
-          "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | Maximum une séance par semaine | possibilité de paiement en 5 fois sans frais"
+          "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
         },
+
         {
-          "name": "Pack 9 mois, 20 séances",
-          "price": 18,
-          "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
-        },
-        {
-          "name": "Pack 6 mois, 10 séances",
+          "name": "Pack 6 mois | 10 séances",
           "price": 20,
           "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
         },
         {
-          "name": "Pack 3 mois, 5 séances",
+          "name": "Pack 6 mois | 5 séances",
           "price": 23,
-          "extraDesc": "Soit 115 € la carte, valable 3 mois à partir de la 1ère séance "
+          "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
         },
         { "name": "Séance découverte", "price": 20 },
         { "name": "Séance unique", "price": 25 }
