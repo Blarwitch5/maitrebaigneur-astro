@@ -9,20 +9,19 @@
         ],
         "formula": [
           {
-            "name": "Pack 12 mois | 50 séances",
-            "price": 12,
-            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
+            "name": "Pack 6 mois | 5 séances",
+            "price": 23,
+            "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
           },
-
           {
             "name": "Pack 6 mois | 10 séances",
             "price": 20,
             "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
           },
           {
-            "name": "Pack 6 mois | 5 séances",
-            "price": 23,
-            "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
+            "name": "Pack 12 mois | 50 séances",
+            "price": 12,
+            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
           }
         ]
       },
@@ -44,24 +43,23 @@
     },
     "babySwimming": {
       "formula": [
+        { "name": "Séance découverte", "price": 20 },
+        { "name": "Séance unique", "price": 25 },
         {
-          "name": "Pack 12 mois | 50 séances",
-          "price": 12,
-          "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
+          "name": "Pack 6 mois | 5 séances",
+          "price": 23,
+          "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
         },
-
         {
           "name": "Pack 6 mois | 10 séances",
           "price": 20,
           "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
         },
         {
-          "name": "Pack 6 mois | 5 séances",
-          "price": 23,
-          "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
-        },
-        { "name": "Séance découverte", "price": 20 },
-        { "name": "Séance unique", "price": 25 }
+          "name": "Pack 12 mois | 50 séances",
+          "price": 12,
+          "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
+        }
       ]
     },
     "aquaversaire": {
