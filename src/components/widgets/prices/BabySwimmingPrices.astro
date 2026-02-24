@@ -71,6 +71,8 @@ const babySwimmingPool = babySwimming.pool;
 
     <div class='package'>
       <Title level='1' class='package__title'>Nos formules</Title>
+      <Title level='2' class='package__subtitle'>Seul ou à partager</Title>
+
       <ul class='package__list'>
         {
           babySwimmingPool.formula.map(
@@ -125,32 +127,3 @@ const babySwimmingPool = babySwimming.pool;
   babySwimmingSetup();
   document.addEventListener('astro:after-swap', babySwimmingSetup);
 </script>
-
-<!-- <div class='packages-container baby-swimming'>
-  <div>
-    <div class='package'>
-      <Title level='1' class='package__title'>Les formules</Title>
-      <p class='package__info'><Icon name='warning' />2 parents par bébé</p>
-
-      <ul class='package__list'>
-        {
-          babySwimming.formula.map((item: { name: string; price: number; extraDesc?: string }) => {
-            return (
-              <li class='package__item'>
-                {item.name} <span class='package__price'>{item.price}€</span>
-                {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
-              </li>
-            );
-          })
-        }
-      </ul>
-      <Button href={reservationLink} class='btn btn__regular' newTab> Réserver </Button>
-    </div>
-  </div>
-</div>
-
-<style>
-  .container {
-    width: 100%;
-  }
-</style> -->

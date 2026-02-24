@@ -4,12 +4,13 @@
       "pool": {
         "single": [
           { "name": "Séance découverte", "price": 20 },
+          { "name": "Pack 2 séances découverte", "price": 30 },
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
           { "name": "Leçon privée", "price": 35 }
         ],
         "formula": [
           {
-            "name": "Pack 6 mois | 5 séances",
+            "name": "Pack 5 mois | 5 séances",
             "price": 23,
             "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
           },
@@ -17,6 +18,11 @@
             "name": "Pack 6 mois | 10 séances",
             "price": 20,
             "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
+          },
+          {
+            "name": "Pack 9 mois | 20 séances",
+            "price": 18,
+            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
           },
           {
             "name": "Pack 12 mois | 50 séances",
@@ -45,11 +51,12 @@
       "pool": {
         "single": [
           { "name": "Séance découverte", "price": 20 },
+          { "name": "Pack 2 séances découverte", "price": 30 },
           { "name": "Séance unique", "price": 25 }
         ],
         "formula": [
           {
-            "name": "Pack 6 mois | 5 séances",
+            "name": "Pack 5 mois | 5 séances",
             "price": 23,
             "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
           },
@@ -57,6 +64,11 @@
             "name": "Pack 6 mois | 10 séances",
             "price": 20,
             "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
+          },
+          {
+            "name": "Pack 9 mois | 20 séances",
+            "price": 18,
+            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
           },
           {
             "name": "Pack 12 mois | 50 séances",

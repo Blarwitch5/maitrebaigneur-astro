@@ -85,6 +85,11 @@
       font-weight: 600;
     }
   }
+  &__subtitle {
+    font-size: var(--fs-xs);
+    font-family: var(--ff-pacifico);
+    margin: 0;
+  }
 
   &__info {
     margin: 0;
