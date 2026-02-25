@@ -136,19 +136,19 @@
       }
       &:first-child {
         &::before {
-          background-image: url("/src/icons/single.svg");
+          background-image: url("../../assets/images/icons/single.svg");
           right: -25%;
         }
       }
       &:nth-child(2) {
         &::before {
-          background-image: url("/src/icons/duo.svg");
+          background-image: url("../../assets/images/icons/duo.svg");
           right: -20%;
         }
       }
       &:nth-child(3) {
         &::before {
-          background-image: url("/src/icons/trio.svg");
+          background-image: url("../../assets/images/icons/trio.svg");
           right: -10%;
         }
       }
@@ -362,7 +362,7 @@
           position: absolute;
           top: 0;
           background-color: var(--color-primary);
-          background-image: url("/src/icons/check.svg");
+          background-image: url("../../assets/images/icons/check.svg");
           background-repeat: no-repeat;
           background-position: center;
           background-size: 1.5rem;

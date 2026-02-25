@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 
 import './SubmissionStatusModal.scss';
 
-import iconSuccess from '../../../icons/fun.svg';
-import iconError from '../../../icons/error.svg';
+import iconSuccess from '../../../assets/images/icons/fun.svg';
+import iconError from '../../../assets/images/icons/error.svg';
 
 // import AnimatedIcon from "./AnimatedIcon"; // Remplacez par votre icône animée ou image
 
