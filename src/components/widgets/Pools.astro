@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 
 // UI Components
 import Title from '@components/ui/Title.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 import poolsData from '@assets/data/pools.ts';
 ---
@@ -194,7 +194,7 @@ import poolsData from '@assets/data/pools.ts';
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        background: hsla(255, 255, 255, 0.8);
+        background: hsla(0, 0%, 100%, 0.8);
         backdrop-filter: blur(10px);
         transition: all 0.3s ease;
 

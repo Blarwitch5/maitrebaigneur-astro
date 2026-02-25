@@ -6,7 +6,7 @@ import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import PageTitle from '@components/header/PageTitle.astro';
 import SkipToContent from '@components/ui/SkipToContent.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 //prices components
 import SwimmingPrices from '@components/widgets/prices/SwimmingPrices.astro';
@@ -297,12 +297,17 @@ const page = {
           cursor: default;
         }
         svg {
+          width: 2.5rem;
+          height: 2.5rem;
           max-width: var(--space-xl);
           margin-bottom: var(--space-2xs);
           display: block;
           margin-inline: auto;
+          flex-shrink: 0;
 
           @media screen and (max-width: 768px) {
+            width: 2rem;
+            height: 2rem;
             margin-bottom: 0;
           }
         }
@@ -338,20 +343,24 @@ const page = {
 </style>
 <script>
   const pricesSetup = () => {
-    // Define the tab buttons and panels
+    // Define the tab buttons and panels (only run on tarifs page when DOM is ready)
     const tabButtons = document.querySelectorAll<HTMLButtonElement>('.tab__button');
     const tabPanels = document.querySelectorAll<HTMLDivElement>('.tab__panel');
+
+    if (!tabButtons.length || !tabPanels.length) return;
 
     /**
      * Shows the specified panel and hides the other panels
      * @param panelIndex The index of the panel to show
      */
     function showPanel(panelIndex: number): void {
-      // Determine the current and new panels
+      const newPanel = tabPanels[panelIndex];
+      if (!newPanel) return;
+
+      // Determine the current panel
       const currentPanel = document.querySelector<HTMLDivElement>(
         '.pricing__section.previous, .pricing__section.active'
       );
-      const newPanel = tabPanels[panelIndex];
 
       // Remove the "active" class from the current panel and add it to the new panel
       if (currentPanel) {
@@ -376,15 +385,17 @@ const page = {
       });
 
       // Add the "active" and "aria-selected" attributes to the selected button
-      const selectedButtonContent =
-        tabButtons[panelIndex].querySelector<HTMLSpanElement>('span')?.innerHTML;
-      if (selectedButtonContent) {
-        const tabTitle = document.querySelector<HTMLElement>('.tab__title');
-        if (tabTitle) {
-          tabTitle.innerHTML = selectedButtonContent;
+      const selectedButton = tabButtons[panelIndex];
+      if (selectedButton) {
+        selectedButton.classList.add('active');
+        selectedButton.setAttribute('aria-selected', 'true');
+        const selectedButtonContent = selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
+        if (selectedButtonContent) {
+          const tabTitle = document.querySelector<HTMLElement>('.tab__title');
+          if (tabTitle) {
+            tabTitle.innerHTML = selectedButtonContent;
+          }
         }
-        tabButtons[panelIndex].classList.add('active');
-        tabButtons[panelIndex].setAttribute('aria-selected', 'true');
       }
     }
 

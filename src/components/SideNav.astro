@@ -3,7 +3,7 @@ import CloseBtn from '@components/header/CloseBtn.astro';
 import Socials from '@components/Socials.astro';
 import Button from '@components/ui/Button.astro';
 import site from '@assets/data/data.json';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 import { Image } from 'astro:assets';
 
@@ -182,7 +182,9 @@ const logo = {
 
       svg {
         color: var(--color-white);
-        width: 2rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        flex-shrink: 0;
         margin-right: var(--space-2xs);
         transition: all 0.2s ease-in-out;
         padding: calc(0.5rem / 2);

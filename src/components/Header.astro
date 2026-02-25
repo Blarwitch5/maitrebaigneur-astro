@@ -3,7 +3,7 @@ import SideNav from "@components/SideNav.astro";
 import ToggleBtn from "@components/header/ToggleBtn.astro";
 import Brand from "@components/header/Brand.astro";
 import Button from "@components/ui/Button.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 import site from "@assets/data/data.json";
 
@@ -108,6 +108,8 @@ const nav = siteLinks.primary;
       .nav-item.contact {
         svg {
           width: 2rem;
+          height: 2rem;
+          flex-shrink: 0;
         }
         @media screen and (min-width: 992px) {
           display: none;

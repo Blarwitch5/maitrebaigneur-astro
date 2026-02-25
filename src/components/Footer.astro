@@ -3,7 +3,7 @@ import Copyright from '@components/footer/Copyright.astro';
 import Socials from '@components/Socials.astro';
 import Button from '@components/ui/Button.astro';
 import PoolList from '@components/widgets/PoolList.astro';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import Waves from '@components/ui/shapes/Waves.astro';
 import GoToTop from '@components/ui/GoToTop.astro';
 import StickyBtns from '@components/ui/StickyBtns.astro';
@@ -200,9 +200,17 @@ const footerMenu = siteLinks.footerMenu;
           gap: var(--space-xs);
         }
         .icon {
-          display: block;
-          width: 1.8rem;
-          height: 1.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.25rem;
+          height: 2.25rem;
+          flex-shrink: 0;
+
+          svg {
+            width: 2.25rem;
+            height: 2.25rem;
+          }
         }
       }
     }
