@@ -46,7 +46,7 @@
       display: block;
       width: 2rem;
       height: 2rem;
-      background-image: url("/src/icons/arrow_down.svg");
+      background-image: url("../../../assets/images/icons/arrow_down.svg");
       transform: rotate(90deg);
       background-position: center;
       background-size: 2rem;
@@ -109,7 +109,7 @@
     width: 3rem;
     height: 3rem;
     display: block;
-    background-image: url("/src/icons/dialog.svg");
+    background-image: url("../../../assets/images/icons/dialog.svg");
     background-size: 2rem;
     background-position: center;
     margin-right: var(--space-xs);
