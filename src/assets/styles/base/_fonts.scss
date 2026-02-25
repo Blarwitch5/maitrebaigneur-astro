@@ -13,36 +13,6 @@
     font-display: swap;
 }
 
-/** FUZZY BUBBLES FONT */
-/*/fuzzy-bubbles fuzzy-bubbles-regular - latin */
-@font-face {
-    font-family: "Fuzzy Bubbles";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""), url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.woff") format("woff"),
-        /* Modern Browsers */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-regular.svg#FuzzyBubbles")
-            format("svg"); /* Legacy iOS */
-    font-display: swap;
-}
-
-/*/fuzzy-bubbles fuzzy-bubbles-700 - latin */
-@font-face {
-    font-family: "Fuzzy Bubbles";
-    font-style: normal;
-    font-weight: 700;
-    src: url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.eot"); /* IE9 Compat Modes */
-    src: local(""), url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.woff") format("woff"),
-        /* Modern Browsers */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("/fonts/fuzzy-bubbles/fuzzy-bubbles-v5-latin-700.svg#FuzzyBubbles") format("svg"); /* Legacy iOS */
-    font-display: swap;
-}
-
 /** RALEWAY FONT */
 /* raleway-100 - latin */
 @font-face {
@@ -156,45 +126,3 @@
     font-display: swap;
 }
 
-/** CINZEL FONT */
-/*/cinzel cinzel-regular - latin */
-@font-face {
-    font-family: "Cinzel";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/cinzel/cinzel-v19-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(""), url("/fonts/cinzel/cinzel-v19-latin-regular.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/cinzel/cinzel-v19-latin-regular.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-regular.woff") format("woff"),
-        /* Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-regular.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("/fonts/cinzel/cinzel-v19-latin-regular.svg#Cinzel") format("svg"); /* Legacy iOS */
-    font-display: swap;
-}
-
-/*/cinzel cinzel-600 - latin */
-@font-face {
-    font-family: "Cinzel";
-    font-style: normal;
-    font-weight: 600;
-    src: url("/fonts/cinzel/cinzel-v19-latin-600.eot"); /* IE9 Compat Modes */
-    src: local(""), url("/fonts/cinzel/cinzel-v19-latin-600.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/cinzel/cinzel-v19-latin-600.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-600.woff") format("woff"),
-        /* Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-600.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("/fonts/cinzel/cinzel-v19-latin-600.svg#Cinzel") format("svg"); /* Legacy iOS */
-    font-display: swap;
-}
-
-/*/cinzel cinzel-800 - latin */
-@font-face {
-    font-family: "Cinzel";
-    font-style: normal;
-    font-weight: 800;
-    src: url("/fonts/cinzel/cinzel-v19-latin-800.eot"); /* IE9 Compat Modes */
-    src: local(""), url("/fonts/cinzel/cinzel-v19-latin-800.eot?#iefix") format("embedded-opentype"),
-        /* IE6-IE8 */ url("/fonts/cinzel/cinzel-v19-latin-800.woff2") format("woff2"),
-        /* Super Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-800.woff") format("woff"),
-        /* Modern Browsers */ url("/fonts/cinzel/cinzel-v19-latin-800.ttf") format("truetype"),
-        /* Safari, Android, iOS */ url("/fonts/cinzel/cinzel-v19-latin-800.svg#Cinzel") format("svg"); /* Legacy iOS */
-    font-display: swap;
-}
