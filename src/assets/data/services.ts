@@ -1,7 +1,7 @@
 import type { ImageMetadata } from 'astro';
 
 import natationPageTitle from '@assets/images/page-title/page_natation.jpg';
-import bebeNageurPageTitle from '@assets/images/page-title/page_bebenageur.jpg';
+import bebeNageurPageTitle from '@assets/images/page-title/page_bebenageur-2.jpg';
 import aquaversairePageTitle from '@assets/images/page-title/page_aquaversaire.jpg';
 import surveillancePageTitle from '@assets/images/page-title/page_surveillance.jpg';
 
