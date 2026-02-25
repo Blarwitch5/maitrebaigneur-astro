@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "rm -rf node_modules/.astro/assets 2>/dev/null; astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,astro,md,json}\" --plugin=prettier-plugin-astro"
