@@ -25,11 +25,7 @@ pool: {
 			name: "Cours Bébé nageur",
 			icon: "baby",
 			href: "/prestations/cours-bebe-nageur"
-		},{
-			name: "Aquafitness",
-			icon: "swimmer",
-			href: "/prestations/aquafitness"
-		}
+		},
 	],
 	gallery: [
 		{
