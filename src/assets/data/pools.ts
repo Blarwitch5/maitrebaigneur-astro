@@ -8,6 +8,7 @@ import leCarreDOImg from '../images/pools/le-carre-d-o.jpg';
 import saintMaximinImg from '../images/pools/saint-maximin.jpg';
 import saintMaximinBalneoImg from '../images/pools/saint-maximin-balneo.jpg';
 import domicileImg from '../images/pools/domicile.jpg';
+import countryClubAixoisImg from '../images/pools/country-club-aixois.jpg';
 
 interface Pool {
   name: string;
@@ -159,6 +160,30 @@ const pools: Pool[] = [
         name: 'Cours Bébé nageur',
         icon: 'baby',
         href: '/prestations/cours-bebe-nageur',
+      },
+    ],
+  },
+  {
+    name: 'Country Club Aixois',
+    href: '/bassins/country-club-aixois',
+    image: {
+      path: countryClubAixoisImg,
+      alt: 'Bassin au Country Club Aixois',
+    },
+
+    period: 'Summer',
+    location: 'Aix-en-Provence',
+    address: '1195 Chemin des Cruyes, 13090 Aix-en-Provence',
+    services: [
+      {
+        name: 'Cours de natation',
+        icon: 'swimmer',
+        href: '/prestations/cours-de-natation',
+      },
+      {
+        name: 'Événements & Sécurité',
+        icon: 'event',
+        href: '/prestations/evenement-securite',
       },
     ],
   },

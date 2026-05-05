@@ -76,7 +76,7 @@ import fallback from '@assets/images/page-title/fallback.jpg';
           <div class='single-pool__desc' set:html={poolData.data.pool.desc} />
           <div class='single-pool__details'>
             <Title animate level='3'>
-              Informations concernant notre bassin à {poolData.data.pool.name}
+              Informations concernant notre bassin {poolData.data.pool.name}
             </Title>
             <Title animate level='4'>Prestations proposées</Title>
             <ul>
@@ -188,6 +188,9 @@ import fallback from '@assets/images/page-title/fallback.jpg';
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+      @media screen and (min-width: 993px) {
+        align-items: start;
+      }
     }
     &__details {
       background-color: var(--color-bg-light);
@@ -200,6 +203,13 @@ import fallback from '@assets/images/page-title/fallback.jpg';
       display: flex;
       flex-direction: column;
       gap: var(--space-sm);
+      @media screen and (min-width: 993px) {
+        position: -webkit-sticky;
+        position: sticky !important;
+        top: 2rem;
+        align-self: start;
+        z-index: 2;
+      }
 
       * {
         margin: 0;
