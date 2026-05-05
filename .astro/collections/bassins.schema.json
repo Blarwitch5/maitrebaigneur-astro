@@ -36,8 +36,7 @@
           "required": [
             "path",
             "alt"
-          ],
-          "additionalProperties": false
+          ]
         },
         "address": {
           "type": "string"
@@ -55,8 +54,7 @@
           "required": [
             "url",
             "text"
-          ],
-          "additionalProperties": false
+          ]
         },
         "services": {
           "type": "array",
@@ -77,8 +75,7 @@
               "name",
               "icon",
               "href"
-            ],
-            "additionalProperties": false
+            ]
           }
         },
         "gallery": {
@@ -96,8 +93,7 @@
             "required": [
               "path",
               "alt"
-            ],
-            "additionalProperties": false
+            ]
           }
         }
       },
@@ -110,8 +106,7 @@
         "link",
         "services",
         "gallery"
-      ],
-      "additionalProperties": false
+      ]
     },
     "$schema": {
       "type": "string"
@@ -122,6 +117,5 @@
     "metaDesc",
     "title",
     "pool"
-  ],
-  "additionalProperties": false
+  ]
 }
