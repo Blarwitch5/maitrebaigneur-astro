@@ -9,6 +9,27 @@ const swimmingPricesHome = swimmingPrices.home;
 
 const swimmingPricesPool = swimmingPrices.pool;
 
+type HomeFormulaItem = { name: string; price: number; extraDesc?: string };
+type HomeFormula = {
+  '30min'?: HomeFormulaItem[];
+  '1h'?: HomeFormulaItem[];
+};
+
+const homeFormula = swimmingPricesHome.formula as HomeFormula;
+const homeFormula30 = homeFormula['30min'] ?? [];
+const homeFormula1h = homeFormula['1h'] ?? [];
+const hasHomeComparison = homeFormula1h.length > 0;
+const homeRows = homeFormula30.map((item30, index) => {
+  const item1h = homeFormula1h[index];
+  return {
+    name: item30.name,
+    price30: item30.price,
+    extra30: item30.extraDesc,
+    price1h: item1h?.price,
+    extra1h: item1h?.extraDesc,
+  };
+});
+
 import { reservationLink } from '@assets/data/data.json';
 ---
 
@@ -25,22 +46,53 @@ import { reservationLink } from '@assets/data/data.json';
 
 <div class='packages-container swimming'>
   <div id='price-package-home'>
-    <div class='package'>
+    <div class='package package--wide'>
       <Title level='1' class='package__title'>Séance à l'unité</Title>
-      <ul class='package__list'>
-        {
-          swimmingPricesHome.formula.map(
-            (item: { name: string; price: number; extraDesc?: string }) => {
-              return (
-                <li class='package__item'>
-                  {item.name} <span class='package__price'>{item.price}€</span>
-                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
-                </li>
-              );
-            }
-          )
-        }
-      </ul>
+      {
+        hasHomeComparison ? (
+          <div class='package__table-wrapper'>
+            <table class='package__table'>
+              <thead>
+                <tr>
+                  <th />
+                  <th>30min</th>
+                  <th>1h</th>
+                </tr>
+              </thead>
+              <tbody>
+                {homeRows.map((row) => (
+                  <tr>
+                    <td>{row.name}</td>
+                    <td>
+                      <span class='package__price'>{row.price30}€</span>
+                      {row.extra30 && <span class='package__extra-desc'>{row.extra30}</span>}
+                    </td>
+                    <td>
+                      {typeof row.price1h === 'number' ? (
+                        <>
+                          <span class='package__price'>{row.price1h}€</span>
+                          {row.extra1h && <span class='package__extra-desc'>{row.extra1h}</span>}
+                        </>
+                      ) : (
+                        <span>-</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <ul class='package__list'>
+            {homeRows.map((row) => (
+              <li class='package__item'>
+                {row.name} <span class='package__price'>{row.price30}€</span>
+                {row.extra30 && <span class='package__extra-desc'>{row.extra30}</span>}
+              </li>
+            ))}
+          </ul>
+        )
+      }
       <Button href={reservationLink} class='btn btn__regular'> Réserver </Button>
     </div>
   </div>
@@ -90,6 +142,70 @@ import { reservationLink } from '@assets/data/data.json';
   .packages-container {
     #price-package-home {
       display: none;
+    }
+  }
+
+  .package {
+    &--wide {
+      flex-basis: min(680px, 100%);
+    }
+
+    &__table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    &__table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      table-layout: fixed;
+
+      th,
+      td {
+        width: 33.333%;
+        padding: var(--space-2xs);
+        vertical-align: top;
+        text-align: center;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      th {
+        font-weight: 700;
+        font-size: var(--fs-sm);
+      }
+
+      tbody tr:not(:last-child) {
+        border-bottom: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+      }
+
+      th:first-child {
+        white-space: nowrap;
+      }
+
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+
+    &__table td .package__price {
+      display: inline-flex;
+      margin-bottom: 0.25rem;
+    }
+
+    &__table td .package__extra-desc {
+      display: block;
+      text-align: center;
+      font-size: calc(var(--fs-base) * 0.82);
+      font-style: italic;
+      color: var(--color-secondary);
+      margin-left: 0;
+      margin-top: 0.25rem;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
   }
 </style>

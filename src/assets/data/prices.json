@@ -32,19 +32,26 @@
         ]
       },
       "home": {
-        "formula": [
-          { "name": "1 Séance pour 1 baigneur", "price": 50 },
-          {
-            "name": "1 Séance pour 2 baigneurs de niveau équivalent",
-            "price": 50,
-            "extraDesc": "Soit 25€ par baigneur"
-          },
-          {
-            "name": "1 Séance pour 3 baigneurs de niveau équivalent",
-            "price": 50,
-            "extraDesc": "Soit 16€70 par baigneur"
-          }
-        ]
+        "formula": {
+          "30min": [
+            { "name": "1 baigneur", "price": 50, "extraDesc": "" },
+            {
+              "name": "2 baigneurs",
+              "price": 50,
+              "extraDesc": "Soit 25€ les 30 minutes par baigneur "
+            },
+            {
+              "name": "3 baigneurs",
+              "price": 50,
+              "extraDesc": "Soit 16,70€ les 30 minutes par baigneur "
+            }
+          ],
+          "1h": [
+            { "name": "1 baigneur", "price": 90, "extraDesc": "" },
+            { "name": "2 baigneurs", "price": 90, "extraDesc": "Soit 45€ l'heure par baigneur" },
+            { "name": "3 baigneurs", "price": 90, "extraDesc": "Soit 30€ l'heure par baigneur" }
+          ]
+        }
       }
     },
     "babySwimming": {
@@ -104,20 +111,10 @@
       }
     },
     "events": {
-      "formula": {
-        "day": {
-          "name": "Tarif de jour",
-          "price": 50,
-          "condition": "par heure et par Maître-Baigneur",
-          "surveillanceTime": "Entre 9h et 21h"
-        },
-        "night": {
-          "name": "Tarif de nuit",
-          "price": 75,
-          "condition": "par heure et par Maître-Baigneur",
-          "surveillanceTime": "Entre 21h et 9h"
-        }
-      }
+      "name": "Tarif jour/nuit",
+      "price": 40,
+      "condition": "par heure et par Maître-Baigneur",
+      "surveillanceTime": "Au minimum 4h"
     },
     "diploma": {
       "name": "Diplôme",

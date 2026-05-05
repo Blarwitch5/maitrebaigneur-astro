@@ -170,9 +170,7 @@ const page = {
                 Si vous organisez un événement dans une piscine, il est important d'avoir une
                 surveillance adéquate pour garantir la sécurité de vos invités. C'est là que nous
                 intervenons. Nos sauveteurs qualifiés peuvent surveiller votre événement pour que
-                tout se déroule en toute sécurité. Les tarifs débutent à partir de <span
-                  class='highlight-price'>20€</span
-                >.
+                tout se déroule en toute sécurité.
               </p>
               <div class='pricing__wrapper'>
                 <EventsPrices />
@@ -389,7 +387,8 @@ const page = {
       if (selectedButton) {
         selectedButton.classList.add('active');
         selectedButton.setAttribute('aria-selected', 'true');
-        const selectedButtonContent = selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
+        const selectedButtonContent =
+          selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
         if (selectedButtonContent) {
           const tabTitle = document.querySelector<HTMLElement>('.tab__title');
           if (tabTitle) {

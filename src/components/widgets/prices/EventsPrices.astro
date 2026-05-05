@@ -5,9 +5,7 @@ import options from "@assets/data/formOptions.json";
 import Title from "@components/ui/Title.astro";
 
 const { prices } = site;
-const eventsPrices = prices.events.formula;
-const eventsDayPrices = eventsPrices.day;
-const eventsNightPrices = eventsPrices.night;
+const eventsPrices = prices.events;
 
 const formOptions = options;
 const eventOption = formOptions[3];
@@ -16,31 +14,13 @@ const eventOption = formOptions[3];
 <div class="packages-container events">
   <div>
     <div class="package">
-      <Title level="1" class="package__title">{eventsDayPrices.name}</Title>
+      <Title level="1" class="package__title">{eventsPrices.name}</Title>
       <ul class="package__list">
         <li class="package__item">
-          {eventsDayPrices.condition}
-          <span class="package__price">{eventsDayPrices.price}€</span>
+          {eventsPrices.condition}
+          <span class="package__price">{eventsPrices.price}€</span>
           <span class="package__extra-desc"
-            >{eventsDayPrices.surveillanceTime}</span
-          >
-        </li>
-      </ul>
-      <Button
-        href={`/contact?option=${eventOption.slug}`}
-        class="btn btn__regular"
-      >
-        Demander un devis
-      </Button>
-    </div>
-    <div class="package">
-      <h1 class="package__title">{eventsNightPrices.name}</h1>
-      <ul class="package__list">
-        <li class="package__item">
-          {eventsNightPrices.condition}
-          <span class="package__price">{eventsNightPrices.price}€</span>
-          <span class="package__extra-desc"
-            >{eventsNightPrices.surveillanceTime}</span
+            >{eventsPrices.surveillanceTime}</span
           >
         </li>
       </ul>
