@@ -12,9 +12,9 @@ import fallback from '@assets/images/page-title/fallback.jpg';
 //data
 
 const page = {
-  metaTitle: "Bassins d'apprentissage",
+  metaTitle: "Bassins d'apprentissage à Aix-en-Provence et alentours",
   description:
-    "Découvrez les bassins d'apprentissage de Maître-Baigneur, où nos éducateurs utilisent la pédagogie Maître-Baigneur pour enseigner la natation à des enfants de 3 à 12 ans.",
+    "Découvrez les bassins d'apprentissage de Maître Baigneur à Aix-en-Provence et ses environs. Cours de natation et bébé nageur pour tous les âges avec nos maîtres-nageurs diplômés.",
   title: "Bassins d'apprentissage",
 
   image: {
@@ -24,7 +24,7 @@ const page = {
 };
 ---
 
-<BaseLayout title={page.title} description={page.description}>
+<BaseLayout title={page.metaTitle} description={page.description}>
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
@@ -33,7 +33,26 @@ const page = {
     <section class='pools' aria-label="Les bassins d'apprentissage de Maître-Baigneur">
       <Pools />
     </section>
+    <section class='pools-info'>
+      <div class='container'>
+        <p>
+          Certains bassins sont ouverts uniquement en été, d'autres fonctionnent toute l'année.
+          Maître Baigneur intervient également à domicile si vous disposez de votre propre piscine.
+          Quel que soit le bassin, nos maîtres-nageurs diplômés d'État apportent leur matériel et
+          assurent un encadrement en petits groupes pour tous les âges, dès 3 mois.
+        </p>
+        <p>
+          Vous souhaitez accueillir Maître Baigneur dans votre établissement ?
+          <a href='/contact?option=autres-questions-ou-suggestions'>Contactez-nous</a> pour discuter
+          d'une collaboration.
+        </p>
+      </div>
+    </section>
   </Main>
   <Footer />
 </BaseLayout>
-<style></style>
+<style>
+  .pools-info {
+    padding-bottom: var(--space-xl);
+  }
+</style>

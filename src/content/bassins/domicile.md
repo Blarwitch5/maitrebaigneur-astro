@@ -1,6 +1,6 @@
 ---
-metaTitle: "Bassin à domicile"
-metaDesc: "meta description"
+metaTitle: "Cours de natation à domicile à Aix-en-Provence"
+metaDesc: "Cours de natation à domicile avec Maître Baigneur dans la région d'Aix-en-Provence. Maître-nageur diplômé qui se déplace avec son matériel, tous âges et niveaux."
 
 title: "Domicile"
 pool: {

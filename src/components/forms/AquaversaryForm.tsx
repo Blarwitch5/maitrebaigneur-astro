@@ -122,9 +122,6 @@ const AquaversaryForm = () => {
   const handleFormSubmit = (data: AquaversaryFormInput) => {
     // Check the honey pot field; if it has a value, it's likely a bot.
     if (data.honeypot !== '') {
-      console.log('Ceci est une soumission de bot ! Blocage en cours...');
-      // You can choose to display an error message here if you prefer.
-      // For now, just block the submission.
       return;
     }
     onSubmit(data);

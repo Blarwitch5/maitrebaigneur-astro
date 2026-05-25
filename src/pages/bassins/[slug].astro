@@ -9,6 +9,7 @@ import { Icon } from 'astro-icon/components';
 import Title from '@components/ui/Title.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import type { ImageMetadata } from 'astro';
+import JsonLd from '@components/head/JsonLd.astro';
 
 import { getImage, Image, Picture } from 'astro:assets';
 
@@ -46,9 +47,31 @@ const galleryImages = await Promise.all(
 );
 
 import fallback from '@assets/images/page-title/fallback.jpg';
+
+const poolSlug = Astro.params.slug;
+const poolAddress = poolData.data.pool.address;
+const poolSchema = poolAddress
+  ? {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": `Maître Baigneur — ${poolData.data.pool.name}`,
+      "url": `https://maitrebaigneur.com/bassins/${poolSlug}`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": poolAddress,
+        "addressCountry": "FR"
+      },
+      "parentOrganization": {
+        "@type": "LocalBusiness",
+        "name": "Maître Baigneur",
+        "url": "https://maitrebaigneur.com"
+      }
+    }
+  : null;
 ---
 
 <PoolLayout title={poolData.data.metaTitle} description={poolData.data.metaDesc}>
+  {poolSchema && <JsonLd schema={poolSchema} />}
   <SkipToContent />
   <Header />
   <PageTitle
@@ -94,7 +117,7 @@ import fallback from '@assets/images/page-title/fallback.jpg';
                 )
               }
             </ul>
-            <Title animate level='4'>Sitution géographique</Title>
+            <Title animate level='4'>Situation géographique</Title>
             <ul>
               <li>
                 <a
@@ -214,7 +237,7 @@ import fallback from '@assets/images/page-title/fallback.jpg';
       * {
         margin: 0;
       }
-      *a {
+      a {
         color: var(--color-black);
       }
 

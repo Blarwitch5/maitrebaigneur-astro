@@ -15,8 +15,6 @@ const { indexText = "accueil", mainClass = "breadcrumbs" } = Astro.props as Brea
 const paths = Astro.url.pathname.split("/").filter((crumb: any) => crumb);
 const ariaCurrent = new URL(Astro.request.url).pathname === "/" ? "page" : undefined;
 
-console.log(paths);
-
 /**
  * Array of breadcrumb items.
  * The first item is the index page.

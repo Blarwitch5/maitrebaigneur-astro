@@ -32,7 +32,7 @@ interface Page {
   gallery: GalleryImage[];
 }
 const page: Page = {
-  metaTitle: 'Qui sommes-nous ?',
+  metaTitle: "L'équipe Maître Baigneur",
   description:
     "Découvrez Maître Baigneur et notre approche pédagogique innovante pour l'apprentissage de la natation en petits groupes. Apprenez les avantages de notre méthode en termes de sécurité, de développement des compétences sociales et physiques",
   title: 'Qui sommes-nous ?',
@@ -70,9 +70,25 @@ const page: Page = {
 };
 
 import quentin from '@assets/images/quentin.jpg';
+import JsonLd from '@components/head/JsonLd.astro';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Quentin Vander Meulen",
+  "jobTitle": "Fondateur et directeur",
+  "description": "Athlète de haut niveau, joueur professionnel de water-polo et maître-nageur, Quentin Vander Meulen a fondé Maître Baigneur pour transmettre sa passion de la natation au travers d'une pédagogie ludique.",
+  "url": "https://maitrebaigneur.com/qui-sommes-nous",
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": "Maître Baigneur",
+    "url": "https://maitrebaigneur.com"
+  }
+};
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <JsonLd schema={personSchema} />
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />

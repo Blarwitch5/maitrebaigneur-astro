@@ -1,6 +1,89 @@
 ---
 import Favicon from "@components/head/Favicon.astro";
 import GeoTag from "@components/head/GeoTag.astro";
+import JsonLd from "@components/head/JsonLd.astro";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "SportsActivityLocation"],
+  "name": "Maître Baigneur",
+  "description": "Cours de natation pour tous les âges à Aix-en-Provence et ses environs. Bébés nageurs dès 3 mois, enfants, adultes débutants ou confirmés. Maîtres nageurs qualifiés.",
+  "url": "https://maitrebaigneur.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://maitrebaigneur.com/images/logo.svg"
+  },
+  "image": "https://maitrebaigneur.com/images/og/og-default.jpg",
+  "telephone": "+33677007584",
+  "email": "contact@maitrebaigneur.com",
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "SIRET",
+    "value": "93956033000010"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Aix-en-Provence",
+    "addressRegion": "Provence-Alpes-Côte d'Azur",
+    "postalCode": "13100",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Aix-en-Provence" },
+    { "@type": "City", "name": "Saint-Marc-Jaumegarde" },
+    { "@type": "City", "name": "Pertuis" },
+    { "@type": "City", "name": "Saint-Maximin-la-Sainte-Baume" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "174",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.facebook.com/MaitreBaigneur/",
+    "https://www.instagram.com/maitre_baigneur_aix/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Prestations",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cours de natation",
+          "url": "https://maitrebaigneur.com/prestations/cours-de-natation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cours bébé nageur",
+          "url": "https://maitrebaigneur.com/prestations/cours-bebe-nageur"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Aquaversaire",
+          "url": "https://maitrebaigneur.com/prestations/aquaversaire"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Événements & Sécurité",
+          "url": "https://maitrebaigneur.com/prestations/evenement-securite"
+        }
+      }
+    ]
+  }
+};
 
 import "aos/dist/aos.css";
 
@@ -97,6 +180,7 @@ const icbm: string = "43.5, 5.4";
     <!-- FAVICON -->
     <Favicon />
     <!-- /FAVICON -->
+    <JsonLd schema={localBusinessSchema} />
     <ClientRouter />
   </head>
   <body>

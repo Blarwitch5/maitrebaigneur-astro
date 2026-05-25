@@ -1,4 +1,4 @@
-import data from '../../assets/data/data.json' with { type: 'json' };
+import data from '../../assets/data/data.json';
 import pools from '../../assets/data/pools.ts';
 
 const reservationLink = data.reservationLink;

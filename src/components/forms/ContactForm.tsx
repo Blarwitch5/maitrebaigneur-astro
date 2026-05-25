@@ -120,8 +120,6 @@ const ContactForm = () => {
 
   const handleFormSubmit = (data: FormInput) => {
     if (data.honeypot !== '') {
-      console.log('Ceci est une soumission de bot ! Blocage en cours...');
-
       return;
     }
     onSubmit(data);

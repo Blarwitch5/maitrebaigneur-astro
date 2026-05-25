@@ -222,7 +222,6 @@ const SwimmingForm = () => {
 
   const handleFormSubmit = (data: SwimmingFormInput) => {
     if (data.honeypot !== '') {
-      console.log('Ceci est une soumission de bot ! Blocage en cours...');
       return;
     }
     onSubmit(data);

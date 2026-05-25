@@ -11,6 +11,70 @@ import Title from '@components/ui/Title.astro';
 import Faq from '@components/widgets/Faq.astro';
 
 import fallback from '@assets/images/page-title/fallback.jpg';
+import JsonLd from '@components/head/JsonLd.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment ça se passe pour les cours bébé nageur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Arrivez 10 minutes avant le début de la séance. La séance dure 30 minutes. Couche aquatique obligatoire si l'enfant n'est pas encore propre, couche classique interdite. Maximum 2 accompagnants dans l'eau. Le matériel est fourni, ne ramenez rien."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment ça se passe pour les cours dès 3 ans ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Arrivez 10 minutes avant la séance. Munissez-vous d'un bonnet, de lunettes et d'une serviette. Les parents patientent à l'accueil et reviennent 5 minutes avant la fin. Pour la première séance, pensez à porter votre maillot de bain sous vos vêtements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la réservation en ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un élève correspond à un compte et une adresse e-mail. Chaque baigneur doit avoir sa propre fiche, même pour les jumeaux. Une réservation équivaut à une place. La séance découverte est payante et nécessite une réservation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles sont les modalités de paiement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le règlement s'effectue avant la réservation sur la boutique en ligne. Nous acceptons les Chèques-Vacances Connect (e-ANCV). Des paiements en plusieurs fois sans frais sont proposés pour les abonnements de 30 séances ou l'abonnement annuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que faire en cas d'empêchement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Annulez votre séance au moins 24 heures à l'avance. Au-delà de ce délai, la séance est automatiquement décomptée de votre forfait. En cas d'absence pour raison médicale, la séance pourra être rattrapée sur présentation d'un justificatif médical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À partir de quel âge puis-je inscrire mon enfant ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les cours bébé nageur commencent dès 3 mois et jusqu'à 36 mois. Les leçons de natation commencent à partir de 3 ans et sont disponibles pour tous les âges. Il n'est jamais trop tard !"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels sont les tarifs de Maître Baigneur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Consultez notre page tarifs sur https://maitrebaigneur.com/tarifs pour découvrir l'ensemble de nos formules et prix."
+      }
+    }
+  ]
+};
 
 const page = {
   metaTitle: 'Foire aux questions',
@@ -26,6 +90,7 @@ const page = {
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <JsonLd schema={faqSchema} />
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
@@ -33,7 +98,7 @@ const page = {
   <Main>
     <section>
       <div class='container'>
-        <Title level='2' animate>Foire aux questions</Title>
+        <Title level='2' animate>Questions sur les cours, la réservation et les tarifs</Title>
         <p>
           Nous avons rassemblé ici les questions les plus fréquentes que nous recevons de la part de
           nos baigneurs pour vous aider à trouver rapidement les informations que vous cherchez. Si

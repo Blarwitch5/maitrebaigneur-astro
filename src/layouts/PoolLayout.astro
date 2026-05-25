@@ -26,7 +26,6 @@ let icbm: string;
 const currentPage = new URL(Astro.request.url).pathname as string;
 switch (true) {
   case currentPage.endsWith("aquabecool"):
-    console.log("aquabecool");
     region = "FR-13";
     placename = "Aix-en-Provence";
     position = "43.512775;5.437376";

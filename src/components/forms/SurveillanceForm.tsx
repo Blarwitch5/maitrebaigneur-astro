@@ -120,9 +120,6 @@ const SurveillanceForm = () => {
 
   const handleFormSubmit = (data: SurveillanceFormInput) => {
     if (data.honeypot !== '') {
-      console.log('Ceci est une soumission de bot ! Blocage en cours...');
-      // You can choose to display an error message here if you prefer.
-      // For now, just block the submission.
       return;
     }
     onSubmit(data);

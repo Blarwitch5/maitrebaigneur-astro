@@ -1,6 +1,6 @@
 ---
 metaTitle: "Notre bassin d'apprentissage aux Terrasses du Sun"
-metaDesc: "Découvrez notre bassin d'apprentissage chez Aquabecool, exploité par Maître-Baigneur pour des cours de natation et bébé nageur. Profitez d'un environnement sécurisé et adapté pour apprendre à nager dans les meilleures conditions avec nos professionnels qualifiés."
+metaDesc: "Cours de natation aux Terrasses du Sun à Aix-en-Provence. Séances chaque matin, tous les âges, encadrées par nos maîtres-nageurs diplômés d'État."
 
 title: "Les Terrasses du Sun"
 pool: {

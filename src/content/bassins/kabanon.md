@@ -1,6 +1,6 @@
 ---
-metaTitle: "Notre bassin d'apprentissage au Kabanon des écuries de l'aube"
-metaDesc: "meta description"
+metaTitle: "Cours de natation au Kabanon, Saint-Marc-Jaumegarde"
+metaDesc: "Cours de natation et bébé nageur au Kabanon des Écuries de l'Aube, à Saint-Marc-Jaumegarde près d'Aix-en-Provence. Maîtres-nageurs diplômés, cadre provençal."
 
 title: "Kabanon"
 pool: {

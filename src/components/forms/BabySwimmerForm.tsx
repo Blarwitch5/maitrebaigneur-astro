@@ -1,4 +1,4 @@
-import data from '../../assets/data/data.json' with { type: 'json' };
+import data from '../../assets/data/data.json';
 const  reservationLink  = data.reservationLink;
 
 const BabySwimmerForm = () => {

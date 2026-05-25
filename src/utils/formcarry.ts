@@ -23,9 +23,6 @@ export const validateEndpoints = () => {
 // Fonction utilitaire pour envoyer un formulaire
 export const submitForm = async (endpoint: string, data: any) => {
   try {
-    console.log('Envoi vers:', endpoint);
-    console.log('Données:', data);
-
     const response = await fetch(endpoint, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -35,12 +32,8 @@ export const submitForm = async (endpoint: string, data: any) => {
       },
     });
 
-    console.log('Statut:', response.status);
-    console.log('Headers:', Object.fromEntries(response.headers.entries()));
-
     if (response.ok) {
       const responseData = await response.text();
-      console.log('Réponse réussie:', responseData);
       return { success: true, data: responseData };
     } else {
       const errorData = await response.text();

@@ -1,6 +1,6 @@
 ---
-metaTitle: "Notre bassin d'apprentissage Balnéo à Saint-Maximin"
-metaDesc: "Découvrez notre bassin d'apprentissage à Saint-Maximin, exploité par Maître-Baigneur pour des cours de natation et bébé nageur. Profitez d'un environnement sécurisé et adapté pour apprendre à nager dans les meilleures conditions avec nos professionnels qualifiés."
+metaTitle: "Cours de natation d'été à Saint-Maximin"
+metaDesc: "Cours de natation et bébé nageur à Saint-Maximin de mai à juin. Bassin couvert et chauffé, ouvert 7j/7. Maîtres-nageurs diplômés, apprentissage dès 3 ans."
 
 title: "Saint-Maximin été"
 pool: {

@@ -8,8 +8,8 @@ pool: {
 	location: "Pertuis",
 	desc: "<p>Nous sommes ravis de vous annoncer notre récent partenariat avec Kinemouv' à Pertuis, depuis 2022. Nous vous invitons chaleureusement à profiter de nos activités aquatiques :
 	<ul>
-	<li><strong>Samedi Matin</strong> : Plongez dans le plaisir avec nos séances de bébés nageurs.</li>
-	<li><strong>Samedi Après-midi</strong> : Perfectionnez vos compétences en natation lors de nos cours dédiés.</li></ul></p><p>
+	<li><strong>Samedi matin</strong> : Plongez dans le plaisir avec nos séances de bébés nageurs.</li>
+	<li><strong>Samedi après-midi</strong> : Perfectionnez vos compétences en natation lors de nos cours dédiés.</li></ul></p><p>
 	Pour les adultes, nous proposons des séances dynamiques d'aquabike et d'Aquafitness les mardis et jeudis soir.</p><p>De plus, notre centre vous offre des séances de kinésithérapie tous les jours, dans une ambiance conviviale.</p><p>Découvrez un monde de divertissement aquatique et de bien-être dans notre établissement à Pertuis. Rejoignez-nous dès aujourd'hui pour plonger dans l'action !</p>",
 	image: {
 		path: "../../assets/images/page-title/page_kinemouv-bassins.jpg",

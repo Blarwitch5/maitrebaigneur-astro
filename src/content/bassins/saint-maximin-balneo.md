@@ -1,8 +1,6 @@
 ---
-metaTitle: "Notre bassin d'apprentissage  à Saint-Maximin"
-metaDesc: "Découvrez notre bassin Balnéothérapie de Saint-Maximin
-, un espace aquatique conçu pour votre bien-être et celui de vos enfants !
-"
+metaTitle: "Cours de natation bassin balnéothérapie à Saint-Maximin"
+metaDesc: "Cours de natation et bébé nageur dans notre bassin balnéothérapie à Saint-Maximin-la-Sainte-Baume. Maîtres-nageurs diplômés d'État, bébés nageurs dès 3 mois."
 
 title: "Saint-Maximin Balnéo"
 pool: {
