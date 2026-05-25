@@ -57,7 +57,4 @@ export default defineConfig({
 			changefreq: "weekly",
 		}),
 	],
-	renderOptions: {
-		imgSources: ["https://*.cdninstagram.com"],
-	},
 });
