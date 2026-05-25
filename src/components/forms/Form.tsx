@@ -8,10 +8,8 @@ import ContactForm from "./ContactForm.tsx";
 import BabySwimmerForm from "./BabySwimmerForm.tsx";
 import SwimminginstationForm from "./SwimmingInStationForm.tsx";
 
-// Import the options data from the JSON file with the new Astro syntax
-import optionsData from "../../assets/data/formOptions.json" with { type: "json" };
+import optionsData from "../../assets/data/formOptions.json";
 
-// Define the Option type
 interface Option {
   option: string;
   value: string;
@@ -19,10 +17,17 @@ interface Option {
   title: string;
   content: string;
   className: string;
-  formComponent: string; // Change this to string
+  formComponent: string;
 }
 
-const Form = () => {
+interface PoolItem {
+  name: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const Form = ({ poolsList = [] }: { poolsList?: PoolItem[] }) => {
   const [selectedOption, setSelectedOption] = useState<string>("");
 
   const updateURL = (slug: string) => {
@@ -44,7 +49,7 @@ const Form = () => {
   const renderFormComponent = (componentName: string): JSX.Element | null => {
     switch (componentName) {
       case "SwimminginstationForm":
-        return <SwimminginstationForm />;
+        return <SwimminginstationForm poolsList={poolsList} />;
       case "BabySwimmerForm":
         return <BabySwimmerForm />;
       case "SwimmingForm":

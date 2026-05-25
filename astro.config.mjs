@@ -34,6 +34,9 @@ export default defineConfig({
 			clearScreen() {},
 			hasWarned: false,
 		},
+		optimizeDeps: {
+			exclude: ['react/jsx-dev-runtime'],
+		},
 		build: {
 			rollupOptions: {
 				output: {

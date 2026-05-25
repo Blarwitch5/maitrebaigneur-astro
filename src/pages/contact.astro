@@ -27,6 +27,10 @@ const page = {
 };
 
 import Form from '@components/forms/Form.tsx';
+import pools from '@assets/data/pools.ts';
+const poolsList = pools
+  .filter((p) => p.name !== 'Domicile')
+  .map((p) => ({ name: p.name, href: p.href, imageSrc: p.image.path.src, imageAlt: p.image.alt }));
 ---
 
 <BaseLayout title={page.title} description={page.description}>
@@ -48,7 +52,7 @@ import Form from '@components/forms/Form.tsx';
           Vous êtes au bon endroit, n'hésitez pas à nous écrire quelques lignes, nous les lirons
           toutes !
         </p>
-        <Form client:load />
+        <Form client:load poolsList={poolsList} />
       </div>
     </section>
   </Main>

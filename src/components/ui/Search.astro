@@ -92,7 +92,8 @@
 <script>
   const searchSetup = () => {
     const searchInput =
-      document.querySelector<HTMLInputElement>("#search-field")!;
+      document.querySelector<HTMLInputElement>("#search-field");
+    if (!searchInput) return;
     const clearButton =
       document.querySelector<HTMLButtonElement>("#clear-button")!;
     const accordionItems =

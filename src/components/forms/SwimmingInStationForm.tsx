@@ -1,12 +1,16 @@
 import data from '../../assets/data/data.json';
-import pools from '../../assets/data/pools.ts';
+import "./Form.scss";
+
+interface PoolItem {
+  name: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+}
 
 const reservationLink = data.reservationLink;
 
-import "./Form.scss";
-
-const SwimmingInStationForm = () => {
-
+const SwimmingInStationForm = ({ poolsList = [] }: { poolsList?: PoolItem[] }) => {
   return (
     <fieldset className="form__section no-inputs" id="swimming-station">
       <legend>Cours de natation en bassin d'apprentissage</legend>
@@ -24,20 +28,21 @@ const SwimmingInStationForm = () => {
       >
         Je réserve maintenant
       </a>
-      <div className="pools">
-        <h3>Nos bassins d'apprentissage</h3>
-        <ul>
-          {
-          pools.map((item) => (
-            <li key={item.name}>
-              <a href={item.href}>
-                <img loading="lazy" src={item.image.path.src} alt={item.image.alt} />
-                <span>{item.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {poolsList.length > 0 && (
+        <div className="pools">
+          <h3>Nos bassins d'apprentissage</h3>
+          <ul>
+            {poolsList.map((item) => (
+              <li key={item.name}>
+                <a href={item.href}>
+                  <img loading="lazy" src={item.imageSrc} alt={item.imageAlt} />
+                  <span>{item.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </fieldset>
   );
 };
