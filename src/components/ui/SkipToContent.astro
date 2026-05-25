@@ -1,23 +1,25 @@
 <!-- btn go straight to content for accessibility -->
-<a id="skip-to-content" class="sr-only" href="#skip-content-target">Aller au contenu</a>
+<a id="skip-to-content" class="skiplink" href="#skip-content-target">Aller au contenu</a>
 
 <style>
-	.skiplink,
-	.skiplink:focus,
-	.skiplink:focus-visible {
+	.skiplink {
 		position: absolute;
-		padding: 0.25em;
-		font-size: larger;
-		top: 0;
+		top: -100%;
 		left: 0;
 		right: 0;
-		z-index: 9;
+		z-index: 9999;
 		display: block;
 		text-align: center;
+		padding: 0.25em;
+		font-size: larger;
 		background-color: var(--color-primary);
 		color: var(--color-bg);
 		border-radius: 0.25em;
 		outline: var(--color-bg) solid 1px;
 		outline-offset: 0;
+	}
+	.skiplink:focus,
+	.skiplink:focus-visible {
+		top: 0;
 	}
 </style>

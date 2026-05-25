@@ -21,7 +21,7 @@ const logo = {
 };
 ---
 
-<div id='modal' class='modal'>
+<div id='modal' class='modal' role='dialog' aria-modal='true' aria-label='Menu de navigation' aria-hidden='true'>
   <div class='modal__content'>
     <Image src={logo.path} alt={logo.alt} class='logo' width='200' />
     <nav class='sidenav' id='side-navigation' aria-label='Maître-Baigneur'>
@@ -31,7 +31,7 @@ const logo = {
             <>
               {item.children && (
                 <li class={`nav-item dropdown`} role='menuitem'>
-                  <Icon name={item.icon} />
+                  <Icon name={item.icon} aria-hidden='true' />
                   <Button
                     tabindex='0'
                     class='nav-link dropdown__toggle'
@@ -63,7 +63,7 @@ const logo = {
                     .toLowerCase()}`}
                   role='menuitem'
                 >
-                  <Icon name={item.icon} />
+                  <Icon name={item.icon} aria-hidden='true' />
                   <Button tabindex='0' class='nav-link' href={item.href} newTab={item.inNewTab}>
                     {item.name}
                   </Button>

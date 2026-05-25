@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 import './SubmissionStatusModal.scss';
 
@@ -14,10 +14,12 @@ interface SubmissionStatusModalProps {
 
 const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({ isSuccess, onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
-  // Ouvrir la modal lorsque des propriétés sont reçues
   useEffect(() => {
     setIsVisible(true);
+    // Déplace le focus dans la modale à l'ouverture
+    closeBtnRef.current?.focus();
   }, []);
 
   // Fermer la modal en cliquant à l'extérieur
@@ -48,6 +50,8 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({ isSuccess
     };
   }, [handleEscapeKey]);
 
+  const headingId = isSuccess ? 'modal-success-title' : 'modal-error-title';
+
   return (
     <div
       className={`submission-status-modal ${isVisible ? 'visible' : ''} ${
@@ -57,16 +61,17 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({ isSuccess
       onKeyDown={handleKeyDown}
       role="dialog"
       aria-modal="true"
+      aria-labelledby={headingId}
     >
       <div className="submission-status-modal-overlay" aria-hidden="true" />
       <div className="submission-status-modal-content">
-        <button type="button" onClick={onClose} className="btn-back ">
+        <button type="button" onClick={onClose} className="btn-back" ref={closeBtnRef}>
           Retour
         </button>
         {isSuccess ? (
           <>
             <img src={iconSuccess.src} width="128" height="128" alt="Petit baigneur satisfait" />
-            <h2>Formulaire envoyé avec succès!</h2>
+            <h2 id={headingId}>Formulaire envoyé avec succès!</h2>
             <p>
               Félicitations ! Votre formulaire a bien été soumis. Nous vous remercions pour votre
               message et nous nous efforcerons de vous répondre dans les plus brefs délais.
@@ -75,7 +80,7 @@ const SubmissionStatusModal: React.FC<SubmissionStatusModalProps> = ({ isSuccess
         ) : (
           <>
             <img src={iconError.src} width="128" height="128" alt="Petit baigneur mécontent" />
-            <h2>Oops! Quelque chose s'est mal passé...</h2>
+            <h2 id={headingId}>Oops! Quelque chose s'est mal passé...</h2>
 
             <p>
               Nous rencontrons actuellement des difficultés pour traiter votre formulaire. Veuillez

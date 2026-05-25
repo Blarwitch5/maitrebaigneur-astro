@@ -9,8 +9,6 @@ function navbarSetup() {
 	// Get the previous scroll position
 	let prevScrollpos = window.pageYOffset;
 
-	// Get the current state of the menu
-	const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
 	// Add event listeners
 	toggleBtn.addEventListener("click", () => {
 		openMenu();
@@ -20,12 +18,18 @@ function navbarSetup() {
 	});
 	//accessibility for keyboard users
 	toggleBtn.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === "Space") {
+		if (event.key === "Enter" || event.key === " ") {
 			openMenu();
 		}
 	});
 	closeBtn.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === "Space") {
+		if (event.key === "Enter" || event.key === " ") {
+			closeMenu();
+		}
+	});
+	// Close on Escape key from anywhere inside the modal
+	sidenav.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
 			closeMenu();
 		}
 	});
@@ -55,77 +59,58 @@ function navbarSetup() {
 	// Function to add or remove the class "active" from the header element
 	function addRemoveHeaderClassOnScroll(scroll) {
 		if (scroll > 150) {
-			// Add class "active" to the header
 			header.classList.add("active");
 		} else {
-			// Remove class "active" from the header
 			header.classList.remove("active");
 		}
-	} // Function to open the menu
+	}
+
+	// Function to open the menu
 	function openMenu() {
 		const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
-
-		// If the menu is open, close it
 		if (isOpened) {
-			toggleBtn.setAttribute("aria-expanded", false);
-			sidenav.setAttribute("data-state", "closed");
-		} else {
-			// If the menu is closed, open it
-			toggleBtn.setAttribute("aria-expanded", true);
-			sidenav.setAttribute("data-state", "opened");
+			closeMenu();
+			return;
 		}
+		toggleBtn.setAttribute("aria-expanded", "true");
+		sidenav.setAttribute("data-state", "opened");
+		sidenav.setAttribute("aria-hidden", "false");
+		body.style.overflow = "hidden";
 		if (window.innerWidth > 768) {
-			// Add the overlay
 			addOverlay();
 		}
-		// Prevent scrolling on the body element
-		body.style.overflow = "hidden";
+		// Move focus inside the modal so keyboard users are not stranded
+		closeBtn.focus();
 	}
 
 	// Function to close the menu
 	function closeMenu() {
-		const isOpened = toggleBtn.getAttribute("aria-expanded") === "true";
-
-		// If the menu is open, close it
-		if (isOpened) {
-			toggleBtn.setAttribute("aria-expanded", false);
-			sidenav.setAttribute("data-state", "closed");
-		} else {
-			// If the menu is closed, open it
-			toggleBtn.setAttribute("aria-expanded", true);
-			sidenav.setAttribute("data-state", "opened");
-		}
+		toggleBtn.setAttribute("aria-expanded", "false");
+		sidenav.setAttribute("data-state", "closed");
+		sidenav.setAttribute("aria-hidden", "true");
+		body.style.overflow = "";
 		if (window.innerWidth > 768) {
-			// Remove the overlay
 			removeOverlay();
 		}
-		// Allow scrolling on the body element again
-		body.style.overflow = "";
+		// Return focus to the element that triggered the modal
+		toggleBtn.focus();
 	}
 
 	// Function to add the overlay
 	function addOverlay() {
-		// Create the overlay element
 		const overlay = document.createElement("div");
-		// Add the class "overlay" to the overlay element
 		overlay.classList.add("overlay");
-		// Add the id "overlay" to the overlay element
 		overlay.setAttribute("id", "overlay");
-		// Add an event listener to the overlay element
 		overlay.addEventListener("click", () => {
-			// When the overlay is clicked, close the menu
 			closeMenu();
 		});
-		// Append the overlay element to the body element
 		body.appendChild(overlay);
 	}
 
 	// Function to remove the overlay
 	function removeOverlay() {
-		// Get the overlay element
 		const overlay = document.getElementById("overlay");
-		// Remove the overlay element
-		overlay.remove();
+		if (overlay) overlay.remove();
 	}
 
 	// Get the current page URL
@@ -149,11 +134,8 @@ function navbarSetup() {
 	dropdownToggles.addEventListener("click", function (e) {
 		e.preventDefault();
 		this.parentElement.classList.toggle("dropdown--open");
-		if (!this.parentElement.classList.contains("dropdown--open")) {
-			this.setAttribute("aria-expanded", "true");
-		} else {
-			this.setAttribute("aria-expanded", "false");
-		}
+		const isExpanded = this.parentElement.classList.contains("dropdown--open");
+		this.setAttribute("aria-expanded", isExpanded ? "true" : "false");
 	});
 }
 navbarSetup();

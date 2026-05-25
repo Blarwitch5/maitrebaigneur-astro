@@ -11,7 +11,6 @@ const { header, index } = Astro.props;
       aria-expanded="false"
       aria-controls={`accordion__panel-${index}`}
       onclick="toggleAccordionItem()"
-      aria-label={`Ouvrir ou fermer ${header}`}
     >
       {header}
       <svg

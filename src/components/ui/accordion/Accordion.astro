@@ -15,7 +15,8 @@
 		const accordionPanel = accordionItem.querySelector(".accordion__panel");
 		accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
 		accordionItem.classList.add("is-active");
-		accordionItemHeader.setAttribute("aria-expanded", true);
+		accordionItemHeader.setAttribute("aria-expanded", "true");
+		accordionPanel.setAttribute("aria-hidden", "false");
 	};
 	const closeAccordionItem = (accordionItem) => {
 		const accordionItemHeader = accordionItem.querySelector(".accordion__header");
@@ -23,7 +24,8 @@
 		accordionItem.classList.remove("is-active");
 		accordionPanel.style.height = 0;
 		accordionItemHeader.focus();
-		accordionItemHeader.setAttribute("aria-expanded", false);
+		accordionItemHeader.setAttribute("aria-expanded", "false");
+		accordionPanel.setAttribute("aria-hidden", "true");
 	};
 	const isAccordionOpen = (accordionItem) => {
 		return accordionItem.classList.contains("is-active");

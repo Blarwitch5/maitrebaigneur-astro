@@ -126,32 +126,33 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
     <div class='form__field col-100'>
       <label for='nom-natation-domicile'>Nom d'un des parents <span class='required'>*</span></label
       >
-      <input type='text' name='nom-natation-domicile' />
+      <input id='nom-natation-domicile' type='text' name='nom-natation-domicile' />
     </div>
     <div class='form__field col-100'>
       <label for='nom-enfants-natation-domicile'
         >Prénoms du ou des enfants <span class='required'>*</span></label
       >
-      <input type='text' name='nom-enfants-natation-domicile' />
+      <input id='nom-enfants-natation-domicile' type='text' name='nom-enfants-natation-domicile' />
       <small>Dans le cas de plusieurs enfants, séparer les prénoms par une virgule</small>
     </div>
     <div class='form__field'>
       <label for='tel-natation-domicile'>Numéro de téléphone <span class='required'>*</span></label>
-      <input type='tel' name='tel-natation-domicile' />
+      <input id='tel-natation-domicile' type='tel' name='tel-natation-domicile' />
     </div>
     <div class='form__field'>
       <label for='email-natation-domicile'>Adresse mail <span class='required'>*</span></label>
-      <input type='email' name='email-natation-domicile' />
+      <input id='email-natation-domicile' type='email' name='email-natation-domicile' />
     </div>
     <div class='form__field col-100'>
       <label for='adresse-natation-domicile'
         >Adresse de la piscine <span class='required'>*</span></label
       >
-      <input type='text' name='adresse-natation-domicile' />
+      <input id='adresse-natation-domicile' type='text' name='adresse-natation-domicile' />
     </div>
     <div class='form__field col-50'>
       <label for='code-postal-natation-domicile'>Code postal <span class='required'>*</span></label>
       <input
+        id='code-postal-natation-domicile'
         type='text'
         pattern='\d{5}'
         title='Code postal français à 5 chiffres'
@@ -160,13 +161,13 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
     </div>
     <div class='form__field col-50'>
       <label for='ville-natation-domicile'>Ville <span class='required'>*</span></label>
-      <input type='text' name='ville-natation-domicile' />
+      <input id='ville-natation-domicile' type='text' name='ville-natation-domicile' />
     </div>
     <div class='form__field col-100'>
       <label for='dates-natation-domicile'
-        >Quand vodriez-vous réserver un cours ? <span class='required'>*</span></label
+        >Quand voudriez-vous réserver un cours ? <span class='required'>*</span></label
       >
-      <textarea name='dates-natation-domicile' rows='3'></textarea>
+      <textarea id='dates-natation-domicile' name='dates-natation-domicile' rows='3'></textarea>
       <small>Veuillez nous fournir plusieurs dates et heures</small>
     </div>
 
@@ -200,25 +201,25 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
     <legend>Contact pour un Aquaversaire</legend>
     <div class='form__field'>
       <label for='nom-aquaversaire'>Nom <span class='required'>*</span></label>
-      <input type='text' nom-aquaversaire='name' />
+      <input id='nom-aquaversaire' type='text' name='nom-aquaversaire' />
     </div>
     <div class='form__field'>
       <label for='prenom-aquaversaire'>Prénom <span class='required'>*</span></label>
-      <input type='text' name='prenom-aquaversaire' />
+      <input id='prenom-aquaversaire' type='text' name='prenom-aquaversaire' />
     </div>
     <div class='form__field'>
       <label for='tel-aquaversaire'>Numéro de téléphone <span class='required'>*</span></label>
-      <input type='tel' name='tel-aquaversaire' />
+      <input id='tel-aquaversaire' type='tel' name='tel-aquaversaire' />
     </div>
     <div class='form__field'>
       <label for='email-aquaversaire'>Adresse mail <span class='required'>*</span></label>
-      <input type='email' name='email-aquaversaire' />
+      <input id='email-aquaversaire' type='email' name='email-aquaversaire' />
     </div>
     <div class='form__field col-100'>
       <label for='info-aquaversaire'
         >Où ? Quand ? Et combien de baigneurs <span class='required'>*</span></label
       >
-      <textarea name='info-aquaversaire' rows='3'></textarea>
+      <textarea id='info-aquaversaire' name='info-aquaversaire' rows='3'></textarea>
       <small
         >Exemple: Je souhaite organiser un aquaversaire à Aix le 01/01/23 pour 10 enfants...</small
       >
@@ -230,25 +231,25 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
     <legend>Contact pour de la surveillance</legend>
     <div class='form__field'>
       <label for='name-surveillance'>Nom <span class='required'>*</span></label>
-      <input type='text' name='name-surveillance' />
+      <input id='name-surveillance' type='text' name='name-surveillance' />
     </div>
     <div class='form__field'>
       <label for='prenom-surveillance'>Prénom <span class='required'>*</span></label>
-      <input type='text' name='prenom-surveillance' />
+      <input id='prenom-surveillance' type='text' name='prenom-surveillance' />
     </div>
     <div class='form__field'>
       <label for='tel-surveillance'>Numéro de téléphone <span class='required'>*</span></label>
-      <input type='tel' name='tel-surveillance' />
+      <input id='tel-surveillance' type='tel' name='tel-surveillance' />
     </div>
     <div class='form__field'>
       <label for='email-surveillance'>Adresse mail <span class='required'>*</span></label>
-      <input type='email' name='email-surveillance' />
+      <input id='email-surveillance' type='email' name='email-surveillance' />
     </div>
     <div class='form__field col-100'>
       <label for='info-surveillance'
         >Où ? Quand ? Et combien de personnes ? Quel type d'événement ?</label
       >
-      <textarea name='info-surveillance' rows='3'></textarea>
+      <textarea id='info-surveillance' name='info-surveillance' rows='3'></textarea>
       <small>Exemple: Je souhaite sécuriser un mariage à Aix le 01/01/23 pour 50 personnes...</small
       >
     </div>
@@ -260,23 +261,23 @@ const google_site_key = import.meta.env.GOOGLE_SITE_KEY;
 
     <div class='form__field'>
       <label for='name-autre'>Nom <span class='required'>*</span></label>
-      <input type='text' name='name-autre' />
+      <input id='name-autre' type='text' name='name-autre' />
     </div>
     <div class='form__field'>
       <label for='prenom-autre'>Prénom <span class='required'>*</span></label>
-      <input type='text' name='prenom-autre' />
+      <input id='prenom-autre' type='text' name='prenom-autre' />
     </div>
     <div class='form__field'>
       <label for='tel-autre'>Numéro de téléphone <span class='required'>*</span></label>
-      <input type='tel' name='tel-autre' />
+      <input id='tel-autre' type='tel' name='tel-autre' />
     </div>
     <div class='form__field'>
       <label for='email-autre'>Adresse mail <span class='required'>*</span></label>
-      <input type='email' name='email-autre' />
+      <input id='email-autre' type='email' name='email-autre' />
     </div>
     <div class='form__field col-100'>
       <label for='info-autre'>Message <span class='required'>*</span></label>
-      <textarea name='info-autre' rows='3'></textarea>
+      <textarea id='info-autre' name='info-autre' rows='3'></textarea>
     </div>
   </fieldset>
   <!-- 5th section - Baby swimmers -->
