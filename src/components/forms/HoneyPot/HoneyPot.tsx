@@ -1,17 +1,15 @@
-interface HoneyPotProps {
-  className?: string;
-}
+import type { UseFormRegister } from 'react-hook-form';
 
-const HoneyPot: React.FC<HoneyPotProps> = () => {
+const HoneyPot = ({ register }: { register: UseFormRegister<any> }) => {
   return (
-    <div style={{ display: "none" }}>
+    <div style={{ display: 'none' }}>
       <label htmlFor="honeypot">Leave this field empty:</label>
       <input
         type="text"
         id="honeypot"
-        name="honeypot"
-        tabIndex={-1}
         autoComplete="off"
+        tabIndex={-1}
+        {...register('honeypot')}
       />
     </div>
   );

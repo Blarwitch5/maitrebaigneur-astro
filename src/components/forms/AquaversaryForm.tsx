@@ -17,7 +17,7 @@ const AquaversaryFormSchema = z.object({
       message: 'Le nom ne doit pas excéder 30 lettres.',
     })
     .regex(
-      /^[a-zA-Z- ]+$/,
+      /^[a-zA-ZÀ-ÿ\- ]+$/,
       'Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'
     ),
   firstName: z
@@ -26,7 +26,7 @@ const AquaversaryFormSchema = z.object({
     .max(30, {
       message: 'Le prénom ne doit pas excéder 30 lettres.',
     })
-    .regex(/^[a-zA-Z-]+$/, 'Le prénom ne doit contenir que des lettres et/ou des tirets (-)'),
+    .regex(/^[a-zA-ZÀ-ÿ\- ]+$/, 'Le prénom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'),
   email: z.string().email({
     message: 'Email invalide. Veuillez entrer une adresse mail valide',
   }),
@@ -71,9 +71,6 @@ const AquaversaryForm = () => {
 
   const onSubmit = async (data: AquaversaryFormInput) => {
     try {
-      // Validate using Zod
-      AquaversaryFormSchema.parse(data);
-
       if (!FORMCARRY_ENDPOINTS.AQUAVERSAIRE) {
         console.error('Endpoint AQUAVERSAIRE manquant');
         setIsSubmissionSuccessful(false);
@@ -221,7 +218,7 @@ const AquaversaryForm = () => {
             {errors?.rgpd?.message && <p className="error-message">{errors.rgpd.message}</p>}
           </div>
         </fieldset>
-        <HoneyPot />
+        <HoneyPot register={register} />
         <SubmitBtn />
       </form>
 

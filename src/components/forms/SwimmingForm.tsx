@@ -19,7 +19,7 @@ const swimmerSchema = z.object({
     .min(2, 'Le nom doit contenir minimum 2 lettres.')
     .max(50, 'Le nom ne doit pas excéder 50 lettres.')
     .regex(
-      /^[a-zA-Z- ]+$/,
+      /^[a-zA-ZÀ-ÿ\- ]+$/,
       'Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'
     ),
   dob: z
@@ -58,7 +58,7 @@ const SwimmingFormSchema = z.object({
       message: 'Le nom ne doit pas excéder 30 lettres.',
     })
     .regex(
-      /^[a-zA-Z- ]+$/,
+      /^[a-zA-ZÀ-ÿ\- ]+$/,
       'Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'
     ),
   firstName: z
@@ -67,7 +67,7 @@ const SwimmingFormSchema = z.object({
     .max(30, {
       message: 'Le prénom ne doit pas excéder 30 lettres.',
     })
-    .regex(/^[a-zA-Z-]+$/, 'Le nom ne doit contenir que des lettres ou des tirets (-)'),
+    .regex(/^[a-zA-ZÀ-ÿ\- ]+$/, 'Le prénom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'),
   email: z.string().email({
     message: 'Email invalide. Veuillez entrer une adresse mail valide',
   }),
@@ -88,7 +88,7 @@ const SwimmingFormSchema = z.object({
     .min(4, { message: "L'adresse doit contenir un minimum de 4 caractères." })
     .max(100, { message: "L'adresse ne peut pas excéder 100 caractères" })
     .regex(
-      /^[a-zA-Z0-9-, ]+$/,
+      /^[a-zA-ZÀ-ÿ0-9,\- ]+$/,
       "L'adresse ne peut contenir que des lettres, chiffres et des tirets (-)"
     ),
   zipCode: z
@@ -108,7 +108,7 @@ const SwimmingFormSchema = z.object({
       message: 'Le nom de la ville ne doit pas excéder 35 caractères',
     })
     .regex(
-      /^[a-zA-Z- ]+$/,
+      /^[a-zA-ZÀ-ÿ\- ]+$/,
       'Le nom de la ville ne peut contenir que des lettres, des tirets (-) et des espaces'
     ),
 
@@ -171,9 +171,6 @@ const SwimmingForm = () => {
 
   const onSubmit = async (data: SwimmingFormInput) => {
     try {
-      // Validate using Zod
-      SwimmingFormSchema.parse(data);
-
       // Create a formatted list of swimmers
       const formattedSwimmersList = data.swimmers.map((swimmer, index) => {
         return `
@@ -504,7 +501,7 @@ const SwimmingForm = () => {
             )}
           </div>
         </fieldset>
-        <HoneyPot />
+        <HoneyPot register={register} />
         <SubmitBtn />
       </form>
       {isModalOpen && (

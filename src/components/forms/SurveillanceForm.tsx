@@ -16,7 +16,7 @@ const SurveillanceFormSchema = z.object({
       message: 'Le nom ne doit pas excéder 30 lettres.',
     })
     .regex(
-      /^[a-zA-Z- ]+$/,
+      /^[a-zA-ZÀ-ÿ\- ]+$/,
       'Le nom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'
     ),
   firstName: z
@@ -25,7 +25,7 @@ const SurveillanceFormSchema = z.object({
     .max(30, {
       message: 'Le prénom ne doit pas excéder 30 lettres.',
     })
-    .regex(/^[a-zA-Z-]+$/, 'Le nom ne doit contenir que des lettres ou des tirets (-)'),
+    .regex(/^[a-zA-ZÀ-ÿ\- ]+$/, 'Le prénom ne doit contenir que des lettres, des tirets (-) et/ou des espaces'),
   email: z.string().email({
     message: 'Email invalide. Veuillez entrer une adresse mail valide',
   }),
@@ -70,9 +70,6 @@ const SurveillanceForm = () => {
 
   const onSubmit = async (data: SurveillanceFormInput) => {
     try {
-      // Validate using Zod
-      SurveillanceFormSchema.parse(data);
-
       if (!FORMCARRY_ENDPOINTS.EVENT) {
         console.error('Endpoint EVENT manquant');
         setIsSubmissionSuccessful(false);
@@ -189,7 +186,8 @@ const SurveillanceForm = () => {
           </div>
           <div className={`form__field col-100 ${errors.info ? 'error' : ''}`}>
             <label htmlFor="info">
-              Où ? Quand ? Et combien de personnes ? Quel type d'événement ?
+              Où ? Quand ? Et combien de personnes ? Quel type d'événement ?{' '}
+              <span className="required">*</span>
             </label>
             <textarea
               id="info"
@@ -220,7 +218,7 @@ const SurveillanceForm = () => {
             {errors?.rgpd?.message && <p className="error-message">{errors.rgpd.message}</p>}
           </div>
         </fieldset>
-        <HoneyPot />
+        <HoneyPot register={register} />
         <SubmitBtn />
       </form>
       {isModalOpen && (
