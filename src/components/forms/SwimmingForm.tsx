@@ -249,7 +249,6 @@ const SwimmingForm = () => {
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
         autoComplete="on"
-        role="form"
         aria-labelledby="swimming-lessons"
       >
         {' '}

@@ -130,7 +130,6 @@ const ContactForm = () => {
       <form
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
-        role="form"
         aria-labelledby="questions"
         autoComplete="on"
       >

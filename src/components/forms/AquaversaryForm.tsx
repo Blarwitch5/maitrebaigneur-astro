@@ -132,7 +132,6 @@ const AquaversaryForm = () => {
       <form
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
-        role="form"
         aria-labelledby="aquaversary"
         autoComplete="on" // Enable browser autocomplete
       >

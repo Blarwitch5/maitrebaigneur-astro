@@ -131,7 +131,6 @@ const SurveillanceForm = () => {
       <form
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
-        role="form"
         aria-labelledby="events"
         autoComplete="on" // Enable browser autocomplete
       >
