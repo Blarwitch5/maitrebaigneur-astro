@@ -81,8 +81,8 @@ const SwimmingFormSchema = z.object({
     .min(4, { message: "L'adresse doit contenir un minimum de 4 caractères." })
     .max(100, { message: "L'adresse ne peut pas excéder 100 caractères" })
     .regex(
-      /^[a-zA-ZÀ-ÿ0-9,\- ]+$/,
-      "L'adresse ne peut contenir que des lettres, chiffres et des tirets (-)"
+      /^[a-zA-ZÀ-ÿ0-9,'\- ]+$/,
+      "L'adresse ne peut contenir que des lettres, chiffres, apostrophes et des tirets (-)"
     ),
   zipCode: z
     .string()
@@ -106,7 +106,7 @@ const SwimmingFormSchema = z.object({
     ),
 
   dispo: z.string().min(10, {
-    message: 'Les informations sur les disponibilités doivent contenir un minim de 10 caractères.',
+    message: 'Les informations sur les disponibilités doivent contenir un minimum de 10 caractères.',
   }),
   numSwimmers: z.enum(['1', '2', '3']),
   swimmers: z.array(swimmerSchema),
@@ -138,7 +138,7 @@ const SwimmingForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<SwimmingFormInput>({
     resolver: zodResolver(SwimmingFormSchema),
@@ -228,80 +228,115 @@ const SwimmingForm = () => {
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
         autoComplete="on"
-        aria-labelledby="swimming-lessons"
+        aria-labelledby="swimming-lessons-legend"
       >
         <fieldset className="form__section" id="swimming-lessons">
           <legend id="swimming-lessons-legend">Contact pour leçons de natation à domicile</legend>
+
           <div className={`form__field col-100 ${errors.name ? 'error' : ''}`}>
             <label htmlFor="name">
               Nom d'un parent <span className="required">*</span>
             </label>
             <input
               type="text"
-              title="Nom d'un parent"
               id="name"
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'name-error' : undefined}
               {...register('name')}
               autoComplete="family-name"
             />
-            {errors?.name?.message && <p className="error-message">{errors.name.message}</p>}
+            {errors?.name?.message && (
+              <p id="name-error" className="error-message" role="alert">
+                {errors.name.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field col-100 ${errors.firstName ? 'error' : ''}`}>
             <label htmlFor="firstName">
               Prénom de ou des enfants <span className="required">*</span>
             </label>
             <input
-              title="Prénom de ou des enfants"
               type="text"
               id="firstName"
+              aria-required="true"
+              aria-invalid={!!errors.firstName}
+              aria-describedby={`firstName-hint${errors.firstName ? ' firstName-error' : ''}`}
               {...register('firstName')}
               autoComplete="given-name"
             />
-            <small>Dans le cas de plusieurs enfants, séparer les prénoms par une virgule</small>
+            <small id="firstName-hint">
+              Dans le cas de plusieurs enfants, séparer les prénoms par une virgule
+            </small>
             {errors?.firstName?.message && (
-              <p className="error-message">{errors.firstName.message}</p>
+              <p id="firstName-error" className="error-message" role="alert">
+                {errors.firstName.message}
+              </p>
             )}
           </div>
+
           <div className={`form__field ${errors.tel ? 'error' : ''}`}>
             <label htmlFor="tel">
               Numéro de téléphone <span className="required">*</span>
             </label>
             <input
-              title="Numéro de téléphone"
               id="tel"
               type="tel"
+              aria-required="true"
+              aria-invalid={!!errors.tel}
+              aria-describedby={`tel-hint${errors.tel ? ' tel-error' : ''}`}
               {...register('tel')}
               autoComplete="tel"
             />
-            <small>Exemple: +33612121212, 0033612121212 ou 0612121212</small>
-
-            {errors?.tel?.message && <p className="error-message">{errors.tel.message}</p>}
+            <small id="tel-hint">Exemple: +33612121212, 0033612121212 ou 0612121212</small>
+            {errors?.tel?.message && (
+              <p id="tel-error" className="error-message" role="alert">
+                {errors.tel.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.email ? 'error' : ''}`}>
             <label htmlFor="email">
               Adresse mail <span className="required">*</span>
             </label>
             <input
-              title="Adresse mail"
               id="email"
               type="email"
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
               {...register('email')}
               autoComplete="email"
             />
-            {errors?.email?.message && <p className="error-message">{errors.email.message}</p>}
+            {errors?.email?.message && (
+              <p id="email-error" className="error-message" role="alert">
+                {errors.email.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field col-100 ${errors.address ? 'error' : ''}`}>
             <label htmlFor="address">
               Adresse de la piscine <span className="required">*</span>
             </label>
             <input
               id="address"
-              title="Adresse de la piscine"
               type="text"
+              aria-required="true"
+              aria-invalid={!!errors.address}
+              aria-describedby={errors.address ? 'address-error' : undefined}
               {...register('address')}
               autoComplete="street-address"
             />
-            {errors?.address?.message && <p className="error-message">{errors.address.message}</p>}
+            {errors?.address?.message && (
+              <p id="address-error" className="error-message" role="alert">
+                {errors.address.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.zipCode ? 'error' : ''}`}>
             <label htmlFor="zipCode">
               Code postal <span className="required">*</span>
@@ -311,33 +346,59 @@ const SwimmingForm = () => {
               placeholder="13100"
               type="text"
               pattern="\d{5}"
-              title="Code postal français à 5 chiffres"
+              aria-required="true"
+              aria-invalid={!!errors.zipCode}
+              aria-describedby={`zipCode-hint${errors.zipCode ? ' zipCode-error' : ''}`}
               {...register('zipCode')}
               autoComplete="postal-code"
             />
-            {errors?.zipCode?.message && <p className="error-message">{errors.zipCode.message}</p>}
+            <small id="zipCode-hint">Intervention dans les départements 13 et 84 uniquement</small>
+            {errors?.zipCode?.message && (
+              <p id="zipCode-error" className="error-message" role="alert">
+                {errors.zipCode.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.city ? 'error' : ''}`}>
             <label htmlFor="city">
               Ville <span className="required">*</span>
             </label>
             <input
               id="city"
-              title="city"
-              placeholder=""
               type="text"
+              aria-required="true"
+              aria-invalid={!!errors.city}
+              aria-describedby={errors.city ? 'city-error' : undefined}
               {...register('city')}
               autoComplete="address-level2"
             />
-            {errors?.city?.message && <p className="error-message">{errors.city.message}</p>}
+            {errors?.city?.message && (
+              <p id="city-error" className="error-message" role="alert">
+                {errors.city.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field col-100 ${errors.dispo ? 'error' : ''}`}>
             <label htmlFor="dispo">
               Quand voudriez-vous réserver un cours ?<span className="required">*</span>
             </label>
-            <textarea id="dispo" rows={5} {...register('dispo')} autoComplete="off" />
-            <small>Veuillez nous fournir plusieurs dates et heures</small>
-            {errors?.dispo?.message && <p className="error-message">{errors.dispo.message}</p>}
+            <textarea
+              id="dispo"
+              rows={5}
+              aria-required="true"
+              aria-invalid={!!errors.dispo}
+              aria-describedby={`dispo-hint${errors.dispo ? ' dispo-error' : ''}`}
+              {...register('dispo')}
+              autoComplete="off"
+            />
+            <small id="dispo-hint">Veuillez nous fournir plusieurs dates et heures</small>
+            {errors?.dispo?.message && (
+              <p id="dispo-error" className="error-message" role="alert">
+                {errors.dispo.message}
+              </p>
+            )}
           </div>
           <Notice
             className="col-100"
@@ -373,11 +434,14 @@ const SwimmingForm = () => {
                         <input
                           type="text"
                           id={`swimmers.${index}.name`}
+                          aria-required="true"
+                          aria-invalid={!!errors?.swimmers?.[index]?.name}
+                          aria-describedby={errors?.swimmers?.[index]?.name ? `swimmer-${index}-name-error` : undefined}
                           {...register(`swimmers.${index}.name`)}
                           autoComplete="name"
                         />
                         {errors?.swimmers?.[index]?.name && (
-                          <p className="error-message">
+                          <p id={`swimmer-${index}-name-error`} className="error-message" role="alert">
                             {errors?.swimmers?.[index]?.name?.message ?? ''}
                           </p>
                         )}
@@ -391,11 +455,17 @@ const SwimmingForm = () => {
                         <input
                           type="date"
                           id={`swimmers.${index}.dob`}
+                          aria-required="true"
+                          aria-invalid={!!errors?.swimmers?.[index]?.dob}
+                          aria-describedby={errors?.swimmers?.[index]?.dob ? `swimmer-${index}-dob-error` : undefined}
+                          max={new Date().toISOString().split('T')[0]}
                           {...register(`swimmers.${index}.dob` as const)}
                           autoComplete="bday"
                         />
                         {errors?.swimmers?.[index]?.dob && (
-                          <p className="error-message">{errors.swimmers?.[index]?.dob?.message}</p>
+                          <p id={`swimmer-${index}-dob-error`} className="error-message" role="alert">
+                            {errors.swimmers?.[index]?.dob?.message}
+                          </p>
                         )}
                       </div>
                       <div
@@ -406,6 +476,9 @@ const SwimmingForm = () => {
                         </label>
                         <select
                           id={`swimmers.${index}.level`}
+                          aria-required="true"
+                          aria-invalid={!!errors?.swimmers?.[index]?.level}
+                          aria-describedby={errors?.swimmers?.[index]?.level ? `swimmer-${index}-level-error` : undefined}
                           {...register(`swimmers.${index}.level` as const)}
                         >
                           <option value="">-- Sélectionner un niveau --</option>
@@ -417,7 +490,7 @@ const SwimmingForm = () => {
                           <option value="parent-enfant">Parent-enfant (moins de 3 ans)</option>
                         </select>
                         {errors?.swimmers?.[index]?.level && (
-                          <p className="error-message">
+                          <p id={`swimmer-${index}-level-error`} className="error-message" role="alert">
                             {errors?.swimmers?.[index]?.level?.message ?? ''}
                           </p>
                         )}
@@ -452,22 +525,29 @@ const SwimmingForm = () => {
         <fieldset className="form__section rgpd" id="rgpd-section">
           <div className={`form__field col-100 ${errors.rgpd ? 'error' : ''}`}>
             <div className="checkbox-wrapper">
-              <input type="checkbox" id="rgpd" {...register('rgpd')} aria-labelledby="rgpd-label" />
-              <label htmlFor="rgpd" className="rgpd-label" id="rgpd-label">
+              <input
+                type="checkbox"
+                id="rgpd"
+                aria-required="true"
+                aria-invalid={!!errors.rgpd}
+                aria-describedby={errors.rgpd ? 'rgpd-error' : undefined}
+                {...register('rgpd')}
+              />
+              <label htmlFor="rgpd" className="rgpd-label">
                 En soumettant ce formulaire, j'accepte que les informations saisies dans ce
                 formulaire soient utilisées pour permettre de me recontacter. Lire les{' '}
                 <a href="/mentions-legales">mentions légales</a>.
               </label>
             </div>
             {errors?.rgpd?.message && (
-              <p className="error-message" role="alert">
+              <p id="rgpd-error" className="error-message" role="alert">
                 {errors.rgpd.message}
               </p>
             )}
           </div>
         </fieldset>
         <HoneyPot register={register} />
-        <SubmitBtn />
+        <SubmitBtn isSubmitting={isSubmitting} />
       </form>
       {isModalOpen && (
         <SubmissionStatusModal isSuccess={isSubmissionSuccessful} onClose={closeModal} />

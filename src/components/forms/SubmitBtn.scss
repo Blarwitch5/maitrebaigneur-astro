@@ -19,11 +19,15 @@ button[type="submit"] {
     transition: all 0.3s ease;
     border-radius: var(--border-radius);
     border: 1px solid transparent;
-    &:hover {
+    &:hover:not(:disabled) {
       color: var(--color-white);
       background-color: var(--color-secondary);
       transition: all 0.3s ease;
       border: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+    }
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
     }
   }
 }

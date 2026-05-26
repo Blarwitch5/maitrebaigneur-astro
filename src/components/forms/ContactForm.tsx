@@ -56,7 +56,6 @@ const FormSchema = z.object({
 type FormInput = z.infer<typeof FormSchema>;
 
 const ContactForm = () => {
-  // Vérification des endpoints
   if (!validateEndpoints()) {
     return (
       <div className="error-message">
@@ -71,7 +70,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<FormInput>({
     resolver: zodResolver(FormSchema),
@@ -85,6 +84,7 @@ const ContactForm = () => {
       rgpd: false,
     },
   });
+
   const onSubmit = async (data: FormInput) => {
     try {
       if (!FORMCARRY_ENDPOINTS.CONTACT) {
@@ -127,19 +127,32 @@ const ContactForm = () => {
       <form
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
-        aria-labelledby="questions"
+        aria-labelledby="questions-legend"
         autoComplete="on"
       >
         <fieldset id="questions" className="form__section">
-          <legend>Autres questions et suggestions</legend>
+          <legend id="questions-legend">Autres questions et suggestions</legend>
 
           <div className={`form__field ${errors.name ? 'error' : ''}`}>
             <label htmlFor="name">
               Nom <span className="required">*</span>
             </label>
-            <input id="name" type="text" {...register('name')} autoComplete="family-name" />
-            {errors?.name?.message && <p className="error-message">{errors.name.message}</p>}
+            <input
+              id="name"
+              type="text"
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'name-error' : undefined}
+              {...register('name')}
+              autoComplete="family-name"
+            />
+            {errors?.name?.message && (
+              <p id="name-error" className="error-message" role="alert">
+                {errors.name.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.firstName ? 'error' : ''}`}>
             <label htmlFor="firstName">
               Prénom <span className="required">*</span>
@@ -147,51 +160,108 @@ const ContactForm = () => {
             <input
               id="firstName"
               type="text"
+              aria-required="true"
+              aria-invalid={!!errors.firstName}
+              aria-describedby={errors.firstName ? 'firstName-error' : undefined}
               {...register('firstName')}
               autoComplete="given-name"
             />
             {errors?.firstName?.message && (
-              <p className="error-message">{errors.firstName.message}</p>
+              <p id="firstName-error" className="error-message" role="alert">
+                {errors.firstName.message}
+              </p>
             )}
           </div>
+
           <div className={`form__field ${errors.tel ? 'error' : ''}`}>
             <label htmlFor="tel">
               Numéro de téléphone <span className="required">*</span>
             </label>
-            <input id="tel" type="tel" {...register('tel')} autoComplete="tel" />
-            <small>Exemple: +33612121212, 0033612121212 ou 0612121212</small>
-            {errors?.tel?.message && <p className="error-message">{errors.tel.message}</p>}
+            <input
+              id="tel"
+              type="tel"
+              aria-required="true"
+              aria-invalid={!!errors.tel}
+              aria-describedby={`tel-hint${errors.tel ? ' tel-error' : ''}`}
+              {...register('tel')}
+              autoComplete="tel"
+            />
+            <small id="tel-hint">Exemple: +33612121212, 0033612121212 ou 0612121212</small>
+            {errors?.tel?.message && (
+              <p id="tel-error" className="error-message" role="alert">
+                {errors.tel.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.email ? 'error' : ''}`}>
             <label htmlFor="email">
               Adresse mail <span className="required">*</span>
             </label>
-            <input id="email" type="email" {...register('email')} autoComplete="email" />
-            {errors?.email?.message && <p className="error-message">{errors.email.message}</p>}
+            <input
+              id="email"
+              type="email"
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              {...register('email')}
+              autoComplete="email"
+            />
+            {errors?.email?.message && (
+              <p id="email-error" className="error-message" role="alert">
+                {errors.email.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field col-100 ${errors.message ? 'error' : ''}`}>
             <label htmlFor="message">
               Message <span className="required">*</span>
             </label>
-            <textarea id="message" rows={3} {...register('message')} autoComplete="off" />
-            {errors?.message?.message && <p className="error-message">{errors.message.message}</p>}
+            <textarea
+              id="message"
+              rows={3}
+              aria-required="true"
+              aria-invalid={!!errors.message}
+              aria-describedby={errors.message ? 'message-error' : undefined}
+              {...register('message')}
+              autoComplete="off"
+            />
+            {errors?.message?.message && (
+              <p id="message-error" className="error-message" role="alert">
+                {errors.message.message}
+              </p>
+            )}
           </div>
         </fieldset>
+
         <fieldset className="form__section rgpd" id="rgpd-section">
           <div className={`form__field col-100 ${errors.rgpd ? 'error' : ''}`}>
             <div className="checkbox-wrapper">
-              <input type="checkbox" id="rgpd" {...register('rgpd')} />
-              <label htmlFor="rgpd" className="rgpd-label" aria-describedby="rgpd-description">
+              <input
+                type="checkbox"
+                id="rgpd"
+                aria-required="true"
+                aria-invalid={!!errors.rgpd}
+                aria-describedby={errors.rgpd ? 'rgpd-error' : undefined}
+                {...register('rgpd')}
+              />
+              <label htmlFor="rgpd" className="rgpd-label">
                 En soumettant ce formulaire, j'accepte que les informations saisies dans ce
                 formulaire soient utilisées pour permettre de me recontacter. Lire les{' '}
                 <a href="/mentions-legales">mentions légales</a>.
               </label>
             </div>
-            {errors?.rgpd?.message && <p className="error-message">{errors.rgpd.message}</p>}
+            {errors?.rgpd?.message && (
+              <p id="rgpd-error" className="error-message" role="alert">
+                {errors.rgpd.message}
+              </p>
+            )}
           </div>
         </fieldset>
+
         <HoneyPot register={register} />
-        <SubmitBtn />
+        <SubmitBtn isSubmitting={isSubmitting} />
       </form>
 
       {isModalOpen && (

@@ -44,7 +44,6 @@ const SurveillanceFormSchema = z.object({
   info: z.string().min(10, {
     message: 'Les informations doivent contenir un minimum de 10 caractères.',
   }),
-
   rgpd: z.boolean().refine((value) => value === true, {
     message: "Vous devez accepter les conditions d'utilisation.",
   }),
@@ -56,7 +55,6 @@ const SurveillanceFormSchema = z.object({
 type SurveillanceFormInput = z.infer<typeof SurveillanceFormSchema>;
 
 const SurveillanceForm = () => {
-  // Vérification des endpoints
   if (!validateEndpoints()) {
     return (
       <div className="error-message">
@@ -97,10 +95,11 @@ const SurveillanceForm = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<SurveillanceFormInput>({
     resolver: zodResolver(SurveillanceFormSchema),
@@ -124,41 +123,55 @@ const SurveillanceForm = () => {
 
   return (
     <>
-      {' '}
       <form
         method="POST"
         onSubmit={handleSubmit(handleFormSubmit)}
-        aria-labelledby="events"
-        autoComplete="on" // Enable browser autocomplete
+        aria-labelledby="surveillance-legend"
+        autoComplete="on"
       >
         <fieldset className="form__section" id="events">
-          <legend>Contact pour de la surveillance</legend>
+          <legend id="surveillance-legend">Contact pour de la surveillance</legend>
+
           <div className={`form__field ${errors.name ? 'error' : ''}`}>
             <label htmlFor="name">
               Nom <span className="required">*</span>
             </label>
             <input
               id="name"
-              type="text" // Use type="text" for name input
+              type="text"
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'name-error' : undefined}
               {...register('name')}
-              autoComplete="family-name" // Add autocomplete for first name
+              autoComplete="family-name"
             />
-            {errors?.name?.message && <p className="error-message">{errors.name.message}</p>}
+            {errors?.name?.message && (
+              <p id="name-error" className="error-message" role="alert">
+                {errors.name.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.firstName ? 'error' : ''}`}>
             <label htmlFor="firstName">
               Prénom <span className="required">*</span>
             </label>
             <input
               id="firstName"
-              type="text" // Use type="text" for first name input
+              type="text"
+              aria-required="true"
+              aria-invalid={!!errors.firstName}
+              aria-describedby={errors.firstName ? 'firstName-error' : undefined}
               {...register('firstName')}
-              autoComplete="given-name" // Add autocomplete for last name
+              autoComplete="given-name"
             />
             {errors?.firstName?.message && (
-              <p className="error-message">{errors.firstName.message}</p>
+              <p id="firstName-error" className="error-message" role="alert">
+                {errors.firstName.message}
+              </p>
             )}
           </div>
+
           <div className={`form__field ${errors.tel ? 'error' : ''}`}>
             <label htmlFor="tel">
               Numéro de téléphone <span className="required">*</span>
@@ -166,12 +179,20 @@ const SurveillanceForm = () => {
             <input
               id="tel"
               type="tel"
+              aria-required="true"
+              aria-invalid={!!errors.tel}
+              aria-describedby={`tel-hint${errors.tel ? ' tel-error' : ''}`}
               {...register('tel')}
-              autoComplete="tel" // Add autocomplete for telephone number
+              autoComplete="tel"
             />
-            <small>Exemple: +33612121212, 0033612121212 ou 0612121212</small>
-            {errors?.tel?.message && <p className="error-message">{errors.tel.message}</p>}
+            <small id="tel-hint">Exemple: +33612121212, 0033612121212 ou 0612121212</small>
+            {errors?.tel?.message && (
+              <p id="tel-error" className="error-message" role="alert">
+                {errors.tel.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field ${errors.email ? 'error' : ''}`}>
             <label htmlFor="email">
               Adresse mail <span className="required">*</span>
@@ -179,11 +200,19 @@ const SurveillanceForm = () => {
             <input
               id="email"
               type="email"
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
               {...register('email')}
-              autoComplete="email" // Add autocomplete for email
+              autoComplete="email"
             />
-            {errors?.email?.message && <p className="error-message">{errors.email.message}</p>}
+            {errors?.email?.message && (
+              <p id="email-error" className="error-message" role="alert">
+                {errors.email.message}
+              </p>
+            )}
           </div>
+
           <div className={`form__field col-100 ${errors.info ? 'error' : ''}`}>
             <label htmlFor="info">
               Où ? Quand ? Et combien de personnes ? Quel type d'événement ?{' '}
@@ -192,35 +221,52 @@ const SurveillanceForm = () => {
             <textarea
               id="info"
               rows={3}
+              aria-required="true"
+              aria-invalid={!!errors.info}
+              aria-describedby={`info-hint${errors.info ? ' info-error' : ''}`}
               {...register('info')}
-              autoComplete="off" // Disable autocomplete for custom text area
+              autoComplete="off"
             />
-            <small>
+            <small id="info-hint">
               Exemple: Je souhaite organiser un aquaversaire à Aix le 01/01/23 pour 10 enfants...
             </small>
-            {errors?.info?.message && <p className="error-message">{errors.info.message}</p>}
+            {errors?.info?.message && (
+              <p id="info-error" className="error-message" role="alert">
+                {errors.info.message}
+              </p>
+            )}
           </div>
         </fieldset>
+
         <fieldset className="form__section rgpd" id="rgpd-section">
           <div className={`form__field col-100 ${errors.rgpd ? 'error' : ''}`}>
             <div className="checkbox-wrapper">
-              <input type="checkbox" id="rgpd" {...register('rgpd')} />
-              <label
-                htmlFor="rgpd"
-                className="rgpd-label"
-                aria-describedby="rgpd-description" // Add ARIA reference
-              >
+              <input
+                type="checkbox"
+                id="rgpd"
+                aria-required="true"
+                aria-invalid={!!errors.rgpd}
+                aria-describedby={errors.rgpd ? 'rgpd-error' : undefined}
+                {...register('rgpd')}
+              />
+              <label htmlFor="rgpd" className="rgpd-label">
                 En soumettant ce formulaire, j'accepte que les informations saisies dans ce
                 formulaire soient utilisées pour permettre de me recontacter. Lire les{' '}
                 <a href="/mentions-legales">mentions légales</a>.
               </label>
             </div>
-            {errors?.rgpd?.message && <p className="error-message">{errors.rgpd.message}</p>}
+            {errors?.rgpd?.message && (
+              <p id="rgpd-error" className="error-message" role="alert">
+                {errors.rgpd.message}
+              </p>
+            )}
           </div>
         </fieldset>
+
         <HoneyPot register={register} />
-        <SubmitBtn />
+        <SubmitBtn isSubmitting={isSubmitting} />
       </form>
+
       {isModalOpen && (
         <SubmissionStatusModal isSuccess={isSubmissionSuccessful} onClose={closeModal} />
       )}
