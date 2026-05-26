@@ -421,21 +421,28 @@ const SwimmingForm = () => {
                             {errors?.swimmers?.[index]?.level?.message ?? ''}
                           </p>
                         )}
-                        {watchedSwimmers?.[index]?.level && (() => {
-                          const info = getLevelInfo(watchedSwimmers[index].level);
-                          if (!info) return null;
-                          return (
-                            <div className="level-detail">
-                              <p dangerouslySetInnerHTML={{ __html: info.desc }} />
-                              <ul className="level-detail__hints">
-                                {info.hints.map((hint) => (
-                                  <li key={hint}>{hint}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          );
-                        })()}
                       </div>
+                      {watchedSwimmers?.[index]?.level && (() => {
+                        const info = getLevelInfo(watchedSwimmers[index].level);
+                        if (!info) return null;
+                        return (
+                          <div className="level-detail">
+                            <p dangerouslySetInnerHTML={{ __html: info.desc }} />
+                            <span className="level-detail__label">Ce niveau correspond si :</span>
+                            <ul className="level-detail__hints">
+                              {info.hints.map((hint) => (
+                                <li key={hint}>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M18 6 7 17l-5-5"/>
+                                    <path d="m22 10-7.5 7.5L13 16"/>
+                                  </svg>
+                                  {hint}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })()}
                     </div>
                   </div>
                 )
