@@ -1,17 +1,22 @@
-import { v4 as uuidv4 } from 'uuid';
-import levels from '@assets/data/levels.ts';
-
 import { useState } from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
-import Modal from '@components/ui/modal/Modal.tsx';
+import levels from '@assets/data/levels.ts';
 import SubmitBtn from './SubmitBtn.tsx';
 import Notice from '@components/ui/notice/Notice.tsx';
 import HoneyPot from '@components/forms/HoneyPot/HoneyPot.tsx';
 import SubmissionStatusModal from '@components/forms/SubmissionStatusModal/SubmissionStatusModal.tsx';
 import { FORMCARRY_ENDPOINTS, submitForm, validateEndpoints } from '../../utils/formcarry.js';
+
+const LEVEL_SLUGS = [...levels.map((l) => l.slug), 'parent-enfant'] as const;
+const PARENT_ENFANT = {
+  slug: 'parent-enfant',
+  name: 'Parent-enfant',
+  desc: 'Pour les enfants de moins de 3 ans accompagnés d'un parent. Découverte de l'eau en toute sécurité et complicité.',
+  hints: ['Mon enfant a moins de 3 ans ?', 'Je souhaite accompagner mon enfant dans l'eau ?'],
+};
 
 const swimmerSchema = z.object({
   name: z
@@ -34,21 +39,9 @@ const swimmerSchema = z.object({
     .refine((value) => value !== '' && value !== undefined, {
       message: 'Veuillez sélectionner un niveau.',
     })
-    .refine(
-      (value) =>
-        [
-          'baigneur-en-douceur',
-          'mini-baigneur',
-          'petit-baigneur',
-          'moyen-baigneur',
-          'grand-baigneur',
-          'adulte',
-          'parent-enfant',
-        ].includes(value),
-      {
-        message: 'Niveau invalide.',
-      }
-    ),
+    .refine((value) => (LEVEL_SLUGS as readonly string[]).includes(value), {
+      message: 'Niveau invalide.',
+    }),
 });
 const SwimmingFormSchema = z.object({
   name: z
@@ -139,13 +132,12 @@ const SwimmingForm = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmissionSuccessful, setIsSubmissionSuccessful] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [numSwimmers, setNumSwimmers] = useState(1); // Default to 1 swimmer
+  const [numSwimmers, setNumSwimmers] = useState(1);
 
   const {
-    control,
     register,
     handleSubmit,
+    watch,
     formState: { errors },
     reset,
   } = useForm<SwimmingFormInput>({
@@ -164,10 +156,7 @@ const SwimmingForm = () => {
       rgpd: false,
     },
   });
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'swimmers', // Field name for the array
-  });
+  const watchedSwimmers = watch('swimmers');
 
   const onSubmit = async (data: SwimmingFormInput) => {
     try {
@@ -224,20 +213,13 @@ const SwimmingForm = () => {
     onSubmit(data);
   };
 
-  // Function to handle the select change
   const handleNumSwimmersChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = Number.parseInt(e.target.value, 10);
-    setNumSwimmers(selectedValue);
+    setNumSwimmers(Number.parseInt(e.target.value, 10));
   };
 
-  const openPopup = () => {
-    setIsPopupOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    document.body.style.overflow = 'auto';
+  const getLevelInfo = (slug: string) => {
+    if (slug === 'parent-enfant') return PARENT_ENFANT;
+    return levels.find((l) => l.slug === slug) ?? null;
   };
 
   return (
@@ -248,7 +230,6 @@ const SwimmingForm = () => {
         autoComplete="on"
         aria-labelledby="swimming-lessons"
       >
-        {' '}
         <fieldset className="form__section" id="swimming-lessons">
           <legend id="swimming-lessons-legend">Contact pour leçons de natation à domicile</legend>
           <div className={`form__field col-100 ${errors.name ? 'error' : ''}`}>
@@ -364,41 +345,6 @@ const SwimmingForm = () => {
             message="Nous ne garantissons pas la réservation de vos créneaux mais nous
           ferons de notre mieux pour vous répondre favorablement."
           />
-          <div className="col-100">
-            <button type="button" className="btn btn__regular btn-help" onClick={openPopup}>
-              Aide à l'évaluation
-              <br /> du niveau du baigneur
-            </button>
-
-            {isPopupOpen && (
-              <Modal isOpen={isPopupOpen} onClose={closePopup}>
-                <ul className="levels">
-                  {levels.map((level) => (
-                    <li key={level.name}>
-                      <span>{level.name}</span>
-                      <picture>
-                        <img
-                          src={level.image.path.src}
-                          alt={level.image.alt}
-                          width="400"
-                          height="300"
-                        />
-                      </picture>
-
-                      <p dangerouslySetInnerHTML={{ __html: level.desc }} />
-                      <ul className="hints">
-                        {level.hints.map((hint) => (
-                          <li className="hint" key={uuidv4()}>
-                            {hint}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              </Modal>
-            )}
-          </div>
           {/* Select field for the number of swimmers */}
           <div className="form__field col-100">
             <label htmlFor="numSwimmers">Nombre de nageurs</label>
@@ -461,22 +407,34 @@ const SwimmingForm = () => {
                         <select
                           id={`swimmers.${index}.level`}
                           {...register(`swimmers.${index}.level` as const)}
-                          autoComplete="on"
                         >
                           <option value="">-- Sélectionner un niveau --</option>
-                          <option value="baigneur-en-douceur">Baigneur en douceur</option>
-                          <option value="mini-baigneur">Mini baigneur</option>
-                          <option value="petit-baigneur">Petit baigneur</option>
-                          <option value="moyen-baigneur">Moyen baigneur</option>
-                          <option value="grand-baigneur">Grand baigneur</option>
-                          <option value="adulte">Adulte</option>
-                          <option value="parent-enfant">Parent enfant (moins de 3 ans)</option>
+                          {levels.map((level) => (
+                            <option key={level.slug} value={level.slug}>
+                              {level.name}
+                            </option>
+                          ))}
+                          <option value="parent-enfant">Parent-enfant (moins de 3 ans)</option>
                         </select>
                         {errors?.swimmers?.[index]?.level && (
                           <p className="error-message">
                             {errors?.swimmers?.[index]?.level?.message ?? ''}
                           </p>
                         )}
+                        {watchedSwimmers?.[index]?.level && (() => {
+                          const info = getLevelInfo(watchedSwimmers[index].level);
+                          if (!info) return null;
+                          return (
+                            <div className="level-detail">
+                              <p dangerouslySetInnerHTML={{ __html: info.desc }} />
+                              <ul className="level-detail__hints">
+                                {info.hints.map((hint) => (
+                                  <li key={hint}>{hint}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })()}
                       </div>
                     </div>
                   </div>
