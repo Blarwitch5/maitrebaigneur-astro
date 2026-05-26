@@ -14,8 +14,8 @@ const LEVEL_SLUGS = [...levels.map((l) => l.slug), 'parent-enfant'] as const;
 const PARENT_ENFANT = {
   slug: 'parent-enfant',
   name: 'Parent-enfant',
-  desc: 'Pour les enfants de moins de 3 ans accompagnés d'un parent. Découverte de l'eau en toute sécurité et complicité.',
-  hints: ['Mon enfant a moins de 3 ans ?', 'Je souhaite accompagner mon enfant dans l'eau ?'],
+  desc: "Pour les enfants de moins de 3 ans accompagnés d'un parent. Découverte de l'eau en toute sécurité et complicité.",
+  hints: ["Mon enfant a moins de 3 ans ?", "Je souhaite accompagner mon enfant dans l'eau ?"],
 };
 
 const swimmerSchema = z.object({
