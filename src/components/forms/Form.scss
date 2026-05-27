@@ -335,7 +335,7 @@
         display: flex;
         align-items: center;
         gap: 0.4rem;
-        background-color: var(--color-bg-light);
+        background-color: var(--color-primary);
         margin: calc(-1 * var(--space-xs)) calc(-1 * var(--space-xs)) var(--space-xs);
         padding: var(--space-2xs) var(--space-xs);
         border-radius: var(--small-border-radius) var(--small-border-radius) 0 0;
@@ -343,14 +343,14 @@
         span {
           font-size: 0.75rem;
           font-weight: 700;
-          color: var(--color-primary);
+          color: var(--color-white);
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
 
         svg {
           flex-shrink: 0;
-          color: var(--color-secondary);
+          color: var(--color-white);
         }
       }
 
