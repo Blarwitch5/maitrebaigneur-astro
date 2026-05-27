@@ -430,7 +430,9 @@ const SwimmingForm = () => {
                       <div
                         className={`form__field ${errors?.swimmers?.[index]?.name ? 'error' : ''}`}
                       >
-                        <label htmlFor={`swimmers.${index}.name`}>Nom du nageur {index + 1}</label>
+                        <label htmlFor={`swimmers.${index}.name`}>
+                          Nom du nageur {index + 1} <span className="required">*</span>
+                        </label>
                         <input
                           type="text"
                           id={`swimmers.${index}.name`}
@@ -450,7 +452,7 @@ const SwimmingForm = () => {
                         className={`form__field ${errors?.swimmers?.[index]?.dob ? 'error' : ''}`}
                       >
                         <label htmlFor={`swimmers.${index}.dob`}>
-                          Date de naissance du nageur {index + 1}
+                          Date de naissance du nageur {index + 1} <span className="required">*</span>
                         </label>
                         <input
                           type="date"
@@ -472,7 +474,7 @@ const SwimmingForm = () => {
                         className={`form__field ${errors?.swimmers?.[index]?.level ? 'error' : ''}`}
                       >
                         <label htmlFor={`swimmers.${index}.level`}>
-                          Niveau du nageur {index + 1}
+                          Niveau du nageur {index + 1} <span className="required">*</span>
                         </label>
                         <select
                           id={`swimmers.${index}.level`}
