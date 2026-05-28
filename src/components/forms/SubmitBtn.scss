@@ -1,6 +1,7 @@
 button[type="submit"] {
+  display: flex;
   margin-top: var(--space-md);
-  justify-self: center;
+  margin-inline: auto;
 }
 .btn {
   text-decoration: none;
