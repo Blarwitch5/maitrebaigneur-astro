@@ -20,6 +20,7 @@
     "@astrojs/vercel": "^10.0.7",
     "@glidejs/glide": "^3.7.1",
     "@hookform/resolvers": "^3.10.0",
+    "@vercel/analytics": "^2.0.1",
     "aos": "^2.3.4",
     "astro": "^6.3.7",
     "astro-icon": "^1.1.5",

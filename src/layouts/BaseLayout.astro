@@ -88,6 +88,7 @@ const localBusinessSchema = {
 import "aos/dist/aos.css";
 
 import { SEO } from "astro-seo";
+import Analytics from '@vercel/analytics/astro';
 import { ClientRouter } from 'astro:transitions';
 export interface SeoProps {
   title: string;
@@ -191,7 +192,7 @@ const icbm: string = "43.5, 5.4";
   </head>
   <body>
     <slot />
-
+    <Analytics />
     <script src="../assets/scripts/navbar.js"></script>
     <script>
       import AOS from "aos";
