@@ -55,7 +55,9 @@ const startIndex = Math.floor(Math.random() * heroImages.length);
             alt={hero.alt}
             width={1920}
             height={1080}
+            sizes="100vw"
             loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
           />
         </div>
       ))

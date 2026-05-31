@@ -16,7 +16,15 @@ import services from '@assets/data/services.ts';
           .toLowerCase()}`}
       >
         <a href={service.href} class='service__link'>
-          <Picture class='service__img' src={service.image.path} alt={service.image.alt || ''} />
+          <Picture
+            class='service__img'
+            src={service.image.path}
+            alt={service.image.alt || ''}
+            width={500}
+            height={500}
+            formats={['avif', 'webp']}
+            sizes="(max-width: 768px) 80vw, 40vw"
+          />
 
           <h3 class='service__title'>{service.name}</h3>
         </a>

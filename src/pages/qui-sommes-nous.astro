@@ -111,7 +111,8 @@ const personSchema = {
                     alt={image.alt}
                     width={400}
                     height={300}
-                    formats={['webp']}
+                    formats={['avif', 'webp']}
+                    sizes="(max-width: 768px) 80vw, 33vw"
                   />
                 );
               })
@@ -156,7 +157,8 @@ const personSchema = {
               alt='Quentin Vander Meulen - Fondateur et directeur de Maître-Baigneur'
               width={500}
               height={500}
-              formats={['webp']}
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 80vw, 40vw"
             />
           </div>
           <blockquote>

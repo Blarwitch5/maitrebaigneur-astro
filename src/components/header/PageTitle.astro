@@ -23,7 +23,8 @@ const { pageTitle, pageImagePath, pageImageAlt } = Astro.props;
         alt={pageImageAlt}
         width={1920}
         height={1080}
-        formats={['webp', 'jpeg']}
+        formats={['avif', 'webp']}
+        sizes="100vw"
         class='page-title__image'
       />
     </div>

@@ -35,6 +35,8 @@ import poolsData from '@assets/data/pools.ts';
               alt={pool.image.alt || ''}
               width={300}
               height={300}
+              format="webp"
+              sizes="(max-width: 768px) 90vw, (max-width: 992px) 45vw, 300px"
             />
             <div class='pool__info'>
               <h3 class='pool__title'>{pool.name}</h3>

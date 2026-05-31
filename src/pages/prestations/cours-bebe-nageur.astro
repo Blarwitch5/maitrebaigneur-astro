@@ -89,7 +89,8 @@ const page = {
                     alt={galleryImage.alt}
                     width={300}
                     height={400}
-                    formats={['webp']}
+                    formats={['avif', 'webp']}
+                    sizes="(max-width: 768px) 80vw, 30vw"
                   />
                 );
               })
