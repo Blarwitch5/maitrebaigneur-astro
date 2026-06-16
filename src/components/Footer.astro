@@ -14,8 +14,11 @@ import { Image } from 'astro:assets';
 import logo from '@assets/images/logo.svg';
 
 import services from '@assets/data/services.ts';
-const { siteLinks } = site;
+const { siteLinks, googleRating, googleReviewCount } = site;
 const footerMenu = siteLinks.footerMenu;
+
+const GOOGLE_REVIEW_URL = 'https://www.google.com/search?q=maitre+baigneur#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,';
+const FACEBOOK_REVIEW_URL = 'https://www.facebook.com/MaitreBaigneur/reviews';
 ---
 
 <footer class='footer'>
@@ -79,6 +82,34 @@ const footerMenu = siteLinks.footerMenu;
           }
         </ul>
       </div>
+
+      <div class='footer__col reviews' data-aos='zoom-in'>
+        <Title level='3' class='title'>Donnez votre avis</Title>
+        <ul>
+          <li>
+            <a href={GOOGLE_REVIEW_URL} target='_blank' rel='noopener noreferrer' class='review-link'>
+              <span class='review-icon'><Icon name='google' /></span>
+              <span class='review-body'>
+                <span class='review-platform'>Google</span>
+                <span class='review-rating'>
+                  <Icon name='star' />
+                  <strong>{googleRating}</strong>
+                  <span class='review-count'>({googleReviewCount} avis)</span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href={FACEBOOK_REVIEW_URL} target='_blank' rel='noopener noreferrer' class='review-link'>
+              <span class='review-icon'><Icon name='facebook-review' /></span>
+              <span class='review-body'>
+                <span class='review-platform'>Facebook</span>
+                <span class='review-subtitle'>Laissez votre avis</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div class='footer__col pools' data-aos='zoom-in'>
         <Title level='3' class='title'>Nos bassins</Title>
         <PoolList />
@@ -109,12 +140,12 @@ const footerMenu = siteLinks.footerMenu;
 
     &__sections {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: var(--space-md);
     }
     &__col {
       &.brand {
-        grid-column: 1 / span 4;
+        grid-column: 1 / span 6;
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
@@ -125,10 +156,7 @@ const footerMenu = siteLinks.footerMenu;
       }
       &.pools {
         text-align: center;
-        grid-column: 1 / span 4;
-        @media screen and (max-width: 1024px) {
-          grid-column: 1 / span 4;
-        }
+        grid-column: 1 / span 6;
       }
       &.services {
         grid-column: 1 / span 2;
@@ -136,10 +164,14 @@ const footerMenu = siteLinks.footerMenu;
       &.useful-links {
         grid-column: 3 / span 2;
       }
+      &.reviews {
+        grid-column: 5 / span 2;
+      }
       &.services,
-      &.useful-links {
+      &.useful-links,
+      &.reviews {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
 
         .title {
@@ -147,10 +179,19 @@ const footerMenu = siteLinks.footerMenu;
         }
         ul {
           text-align: left;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-2xs);
 
           a {
             padding: 0;
             min-height: unset;
+
+            &:hover {
+              text-decoration: underline;
+              text-underline-offset: 3px;
+            }
           }
         }
         @media screen and (max-width: 576px) {
@@ -158,6 +199,80 @@ const footerMenu = siteLinks.footerMenu;
           grid-column: 1 / span 6;
         }
       }
+
+      &.reviews ul {
+        list-style: none;
+
+        li {
+          padding: 0.5rem 0.75rem !important;
+          margin-inline: -0.75rem;
+          border-radius: 0.5rem;
+          transition: background-color 0.15s ease;
+
+          &:hover {
+            background-color: var(--color-white-a25);
+          }
+        }
+      }
+    }
+
+    .review-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--color-white);
+      text-decoration: none !important;
+
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+
+    .review-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    .review-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .review-platform {
+      font-weight: 700;
+      font-size: var(--fs-base);
+    }
+
+    .review-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        color: #facc15;
+      }
+    }
+
+    .review-count {
+      opacity: 0.75;
+    }
+
+    .review-subtitle {
+      font-size: 0.875rem;
+      opacity: 0.75;
     }
 
     .logo {
