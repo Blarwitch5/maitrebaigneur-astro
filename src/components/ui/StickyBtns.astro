@@ -1,309 +1,36 @@
 ---
 import { Icon } from 'astro-icon/components';
-
 import { reservationLink } from '@assets/data/data.json';
 ---
 
-<div class='sticky-btn'>
-  <button
-    id='main-btn'
-    aria-haspopup='true'
-    aria-expanded='false'
-    title='Ouvrir ou fermer le menu'
-    aria-label='Ouvrir ou fermer le menu'
-    ><Icon name='cross' /><span class='sr-only'>Ouvrir ou fermer le menu</span>
-  </button>
+<a
+  id='booking-fab'
+  class='booking-fab'
+  href={reservationLink}
+  target='_blank'
+  rel='noopener noreferrer'
+  title='Réserver un cours'
+  aria-label='Réserver un cours'
+>
+  <Icon name='calendar' />
+  <span class='visually-hidden'>Réserver un cours</span>
+  <span class='booking-fab__label' aria-hidden='true'>Réserver</span>
+</a>
 
-  <div class='sub-btns' role='menu' aria-label='submenu' aria-hidden='true'>
-    <button
-      id='facebook'
-      title='Donnez votre avis sur Facebook '
-      aria-label='Donnez votre avis sur Facebook'
-    >
-      <Icon name='facebook-review' />
-      <span class='visually-hidden'>Donnez votre avis sur Facebook</span>
-      <span class='hover-text-container'>
-        <span class='hover-text'>Donnez votre avis sur Facebook</span>
-      </span>
-    </button>
-    <button
-      id='google'
-      title='Donnez votre avis sur Google '
-      aria-label='Donnez votre avis sur Google'
-    >
-      <Icon name='google' />
-      <span class='visually-hidden'>Donnez votre avis sur Google</span>
-      <span class='hover-text-container'>
-        <span class='hover-text'>Donnez votre avis sur Google</span>
-      </span>
-    </button>
-    <button
-      id='whatsapp'
-      title='Nous contacter par Whatsapp'
-      aria-label='Nous contacter par Whatsapp'
-    >
-      <Icon name='whatsapp' />
-      <span class='visually-hidden'>Nous contacter par Whatsapp</span>
-      <span class='hover-text-container'>
-        <span class='hover-text'>Nous contacter par Whatsapp</span>
-      </span>
-    </button>
-    <button id='booking' title='Réserver un cours' aria-label='Réserver un cours'>
-      <Icon name='calendar' />
+<script>
+  const bookingFabSetup = () => {
+    const fab = document.getElementById('booking-fab');
+    if (!fab) return;
 
-      <span class='visually-hidden'>Réserver un cours</span>
-      <span class='hover-text-container'>
-        <span class='hover-text'>Réserver un cours</span>
-      </span>
-    </button>
-  </div>
-</div>
+    const update = () => {
+      const scrolled = (document.body.scrollTop || document.documentElement.scrollTop) > 20;
+      fab.classList.toggle('is-visible', scrolled);
+    };
 
-<style lang='scss'>
-  .sticky-btn {
-    position: fixed;
-    z-index: 999;
-    bottom: var(--space-sm);
-    right: var(--space-sm);
-    display: none;
-
-    @media screen and (max-width: 768px) {
-      bottom: var(--space-xs);
-      right: var(--space-xs);
-    }
-
-    & > button {
-      color: var(--color-white);
-      background-color: var(--color-secondary);
-      border: none;
-      border-radius: 100vh;
-      width: 3rem;
-      height: 3rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-
-      &[aria-expanded='true'] {
-        border: 1px solid var(--color-white);
-      }
-      svg {
-        transform: rotate(45deg) scale(1);
-        transition: all 0.2s ease-in;
-      }
-
-      &:hover {
-        svg {
-          transform: rotate(45deg) scale(1.3);
-        }
-      }
-
-      &[aria-expanded='true'] {
-        svg {
-          transform: rotate(-360deg) scale(1);
-        }
-      }
-    }
-
-    * button {
-      cursor: pointer;
-      color: var(--color-white);
-      border: none;
-      border-radius: 100vh;
-      width: 3rem;
-      height: 3rem;
-      box-shadow:
-        0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
-        0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
-
-      &#whatsapp {
-        background-color: #25d366;
-      }
-      &#booking {
-        background-color: #e16f5c;
-      }
-      &#google {
-        background-color: var(--color-white);
-      }
-      &#facebook {
-        background-color: var(--color-white);
-      }
-      #booking,
-      #whatsapp,
-      #google,
-      #facebook {
-        opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-      }
-    }
-
-    * svg {
-      width: var(--space-md);
-      height: var(--space-md);
-    }
-  }
-  .main-btn {
-    z-index: 99;
-    border: none;
-    cursor: pointer;
-    border-radius: 100vw;
-    font-size: var(--fs-xs);
-    background-color: var(--color-secondary);
-    color: var(--color-white);
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .sub-btns {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xs);
-    position: absolute;
-    bottom: calc(var(--space-2xs) + 3rem);
-    right: 0;
-    z-index: 1;
-    &[aria-hidden='true'] {
-      display: none;
-    }
-    button {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-
-      &:hover {
-        .hover-text-container {
-          right: 4rem;
-          opacity: 1;
-        }
-      }
-
-      .hover-text-container {
-        position: absolute;
-        top: 50%;
-        right: 4rem;
-        transform: translateY(-50%);
-        opacity: 0;
-        white-space: nowrap;
-        transition:
-          right 0.4s ease-in-out,
-          opacity 0.4s ease-in-out;
-        pointer-events: none;
-        color: var(--color-primary);
-        background-color: hsla(var(--link-color-white-hsl), 0.8);
-        padding: var(--space-2xs) var(--space-xs);
-        border-radius: var(--border-radius);
-        backdrop-filter: blur(5px);
-        box-shadow: 0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3);
-        font-size: var(--fs-base);
-
-        @media screen and (hover: none) {
-          opacity: 1; /* Make it visible by default on touch devices */
-          transition: none;
-        }
-      }
-    }
-  }
-</style>
-<script define:vars={{ reservationLink }}>
-  const stickyBtnsSetup = () => {
-    const stickyBtns = document.querySelector('.sticky-btn');
-    const bookingBtn = document.getElementById('booking');
-    const whatsappBtn = document.getElementById('whatsapp');
-    const googleBtn = document.getElementById('google');
-    const facebookBtn = document.getElementById('facebook');
-
-    function openInNewTab(url) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer'; // Pour des raisons de sécurité
-      a.click();
-    }
-
-    function handleBookingClick() {
-      openInNewTab(reservationLink);
-    }
-
-    function handleWhatsAppClick() {
-      openInNewTab('https://wa.me/+33677007584');
-    }
-
-    function handleGoogleClick() {
-      openInNewTab(
-        'https://www.google.com/search?q=maitre+baigneur&sxsrf=APwXEdf-BJd_3S-gih6DApiYzIM_YBXk9w%3A1681742589592&ei=_Vo9ZKrPI4WIkdUPrpqO4Aw&ved=0ahUKEwjqwZ-tk7H-AhUFRKQEHS6NA8wQ4dUDCA8&uact=5&oq=maitre+baigneur&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBQgAEIAEMgYIABAWEB4yCAgAEBYQHhAPMgYIABAWEB46CggAEEcQ1gQQsANKBAhBGABQkBlYvCVgsydoA3ABeACAAZsBiAH1C5IBBDAuMTKYAQCgAQHIAQjAAQE&sclient=gws-wiz-serp#lrd=0x12c98f133b663547:0xd4550e7a8de92771,3,,,,'
-      );
-    }
-
-    function handleFacebookClick() {
-      openInNewTab('https://www.facebook.com/MaitreBaigneur/reviews');
-    }
-
-    function scrollFunction() {
-      const scroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const subBtns = [bookingBtn, whatsappBtn, googleBtn, facebookBtn];
-
-      if (scroll > 20) {
-        stickyBtns.style.display = 'flex';
-      } else {
-        stickyBtns.style.display = 'none';
-      }
-    }
-
-    bookingBtn.addEventListener('click', handleBookingClick);
-    whatsappBtn.addEventListener('click', handleWhatsAppClick);
-    googleBtn.addEventListener('click', handleGoogleClick);
-    facebookBtn.addEventListener('click', handleFacebookClick);
-
-    window.addEventListener('scroll', scrollFunction);
-
-    const mainBtn = document.getElementById('main-btn');
-    const subBtns = document.querySelector('.sub-btns');
-    const childButtons = Array.from(subBtns.children).reverse();
-
-    childButtons.forEach((btn) => {
-      btn.style.opacity = '0';
-    });
-
-    function animateButtons(buttons, action) {
-      buttons.forEach((btn, index) => {
-        setTimeout(() => {
-          btn.style.opacity = action === 'show' ? '1' : '0';
-        }, index * 100);
-      });
-    }
-
-    mainBtn.addEventListener('click', function () {
-      const isExpanded = mainBtn.getAttribute('aria-expanded') === 'true';
-
-      if (!isExpanded) {
-        mainBtn.setAttribute('aria-expanded', 'true');
-        subBtns.setAttribute('aria-hidden', 'false');
-        subBtns.style.display = 'flex';
-        animateButtons(childButtons, 'show');
-      } else {
-        animateButtons(childButtons.slice().reverse(), 'hide');
-        setTimeout(() => {
-          subBtns.style.display = 'none';
-          subBtns.setAttribute('aria-hidden', 'true');
-          mainBtn.setAttribute('aria-expanded', 'false');
-        }, childButtons.length * 100);
-      }
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        animateButtons(childButtons.slice().reverse(), 'hide');
-        setTimeout(() => {
-          subBtns.style.display = 'none';
-          subBtns.setAttribute('aria-hidden', 'true');
-          mainBtn.setAttribute('aria-expanded', 'false');
-          mainBtn.focus();
-        }, childButtons.length * 100);
-      }
-    });
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   };
-  stickyBtnsSetup();
-  document.addEventListener('astro:after-swap', stickyBtnsSetup);
+
+  bookingFabSetup();
+  document.addEventListener('astro:after-swap', bookingFabSetup);
 </script>

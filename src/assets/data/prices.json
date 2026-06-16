@@ -4,7 +4,7 @@
       "pool": {
         "single": [
           { "name": "Séance découverte", "price": 20 },
-          { "name": "Pack 2 séances découverte", "price": 30 },
+          { "name": "Pack 2 séances découverte", "price": 35 },
           { "name": "1 Séance pour 1 baigneur", "price": 25 },
           { "name": "Leçon privée", "price": 35 }
         ],
@@ -58,7 +58,7 @@
       "pool": {
         "single": [
           { "name": "Séance découverte", "price": 20 },
-          { "name": "Pack 2 séances découverte", "price": 30 },
+          { "name": "Pack 2 séances découverte", "price": 35 },
           { "name": "Séance unique", "price": 25 }
         ],
         "formula": [

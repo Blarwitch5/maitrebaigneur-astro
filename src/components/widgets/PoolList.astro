@@ -44,7 +44,18 @@ import poolsData from '@assets/data/pools.ts';
       justify-content: flex-start;
       flex-wrap: nowrap;
       text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover h4 {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
     }
+
+    &:has(a:hover) a:not(:hover) {
+      opacity: 0.4;
+    }
+
     img {
       width: 3rem;
       height: 2rem;
