@@ -10,8 +10,8 @@ const SESSION_KEY = 'mb-chat-messages';
 const SESSION_COUNTER_KEY = 'mb-chat-count';
 const MAX_QUESTIONS = 5;
 
-const WELCOME_GREETING = "Bonjour, je suis l'assistant de Maître Baigneur. Je peux vous renseigner sur nos bassins, nos tarifs et nos prestations.";
-const WELCOME_FOLLOWUP = "En quoi puis-je vous aider ?";
+const WELCOME_GREETING = "Bonjour ! Moi c'est Natoo, l'assistante de Maître Baigneur. Tarifs, bassins, prestations — plongeons dans le vif du sujet !";
+const WELCOME_FOLLOWUP = "Qu'est-ce qui vous amène ?";
 
 const SUGGESTIONS = [
   'Quels sont vos tarifs ?',
@@ -179,17 +179,17 @@ export default function ChatWidget() {
               <path d="M15 11v2"/>
               <path d="M20 12h2"/>
             </svg>
-            <span className="chat-toggle__label" aria-hidden="true">Assistant</span>
+            <span className="chat-toggle__label" aria-hidden="true">Natoo</span>
           </>
         )}
       </button>
 
       {open && (
-        <div className="chat-window" role="dialog" aria-label="Assistant Maître Baigneur">
+        <div className="chat-window" role="dialog" aria-label="Natoo, assistante Maître Baigneur">
           <div className="chat-header">
             <div className="chat-header__info">
-              <span className="chat-header__title">Maître Baigneur</span>
-              <span className="chat-header__subtitle">Questions sur nos services</span>
+              <span className="chat-header__title">Natoo</span>
+              <span className="chat-header__subtitle">Assistante Maître Baigneur</span>
             </div>
             {messages.length > 0 && (
               <button className="chat-clear-btn" onClick={clearChat} aria-label="Effacer la conversation" title="Nouvelle conversation">
