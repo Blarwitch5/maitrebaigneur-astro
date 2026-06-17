@@ -17,7 +17,7 @@ async function kvCmd(command: string): Promise<unknown> {
     const res = await fetch(`${KV_URL}/${command}`, {
       headers: { Authorization: `Bearer ${KV_TOKEN}` },
     });
-    const json = await res.json() as { result: unknown };
+    const json = (await res.json()) as { result: unknown };
     return json.result ?? null;
   } catch {
     return null;
@@ -25,7 +25,7 @@ async function kvCmd(command: string): Promise<unknown> {
 }
 
 async function kvIncr(key: string): Promise<number> {
-  return (await kvCmd(`incr/${encodeURIComponent(key)}`) as number) ?? 0;
+  return ((await kvCmd(`incr/${encodeURIComponent(key)}`)) as number) ?? 0;
 }
 
 async function kvExpire(key: string, seconds: number): Promise<void> {
@@ -81,7 +81,10 @@ async function getCached(msg: string): Promise<{ reply: string; suggestWhatsapp:
   return kvGet<{ reply: string; suggestWhatsapp: boolean }>(makeCacheKey(msg));
 }
 
-async function setCache(msg: string, data: { reply: string; suggestWhatsapp: boolean }): Promise<void> {
+async function setCache(
+  msg: string,
+  data: { reply: string; suggestWhatsapp: boolean }
+): Promise<void> {
   if (!KV_AVAILABLE) return;
   await kvSet(makeCacheKey(msg), data, CACHE_TTL);
 }
@@ -139,25 +142,33 @@ const BLOCKED_PATTERNS = [
 ];
 
 function isBlocked(msg: string): boolean {
-  return BLOCKED_PATTERNS.some(p => p.test(msg));
+  return BLOCKED_PATTERNS.some((p) => p.test(msg));
 }
 
 // --- Validation de la réponse ---
 const IDENTITY_LEAKS = [
-  'ChatGPT', 'GPT-', 'OpenAI', 'Claude', 'Anthropic', 'Gemini', 'Mistral', 'LLaMA',
-  'en tant qu\'IA', 'en tant que modèle', 'modèle de langage',
-  'intelligence artificielle généraliste', 'je suis une IA', 'large language model', 'LLM',
+  'ChatGPT',
+  'GPT-',
+  'OpenAI',
+  'Claude',
+  'Anthropic',
+  'Gemini',
+  'Mistral',
+  'LLaMA',
+  "en tant qu'IA",
+  'en tant que modèle',
+  'modèle de langage',
+  'intelligence artificielle généraliste',
+  'je suis une IA',
+  'large language model',
+  'LLM',
 ];
 
-const RESPONSE_SUSPICIOUS = [
-  /https?:\/\//i,
-  /```/,
-  /^\s*-\s.+\n\s*-\s/m,
-];
+const RESPONSE_SUSPICIOUS = [/https?:\/\//i, /```/, /^\s*-\s.+\n\s*-\s/m];
 
 function responseIsInvalid(text: string): boolean {
-  if (IDENTITY_LEAKS.some(m => text.includes(m))) return true;
-  if (RESPONSE_SUSPICIOUS.some(p => p.test(text))) return true;
+  if (IDENTITY_LEAKS.some((m) => text.includes(m))) return true;
+  if (RESPONSE_SUSPICIOUS.some((p) => p.test(text))) return true;
   return false;
 }
 
@@ -185,9 +196,11 @@ RÈGLES ABSOLUES — SANS EXCEPTION :
 
 STYLE :
 - 2 à 3 phrases maximum, ton professionnel et direct.
+- Tu ne commences JAMAIS une réponse par une salutation ("Bonjour", "Bonsoir", "Bienvenue", "Salut", "Bonjour !", etc.). Réponds directement à la question.
+- Quand tu mentionnes la localisation, utilise toujours "dans la région d'Aix-en-Provence".
 - Aucun emoji, aucun symbole décoratif.
 - Ponctuation française classique uniquement.
-- Pas de tirets en début de liste, pas de majuscules abusives, pas de "Super !", "Bien sûr !", "Avec plaisir !".
+- seulement des tirets en début de liste, pas de majuscules abusives, pas de "Super !", "Bien sûr !", "Avec plaisir !".
 - Pas de blocs de code, pas de markdown.
 
 AVANT DE RÉPONDRE, vérifie : cette réponse concerne-t-elle uniquement Maître Baigneur ? Si non, applique la règle 2.
@@ -210,7 +223,10 @@ export const POST: APIRoute = async ({ request }) => {
   // Couche 1 : limite par minute (in-memory)
   if (!checkMinuteLimit(ip)) {
     return new Response(
-      JSON.stringify({ reply: 'Trop de messages envoyés. Réessayez dans une minute.', suggestWhatsapp: false }),
+      JSON.stringify({
+        reply: 'Trop de messages envoyés. Réessayez dans une minute.',
+        suggestWhatsapp: false,
+      }),
       { status: 429, headers: { 'Content-Type': 'application/json' } }
     );
   }
@@ -218,38 +234,63 @@ export const POST: APIRoute = async ({ request }) => {
   // Couche 2 : limite journalière (KV)
   if (!(await checkDailyLimit(ip))) {
     return new Response(
-      JSON.stringify({ reply: 'Vous avez atteint la limite quotidienne. Contactez-nous directement par WhatsApp.', suggestWhatsapp: true }),
+      JSON.stringify({
+        reply: 'Vous avez atteint la limite quotidienne. Contactez-nous directement par WhatsApp.',
+        suggestWhatsapp: true,
+      }),
       { status: 429, headers: { 'Content-Type': 'application/json' } }
     );
   }
 
   let message: string;
+  let history: { role: 'user' | 'assistant'; content: string }[] = [];
   try {
     const body = await request.json();
     message = sanitizeInput(String(body?.message ?? ''));
+    if (Array.isArray(body?.history)) {
+      history = body.history
+        .slice(-6) // 3 derniers échanges max
+        .filter(
+          (m: unknown) =>
+            m &&
+            typeof m === 'object' &&
+            (m as Record<string, unknown>).role &&
+            (m as Record<string, unknown>).content
+        )
+        .map((m: { role: string; content: string }) => ({
+          role: m.role === 'assistant' ? 'assistant' : ('user' as 'user' | 'assistant'),
+          content: sanitizeInput(String(m.content).slice(0, 500)),
+        }));
+    }
   } catch {
-    return new Response(
-      JSON.stringify({ error: 'Requête invalide', suggestWhatsapp: true }),
-      { status: 400, headers: { 'Content-Type': 'application/json' } }
-    );
+    return new Response(JSON.stringify({ error: 'Requête invalide', suggestWhatsapp: true }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   if (!message || message.length > 500) {
-    return new Response(
-      JSON.stringify({ error: 'Message invalide', suggestWhatsapp: true }),
-      { status: 400, headers: { 'Content-Type': 'application/json' } }
-    );
+    return new Response(JSON.stringify({ error: 'Message invalide', suggestWhatsapp: true }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   // Couche 3 : blocage par pattern
   if (isBlocked(message)) {
-    return new Response(BLOCKED_REPLY, { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(BLOCKED_REPLY, {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   // Couche 4 : cache des réponses
   const cached = await getCached(message);
   if (cached) {
-    return new Response(JSON.stringify(cached), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify(cached), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   // Couche 5 : appel API
@@ -259,14 +300,17 @@ export const POST: APIRoute = async ({ request }) => {
       max_tokens: 300,
       temperature: 0,
       system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: message }],
+      messages: [...history, { role: 'user', content: message }],
     });
 
     const raw = response.content[0].type === 'text' ? response.content[0].text : '';
 
     // Couche 6 : validation de la réponse
     if (responseIsInvalid(raw)) {
-      return new Response(BLOCKED_REPLY, { status: 200, headers: { 'Content-Type': 'application/json' } });
+      return new Response(BLOCKED_REPLY, {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     const suggestWhatsapp = raw.includes('[WHATSAPP]');

@@ -10,6 +10,9 @@ const SESSION_KEY = 'mb-chat-messages';
 const SESSION_COUNTER_KEY = 'mb-chat-count';
 const MAX_QUESTIONS = 5;
 
+const WELCOME_GREETING = "Bonjour, je suis l'assistant de Maître Baigneur. Je peux vous renseigner sur nos bassins, nos tarifs et nos prestations.";
+const WELCOME_FOLLOWUP = "En quoi puis-je vous aider ?";
+
 const SUGGESTIONS = [
   'Quels sont vos tarifs ?',
   'Cours bébé nageur dès quel âge ?',
@@ -46,8 +49,11 @@ export default function ChatWidget() {
   const [showWhatsapp, setShowWhatsapp] = useState(false);
   const [visible, setVisible] = useState(false);
   const [questionCount, setQuestionCount] = useState(readSessionCount);
+  const [welcomeStep, setWelcomeStep] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const messagesRef = useRef(messages);
+  messagesRef.current = messages;
 
   const remaining = MAX_QUESTIONS - questionCount;
   const limitReached = remaining <= 0;
@@ -72,6 +78,25 @@ export default function ChatWidget() {
     }
   }, [open, messages]);
 
+  // Séquence d'accueil animée
+  useEffect(() => {
+    if (!open || messagesRef.current.length > 0) {
+      setWelcomeStep(0);
+      return;
+    }
+    setWelcomeStep(1);
+    const t1 = setTimeout(() => setWelcomeStep(2), 1200);
+    const t2 = setTimeout(() => setWelcomeStep(3), 1600);
+    const t3 = setTimeout(() => setWelcomeStep(4), 2600);
+    const t4 = setTimeout(() => setWelcomeStep(5), 2900);
+    const t5 = setTimeout(() => setWelcomeStep(6), 3700);
+    return () => {
+      clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
+      clearTimeout(t4); clearTimeout(t5);
+      setWelcomeStep(0);
+    };
+  }, [open]);
+
   async function handleSend(text?: string) {
     const msg = (text ?? input).trim();
     if (!msg || loading || cooldown || limitReached) return;
@@ -90,7 +115,7 @@ export default function ChatWidget() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: msg }),
+        body: JSON.stringify({ message: msg, history: messages.slice(-6) }),
       });
       const data = await res.json();
 
@@ -126,6 +151,7 @@ export default function ChatWidget() {
     setShowWhatsapp(false);
     setLastQuestion('');
     setQuestionCount(0);
+    setWelcomeStep(0);
     writeSessionCount(0);
     try { sessionStorage.removeItem(SESSION_KEY); } catch {}
   }
@@ -178,18 +204,40 @@ export default function ChatWidget() {
           </div>
 
           <div className="chat-messages" aria-live="polite">
-            {messages.length === 0 && !loading && (
+            {messages.length === 0 && !loading && welcomeStep > 0 && (
               <>
-                <p className="chat-welcome">
-                  Bonjour ! Je réponds aux questions sur nos bassins, tarifs et prestations.
-                </p>
-                <div className="chat-suggestions">
-                  {SUGGESTIONS.map(s => (
-                    <button key={s} className="chat-suggestion" onClick={() => handleSend(s)}>
-                      {s}
-                    </button>
-                  ))}
-                </div>
+                {welcomeStep === 1 && (
+                  <div className="chat-message chat-message--assistant chat-message--loading" aria-label="Chargement">
+                    <span /><span /><span />
+                  </div>
+                )}
+                {welcomeStep >= 2 && (
+                  <div className="chat-message chat-message--assistant">
+                    <p>{WELCOME_GREETING}</p>
+                  </div>
+                )}
+                {welcomeStep === 3 && (
+                  <div className="chat-message chat-message--assistant chat-message--loading" aria-label="Chargement">
+                    <span /><span /><span />
+                  </div>
+                )}
+                {welcomeStep >= 4 && (
+                  <div className="chat-suggestions">
+                    {SUGGESTIONS.map(s => (
+                      <button key={s} className="chat-suggestion" onClick={() => handleSend(s)}>
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {welcomeStep === 5 && (
+                  <div className="chat-message chat-message--assistant chat-message--loading" aria-label="Chargement">
+                    <span /><span /><span />
+                  </div>
+                )}
+                {welcomeStep >= 6 && (
+                  <p className="chat-welcome">{WELCOME_FOLLOWUP}</p>
+                )}
               </>
             )}
             {messages.map((msg, i) => (
