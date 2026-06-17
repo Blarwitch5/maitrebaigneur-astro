@@ -236,7 +236,9 @@ export default function ChatWidget() {
                   </div>
                 )}
                 {welcomeStep >= 6 && (
-                  <p className="chat-welcome">{WELCOME_FOLLOWUP}</p>
+                  <div className="chat-message chat-message--assistant">
+                    <p>{WELCOME_FOLLOWUP}</p>
+                  </div>
                 )}
               </>
             )}
