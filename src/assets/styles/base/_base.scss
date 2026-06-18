@@ -12,6 +12,9 @@ body {
   padding: 0;
   line-height: 1.5;
 }
+body {
+  overflow-x: clip;
+}
 section {
   padding: 2rem;
 }
