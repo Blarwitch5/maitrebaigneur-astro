@@ -1,32 +1,21 @@
 import pricesData from '@assets/data/prices.json';
+import pools from '@assets/data/pools.ts';
+import levels from '@assets/data/levels.ts';
 
-const poolsData = [
-  { name: 'Kabanon', location: 'Saint-Marc-Jaumegarde', address: 'Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde', period: 'Été', services: ['Cours de natation'] },
-  { name: 'Aquabecool', location: 'Aix Sud', address: 'Chemin de la Blaque, 13090 Aix-en-Provence', period: 'Toute l\'année', services: ['Cours de natation'] },
-  { name: 'Kinémouv\'', location: 'Pertuis', address: '434 Chemin de Saint-Martin, 84120 Pertuis', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
-  { name: 'Les Terrasses du Sun', location: 'Aix Sud Ouest', address: '165 Chemin de la Valette, 13290 Aix-en-Provence', period: 'Été', services: ['Cours de natation'] },
-  { name: 'Le Carré d\'Ô', location: 'Aix Centre', address: '23 avenue de la Sainte Victoire, 13100 Aix-en-Provence', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
-  { name: 'Saint-Maximin Été', location: 'Saint-Maximin', address: 'Saint-Maximin', period: 'Été', services: ['Cours de natation'] },
-  { name: 'Saint-Maximin Balnéo', location: 'Saint-Maximin', address: 'Saint-Maximin', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
-  { name: 'Country Club Aixois', location: 'Aix-en-Provence', address: '1195 Chemin des Cruyes, 13090 Aix-en-Provence', period: 'Été', services: ['Cours de natation', 'Événements & Sécurité'] },
-  { name: 'Domicile', location: 'À votre domicile', address: 'Déplacement à domicile', period: 'Toute l\'année', services: ['Cours de natation', 'Événements & Sécurité', 'Aquaversaire'] },
-];
-
-const levelsData = [
-  { name: 'Baigneur en douceur', desc: 'Découverte du milieu aquatique dès 3 ans. Pour enfants qui ont peur de la piscine ou ne mettent pas la tête dans l\'eau.' },
-  { name: 'Mini Baigneur', desc: 'Premiers ploufs, adieu aux brassards. Dès 3 ans, réflexes anti-noyade avec "Savoir Se Sauver".' },
-  { name: 'Petit Baigneur', desc: 'Apprendre à nager en s\'amusant. Enfant à l\'aise dans l\'eau, saute seul, met la tête sous l\'eau.' },
-  { name: 'Moyen Baigneur', desc: 'À l\'aise dans l\'eau, mise en place des bons mouvements de la brasse et du dos crawlé. Nage seul sur quelques mètres.' },
-  { name: 'Grand Baigneur', desc: 'Confirmation de la nage, geste juste. Mise en place des 3 nages codifiées : dos, brasse et crawl.' },
-  { name: 'Super Baigneur', desc: 'Perfectionnement crawl, brasse, dos, initiation papillon. Objectif 4 nages.' },
-  { name: 'Adulte', desc: 'Tous âges. Confirmer ou perfectionner sa nage, apprendre les 4 nages à l\'âge adulte.' },
-];
+function stripHtml(str: string): string {
+  return str.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+}
 
 export function getChatContext(): string {
   const p = pricesData.prices;
 
-  const poolsText = poolsData
-    .map(b => `- ${b.name} (${b.location}) — ${b.period} — Adresse : ${b.address} — Prestations : ${b.services.join(', ')}`)
+  const poolsText = pools
+    .map(b => {
+      const period = b.period === 'Summer' ? 'Été' : "Toute l'année";
+      const services = b.services.map(s => s.name).join(', ');
+      const location = b.location || 'À votre domicile';
+      return `- ${b.name} (${location}) — ${period} — Adresse : ${b.address || 'Déplacement à domicile'} — Prestations : ${services}`;
+    })
     .join('\n');
 
   const swimmingPoolSingle = p.swimmingLessons.pool.single
@@ -52,9 +41,14 @@ export function getChatContext(): string {
     .map(i => `  ${i.name} : ${i.price}€`)
     .join('\n');
 
-  const levelsText = levelsData
-    .map(l => `- ${l.name} : ${l.desc}`)
+  const levelsText = levels
+    .map(l => `- ${l.name} : ${stripHtml(l.desc)}`)
     .join('\n');
+
+  const babyPools = pools
+    .filter(b => b.services.some(s => s.name === 'Cours Bébé nageur'))
+    .map(b => b.name)
+    .join(', ');
 
   return `
 ## BASSINS (piscines partenaires)
@@ -64,7 +58,7 @@ ${poolsText}
 ## PRESTATIONS
 
 - Cours de natation (enfants et adultes, en bassin ou à domicile)
-- Cours Bébé nageur (dès 3 mois, bassins : Kinémouv', Le Carré d'Ô, Saint-Maximin Balnéo — ou à domicile)
+- Cours Bébé nageur (dès 3 mois, bassins : ${babyPools} — ou à domicile)
 - Aquaversaire (anniversaire à la piscine)
 - Événements & Sécurité / Surveillance (maître-nageur pour événements privés)
 
