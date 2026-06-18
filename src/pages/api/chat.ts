@@ -7,8 +7,8 @@ import { createHash } from 'node:crypto';
 
 // --- Client KV (Vercel KV / Upstash REST) ---
 // Pas de package requis : appels directs à l'API REST avec KV_REST_API_URL + KV_REST_API_TOKEN
-const KV_URL = import.meta.env.KV_REST_API_URL;
-const KV_TOKEN = import.meta.env.KV_REST_API_TOKEN;
+const KV_URL = import.meta.env.KV_REST_API_URL ?? import.meta.env.UPSTASH_REDIS_REST_URL;
+const KV_TOKEN = import.meta.env.KV_REST_API_TOKEN ?? import.meta.env.UPSTASH_REDIS_REST_TOKEN;
 const KV_AVAILABLE = !!(KV_URL && KV_TOKEN);
 
 async function kvCmd(command: string): Promise<unknown> {
