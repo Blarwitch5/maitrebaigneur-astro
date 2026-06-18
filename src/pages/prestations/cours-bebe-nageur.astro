@@ -6,6 +6,7 @@ import PageTitle from '@components/header/PageTitle.astro';
 import Main from '@components/Main.astro';
 import SkipToContent from '@components/ui/SkipToContent.astro';
 import BabySwimmingPrices from '@components/widgets/prices/BabySwimmingPrices.astro';
+import PoolsByService from '@components/widgets/PoolsByService.astro';
 import Title from '@components/ui/Title.astro';
 import { Picture } from 'astro:assets';
 
@@ -138,6 +139,7 @@ const page = {
         <BabySwimmingPrices />
       </div>
     </section>
+    <PoolsByService serviceHref="/prestations/cours-bebe-nageur" />
   </Main>
   <Footer />
 </BaseLayout>

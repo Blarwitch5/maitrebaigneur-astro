@@ -1,0 +1,125 @@
+---
+import { Image } from 'astro:assets';
+import Title from '@components/ui/Title.astro';
+import poolsData from '@assets/data/pools.ts';
+
+interface Props {
+  serviceHref: string;
+}
+
+const { serviceHref } = Astro.props;
+
+const matchingPools = poolsData.filter((pool) =>
+  pool.services.some((s) => s.href === serviceHref)
+);
+---
+
+{
+  matchingPools.length > 0 && (
+    <section class="pools-by-service">
+      <div class="container">
+        <Title animate level="2" class="pools-by-service__title">
+          Disponible dans {matchingPools.length === 1 ? 'ce bassin' : `${matchingPools.length} bassins`}
+        </Title>
+        <ul class="pools-by-service__list">
+          {matchingPools.map((pool) => (
+            <li class="pools-by-service__item">
+              <a href={pool.href} class="pools-by-service__link">
+                <Image
+                  src={pool.image.path}
+                  alt={pool.image.alt || ''}
+                  width={72}
+                  height={72}
+                  format="webp"
+                  class="pools-by-service__img"
+                />
+                <div class="pools-by-service__info">
+                  <span class="pools-by-service__name">{pool.name}</span>
+                  {pool.location && (
+                    <span class="pools-by-service__location">{pool.location}</span>
+                  )}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+<style lang="scss">
+  .pools-by-service {
+    padding-block: var(--space-lg);
+
+    &__title {
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 860px;
+    }
+
+    &__item {
+      flex: 1 1 220px;
+      max-width: 260px;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-sm);
+      background-color: var(--color-bg-light-alt);
+      border-radius: var(--regular-border-radius);
+      text-decoration: none;
+      color: var(--color-txt);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: var(--color-bg-light);
+        transform: translateY(-2px);
+        color: var(--color-primary);
+      }
+    }
+
+    &__img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    &__name {
+      font-family: var(--ff-pacifico);
+      font-size: var(--fs-sm);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__location {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+</style>
