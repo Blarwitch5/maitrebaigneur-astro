@@ -16,13 +16,6 @@ pool: {
 		url: "https://countryclubaixois.com/tennis-club/",
 		text: "Site web du Country Club Aixois"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		}
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/country-club-aixois/country-club-aixois-1.jpg",

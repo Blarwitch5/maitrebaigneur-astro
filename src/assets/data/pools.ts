@@ -44,16 +44,6 @@ const pools: Pool[] = [
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
       },
-      {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
-      },
-      {
-        name: 'Aquafitness',
-        icon: 'swimmer',
-        href: '/prestations/aquafitness',
-      },
     ],
   },
   {
@@ -141,7 +131,7 @@ const pools: Pool[] = [
     ],
   },
   {
-    name: 'Saint-Maximin Summer',
+    name: 'Saint-Maximin Été',
     href: '/bassins/saint-maximin-ete',
     image: {
       path: saintMaximinImg,
@@ -155,11 +145,6 @@ const pools: Pool[] = [
         name: 'Cours de natation',
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
-      },
-      {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
       },
     ],
   },
@@ -226,11 +211,6 @@ const pools: Pool[] = [
         name: 'Cours de natation',
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
-      },
-      {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
       },
       {
         name: 'Événements & Sécurité',

@@ -6,7 +6,7 @@ title: "Kabanon"
 pool: {
 	name: "Kabanon",
 	location: "St-Marc-Jaumegarde",
-	desc: "<p>Dans les anciennes écuries du domaine, à Saint-Marc-Jaumegarde, s’est installé le restaurant traditionnel et sa cuisine du terroir.</p><p>Le Kabanon des Écuries de l’Aube vous invite à un voyage initiatique aux saveurs de la Provence. Tout près d’Aix-en-Provence, profitez d’un cadre propice à la détente pour vous adonner à de nombreuses activités : deux piscines, terrain de tennis, terrain de beach-volley et terrain de pétanque, nombreuses balades autour du domaine, etc.</p>",
+	desc: "<p>Dans les anciennes écuries du domaine, à Saint-Marc-Jaumegarde, s'est installé le restaurant traditionnel et sa cuisine du terroir.</p><p>Le Kabanon des Écuries de l'Aube vous invite à un voyage initiatique aux saveurs de la Provence. Tout près d'Aix-en-Provence, profitez d'un cadre propice à la détente pour vous adonner à de nombreuses activités : deux piscines, terrain de tennis, terrain de beach-volley et terrain de pétanque, nombreuses balades autour du domaine, etc.</p>",
 	image: {
 		path: "../../assets/images/page-title/page_kabanon-bassins.jpg",
 		alt: "Bassin au Kabanon à St-Marc-Jaumegarde"
@@ -16,17 +16,6 @@ pool: {
 		url: "https://www.lesecuriesdelaube.com/",
 		text: "Site web du Kabanon"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		},
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/kabanon/kabanon-1.jpg",

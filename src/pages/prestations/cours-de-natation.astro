@@ -16,6 +16,7 @@ import Button from '@components/ui/Button.astro';
 import LevelsGrid from '@components/widgets/LevelsGrid.astro';
 import SwimmingPrices from '@components/widgets/prices/SwimmingPrices.astro';
 import Waves from '@components/ui/shapes/Waves.astro';
+import PoolsByService from '@components/widgets/PoolsByService.astro';
 
 import natation from '@assets/images/page-title/page_natation.jpg';
 import fear from '@assets/images/niveaux/6_peur-du-baigneur.jpg';
@@ -81,6 +82,7 @@ const page = {
         <SwimmingPrices />
       </div>
     </section>
+    <PoolsByService serviceHref="/prestations/cours-de-natation" />
   </Main>
   <Footer />
 </BaseLayout>

@@ -16,13 +16,6 @@ pool: {
 		url: "www.aquabecool.com/aquabike-aix-en-provence",
 		text: "Site web d'Aquabecool"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		}
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/aquabecool/aquabecool-1.jpg",

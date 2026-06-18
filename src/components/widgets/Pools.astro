@@ -48,15 +48,17 @@ import poolsData from '@assets/data/pools.ts';
                     ? 'Été'
                     : pool.period}
               </span>
-              <ul class='pool__services'>
-                {pool.services.map((service) => (
-                  <li title={service.name}>
-                    <Icon name={service.icon} />
-                  </li>
-                ))}
-              </ul>
             </div>
           </a>
+          <ul class='pool__services'>
+            {pool.services.map((service) => (
+              <li>
+                <a href={service.href} title={service.name} data-tooltip={service.name}>
+                  <Icon name={service.icon} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </article>
       ))
     }
@@ -90,7 +92,7 @@ import poolsData from '@assets/data/pools.ts';
   }
 
   .pool {
-    position: relative;
+    position: relative !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,6 +184,11 @@ import poolsData from '@assets/data/pools.ts';
     }
 
     &__services {
+      position: absolute;
+      bottom: var(--space-xs);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
       display: flex;
       gap: var(--space-2xs);
       margin: 0;
@@ -190,19 +197,54 @@ import poolsData from '@assets/data/pools.ts';
       justify-content: center;
 
       li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(10px);
+          transition: outline 0.2s ease;
+          text-decoration: none;
+
+          @media (hover: hover) {
+            &:hover {
+              outline: 2px solid white;
+              outline-offset: 2px;
+            }
+
+            &::after {
+              content: attr(data-tooltip);
+              position: absolute;
+              bottom: calc(100% + 0.5rem);
+              left: 50%;
+              transform: translateX(-50%) translateY(4px);
+              background: var(--color-primary);
+              color: white;
+              font-size: 0.7rem;
+              font-weight: 600;
+              white-space: nowrap;
+              padding: 0.3rem 0.6rem;
+              border-radius: 0.4rem;
+              pointer-events: none;
+              opacity: 0;
+              text-decoration: none;
+              transition: opacity 0.15s ease, transform 0.15s ease;
+            }
+
+            &:hover::after {
+              opacity: 1;
+              transform: translateX(-50%) translateY(0);
+            }
+          }
+        }
 
         :global(svg) {
-          width: 1.5rem;
-          height: 1.5rem;
+          width: 1.75rem;
+          height: 1.75rem;
           fill: var(--color-primary);
         }
       }

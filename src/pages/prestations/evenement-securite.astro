@@ -7,6 +7,7 @@ import PageTitle from '@components/header/PageTitle.astro';
 
 import SkipToContent from '@components/ui/SkipToContent.astro';
 import EventsPrices from '@components/widgets/prices/EventsPrices.astro';
+import PoolsByService from '@components/widgets/PoolsByService.astro';
 import Title from '@components/ui/Title.astro';
 import { Image } from 'astro:assets';
 
@@ -77,6 +78,7 @@ const page = {
         <EventsPrices />
       </div>
     </section>
+    <PoolsByService serviceHref="/prestations/evenement-securite" />
   </Main>
   <Footer />
 </BaseLayout>

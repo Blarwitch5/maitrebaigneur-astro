@@ -113,8 +113,7 @@
     "events": {
       "name": "Tarif jour/nuit",
       "price": 40,
-      "condition": "par heure et par Maître-Baigneur",
-      "surveillanceTime": "Au minimum 4h"
+      "condition": "par heure et par Maître-Baigneur"
     },
     "diploma": {
       "name": "Diplôme",

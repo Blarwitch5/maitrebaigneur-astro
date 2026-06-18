@@ -16,19 +16,6 @@ pool: {
 		url: "https://www.carredo-aix.com/",
 		text: "Site web du Carré d'Ô"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},
-{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		},
-		
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/le-carre-d-o/le-carre-d-o-1.jpg",

@@ -8,6 +8,7 @@ import PageTitle from '@components/header/PageTitle.astro';
 import Title from '@components/ui/Title.astro';
 
 import AquaversairePrices from '@components/widgets/prices/AquaversairePrices.astro';
+import PoolsByService from '@components/widgets/PoolsByService.astro';
 import { Image } from 'astro:assets';
 
 import aquaversaire from '@assets/images/page-title/page_aquaversaire.jpg';
@@ -77,6 +78,7 @@ const page = {
         <AquaversairePrices />
       </div>
     </section>
+    <PoolsByService serviceHref="/prestations/aquaversaire" />
   </Main>
   <Footer />
 </BaseLayout>
