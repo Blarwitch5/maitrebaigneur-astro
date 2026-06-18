@@ -136,7 +136,7 @@ const pools: Pool[] = [
     ],
   },
   {
-    name: 'Saint-Maximin Summer',
+    name: 'Saint-Maximin Été',
     href: '/bassins/saint-maximin-ete',
     image: {
       path: saintMaximinImg,
