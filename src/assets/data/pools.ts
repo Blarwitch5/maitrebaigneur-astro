@@ -146,11 +146,6 @@ const pools: Pool[] = [
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
       },
-      {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
-      },
     ],
   },
   {
@@ -216,11 +211,6 @@ const pools: Pool[] = [
         name: 'Cours de natation',
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
-      },
-      {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
       },
       {
         name: 'Événements & Sécurité',
