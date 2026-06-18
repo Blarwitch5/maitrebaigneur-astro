@@ -20,18 +20,6 @@ pool: {
 		url: "https://www.facebook.com/kinemouv/",
 		text: "Page de Kinémouv'"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},
-		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		},
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/kinemouv/kinemouv-1.jpg",

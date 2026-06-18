@@ -17,18 +17,6 @@ pool: {
 		url: "",
 		text: ""
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},
-		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		},
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/saint-maximin/saint-maximin-1.jpg",

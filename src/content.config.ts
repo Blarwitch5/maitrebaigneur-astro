@@ -23,13 +23,6 @@ const poolsCollection = defineCollection({
         url: z.string(),
         text: z.string(),
       }),
-      services: z.array(
-        z.object({
-          name: z.string(),
-          icon: z.string(),
-          href: z.string(),
-        })
-      ),
       gallery: z.array(
         z.object({
           path: image(),

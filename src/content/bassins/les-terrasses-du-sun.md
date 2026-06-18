@@ -16,13 +16,6 @@ pool: {
 		url: "https://lesterrassesdusun.fr/",
 		text: "Site web des Terrasses du Sun"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		}
-	],
 	gallery: [
 		{
 	path: "../../assets/images/pools/les-terrasses-du-sun/les-terrasses-du-sun-1.jpg",

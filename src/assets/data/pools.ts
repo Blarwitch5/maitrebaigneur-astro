@@ -44,11 +44,6 @@ const pools: Pool[] = [
         icon: 'swimmer',
         href: '/prestations/cours-de-natation',
       },
-      {
-        name: 'Aquafitness',
-        icon: 'swimmer',
-        href: '/prestations/aquafitness',
-      },
     ],
   },
   {

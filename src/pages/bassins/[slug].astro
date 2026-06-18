@@ -49,6 +49,7 @@ const galleryImages = await Promise.all(
 import fallback from '@assets/images/page-title/fallback.jpg';
 
 const poolSlug = Astro.params.slug;
+const poolServices = poolsData.find((p) => p.href === `/bassins/${poolSlug}`)?.services ?? [];
 const poolAddress = poolData.data.pool.address;
 const poolSchema = poolAddress
   ? {
@@ -104,17 +105,13 @@ const poolSchema = poolAddress
             <Title animate level='4'>Prestations proposées</Title>
             <ul>
               {
-                poolData.data.pool.services.map(
-                  (item: { href: string | URL | null | undefined; icon: any; name: unknown }) => {
-                    return (
-                      <li>
-                        <a href={item.href}>
-                          <Icon name={item.icon} /> {item.name}
-                        </a>
-                      </li>
-                    );
-                  }
-                )
+                poolServices.map((item) => (
+                  <li>
+                    <a href={item.href}>
+                      <Icon name={item.icon} /> {item.name}
+                    </a>
+                  </li>
+                ))
               }
             </ul>
             <Title animate level='4'>Situation géographique</Title>

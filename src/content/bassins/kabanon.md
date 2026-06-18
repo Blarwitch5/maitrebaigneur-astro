@@ -16,13 +16,6 @@ pool: {
 		url: "https://www.lesecuriesdelaube.com/",
 		text: "Site web du Kabanon"
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/kabanon/kabanon-1.jpg",

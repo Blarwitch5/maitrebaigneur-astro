@@ -16,28 +16,6 @@ pool: {
 		url: "",
 		text: ""
 	},
-	services: [
-		{
-			name: "Cours de natation",
-			icon: "swimmer",
-			href: "/prestations/cours-de-natation"
-		},
-		{
-			name: "Cours Bébé nageur",
-			icon: "baby",
-			href: "/prestations/cours-bebe-nageur"
-		},
-		{
-			name: "Événements & Sécurité",
-			icon: "event",
-			href: "/prestations/evenement-securite"
-		},
-				{
-			name: "Aquaversaire",
-			icon: "aquaversaire",
-			href: "/prestations/aquaversaire"
-		}
-	],
 	gallery: [
 		{
 			path: "../../assets/images/pools/domicile/domicile-1.jpg",
