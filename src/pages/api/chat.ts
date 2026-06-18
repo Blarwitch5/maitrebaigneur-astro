@@ -64,7 +64,8 @@ async function checkDailyLimit(ip: string): Promise<boolean> {
   const date = new Date().toISOString().slice(0, 10);
   const key = `chat:daily:${ip}:${date}`;
   const count = await kvIncr(key);
-  if (count === 1) await kvExpire(key, 86_400);
+  // Toujours tenter kvExpire en cas de race condition sur le premier incrément
+  if (count <= 2) await kvExpire(key, 86_400);
   return count <= DAILY_LIMIT;
 }
 
@@ -78,7 +79,13 @@ function makeCacheKey(msg: string): string {
 
 async function getCached(msg: string): Promise<{ reply: string; suggestWhatsapp: boolean } | null> {
   if (!KV_AVAILABLE) return null;
-  return kvGet<{ reply: string; suggestWhatsapp: boolean }>(makeCacheKey(msg));
+  const raw = await kvCmd(`get/${encodeURIComponent(makeCacheKey(msg))}`);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw as string) as { reply: string; suggestWhatsapp: boolean };
+  } catch {
+    return null;
+  }
 }
 
 async function setCache(
