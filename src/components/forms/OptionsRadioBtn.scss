@@ -126,6 +126,12 @@
   transition: border-color 0.2s ease-out;
 }
 
+.card:has(.radio:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--card-radius);
+}
+
 .card {
   &:hover {
     .card__title {

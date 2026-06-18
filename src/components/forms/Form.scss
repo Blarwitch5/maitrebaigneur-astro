@@ -46,8 +46,6 @@
   &__hint {
     padding-inline: 1rem;
     margin-bottom: var(--space-xs);
-    color: hsla(var(--link-color-black-hsl), 0.6);
-    font-size: var(--fs-sm);
   }
 
   &__selected {
@@ -222,9 +220,10 @@
       &:hover {
         border-color: var(--color-dark-gray);
       }
-      &:focus {
+      &:focus-visible {
         outline: 2px solid var(--color-primary);
-        box-shadow: 1px 1px 8px 1px hsla(var(--link-color-primary-hsl), 0.5);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px hsla(var(--link-color-primary-hsl), 0.15);
       }
 
       @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -344,11 +343,21 @@
     }
 
     .level-detail {
+      position: relative;
       padding: var(--space-xs);
       background-color: var(--color-white);
       border-radius: var(--small-border-radius);
-      border-left: 3px solid var(--color-primary);
-      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: var(--color-primary);
+        border-radius: var(--small-border-radius) 0 0 var(--small-border-radius);
+      }
 
       @media screen and (min-width: 767px) {
         grid-column: 1 / -1;
@@ -361,6 +370,7 @@
         background-color: var(--color-bg-light-alt);
         margin: calc(-1 * var(--space-xs)) calc(-1 * var(--space-xs)) var(--space-xs);
         padding: var(--space-2xs) var(--space-xs);
+        border-radius: var(--small-border-radius) var(--small-border-radius) 0 0;
 
         span {
           font-size: 0.75rem;
@@ -479,8 +489,8 @@
         }
 
         /*focus styles*/
-        input:focus + label::before {
-          box-shadow: 0 0 0 3px var(--color-secondary);
+        input:focus-visible + label::before {
+          box-shadow: 0 0 0 3px var(--color-primary);
           outline: 3px solid transparent; /* For Windows high contrast mode. */
         }
         .error-message {
@@ -490,7 +500,7 @@
       }
       .error {
         .checkbox-wrapper {
-          input:focus + label::before,
+          input:focus-visible + label::before,
           input + label::before {
             box-shadow: 0 0 0 3px var(--color-error);
             outline: 3px solid transparent; /* For Windows high contrast mode. */

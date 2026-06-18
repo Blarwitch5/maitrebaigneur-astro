@@ -81,7 +81,7 @@ const Form = ({ poolsList = [] }: { poolsList?: PoolItem[] }) => {
     <>
       <fieldset className="form__group">
         <legend>En quoi pouvons-nous vous aider ?</legend>
-        <p className="form__hint">Sélectionnez votre demande — le formulaire correspondant s'affiche ensuite.</p>
+        <p className="form__hint">Sélectionnez votre demande.</p>
         <div className="radio__group">
           {optionsData.map((option: Option) => (
             <div className="form__field" key={option.option}>
