@@ -239,7 +239,11 @@ const poolSchema = poolAddress
         margin: 0;
       }
       a {
-        color: var(--color-black);
+        color: var(--color-txt);
+        transition: color 0.15s ease;
+        &:hover {
+          color: var(--color-primary);
+        }
       }
 
       &::after {

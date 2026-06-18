@@ -45,11 +45,6 @@ const pools: Pool[] = [
         href: '/prestations/cours-de-natation',
       },
       {
-        name: 'Cours Bébé nageur',
-        icon: 'baby',
-        href: '/prestations/cours-bebe-nageur',
-      },
-      {
         name: 'Aquafitness',
         icon: 'swimmer',
         href: '/prestations/aquafitness',
