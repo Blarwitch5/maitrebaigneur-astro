@@ -1,3 +1,14 @@
+@keyframes form-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .required {
   color: var(--color-error);
 }
@@ -30,6 +41,18 @@
   &__group {
     border: none;
     padding: 0;
+  }
+
+  &__hint {
+    padding-inline: 1rem;
+    margin-bottom: var(--space-xs);
+    color: hsla(var(--link-color-black-hsl), 0.6);
+    font-size: var(--fs-sm);
+  }
+
+  &__selected {
+    animation: form-enter 0.25s ease-out;
+    scroll-margin-top: 5rem;
   }
 
   &__group .radio__group {
