@@ -25,14 +25,16 @@ const matchingPools = poolsData.filter((pool) =>
           {matchingPools.map((pool) => (
             <li class="pools-by-service__item">
               <a href={pool.href} class="pools-by-service__link">
-                <Image
-                  src={pool.image.path}
-                  alt={pool.image.alt || ''}
-                  width={72}
-                  height={72}
-                  format="webp"
-                  class="pools-by-service__img"
-                />
+                <div class="pools-by-service__img-wrap">
+                  <Image
+                    src={pool.image.path}
+                    alt={pool.image.alt || ''}
+                    width={72}
+                    height={72}
+                    format="webp"
+                    loading="lazy"
+                  />
+                </div>
                 <div class="pools-by-service__info">
                   <span class="pools-by-service__name">{pool.name}</span>
                   {pool.location && (
@@ -50,7 +52,8 @@ const matchingPools = poolsData.filter((pool) =>
 
 <style lang="scss">
   .pools-by-service {
-    padding-block: var(--space-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
 
     &__title {
       text-align: center;
@@ -69,8 +72,8 @@ const matchingPools = poolsData.filter((pool) =>
     }
 
     &__item {
-      flex: 1 1 220px;
-      max-width: 260px;
+      flex: 1 1 180px;
+      max-width: 240px;
     }
 
     &__link {
@@ -91,12 +94,19 @@ const matchingPools = poolsData.filter((pool) =>
       }
     }
 
-    &__img {
+    &__img-wrap {
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
-      object-fit: cover;
+      overflow: hidden;
       flex-shrink: 0;
+
+      :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
 
     &__info {
@@ -108,7 +118,7 @@ const matchingPools = poolsData.filter((pool) =>
 
     &__name {
       font-family: var(--ff-pacifico);
-      font-size: var(--fs-sm);
+      font-size: 0.8rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
