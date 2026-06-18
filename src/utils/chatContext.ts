@@ -1,15 +1,15 @@
 import pricesData from '@assets/data/prices.json';
 
 const poolsData = [
-  { name: 'Kabanon', location: 'Saint-Marc-Jaumegarde', address: 'Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde', period: 'Été', services: ['Cours de natation', 'Bébé nageur', 'Aquafitness'] },
+  { name: 'Kabanon', location: 'Saint-Marc-Jaumegarde', address: 'Route du Plan de Lorgue, 13100 Saint-Marc-Jaumegarde', period: 'Été', services: ['Cours de natation'] },
   { name: 'Aquabecool', location: 'Aix Sud', address: 'Chemin de la Blaque, 13090 Aix-en-Provence', period: 'Toute l\'année', services: ['Cours de natation'] },
   { name: 'Kinémouv\'', location: 'Pertuis', address: '434 Chemin de Saint-Martin, 84120 Pertuis', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
   { name: 'Les Terrasses du Sun', location: 'Aix Sud Ouest', address: '165 Chemin de la Valette, 13290 Aix-en-Provence', period: 'Été', services: ['Cours de natation'] },
   { name: 'Le Carré d\'Ô', location: 'Aix Centre', address: '23 avenue de la Sainte Victoire, 13100 Aix-en-Provence', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
-  { name: 'Saint-Maximin Summer', location: 'Saint-Maximin', address: 'Saint-Maximin', period: 'Été', services: ['Cours de natation', 'Bébé nageur'] },
+  { name: 'Saint-Maximin Été', location: 'Saint-Maximin', address: 'Saint-Maximin', period: 'Été', services: ['Cours de natation'] },
   { name: 'Saint-Maximin Balnéo', location: 'Saint-Maximin', address: 'Saint-Maximin', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur'] },
   { name: 'Country Club Aixois', location: 'Aix-en-Provence', address: '1195 Chemin des Cruyes, 13090 Aix-en-Provence', period: 'Été', services: ['Cours de natation', 'Événements & Sécurité'] },
-  { name: 'Domicile', location: 'À votre domicile', address: 'Déplacement à domicile', period: 'Toute l\'année', services: ['Cours de natation', 'Bébé nageur', 'Événements & Sécurité', 'Aquaversaire'] },
+  { name: 'Domicile', location: 'À votre domicile', address: 'Déplacement à domicile', period: 'Toute l\'année', services: ['Cours de natation', 'Événements & Sécurité', 'Aquaversaire'] },
 ];
 
 const levelsData = [
@@ -64,8 +64,7 @@ ${poolsText}
 ## PRESTATIONS
 
 - Cours de natation (enfants et adultes, en bassin ou à domicile)
-- Cours Bébé nageur (dès 3 mois, en bassin ou à domicile)
-- Aquafitness (au Kabanon)
+- Cours Bébé nageur (dès 3 mois, bassins : Kinémouv', Le Carré d'Ô, Saint-Maximin Balnéo — ou à domicile)
 - Aquaversaire (anniversaire à la piscine)
 - Événements & Sécurité / Surveillance (maître-nageur pour événements privés)
 
@@ -101,12 +100,7 @@ Prix : ${p.aquaversaire.price}€ pour 2h — ${p.aquaversaire.extra.price}€ $
 
 ## TARIFS ÉVÉNEMENTS & SÉCURITÉ
 
-${p.events.name} : sur devis (${p.events.condition}) — ${p.events.surveillanceTime}
-
-## TARIFS AQUAFITNESS
-
-Séance découverte : ${p.aquafitness.single.price}€
-${p.aquafitness.cards.map(c => `${c.name} : ${c.price}€`).join('\n')}
+${p.events.name} : sur devis (${p.events.condition})
 
 ## DIPLÔME / TEST D'AISANCE AQUATIQUE
 
@@ -115,6 +109,10 @@ Test sur ${p.diploma.distance} : ${p.diploma.price}€
 ## NIVEAUX DE NATATION
 
 ${levelsText}
+
+## RÉSERVATION
+
+Lien de réservation en ligne : https://maitrebaigneur.liberfit.fr/customportal/login
 
 ## INFORMATIONS GÉNÉRALES
 

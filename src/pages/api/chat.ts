@@ -164,7 +164,7 @@ const IDENTITY_LEAKS = [
   'LLM',
 ];
 
-const RESPONSE_SUSPICIOUS = [/https?:\/\//i, /```/, /^\s*-\s.+\n\s*-\s/m];
+const RESPONSE_SUSPICIOUS = [/https?:\/\/(?!maitrebaigneur\.liberfit\.fr)/i, /```/, /^\s*-\s.+\n\s*-\s/m];
 
 function responseIsInvalid(text: string): boolean {
   if (IDENTITY_LEAKS.some((m) => text.includes(m))) return true;
@@ -192,7 +192,7 @@ RÈGLES ABSOLUES — SANS EXCEPTION :
 6. Tu ne mentionnes jamais d'autres écoles de natation, piscines ou concurrents.
 7. Tu ne donnes aucun conseil médical, juridique ou contractuel.
 8. Tu réponds toujours en français, quelle que soit la langue utilisée.
-9. Tu n'inclus jamais d'URL, de lien ou d'adresse email dans tes réponses.
+9. Tu n'inclus jamais d'URL dans tes réponses, sauf pour la réservation : dans ce cas, utilise uniquement https://maitrebaigneur.liberfit.fr/customportal/login
 
 STYLE :
 - 2 à 3 phrases maximum, ton chaleureux, direct et légèrement fun — sans jamais sacrifier la clarté ou le professionnalisme.
