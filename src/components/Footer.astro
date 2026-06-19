@@ -160,12 +160,21 @@ const FACEBOOK_REVIEW_URL = 'https://www.facebook.com/MaitreBaigneur/reviews';
       }
       &.services {
         grid-column: 1 / span 2;
+        @media screen and (max-width: 992px) {
+          grid-column: 1 / span 3;
+        }
       }
       &.useful-links {
         grid-column: 3 / span 2;
+        @media screen and (max-width: 992px) {
+          grid-column: 4 / span 3;
+        }
       }
       &.reviews {
         grid-column: 5 / span 2;
+        @media screen and (max-width: 992px) {
+          grid-column: 1 / span 6;
+        }
       }
       &.services,
       &.useful-links,
