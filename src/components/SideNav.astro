@@ -24,16 +24,15 @@ const logo = {
 <div id='modal' class='modal' role='dialog' aria-modal='true' aria-label='Menu de navigation' aria-hidden='true'>
   <div class='modal__content'>
     <Image src={logo.path} alt={logo.alt} class='logo' width='200' />
-    <nav class='sidenav' id='side-navigation' aria-label='Maître-Baigneur'>
-      <ul class='navbar-nav' role='menu' aria-label='Menu de navigation'>
+    <nav class='sidenav' id='side-navigation' aria-label='Navigation principale'>
+      <ul class='navbar-nav' role='list'>
         {
           secondaryNav.map((item) => (
             <>
               {item.children && (
-                <li class={`nav-item dropdown`} role='menuitem'>
+                <li class='nav-item dropdown'>
                   <Icon name={item.icon} aria-hidden='true' />
                   <Button
-                    tabindex='0'
                     class='nav-link dropdown__toggle'
                     type='button'
                     aria-expanded='false'
@@ -43,10 +42,10 @@ const logo = {
                     <Icon name='arrow_down' />
                   </Button>
 
-                  <ul id='dropdown' class='dropdown__menu submenu' role='menu'>
+                  <ul id='dropdown' class='dropdown__menu submenu' role='list'>
                     {item.children.map((child) => (
-                      <li class={`nav-item submenu__item`} role='menuitem'>
-                        <Button tabindex='0' class='nav-link dropdown__title' href={child.href}>
+                      <li class='nav-item submenu__item'>
+                        <Button class='nav-link dropdown__title' href={child.href}>
                           {child.name}
                         </Button>
                       </li>
@@ -61,10 +60,9 @@ const logo = {
                     .normalize('NFD')
                     .replace(/\p{Diacritic}/gu, '')
                     .toLowerCase()}`}
-                  role='menuitem'
                 >
                   <Icon name={item.icon} aria-hidden='true' />
-                  <Button tabindex='0' class='nav-link' href={item.href} newTab={item.inNewTab}>
+                  <Button class='nav-link' href={item.href} newTab={item.inNewTab}>
                     {item.name}
                   </Button>
                 </li>
