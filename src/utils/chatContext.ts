@@ -22,7 +22,7 @@ export function getChatContext(): string {
     .map(i => `  ${i.name} : ${i.price}€`)
     .join('\n');
   const swimmingPoolFormula = p.swimmingLessons.pool.formula
-    .map(i => `  ${i.name} : ${i.price}€/séance (${i.extraDesc.trim()})`)
+    .map(i => `  ${i.name} : ${i.price}€/séance — ${i.totalPrice}€ total (${i.validity})`)
     .join('\n');
   const swimmingHome30 = p.swimmingLessons.home.formula['30min']
     .map(i => `  ${i.name} : ${i.price}€`)
@@ -35,7 +35,7 @@ export function getChatContext(): string {
     .map(i => `  ${i.name} : ${i.price}€`)
     .join('\n');
   const babyPoolFormula = p.babySwimming.pool.formula
-    .map(i => `  ${i.name} : ${i.price}€/séance (${i.extraDesc.trim()})`)
+    .map(i => `  ${i.name} : ${i.price}€/séance — ${i.totalPrice}€ total (${i.validity})`)
     .join('\n');
   const babyHome = p.babySwimming.home.formula
     .map(i => `  ${i.name} : ${i.price}€`)
