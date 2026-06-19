@@ -200,5 +200,12 @@ const icbm: string = "43.5, 5.4";
       // Initialize AOS
       AOS.init();
     </script>
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>

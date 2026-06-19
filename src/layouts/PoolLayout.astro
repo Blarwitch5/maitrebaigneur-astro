@@ -139,5 +139,12 @@ const {
     <slot />
     <Analytics />
     <script src="../assets/scripts/navbar.js"></script>
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>
