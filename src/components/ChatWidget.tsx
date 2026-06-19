@@ -97,7 +97,7 @@ export default function ChatWidget() {
 
   // Séquence d'accueil animée
   useEffect(() => {
-    if (!open || messagesRef.current.length > 0) {
+    if (!open || messages.length > 0) {
       setWelcomeStep(0);
       return;
     }
@@ -112,7 +112,7 @@ export default function ChatWidget() {
       clearTimeout(t4); clearTimeout(t5);
       setWelcomeStep(0);
     };
-  }, [open]);
+  }, [open, messages.length]);
 
   async function handleSend(text?: string) {
     const msg = (text ?? input).trim();
