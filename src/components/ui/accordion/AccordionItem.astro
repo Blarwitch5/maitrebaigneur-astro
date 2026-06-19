@@ -2,9 +2,8 @@
 const { header, index } = Astro.props;
 ---
 
-<li class="accordion__item">
+<li class="accordion__item" role="listitem">
   <h3 class="accordion__title">
-    <span class="sr-only">{header}</span>
     <button
       id={`accordion__header-${index}`}
       class="accordion__header"
@@ -18,6 +17,8 @@ const { header, index } = Astro.props;
         class="accordion__toggle"
         fill="none"
         viewBox="0 0 32 32"
+        aria-hidden="true"
+        focusable="false"
       >
         <path
           stroke="currentColor"
@@ -49,9 +50,6 @@ const { header, index } = Astro.props;
       width: 100%;
       max-width: 800px;
       margin: auto;
-
-      svg {
-      }
     }
     &__item {
       border-bottom: 1px solid hsl(var(--link-color-txt-hsl), 0.1);
@@ -78,10 +76,12 @@ const { header, index } = Astro.props;
       font-family: var(--ff-pacifico);
       font-weight: 600;
       color: var(--color-primary);
+      cursor: pointer;
 
-      &:focus {
-        border: 0;
-        background-color: transparent;
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+        border-radius: var(--border-radius);
       }
 
       &[aria-expanded="true"] {

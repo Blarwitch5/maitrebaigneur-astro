@@ -1,84 +1,67 @@
 <div class="accordion">
-	<ul class="accordion__wrapper">
+	<ul class="accordion__wrapper" role="list">
 		<slot />
 	</ul>
 </div>
 
 <script type="module">
-	const accordionItems = [...document.querySelectorAll(".accordion__item")];
-	const getPanelHeight = (accordionItem) => {
-		const accordionInner = accordionItem.querySelector(".panel-inner");
-		return accordionInner.getBoundingClientRect().height;
+	const getPanelHeight = (item) =>
+		item.querySelector(".panel-inner").getBoundingClientRect().height;
+
+	const openAccordionItem = (item) => {
+		const header = item.querySelector(".accordion__header");
+		const panel = item.querySelector(".accordion__panel");
+		panel.style.height = `${getPanelHeight(item)}px`;
+		item.classList.add("is-active");
+		header.setAttribute("aria-expanded", "true");
+		panel.setAttribute("aria-hidden", "false");
 	};
-	const openAccordionItem = (accordionItem) => {
-		const accordionItemHeader = accordionItem.querySelector(".accordion__header");
-		const accordionPanel = accordionItem.querySelector(".accordion__panel");
-		accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
-		accordionItem.classList.add("is-active");
-		accordionItemHeader.setAttribute("aria-expanded", "true");
-		accordionPanel.setAttribute("aria-hidden", "false");
+
+	const closeAccordionItem = (item) => {
+		const header = item.querySelector(".accordion__header");
+		const panel = item.querySelector(".accordion__panel");
+		item.classList.remove("is-active");
+		panel.style.height = 0;
+		header.focus();
+		header.setAttribute("aria-expanded", "false");
+		panel.setAttribute("aria-hidden", "true");
 	};
-	const closeAccordionItem = (accordionItem) => {
-		const accordionItemHeader = accordionItem.querySelector(".accordion__header");
-		const accordionPanel = accordionItem.querySelector(".accordion__panel");
-		accordionItem.classList.remove("is-active");
-		accordionPanel.style.height = 0;
-		accordionItemHeader.focus();
-		accordionItemHeader.setAttribute("aria-expanded", "false");
-		accordionPanel.setAttribute("aria-hidden", "true");
+
+	const isAccordionOpen = (item) => item.classList.contains("is-active");
+
+	window.toggleAccordionItem = () => {
+		const item = event.target.closest(".accordion__item");
+		if (!item || event.target.closest(".accordion__panel")) return;
+		isAccordionOpen(item) ? closeAccordionItem(item) : openAccordionItem(item);
 	};
-	const isAccordionOpen = (accordionItem) => {
-		return accordionItem.classList.contains("is-active");
-	};
-	function toggleAccordionItem() {
-		const accordionItem = event.target.closest(".accordion__item");
-		if (!accordionItem || event.target.closest(".accordion__panel")) return;
-		isAccordionOpen(accordionItem) ? closeAccordionItem(accordionItem) : openAccordionItem(accordionItem);
-	}
-	function recalculateHeight() {
-		const toggledAccordionItems = accordionItems.filter((element) => element.classList.contains("is-active"));
-		toggledAccordionItems.forEach((toggledAccordionItem) => {
-			const accordionPanel = toggledAccordionItem.querySelector(".accordion__panel");
-			accordionPanel.style.height = `${getPanelHeight(toggledAccordionItem)}px`;
-		});
-	}
-	accordionItems.forEach((item, index) => {
-		const accordionItemHeader = item.querySelector(".accordion__header");
-		const accordionItemPanel = item.querySelector(".accordion__panel");
-		accordionItemHeader.setAttribute("id", `accordion__item${index + 1}`);
-		accordionItemPanel.setAttribute("id", `item${index + 1}`);
-		accordionItemHeader.setAttribute("aria-controls", `item${index + 1}`);
-		accordionItemPanel.setAttribute("aria-labelledby", `accordion__item${index + 1}`);
-	});
+
 	document.addEventListener("keydown", (event) => {
-		const accordionItem = event.target.closest(".accordion__item");
-		if (event.key !== "Escape") return;
-		if (!accordionItem) return;
-		if (isAccordionOpen(accordionItem)) {
-			closeAccordionItem(accordionItem);
-		}
+		const item = event.target.closest(".accordion__item");
+		if (event.key !== "Escape" || !item) return;
+		if (isAccordionOpen(item)) closeAccordionItem(item);
 	});
+
 	document.addEventListener("keydown", (event) => {
 		if (!event.target.closest(".accordion__header")) return;
-		const accordionWrapper = event.target.closest(".accordion__wrapper");
-		const accordionItem = event.target.closest(".accordion__item");
-		const accordionItems = [...accordionWrapper.querySelectorAll(".accordion__item")];
-		const index = accordionItems.findIndex((element) => element === accordionItem);
-		const { key } = event;
-		let targetItem;
-		if (key === "ArrowDown") {
-			targetItem = accordionItems[index + 1];
-		}
-		if (key === "ArrowUp") {
-			targetItem = accordionItems[index - 1];
-		}
-		if (targetItem) {
+		const wrapper = event.target.closest(".accordion__wrapper");
+		const item = event.target.closest(".accordion__item");
+		if (!wrapper || !item) return;
+		const items = [...wrapper.querySelectorAll(":scope > .accordion__item")];
+		const index = items.indexOf(item);
+		let target;
+		if (event.key === "ArrowDown") target = items[index + 1];
+		if (event.key === "ArrowUp") target = items[index - 1];
+		if (target) {
 			event.preventDefault();
-			targetItem.querySelector(".accordion__header").focus();
+			target.querySelector(".accordion__header").focus();
 		}
 	});
-	window.toggleAccordionItem = toggleAccordionItem;
-	window.onresize = recalculateHeight;
+
+	window.onresize = () => {
+		document.querySelectorAll(".accordion__item.is-active").forEach((item) => {
+			item.querySelector(".accordion__panel").style.height = `${getPanelHeight(item)}px`;
+		});
+	};
 </script>
 
 <style lang="scss">
