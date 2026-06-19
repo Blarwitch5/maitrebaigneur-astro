@@ -10,8 +10,10 @@ import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
 import SkipToContent from '@components/ui/SkipToContent.astro';
 import Title from '@components/ui/Title.astro';
+import BookingCta from '@components/widgets/BookingCta.astro';
 
 import quisommesnous from '@assets/images/page-title/page_quisommesnous.jpg';
+import joinUs1 from '@assets/images/join-us-1.jpg';
 
 import nagerEnGroupe from '@assets/images/nager-en-groupe/nager-en-groupe.jpg';
 import nagerEnGroupe2 from '@assets/images/nager-en-groupe/nager-en-groupe-2.jpg';
@@ -63,8 +65,8 @@ const page: Page = {
       alt: "Maître-Baigneur lors d'un cours en petit groupe aidant l'enfant à nager",
     },
     {
-      path: nagerEnGroupe4,
-      alt: "Maître-Baigneur lors d'un cours en petit groupe donnant les instructions",
+      path: joinUs1,
+      alt: "Maître-Baigneur en action apprenant à nager à une petite fille",
     },
   ],
 };
@@ -121,26 +123,18 @@ const personSchema = {
           <div class='pedagogy__content'>
             <Title animate level='3'>Nager en groupe</Title>
             <p>
-              Les avantages de notre pédagogie en petits groupes pour l'apprentissage de la natation
-              sont nombreux :
-              <ul>
-                <li>
-                  Renforce l'esprit d'équipe, la solidarité, la confiance en soi et favorise
-                  l'autonomie des élèves.
-                </li>
-                <li>Améliore la sécurité en évitant les dangers de l'eau.</li>
-                <li>Développe les compétences sociales et la coordination.</li>
-                <li>Améliore les capacités cognitives et la condition physique générale.</li>
-                <li>
-                  Il est important de ne pas interrompre l'apprentissage pour éviter une régression
-                  brutale des acquis.
-                </li>
-              </ul>
-              En résumé, notre pédagogie en petits groupes pour l'apprentissage de la natation permet
-              aux élèves de travailler en équipe, de gagner en confiance en soi, d'améliorer leur sécurité,
-              leurs compétences sociales, leur coordination, leurs capacités cognitives et leur condition
-              physique. Il est essentiel de maintenir une continuité dans l'apprentissage pour éviter
-              toute régression des acquis.
+              Notre pédagogie en petits groupes combine plaisir et progression : chaque séance renforce
+              les acquis tout en développant des qualités qui dépassent la seule natation.
+            </p>
+            <ul>
+              <li>Esprit d'équipe, solidarité et confiance en soi.</li>
+              <li>Sécurité renforcée et bons réflexes aquatiques.</li>
+              <li>Développement de la coordination et des compétences sociales.</li>
+              <li>Amélioration des capacités cognitives et de la condition physique.</li>
+            </ul>
+            <p>
+              La régularité est clé : une progression stable s'obtient en maintenant le rythme des séances
+              sans interruptions prolongées.
             </p>
           </div>
         </div>
@@ -182,6 +176,7 @@ const personSchema = {
         </div>
       </div>
     </section>
+    <BookingCta variant="light" />
   </Main>
   <Footer />
 </BaseLayout>

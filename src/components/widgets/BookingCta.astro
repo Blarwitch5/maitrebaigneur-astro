@@ -5,35 +5,53 @@ import Waves from '@components/ui/shapes/Waves.astro';
 import Title from '@components/ui/Title.astro';
 
 import joinus from '@assets/images/join-us-1.jpg';
+
+interface Props {
+  variant?: 'primary' | 'light';
+}
+
+const { variant = 'primary' } = Astro.props;
+const isLight = variant === 'light';
 ---
 
-<div class='container booking__section'>
-  <div class='booking__img' data-aos='fade-right'>
-    <Picture
-      src={joinus}
-      alt='Maître-Baigneur en action apprenant à nager à une petite fille avec du matériel pédagogique'
-      width={600}
-      height={800}
-      formats={['avif', 'webp']}
-      sizes="(max-width: 768px) 0px, (max-width: 992px) 40vw, 33vw"
-    />
-  </div>
-  <div class='booking__content' data-aos='zoom-in'>
-    <Title level='3' class='booking__title'>
-      Vous souhaitez commencer l’aventure avec Maître-Baigneur ?
-    </Title>
-    <p class='booking__txt'>
-      Rejoignez-nous pour une expérience enrichissante, où notre équipe qualifiée vous accompagnera
-      dans votre apprentissage de la natation, favorisant la confiance en soi et le bien-être
-      aquatique. Quel que soit votre point de départ, nous sommes là pour vous aider à progresser et
-      à apprécier les bienfaits de la natation à tout âge.
-    </p>
-    <Button class='btn btn__outline' href='https://maitrebaigneur.liberfit.fr/customportal/login' target='_blank' rel='noopener'>
-      Je réserve ma place dès maintenant !
-    </Button>
-  </div>
+<section
+  class:list={['booking', isLight ? 'bg-light-alt' : ['bg-primary', 'dark']]}
+  aria-label="Commencer l'aventure Maître-Baigneur en réservant une séance"
+>
   <Waves atTopOfSection />
-</div>
+  <div class='container booking__section'>
+    <div class='booking__img' data-aos='fade-right'>
+      <Picture
+        src={joinus}
+        alt='Maître-Baigneur en action apprenant à nager à une petite fille avec du matériel pédagogique'
+        width={600}
+        height={800}
+        formats={['avif', 'webp']}
+        sizes="(max-width: 768px) 0px, (max-width: 992px) 40vw, 33vw"
+      />
+    </div>
+    <div class:list={['booking__content', { 'booking__content--light': isLight }]} data-aos='zoom-in'>
+      <Title level='3' class='booking__title'>
+        Vous souhaitez commencer l'aventure avec Maître-Baigneur ?
+      </Title>
+      <p class='booking__txt'>
+        Rejoignez-nous pour une expérience enrichissante, où notre équipe qualifiée vous accompagnera
+        dans votre apprentissage de la natation, favorisant la confiance en soi et le bien-être
+        aquatique. Quel que soit votre point de départ, nous sommes là pour vous aider à progresser et
+        à apprécier les bienfaits de la natation à tout âge.
+      </p>
+      <Button
+        class:list={['btn', isLight ? 'btn__regular' : 'btn__outline']}
+        href='https://maitrebaigneur.liberfit.fr/customportal/login'
+        target='_blank'
+        rel='noopener'
+      >
+        Je réserve ma place dès maintenant !
+      </Button>
+    </div>
+  </div>
+  <Waves />
+</section>
 
 <style lang='scss'>
   :global(.booking__section) {
@@ -74,6 +92,10 @@ import joinus from '@assets/images/join-us-1.jpg';
     gap: 1rem;
     flex-direction: column;
     color: var(--color-white);
+
+    &--light {
+      color: var(--color-txt);
+    }
   }
 
   .booking__title {
