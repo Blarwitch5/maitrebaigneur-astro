@@ -2,6 +2,7 @@
 import Favicon from "@components/head/Favicon.astro";
 import GeoTag from "@components/head/GeoTag.astro";
 import { SEO } from "astro-seo";
+import ChatWidget from "@components/ChatWidget";
 import Analytics from '@vercel/analytics/astro';
 import { ClientRouter } from "astro:transitions";
 
@@ -137,6 +138,7 @@ const {
   </head>
   <body>
     <slot />
+    <ChatWidget client:idle />
     <Analytics />
     <script src="../assets/scripts/navbar.js"></script>
     <script is:inline>

@@ -88,6 +88,7 @@ const localBusinessSchema = {
 import "aos/dist/aos.css";
 
 import { SEO } from "astro-seo";
+import ChatWidget from "@components/ChatWidget";
 import Analytics from '@vercel/analytics/astro';
 import { ClientRouter } from 'astro:transitions';
 export interface SeoProps {
@@ -192,6 +193,7 @@ const icbm: string = "43.5, 5.4";
   </head>
   <body>
     <slot />
+    <ChatWidget client:idle />
     <Analytics />
     <script src="../assets/scripts/navbar.js"></script>
     <script>
