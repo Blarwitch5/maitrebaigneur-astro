@@ -8,24 +8,21 @@ import PageTitle from '@components/header/PageTitle.astro';
 import SkipToContent from '@components/ui/SkipToContent.astro';
 import { Icon } from 'astro-icon/components';
 
-//prices components
 import SwimmingPrices from '@components/widgets/prices/SwimmingPrices.astro';
 import BabySwimmingPrices from '@components/widgets/prices/BabySwimmingPrices.astro';
-import EventsPrices from '@components/widgets/prices/EventsPrices.astro';
-import AquaversairePrices from '@components/widgets/prices/AquaversairePrices.astro';
-import DiplomaPrices from '@components/widgets/prices/DiplomaPrices.astro';
 import Title from '@components/ui/Title.astro';
+import Button from '@components/ui/Button.astro';
 
 import tarifs from '@assets/images/page-title/page_tarifs.jpg';
+import pricesData from '@assets/data/prices.json';
 
-//data
+const { prices } = pricesData;
 
 const page = {
   metaTitle: 'Tarifs et formules : natation, bébé nageur, événements',
   description:
     "Consultez les tarifs des cours de natation, bébé nageur, aquaversaire et surveillance d'événements de Maître Baigneur à Aix-en-Provence. Formules adaptées à tous les niveaux.",
   title: 'Nos tarifs',
-
   image: {
     path: tarifs,
     alt: "Enfant sur bouée gonflable avec des lunettes de soleil faisant le signe Rock N' Roll de la main",
@@ -45,14 +42,14 @@ const page = {
           <div>
             <Title level='2' animate>Choisissez votre formule</Title>
             <p>
-              Nous sommes ravis de vous proposer notre gamme de prestations pour les amoureux de
-              l'eau. Que vous soyez à la recherche de leçons de natation en bassin d'apprentissage
-              ou à domicile, d'un aquaversaire pour votre enfant ou encore de services de
-              surveillance d'événements, nous avons ce qu'il vous faut !
+              Que vous soyez à la recherche de leçons de natation en bassin ou à domicile, de cours
+              bébé nageur, ou d'une animation aquatique pour un événement, nous avons ce qu'il vous
+              faut.
             </p>
           </div>
+
+          <!-- Onglets principaux : les deux prestations récurrentes -->
           <div class='pricing__nav tab'>
-            <!-- Displays the tab title on small devices -->
             <div class='tab__title'></div>
             <div class='tab__buttons' role='tablist'>
               <button
@@ -63,8 +60,11 @@ const page = {
                 aria-controls='swimming-station__section'
                 data-option='lecons-de-natation'
                 tabindex='0'
-                ><Icon name='fun' /><span> Leçons de natation</span></button
               >
+                <Icon name='fun' />
+                <span>Cours de natation</span>
+                <span class='tab__price'>dès {prices.swimmingLessons.pool.single[0].price}€</span>
+              </button>
               <button
                 id='tab-bebe'
                 class='tab__button'
@@ -72,42 +72,15 @@ const page = {
                 aria-selected='false'
                 aria-controls='baby-swimming__section'
                 data-option='bebe-nageur'
-                tabindex='-1'><Icon name='baby' /> <span>Bébé nageur</span></button
-              >
-              <button
-                id='tab-aquaversaire'
-                class='tab__button'
-                role='tab'
-                aria-selected='false'
-                aria-controls='aquaversaire__section'
-                data-option='aquaversaire'
-                tabindex='-1'
-                ><Icon name='aquaversaire' /> <span>Aquaversaire</span></button
-              >
-              <button
-                id='tab-surveillance'
-                class='tab__button'
-                role='tab'
-                aria-selected='false'
-                aria-controls='events__section'
-                data-option='surveillance'
                 tabindex='-1'
               >
-                <Icon name='event' /><span>Surveillance</span></button
-              >
-              <button
-                id='tab-diplome'
-                class='tab__button'
-                role='tab'
-                aria-selected='false'
-                aria-controls='diploma__section'
-                data-option='diplome'
-                tabindex='-1'
-              >
-                <Icon name='diploma' /><span>Diplôme</span></button
-              >
+                <Icon name='baby' />
+                <span>Bébé nageur</span>
+                <span class='tab__price'>dès {prices.babySwimming.pool.single[0].price}€</span>
+              </button>
             </div>
           </div>
+
           <div class='pricing__content tab__panels'>
             <div
               id='swimming-station__section'
@@ -115,15 +88,11 @@ const page = {
               role='tabpanel'
               aria-labelledby='tab-natation'
             >
-              <Title level='3'>Tarifs des leçons de natation</Title>
+              <Title level='3'>Tarifs des cours de natation</Title>
               <p class='desc'>
-                Nos leçons de natation sont conçues pour tous les niveaux, du débutant au nageur
-                avancé, que ce soit en bassin d'apprentissage ou à domicile. Nos moniteurs
-                professionnels vous guideront tout au long de votre apprentissage et vous aideront à
-                améliorer votre technique de nage de manière personnalisée. Nous proposons des cours
-                individuels pour une attention plus individualisée, ainsi que des cours en petit
-                groupe pour ceux qui préfèrent apprendre en groupe. Les tarifs varient en fonction
-                de la durée et du type de cours, et commencent à partir de <span
+                Cours pour tous les niveaux, du débutant au nageur avancé, en bassin
+                d'apprentissage ou à domicile. Individuels ou en petit groupe, avec un moniteur
+                professionnel. Séances de <strong>45 minutes</strong>, à partir de <span
                   class='highlight-price'>20€</span
                 >.
               </p>
@@ -131,75 +100,97 @@ const page = {
                 <SwimmingPrices />
               </div>
             </div>
-            <div id='baby-swimming__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-bebe' aria-hidden='true'>
+
+            <div
+              id='baby-swimming__section'
+              class='pricing__section tab__panel'
+              role='tabpanel'
+              aria-labelledby='tab-bebe'
+              aria-hidden='true'
+            >
               <Title level='3'>Tarifs des cours bébé nageur</Title>
               <p class='desc'>
-                Nous proposons également des cours de bébé nageurs pour les enfants âgés de 6 mois à
-                3 ans. Nos cours sont conçus pour aider les tout-petits à se sentir à l'aise dans
-                l'eau, à développer leur confiance et à apprendre les bases de la natation. Les
-                tarifs débutent à partir de <span class='highlight-price'>20€</span>.
+                Cours dédiés aux enfants de 3 mois à 3 ans pour les initier à l'eau en douceur.
+                Séances de <strong>30 minutes</strong>, à partir de <span class='highlight-price'
+                  >20€</span
+                >.
               </p>
               <ul>
-                <li>Les cours durent <strong>30 minutes</strong>.</li>
                 <li>Les cours sont exclusivement réservés aux bébés.</li>
                 <li>
-                  Pour ceux qui ne sont <strong>pas encore totalement propres</strong>, une <strong>couche aquatique est obligatoire</strong>, portée sous le maillot de bain de leur choix, afin d’assurer un bon maintien.
+                  Pour ceux qui ne sont <strong>pas encore totalement propres</strong>, une <strong
+                    >couche aquatique est obligatoire</strong
+                  >, portée sous le maillot de bain.
                 </li>
                 <li>
-                  Les parents peuvent accompagner leur enfant seul ou à deux, avec le maillot de bain de leur choix.
+                  Les parents peuvent accompagner leur enfant seul ou à deux, avec le maillot de
+                  bain de leur choix.
                 </li>
-                <li>Le port du bonnet et des lunettes de piscine n’est pas obligatoire.</li>
+                <li>Le port du bonnet et des lunettes n'est pas obligatoire.</li>
               </ul>
               <div class='pricing__wrapper'>
                 <BabySwimmingPrices />
               </div>
             </div>
-            <div id='aquaversaire__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-aquaversaire' aria-hidden='true'>
-              <Title level='3'>Tarifs aquaversaire</Title>
-              <p class='desc'>
-                Pour rendre l'anniversaire de votre enfant inoubliable, pourquoi ne pas organiser
-                une fête dans l'eau ? Nous proposons des fêtes d'aquaversaire avec des jeux d'eau
-                amusants, des activités de natation et des collations pour les petits nageurs. Nos
-                animateurs s'occuperont de tout, vous permettant de vous détendre et de profiter de
-                l'événement avec votre enfant. Les tarifs débutent à partir de <span
-                  class='highlight-price'>300€</span
-                >.
-              </p>
-              <div class='pricing__wrapper'>
-                <AquaversairePrices />
+          </div>
+
+          <!-- Section événements : Surveillance + Aquaversaire -->
+          <div class='pricing__events'>
+            <Title level='3' class='pricing__events-title'>Événements aquatiques</Title>
+            <p class='pricing__events-intro'>
+              Sécurité et animation pour vos événements privés en piscine à Aix-en-Provence —
+              maître-nageur qualifié, matériel de premiers secours inclus.
+            </p>
+            <div class='pricing__events-grid'>
+
+              <div class='package'>
+                <div class='event-header'>
+                  <Icon name='event' aria-hidden='true' />
+                  <Title level='4' class='package__title'>Surveillance d'événements</Title>
+                </div>
+                <p>
+                  Maître-nageur qualifié pour sécuriser vos événements privés en piscine, de jour
+                  comme de nuit. Matériel de premiers secours inclus.
+                </p>
+                <ul class='package__list'>
+                  <li class='package__item'>
+                    {prices.events.condition}
+                    <span class='package__price'>{prices.events.price}€</span>
+                  </li>
+                </ul>
+                <Button href='/contact?option=securiser-un-evenement' class='btn btn__regular'>
+                  Demander un devis
+                </Button>
               </div>
-            </div>
-            <div id='events__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-surveillance' aria-hidden='true'>
-              <Title level='3'>Tarifs surveillance d'événements</Title>
-              <p class='desc'>
-                Si vous organisez un événement dans une piscine, il est important d'avoir une
-                surveillance adéquate pour garantir la sécurité de vos invités. C'est là que nous
-                intervenons. Nos sauveteurs qualifiés peuvent surveiller votre événement pour que
-                tout se déroule en toute sécurité.
-              </p>
-              <div class='pricing__wrapper'>
-                <EventsPrices />
+
+              <div class='package'>
+                <div class='event-header'>
+                  <Icon name='aquaversaire' aria-hidden='true' />
+                  <Title level='4' class='package__title'>Aquaversaire</Title>
+                </div>
+                <p>{prices.aquaversaire.desc}</p>
+                <ul class='package__list'>
+                  <li class='package__item'>
+                    {prices.aquaversaire.surveillanceTime} heures
+                    <span class='package__price'>{prices.aquaversaire.price}€</span>
+                  </li>
+                  <li class='package__item'>
+                    {prices.aquaversaire.extra.desc}
+                    <span class='package__price'>{prices.aquaversaire.extra.price}€</span>
+                  </li>
+                </ul>
+                <Button
+                  href='/contact?option=organiser-un-aquaversaire'
+                  class='btn btn__regular'
+                  newTab
+                >
+                  Demander un devis
+                </Button>
               </div>
-            </div>
-            <div id='diploma__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-diplome' aria-hidden='true'>
-              <Title level='3'>Tarifs diplôme</Title>
-              <p class='desc'>
-                Le Diplôme 50 mètres est délivré aux nageurs qui ont réussi à nager les 50 mètres
-                sans s'arrêter ni se reposer, tout en démontrant une technique de nage correcte et
-                une bonne respiration. Ce diplôme est souvent requis pour accéder à des cours de
-                natation plus avancés ou pour participer à des compétitions.
-              </p><p>
-                Le test d'aisance aquatique évalue quant à lui la capacité d'un nageur à se
-                débrouiller dans l'eau en cas de situation d'urgence, telle qu'une chute
-                accidentelle dans l'eau. Le nageur doit démontrer sa capacité à flotter, à se
-                déplacer sans s'aider des bords de la piscine, et à sortir de l'eau en toute
-                sécurité.
-              </p>
-              <div class='pricing__wrapper'>
-                <DiplomaPrices />
-              </div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -222,14 +213,10 @@ const page = {
         font-family: var(--ff-pacifico);
         font-size: var(--fs-sm);
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 576px) {
           opacity: 1;
           display: flex;
         }
-      }
-      &__container {
-        display: flex;
-        flex-direction: column;
       }
       &__panels {
         padding-block: var(--space-md);
@@ -268,7 +255,7 @@ const page = {
       }
       &__buttons {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-sm);
       }
       &__button {
@@ -284,16 +271,11 @@ const page = {
           0 10px 15px -3px hsla(var(--link-color-primary-hsl), 0.3),
           0 4px 6px -4px hsla(var(--link-color-primary-hsl), 0.3);
 
-        @media screen and (max-width: 768px) {
-          padding: 0.2rem;
-        }
-
         &:hover {
           color: var(--color-white);
           background-color: var(--color-secondary);
         }
         &.active {
-          transition: all 0.2s ease-in-out;
           color: var(--color-white);
           box-shadow: none;
           background-color: var(--color-primary);
@@ -307,29 +289,17 @@ const page = {
           display: block;
           margin-inline: auto;
           flex-shrink: 0;
-
-          @media screen and (max-width: 768px) {
-            width: 2rem;
-            height: 2rem;
-            margin-bottom: 0;
-          }
-        }
-
-        & > span {
-          @media screen and (max-width: 768px) {
-            display: none;
-          }
         }
       }
     }
 
     &__content {
       .highlight-price {
-        // font-family: var(--ff-raleway);
-        font-size: var(--fs-2xs);
+        font-size: var(--fs-xs);
         font-weight: bold;
       }
     }
+
     &__wrapper {
       padding: var(--space-md);
       display: flex;
@@ -339,11 +309,80 @@ const page = {
         padding-inline: 0;
       }
     }
-    &__options {
-      padding: 0;
+
+    &__events {
+      padding-top: var(--space-lg);
+      border-top: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
+    }
+
+    &__events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .tab__price {
+    display: block;
+    font-size: var(--fs-base);
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  .pricing__events-title {
+    text-align: center;
+  }
+
+  .pricing__events-intro {
+    text-align: center;
+    color: var(--color-black-a75);
+    margin-top: var(--space-2xs);
+    margin-bottom: 0;
+  }
+
+  .pricing__events-grid .package {
+    flex-basis: 100%;
+    padding: var(--space-lg);
+    text-align: left;
+    align-items: flex-start;
+
+    p {
+      margin: 0;
+      font-size: var(--fs-base);
+      color: var(--color-black-a75);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .btn {
+      align-self: center;
+      margin-top: auto;
+    }
+  }
+
+  .event-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .package__title {
+      margin: 0;
     }
   }
 </style>
+
 <script>
   const pricesSetup = () => {
     const tabButtons = document.querySelectorAll<HTMLButtonElement>('.tab__button');
@@ -387,7 +426,7 @@ const page = {
         selectedButton.setAttribute('aria-selected', 'true');
         selectedButton.setAttribute('tabindex', '0');
 
-        const labelText = selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
+        const labelText = selectedButton.querySelector<HTMLSpanElement>('span:not(.tab__price)')?.innerHTML;
         if (labelText) {
           const tabTitle = document.querySelector<HTMLElement>('.tab__title');
           if (tabTitle) tabTitle.innerHTML = labelText;
@@ -400,7 +439,6 @@ const page = {
       }
     }
 
-    // Resolve initial panel from URL, fallback to 0
     const urlOption = new URLSearchParams(window.location.search).get('option');
     const initialIndex = urlOption
       ? Array.from(tabButtons).findIndex((btn) => btn.getAttribute('data-option') === urlOption)
@@ -411,7 +449,6 @@ const page = {
       button.addEventListener('click', () => showPanel(index));
     });
 
-    // Arrow-key navigation per ARIA tablist pattern
     const tabList = document.querySelector('[role="tablist"]');
     tabList?.addEventListener('keydown', (e) => {
       const ke = e as KeyboardEvent;

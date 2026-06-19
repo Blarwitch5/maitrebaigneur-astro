@@ -2,11 +2,12 @@
 import Button from '@components/ui/Button.astro';
 import site from '@assets/data/prices.json';
 import Title from '@components/ui/Title.astro';
+import { Icon } from 'astro-icon/components';
 
 const { prices } = site;
 const swimmingPrices = prices.swimmingLessons;
+const diploma = prices.diploma;
 const swimmingPricesHome = swimmingPrices.home;
-
 const swimmingPricesPool = swimmingPrices.pool;
 
 type HomeFormulaItem = { name: string; price: number; extraDesc?: string };
@@ -33,15 +34,12 @@ const homeRows = homeFormula30.map((item30, index) => {
 import { reservationLink } from '@assets/data/data.json';
 ---
 
-<div class='top'>
-  <div class='top__toggle-btn'>
-    <span class='top__toggle-btn-label top__toggle-btn-label--active'>En bassin</span>
-    <label class='top__toggle-btn-switch' for='checkbox'>
-      <input type='checkbox' id='checkbox' aria-label='Changer entre bassin et domicile' />
-      <span class='top__toggle-btn-slider top__toggle-btn-slider--round'></span>
-    </label>
-    <span class='top__toggle-btn-label'>À domicile</span>
-  </div>
+<div class='location-toggle' role='group' aria-label='Lieu des séances'>
+  <div class='location-toggle__slider' aria-hidden='true'></div>
+  <button class='location-toggle__btn location-toggle__btn--active' id='btn-pool-swimming'>
+    En bassin
+  </button>
+  <button class='location-toggle__btn' id='btn-home-swimming'>À domicile</button>
 </div>
 
 <div class='packages-container swimming'>
@@ -102,14 +100,12 @@ import { reservationLink } from '@assets/data/data.json';
       <ul class='package__list'>
         {
           swimmingPricesPool.single.map(
-            (item: { name: string; price: number; extraDesc?: string }) => {
-              return (
-                <li class='package__item'>
-                  {item.name} <span class='package__price'>{item.price}€</span>
-                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
-                </li>
-              );
-            }
+            (item: { name: string; price: number; extraDesc?: string }) => (
+              <li class='package__item'>
+                {item.name} <span class='package__price'>{item.price}€</span>
+                {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
+              </li>
+            )
           )
         }
       </ul>
@@ -122,14 +118,37 @@ import { reservationLink } from '@assets/data/data.json';
       <ul class='package__list'>
         {
           swimmingPricesPool.formula.map(
-            (item: { name: string; price: number; extraDesc?: string }) => {
-              return (
-                <li class='package__item'>
-                  {item.name} <span class='package__price'>{item.price}€</span>
-                  {item.extraDesc && <span class='package__extra-desc'>{item.extraDesc}</span>}
-                </li>
-              );
-            }
+            (item: {
+              name: string;
+              price: number;
+              totalPrice?: number;
+              validity?: string;
+              installments?: string;
+              badge?: string;
+            }) => (
+              <li class='package__item package__item--formula'>
+                <span class='package__item-name'>
+                  {item.name}
+                  {item.badge && <span class='package__badge'>{item.badge}</span>}
+                </span>
+                <span class='package__total'>
+                  {item.totalPrice ? (
+                    <>
+                      <span class='package__price'>{item.totalPrice}€</span>
+                      <span class='package__per-session'>{item.price}€/séance</span>
+                    </>
+                  ) : (
+                    <span class='package__price'>{item.price}€</span>
+                  )}
+                </span>
+                {item.validity && (
+                  <span class='package__validity'>{item.validity}</span>
+                )}
+                {item.installments && (
+                  <span class='package__installments'>{item.installments}</span>
+                )}
+              </li>
+            )
           )
         }
       </ul>
@@ -138,7 +157,75 @@ import { reservationLink } from '@assets/data/data.json';
   </div>
 </div>
 
+<div class='diploma-note'>
+  <Icon name='diploma' aria-hidden='true' />
+  <div>
+    <p class='diploma-note__title'>Diplôme 50m & Test d'aisance aquatique — {diploma.price}€</p>
+    <p class='diploma-note__desc'>
+      Le <strong>diplôme 50m</strong> valide la capacité à nager sans s'arrêter avec une technique
+      correcte. Le <strong>test d'aisance aquatique</strong> évalue l'autonomie en cas de chute
+      accidentelle dans l'eau.
+    </p>
+  </div>
+</div>
+
 <style lang='scss'>
+  .location-toggle {
+    position: relative;
+    display: flex;
+    background-color: var(--color-bg-light);
+    border-radius: var(--regular-border-radius);
+    padding: 4px;
+    gap: 4px;
+    width: fit-content;
+    margin-inline: auto;
+    margin-block: 2rem;
+
+    &__slider {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      height: calc(100% - 8px);
+      width: calc(50% - 6px);
+      background-color: var(--color-primary);
+      border-radius: calc(var(--regular-border-radius) - 2px);
+      box-shadow:
+        0 2px 8px hsla(var(--link-color-primary-hsl), 0.25),
+        0 1px 2px hsla(var(--link-color-primary-hsl), 0.15);
+      transition: transform 0.25s ease;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    &__btn {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-2xs) var(--space-sm);
+      border: none;
+      border-radius: calc(var(--regular-border-radius) - 2px);
+      background-color: transparent;
+      cursor: pointer;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--color-black);
+      transition: color 0.25s ease;
+
+      &--active {
+        color: var(--color-white);
+      }
+
+      &:hover:not(&--active) {
+        color: var(--color-primary);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+        border-radius: calc(var(--regular-border-radius) - 2px);
+      }
+    }
+  }
+
   .packages-container {
     #price-package-home {
       display: none;
@@ -180,10 +267,6 @@ import { reservationLink } from '@assets/data/data.json';
         border-bottom: 1px solid hsla(var(--link-color-primary-hsl), 0.1);
       }
 
-      th:first-child {
-        white-space: nowrap;
-      }
-
       th,
       td {
         white-space: nowrap;
@@ -201,38 +284,124 @@ import { reservationLink } from '@assets/data/data.json';
       font-size: calc(var(--fs-base) * 0.82);
       font-style: italic;
       color: var(--color-secondary);
-      margin-left: 0;
       margin-top: 0.25rem;
       white-space: normal;
       overflow-wrap: anywhere;
       word-break: break-word;
     }
+
+    &__item--formula {
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto auto;
+      align-items: start;
+    }
+
+    &__item-name {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2xs);
+      flex-wrap: wrap;
+    }
+
+    &__badge {
+      display: inline-block;
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      padding: 1px var(--space-2xs);
+      border-radius: 100vh;
+      font-size: calc(var(--fs-base) * 0.75);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    &__total {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    &__per-session {
+      font-size: calc(var(--fs-base) * 0.8);
+      color: var(--color-secondary);
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    &__validity {
+      grid-column: 1 / -1;
+      font-size: calc(var(--fs-base) * 0.8);
+      color: hsla(var(--link-color-black-hsl), 0.5);
+      padding-top: 2px;
+    }
+
+    &__installments {
+      grid-column: 1 / -1;
+      display: inline-flex;
+      width: fit-content;
+      background-color: hsla(var(--link-color-primary-hsl), 0.08);
+      color: var(--color-primary);
+      padding: 2px var(--space-xs);
+      border-radius: 100vh;
+      font-size: calc(var(--fs-base) * 0.8);
+      font-weight: 600;
+      margin-top: var(--space-2xs);
+    }
+  }
+
+  .diploma-note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: linear-gradient(to right, var(--color-secondary) 3px, var(--color-bg-light) 3px);
+    border-radius: var(--regular-border-radius);
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-secondary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    &__title {
+      font-family: var(--ff-pacifico);
+      font-size: var(--fs-xs);
+      color: var(--color-primary);
+      margin: 0 0 var(--space-2xs);
+    }
+
+    &__desc {
+      font-size: var(--fs-base);
+      color: var(--color-black-a75);
+      margin: 0;
+      line-height: 1.6;
+    }
   }
 </style>
 <script>
   function swimmingPricesSetup() {
-    const checkBox = document.getElementById('checkbox') as HTMLInputElement;
+    const btnPool = document.getElementById('btn-pool-swimming') as HTMLButtonElement;
+    const btnHome = document.getElementById('btn-home-swimming') as HTMLButtonElement;
     const pricePackageHome = document.getElementById('price-package-home');
     const pricePackagePool = document.getElementById('price-package-pool');
-    const labels = document.querySelectorAll('.top__toggle-btn-label');
+    const slider = btnPool?.closest('.location-toggle')?.querySelector<HTMLElement>('.location-toggle__slider');
 
-    function check() {
-      if (checkBox && pricePackageHome && pricePackagePool && labels) {
-        if (checkBox.checked) {
-          labels[0].classList.remove('top__toggle-btn-label--active');
-          labels[1].classList.add('top__toggle-btn-label--active');
-          pricePackageHome.style.display = 'flex';
-          pricePackagePool.style.display = 'none';
-        } else {
-          labels[0].classList.add('top__toggle-btn-label--active');
-          labels[1].classList.remove('top__toggle-btn-label--active');
-          pricePackageHome.style.display = 'none';
-          pricePackagePool.style.display = 'flex';
-        }
-      }
+    if (!btnPool || !btnHome || !pricePackageHome || !pricePackagePool) return;
+
+    function setLocation(location: 'pool' | 'home') {
+      const isHome = location === 'home';
+      pricePackageHome!.style.display = isHome ? 'flex' : 'none';
+      pricePackagePool!.style.display = isHome ? 'none' : 'flex';
+      btnPool.classList.toggle('location-toggle__btn--active', !isHome);
+      btnHome.classList.toggle('location-toggle__btn--active', isHome);
+      if (slider) slider.style.transform = isHome ? 'translateX(calc(100% + 4px))' : 'translateX(0)';
     }
 
-    checkBox?.addEventListener('click', check);
+    btnPool.addEventListener('click', () => setLocation('pool'));
+    btnHome.addEventListener('click', () => setLocation('home'));
   }
   swimmingPricesSetup();
   document.addEventListener('astro:after-swap', swimmingPricesSetup);

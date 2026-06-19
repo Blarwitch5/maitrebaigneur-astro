@@ -12,22 +12,28 @@
           {
             "name": "Pack 5 mois | 5 séances",
             "price": 23,
-            "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
+            "totalPrice": 115,
+            "validity": "Valable 6 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 6 mois | 10 séances",
             "price": 20,
-            "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
+            "totalPrice": 200,
+            "validity": "Valable 6 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 9 mois | 20 séances",
             "price": 18,
-            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
+            "totalPrice": 360,
+            "validity": "Valable 9 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 12 mois | 50 séances",
             "price": 12,
-            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
+            "totalPrice": 600,
+            "validity": "Valable 12 mois à partir de la 1ère séance",
+            "installments": "Paiement en 6 fois sans frais",
+            "badge": "Meilleure valeur"
           }
         ]
       },
@@ -38,12 +44,12 @@
             {
               "name": "2 baigneurs",
               "price": 50,
-              "extraDesc": "Soit 25€ les 30 minutes par baigneur "
+              "extraDesc": "Soit 25€ les 30 minutes par baigneur"
             },
             {
               "name": "3 baigneurs",
               "price": 50,
-              "extraDesc": "Soit 16,70€ les 30 minutes par baigneur "
+              "extraDesc": "Soit 16,70€ les 30 minutes par baigneur"
             }
           ],
           "1h": [
@@ -65,22 +71,28 @@
           {
             "name": "Pack 5 mois | 5 séances",
             "price": 23,
-            "extraDesc": "Soit 115 € la carte, valable 6 mois à partir de la 1ère séance "
+            "totalPrice": 115,
+            "validity": "Valable 6 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 6 mois | 10 séances",
             "price": 20,
-            "extraDesc": "Soit 200 € la carte, valable 6 mois à partir de la 1ère séance "
+            "totalPrice": 200,
+            "validity": "Valable 6 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 9 mois | 20 séances",
             "price": 18,
-            "extraDesc": "Soit 360 € la carte, valable 9 mois à partir de la 1ère séance "
+            "totalPrice": 360,
+            "validity": "Valable 9 mois à partir de la 1ère séance"
           },
           {
             "name": "Pack 12 mois | 50 séances",
             "price": 12,
-            "extraDesc": "Soit 600 € l'abonnement individuel, valable 12 mois à partir de la 1ère séance | possibilité de paiement en 6 fois sans frais"
+            "totalPrice": 600,
+            "validity": "Valable 12 mois à partir de la 1ère séance",
+            "installments": "Paiement en 6 fois sans frais",
+            "badge": "Meilleure valeur"
           }
         ]
       },
@@ -88,21 +100,21 @@
         "formula": [
           { "name": "1 Séance pour 1 bébé", "price": 50 },
           {
-            "name": "1 Séance pour 2 bébés ",
+            "name": "1 Séance pour 2 bébés",
             "price": 50,
             "extraDesc": "Soit 25€ par baigneur"
           },
           {
-            "name": "1 Séance pour 3 baigneurs ",
+            "name": "1 Séance pour 3 baigneurs",
             "price": 50,
-            "extraDesc": "Soit 16€70 par baigneur"
+            "extraDesc": "Soit 16,70€ par baigneur"
           }
         ]
       }
     },
     "aquaversaire": {
       "name": "Sécurité et animation de votre aquaversaire",
-      "desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s’occupera de la sécurité et de l’animation pour 15 enfants maximum.",
+      "desc": "Nous mettons à votre disposition un maître nageur avec le matériel de premier soin ainsi que du matériel ludique, il s'occupera de la sécurité et de l'animation pour 15 enfants maximum.",
       "price": 300,
       "surveillanceTime": "2",
       "extra": {
