@@ -159,14 +159,17 @@ import { reservationLink } from '@assets/data/data.json';
 
 <div class='diploma-note'>
   <Icon name='diploma' aria-hidden='true' />
-  <div>
-    <p class='diploma-note__title'>Diplôme 50m & Test d'aisance aquatique — {diploma.price}€</p>
+  <div class='diploma-note__body'>
+    <div class='diploma-note__header'>
+      <p class='diploma-note__title'>Diplôme 50m & Test d'aisance aquatique</p>
+      <span class='package__price'>{diploma.price}€</span>
+    </div>
     <p class='diploma-note__desc'>
       Le <strong>diplôme 50m</strong> valide la capacité à nager sans s'arrêter avec une technique
       correcte. Il est souvent requis pour intégrer certaines écoles, l'armée ou devenir professeur
-      des écoles. Le <strong>test d'aisance aquatique</strong> évalue l'autonomie en cas de chute
-      accidentelle dans l'eau — il est notamment exigé pour les activités nautiques encadrées
-      (voile, surf, UCPA…).
+      des écoles.<br />
+      Le <strong>test d'aisance aquatique</strong> évalue l'autonomie en cas de chute accidentelle
+      dans l'eau — il est notamment exigé pour les activités nautiques encadrées (voile, surf, UCPA…).
     </p>
   </div>
 </div>
@@ -368,11 +371,24 @@ import { reservationLink } from '@assets/data/data.json';
       margin-top: 2px;
     }
 
+    &__body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-2xs);
+    }
+
     &__title {
       font-family: var(--ff-pacifico);
       font-size: var(--fs-xs);
       color: var(--color-primary);
-      margin: 0 0 var(--space-2xs);
+      margin: 0;
     }
 
     &__desc {
