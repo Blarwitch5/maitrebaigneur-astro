@@ -7,14 +7,13 @@ import Title from "@components/ui/Title.astro";
 const { prices } = site;
 const aquaversaire = prices.aquaversaire;
 
-const formOptions = options;
-const aquaversaryOption = formOptions[4];
+const aquaversaryOption = options.find((o) => o.slug === "organiser-un-aquaversaire");
 ---
 
 <div class="packages-container aquaversaire">
   <div>
     <div class="package">
-      <Title level="1" class="package__title">{aquaversaire.name}</Title>
+      <Title level="4" class="package__title">{aquaversaire.name}</Title>
 
       <ul class="package__list">
         <li class="package__item">
@@ -32,7 +31,7 @@ const aquaversaryOption = formOptions[4];
         </li>
       </ul>
       <Button
-        href={`/contact?option=${aquaversaryOption.slug}`}
+        href={`/contact?option=${aquaversaryOption?.slug}`}
         class="btn btn__regular"
         newTab
       >
@@ -41,9 +40,3 @@ const aquaversaryOption = formOptions[4];
     </div>
   </div>
 </div>
-
-<style>
-  .container {
-    width: 100%;
-  }
-</style>

@@ -56,43 +56,53 @@ const page = {
             <div class='tab__title'></div>
             <div class='tab__buttons' role='tablist'>
               <button
+                id='tab-natation'
                 class='tab__button active'
                 role='tab'
                 aria-selected='true'
                 aria-controls='swimming-station__section'
                 data-option='lecons-de-natation'
+                tabindex='0'
                 ><Icon name='fun' /><span> Leçons de natation</span></button
               >
               <button
+                id='tab-bebe'
                 class='tab__button'
                 role='tab'
                 aria-selected='false'
                 aria-controls='baby-swimming__section'
-                data-option='bebe-nageur'><Icon name='baby' /> <span>Bébé nageur</span></button
+                data-option='bebe-nageur'
+                tabindex='-1'><Icon name='baby' /> <span>Bébé nageur</span></button
               >
               <button
+                id='tab-aquaversaire'
                 class='tab__button'
                 role='tab'
                 aria-selected='false'
                 aria-controls='aquaversaire__section'
                 data-option='aquaversaire'
+                tabindex='-1'
                 ><Icon name='aquaversaire' /> <span>Aquaversaire</span></button
               >
               <button
+                id='tab-surveillance'
                 class='tab__button'
                 role='tab'
                 aria-selected='false'
                 aria-controls='events__section'
                 data-option='surveillance'
+                tabindex='-1'
               >
                 <Icon name='event' /><span>Surveillance</span></button
               >
               <button
+                id='tab-diplome'
                 class='tab__button'
                 role='tab'
                 aria-selected='false'
                 aria-controls='diploma__section'
                 data-option='diplome'
+                tabindex='-1'
               >
                 <Icon name='diploma' /><span>Diplôme</span></button
               >
@@ -103,6 +113,7 @@ const page = {
               id='swimming-station__section'
               class='pricing__section tab__panel active'
               role='tabpanel'
+              aria-labelledby='tab-natation'
             >
               <Title level='3'>Tarifs des leçons de natation</Title>
               <p class='desc'>
@@ -120,7 +131,7 @@ const page = {
                 <SwimmingPrices />
               </div>
             </div>
-            <div id='baby-swimming__section' class='pricing__section tab__panel' role='tabpanel'>
+            <div id='baby-swimming__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-bebe' aria-hidden='true'>
               <Title level='3'>Tarifs des cours bébé nageur</Title>
               <p class='desc'>
                 Nous proposons également des cours de bébé nageurs pour les enfants âgés de 6 mois à
@@ -128,28 +139,22 @@ const page = {
                 l'eau, à développer leur confiance et à apprendre les bases de la natation. Les
                 tarifs débutent à partir de <span class='highlight-price'>20€</span>.
               </p>
-              <p>
-                <ul>
-                  <li>Les cours durent <strong>30 minutes</strong>.</li>
-                  <li>Les cours sont exclusivement réservés aux bébés.</li>
-                  <li>
-                    Pour ceux qui ne sont <strong>pas encore totalement propres</strong>, une <strong
-                    >
-                      couche aquatique est obligatoire
-                    </strong>, portée sous le maillot de bain de leur choix, afin d'assurer un bon
-                    maintien.
-                  </li>
-                  <li>
-                    Les parents peuvent accompagner leur enfant seul ou à deux, avec le maillot de
-                    bain de leur choix.
-                  </li><li>Le port du bonnet et des lunettes de piscine n’est pas obligatoire.</li>
-                </ul>
-              </p>
+              <ul>
+                <li>Les cours durent <strong>30 minutes</strong>.</li>
+                <li>Les cours sont exclusivement réservés aux bébés.</li>
+                <li>
+                  Pour ceux qui ne sont <strong>pas encore totalement propres</strong>, une <strong>couche aquatique est obligatoire</strong>, portée sous le maillot de bain de leur choix, afin d’assurer un bon maintien.
+                </li>
+                <li>
+                  Les parents peuvent accompagner leur enfant seul ou à deux, avec le maillot de bain de leur choix.
+                </li>
+                <li>Le port du bonnet et des lunettes de piscine n’est pas obligatoire.</li>
+              </ul>
               <div class='pricing__wrapper'>
                 <BabySwimmingPrices />
               </div>
             </div>
-            <div id='aquaversaire__section' class='pricing__section tab__panel' role='tabpanel'>
+            <div id='aquaversaire__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-aquaversaire' aria-hidden='true'>
               <Title level='3'>Tarifs aquaversaire</Title>
               <p class='desc'>
                 Pour rendre l'anniversaire de votre enfant inoubliable, pourquoi ne pas organiser
@@ -157,14 +162,14 @@ const page = {
                 amusants, des activités de natation et des collations pour les petits nageurs. Nos
                 animateurs s'occuperont de tout, vous permettant de vous détendre et de profiter de
                 l'événement avec votre enfant. Les tarifs débutent à partir de <span
-                  class='highlight-price'>20€</span
+                  class='highlight-price'>300€</span
                 >.
               </p>
               <div class='pricing__wrapper'>
                 <AquaversairePrices />
               </div>
             </div>
-            <div id='events__section' class='pricing__section tab__panel' role='tabpanel'>
+            <div id='events__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-surveillance' aria-hidden='true'>
               <Title level='3'>Tarifs surveillance d'événements</Title>
               <p class='desc'>
                 Si vous organisez un événement dans une piscine, il est important d'avoir une
@@ -176,7 +181,7 @@ const page = {
                 <EventsPrices />
               </div>
             </div>
-            <div id='diploma__section' class='pricing__section tab__panel' role='tabpanel'>
+            <div id='diploma__section' class='pricing__section tab__panel' role='tabpanel' aria-labelledby='tab-diplome' aria-hidden='true'>
               <Title level='3'>Tarifs diplôme</Title>
               <p class='desc'>
                 Le Diplôme 50 mètres est délivré aux nageurs qui ont réussi à nager les 50 mètres
@@ -341,97 +346,92 @@ const page = {
 </style>
 <script>
   const pricesSetup = () => {
-    // Define the tab buttons and panels (only run on tarifs page when DOM is ready)
     const tabButtons = document.querySelectorAll<HTMLButtonElement>('.tab__button');
     const tabPanels = document.querySelectorAll<HTMLDivElement>('.tab__panel');
 
     if (!tabButtons.length || !tabPanels.length) return;
 
-    /**
-     * Shows the specified panel and hides the other panels
-     * @param panelIndex The index of the panel to show
-     */
     function showPanel(panelIndex: number): void {
       const newPanel = tabPanels[panelIndex];
       if (!newPanel) return;
 
-      // Determine the current panel
       const currentPanel = document.querySelector<HTMLDivElement>(
         '.pricing__section.previous, .pricing__section.active'
       );
 
-      // Remove the "active" class from the current panel and add it to the new panel
       if (currentPanel) {
         currentPanel.classList.remove('active');
         currentPanel.classList.add('previous');
+        currentPanel.setAttribute('aria-hidden', 'true');
       }
       newPanel.classList.add('active');
       newPanel.classList.remove('previous');
+      newPanel.setAttribute('aria-hidden', 'false');
 
-      // Remove the "active" and "aria-selected" attributes from all buttons
       tabButtons.forEach((button) => {
         button.classList.remove('active');
         button.setAttribute('aria-selected', 'false');
+        button.setAttribute('tabindex', '-1');
       });
 
-      // Remove the "active" and "previous" classes from all panels except for the current and new panels
       tabPanels.forEach((panel) => {
         if (panel !== currentPanel && panel !== newPanel) {
-          panel.classList.remove('active');
-          panel.classList.remove('previous');
+          panel.classList.remove('active', 'previous');
+          panel.setAttribute('aria-hidden', 'true');
         }
       });
 
-      // Add the "active" and "aria-selected" attributes to the selected button
       const selectedButton = tabButtons[panelIndex];
       if (selectedButton) {
         selectedButton.classList.add('active');
         selectedButton.setAttribute('aria-selected', 'true');
-        const selectedButtonContent =
-          selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
-        if (selectedButtonContent) {
+        selectedButton.setAttribute('tabindex', '0');
+
+        const labelText = selectedButton.querySelector<HTMLSpanElement>('span')?.innerHTML;
+        if (labelText) {
           const tabTitle = document.querySelector<HTMLElement>('.tab__title');
-          if (tabTitle) {
-            tabTitle.innerHTML = selectedButtonContent;
-          }
+          if (tabTitle) tabTitle.innerHTML = labelText;
         }
+
+        const option = selectedButton.getAttribute('data-option') || '';
+        const url = new URL(window.location.href);
+        url.searchParams.set('option', option);
+        window.history.replaceState({}, '', url.toString());
       }
     }
 
-    // Show the first panel by default
-    showPanel(0);
+    // Resolve initial panel from URL, fallback to 0
+    const urlOption = new URLSearchParams(window.location.search).get('option');
+    const initialIndex = urlOption
+      ? Array.from(tabButtons).findIndex((btn) => btn.getAttribute('data-option') === urlOption)
+      : -1;
+    showPanel(initialIndex !== -1 ? initialIndex : 0);
 
-    // Add click event listeners to the tab buttons
     tabButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        showPanel(index);
-      });
+      button.addEventListener('click', () => showPanel(index));
     });
 
-    // Handle URL query parameter to select a specific tab
-    const urlParams = new URLSearchParams(window.location.search);
-    const option = urlParams.get('option');
-    if (option) {
-      const matchingButton = document.querySelector<HTMLButtonElement>(
-        `button[role='tab'][data-option='${option}']`
+    // Arrow-key navigation per ARIA tablist pattern
+    const tabList = document.querySelector('[role="tablist"]');
+    tabList?.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      const currentIndex = Array.from(tabButtons).findIndex(
+        (btn) => btn.getAttribute('aria-selected') === 'true'
       );
-      if (matchingButton) {
-        matchingButton.click();
-      }
-    }
+      let next = currentIndex;
 
-    // Add click event listeners to the tab buttons to update URL query parameters
-    const tabs = document.querySelectorAll<HTMLInputElement>("button[role='tab']");
-    tabs.forEach((tab) => {
-      const option = tab.getAttribute('data-option') || '';
-      const url = new URL(window.location.href);
-      url.searchParams.set('option', option);
-      tab.setAttribute('data-option', url.toString());
-      tab.addEventListener('click', () => {
-        window.history.replaceState({}, '', url.toString());
-      });
+      if (ke.key === 'ArrowRight') next = (currentIndex + 1) % tabButtons.length;
+      else if (ke.key === 'ArrowLeft') next = (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+      else if (ke.key === 'Home') next = 0;
+      else if (ke.key === 'End') next = tabButtons.length - 1;
+      else return;
+
+      ke.preventDefault();
+      showPanel(next);
+      tabButtons[next].focus();
     });
   };
+
   pricesSetup();
   document.addEventListener('astro:after-swap', pricesSetup);
 </script>

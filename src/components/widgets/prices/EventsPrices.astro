@@ -7,21 +7,21 @@ import Title from "@components/ui/Title.astro";
 const { prices } = site;
 const eventsPrices = prices.events;
 
-const formOptions = options;
-const eventOption = formOptions[3];
+const eventOption = options.find((o) => o.slug === "securiser-un-evenement");
 ---
 
 <div class="packages-container events">
   <div>
     <div class="package">
-      <Title level="1" class="package__title">{eventsPrices.name}</Title>
+      <Title level="4" class="package__title">{eventsPrices.name}</Title>
       <ul class="package__list">
         <li class="package__item">
           {eventsPrices.condition}
+          <span class="package__price">{eventsPrices.price}€</span>
         </li>
       </ul>
       <Button
-        href={`/contact?option=${eventOption.slug}`}
+        href={`/contact?option=${eventOption?.slug}`}
         class="btn btn__regular"
       >
         Demander un devis
@@ -29,9 +29,3 @@ const eventOption = formOptions[3];
     </div>
   </div>
 </div>
-
-<style>
-  .container {
-    width: 100%;
-  }
-</style>

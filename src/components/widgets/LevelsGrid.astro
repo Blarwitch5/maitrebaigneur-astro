@@ -9,6 +9,8 @@ const optimizedBackgrounds = await Promise.all(
     const optimized = await getImage({
       src: level.image.path,
       format: 'webp',
+      width: 800,
+      height: 600,
     });
     return {
       ...level,
@@ -23,13 +25,16 @@ const optimizedBackgrounds = await Promise.all(
     optimizedBackgrounds.map((level) => (
       <div
         class='level panel'
-        style={`background-image: linear-gradient(0deg, 
-          hsla(var(--link-color-primary-hsl), 1) 0%,
-          hsla(var(--link-color-primary-hsl), 1) 7%, 
-          hsla(var(--link-color-white-hsl), 0) 75%), 
+        role='button'
+        tabindex='0'
+        aria-expanded='false'
+        aria-label={level.name}
+        style={`background-image:
+          linear-gradient(180deg, hsla(var(--link-color-primary-hsl), 0.55) 0%, hsla(var(--link-color-primary-hsl), 0) 38%),
+          linear-gradient(0deg, hsla(var(--link-color-primary-hsl), 1) 0%, hsla(var(--link-color-primary-hsl), 1) 7%, hsla(var(--link-color-white-hsl), 0) 75%),
           url('${level.backgroundImage}');`}
       >
-        <p class=' vertical-txt'>{level.name}</p>
+        <p class=' vertical-txt' aria-hidden='true'>{level.name}</p>
         <div class='level__content details'>
           <Title level='3' class='level__title'>
             {level.name}
@@ -193,22 +198,30 @@ const optimizedBackgrounds = await Promise.all(
 <script>
   function levelsGridSetup() {
     const levels = document.querySelectorAll('.level');
+
+    function activate(level: Element) {
+      levels.forEach((l) => {
+        l.classList.remove('active');
+        l.setAttribute('aria-expanded', 'false');
+      });
+      level.classList.add('active');
+      level.setAttribute('aria-expanded', 'true');
+    }
+
     if (levels.length > 0) {
-      levels[0].classList.add('active');
+      activate(levels[0]);
     }
 
     levels.forEach((level) => {
-      level.addEventListener('click', () => {
-        removeActiveClasses(); // Add fuctions to remove active class first
-        level.classList.add('active');
+      level.addEventListener('click', () => activate(level));
+      level.addEventListener('keydown', (e) => {
+        const key = (e as KeyboardEvent).key;
+        if (key === 'Enter' || key === ' ') {
+          e.preventDefault();
+          activate(level);
+        }
       });
     });
-
-    function removeActiveClasses() {
-      levels.forEach((level) => {
-        level.classList.remove('active');
-      });
-    }
   }
   levelsGridSetup();
   document.addEventListener('astro:after-swap', levelsGridSetup);

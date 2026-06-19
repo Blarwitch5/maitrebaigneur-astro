@@ -37,7 +37,7 @@ import { reservationLink } from '@assets/data/data.json';
   <div class='top__toggle-btn'>
     <span class='top__toggle-btn-label top__toggle-btn-label--active'>En bassin</span>
     <label class='top__toggle-btn-switch' for='checkbox'>
-      <input type='checkbox' id='checkbox' aria-label='Chenger entre bassin et domicile' />
+      <input type='checkbox' id='checkbox' aria-label='Changer entre bassin et domicile' />
       <span class='top__toggle-btn-slider top__toggle-btn-slider--round'></span>
     </label>
     <span class='top__toggle-btn-label'>À domicile</span>
@@ -47,7 +47,7 @@ import { reservationLink } from '@assets/data/data.json';
 <div class='packages-container swimming'>
   <div id='price-package-home'>
     <div class='package package--wide'>
-      <Title level='1' class='package__title'>Séance à l'unité</Title>
+      <Title level='4' class='package__title'>Séance à l'unité</Title>
       {
         hasHomeComparison ? (
           <div class='package__table-wrapper'>
@@ -98,7 +98,7 @@ import { reservationLink } from '@assets/data/data.json';
   </div>
   <div id='price-package-pool'>
     <div class='package'>
-      <Title level='1' class='package__title'>Séance à l'unité</Title>
+      <Title level='4' class='package__title'>Séance à l'unité</Title>
       <ul class='package__list'>
         {
           swimmingPricesPool.single.map(
@@ -117,8 +117,8 @@ import { reservationLink } from '@assets/data/data.json';
     </div>
 
     <div class='package'>
-      <Title level='1' class='package__title'>Nos formules</Title>
-      <Title level='2' class='package__subtitle'>Seul ou à partager</Title>
+      <Title level='4' class='package__title'>Nos formules</Title>
+      <Title level='5' class='package__subtitle'>Seul ou à partager</Title>
       <ul class='package__list'>
         {
           swimmingPricesPool.formula.map(
