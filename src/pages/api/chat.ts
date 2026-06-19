@@ -171,7 +171,7 @@ const IDENTITY_LEAKS = [
   'LLM',
 ];
 
-const RESPONSE_SUSPICIOUS = [/https?:\/\/(?!maitrebaigneur\.liberfit\.fr)/i, /```/, /^\s*-\s.+\n\s*-\s/m];
+const RESPONSE_SUSPICIOUS = [/https?:\/\/(?!maitrebaigneur\.liberfit\.fr)(?!maitrebaigneur\.com)/i, /```/, /^\s*-\s.+\n\s*-\s/m];
 
 function responseIsInvalid(text: string): boolean {
   if (IDENTITY_LEAKS.some((m) => text.includes(m))) return true;

@@ -51,6 +51,30 @@ export function getChatContext(): string {
     .join(', ');
 
   return `
+## QUI SOMMES-NOUS
+
+Maître Baigneur est une école de natation fondée par Quentin Vander Meulen, dans la région d'Aix-en-Provence.
+
+Fondateur et directeur : Quentin Vander Meulen
+Parcours : athlète de haut niveau, joueur professionnel de water-polo, maître-nageur diplômé d'État.
+Sa vision : "Allier mes différentes expériences et transmettre mon savoir au travers d'une pédagogie ludique, pour que chaque baigneur puisse avoir le plaisir de nager en toute sécurité."
+
+Tous les cours sont encadrés par des maîtres-nageurs diplômés d'État.
+Note Google : 4,9/5 sur 174 avis.
+
+## PHILOSOPHIE & PÉDAGOGIE
+
+Cours en petits groupes, pédagogie ludique axée sur la progression et la sécurité.
+Bénéfices : esprit d'équipe, confiance en soi, bons réflexes aquatiques, développement de la coordination.
+La régularité des séances est essentielle pour progresser.
+
+## CONTACT
+
+Téléphone : +33 6 77 00 75 84
+Email : contact@maitrebaigneur.com
+Site : maitrebaigneur.com
+Page de contact : https://maitrebaigneur.com/contact
+
 ## BASSINS (piscines partenaires)
 
 ${poolsText}
@@ -107,13 +131,5 @@ ${levelsText}
 ## RÉSERVATION
 
 Lien de réservation en ligne : https://maitrebaigneur.liberfit.fr/customportal/login
-
-## INFORMATIONS GÉNÉRALES
-
-- Maître Baigneur est une école de natation dans la région d'Aix-en-Provence
-- Tous les cours sont encadrés par des maîtres-nageurs diplômés d'État
-- Cours disponibles en bassin partenaire ou à domicile
-- Bébé nageur : dès 3 mois
-- Site : maitrebaigneur.com
 `.trim();
 }

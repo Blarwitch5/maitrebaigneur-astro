@@ -25,6 +25,23 @@ function buildWhatsappUrl(question: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER.replace(/\+/g, '')}?text=${encodeURIComponent(text)}`;
 }
 
+function renderWithLinks(text: string): React.ReactNode {
+  const parts = text.split(/(https?:\/\/[^\s]+)/);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.match(/^https?:\/\//) ? (
+          <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="chat-link">
+            Réserver en ligne
+          </a>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function readSessionCount(): number {
   try { return parseInt(sessionStorage.getItem(SESSION_COUNTER_KEY) ?? '0', 10) || 0; }
   catch { return 0; }
@@ -244,7 +261,7 @@ export default function ChatWidget() {
             )}
             {messages.map((msg, i) => (
               <div key={i} className={`chat-message chat-message--${msg.role}`}>
-                <p>{msg.content}</p>
+                <p>{msg.role === 'assistant' ? renderWithLinks(msg.content) : msg.content}</p>
               </div>
             ))}
             {loading && (
