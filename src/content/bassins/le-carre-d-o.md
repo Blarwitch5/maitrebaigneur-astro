@@ -1,5 +1,5 @@
 ---
-metaTitle: "Notre bassin d'apprentissage au Carréd'Ô"
+metaTitle: "Notre bassin d'apprentissage au Carré d'Ô"
 metaDesc: "Découvrez notre bassin d'apprentissage au Carré d'Ô, exploité par Maître-Baigneur pour des cours de natation et bébé nageur. Profitez d'un environnement sécurisé et adapté pour apprendre à nager dans les meilleures conditions avec nos professionnels qualifiés."
 
 title: "Le Carré d'Ô"

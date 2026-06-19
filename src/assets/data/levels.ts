@@ -28,7 +28,7 @@ const levels: Level[] = [
       alt: 'Petit baigneur reposant sa tête sur ses mains aux bord de la piscine et portant ses lunettes sur la tête',
     },
     desc: "Découverte du milieu aquatique dès l'âge de 3 ans !",
-    hints: ["Mon enfant a peur de la piscine?", "Mon enfant ne mets pas la tête dans l'eau ?"],
+    hints: ["Mon enfant a peur de la piscine?", "Mon enfant ne met pas la tête dans l'eau ?"],
   },
   {
     slug: 'mini-baigneur',
@@ -94,8 +94,8 @@ const levels: Level[] = [
       path: adulteImg,
       alt: "Jeune femme nageant sous l'eau dans une piscine",
     },
-    desc: "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d'aisance et de confort.<span> « Il n'y a pas d'âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quelque soit votre âge…",
-    hints: ["Je sais nager et mais je veux perfectionner ma nage ?"],
+    desc: "Laissez-nous confirmer votre nage, travailler le geste juste pour plus d'aisance et de confort.<span> « Il n'y a pas d'âge pour apprendre les 4 nages »</span>. Découvrez ou redécouvrez le plaisir de nager quel que soit votre âge…",
+    hints: ["Je sais nager mais je veux perfectionner ma nage ?"],
   },
 ];
 

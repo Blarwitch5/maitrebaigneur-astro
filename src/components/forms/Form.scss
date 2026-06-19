@@ -344,19 +344,21 @@
 
     .level-detail {
       position: relative;
+      overflow: hidden;
       padding: var(--space-xs);
-      background-color: var(--color-white);
+      background: var(--color-white);
       border-radius: var(--small-border-radius);
 
-      &::before {
+      &::after {
         content: '';
         position: absolute;
         left: 0;
         top: 0;
         bottom: 0;
         width: 3px;
-        background-color: var(--color-primary);
-        border-radius: var(--small-border-radius) 0 0 var(--small-border-radius);
+        background: var(--color-primary);
+        pointer-events: none;
+        z-index: 1;
       }
 
       @media screen and (min-width: 767px) {
