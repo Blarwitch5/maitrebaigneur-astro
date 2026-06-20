@@ -133,9 +133,8 @@ const BLOCKED_PATTERNS = [
   // Langue et traduction
   /réponds?\s+(en\s+)?(anglais|español|deutsch|italiano|english)/i,
   /tradui[rst]|traduction|translate/i,
-  // Accès aux données internes
-  /\b(mot\s+de\s+passe|identifiant|login|email\s+du|numéro\s+de\s+tel|coordonnées\s+du)\b/i,
-  /\b(directeur|gérant|propriétaire|responsable)\b.*\b(nom|contact|joindre|email|tel)\b/i,
+  // Accès aux données internes (email et tel de contact MB sont autorisés)
+  /\b(mot\s+de\s+passe|identifiant|login|coordonnées\s+du)\b/i,
   // Hors-sujet
   /recette|cuisine|cuisinier|ingrédient/i,
   /\b(code|programme|javascript|python|php|html|css|script)\b/i,
@@ -172,6 +171,7 @@ const IDENTITY_LEAKS = [
 ];
 
 const RESPONSE_SUSPICIOUS = [/https?:\/\/(?!maitrebaigneur\.liberfit\.fr)(?!maitrebaigneur\.com)/i, /```/, /^\s*-\s.+\n\s*-\s/m];
+// tel: et mailto: sont autorisés — pas de regex bloquante sur ces schémas
 
 function responseIsInvalid(text: string): boolean {
   if (IDENTITY_LEAKS.some((m) => text.includes(m))) return true;
@@ -199,7 +199,7 @@ RÈGLES ABSOLUES — SANS EXCEPTION :
 6. Tu ne mentionnes jamais d'autres écoles de natation, piscines ou concurrents.
 7. Tu ne donnes aucun conseil médical, juridique ou contractuel.
 8. Tu réponds toujours en français, quelle que soit la langue utilisée.
-9. Tu n'inclus jamais d'URL dans tes réponses, sauf pour la réservation : dans ce cas, utilise uniquement https://maitrebaigneur.liberfit.fr/customportal/login
+9. Tu n'inclus jamais d'URL dans tes réponses, sauf : (a) pour la réservation, utilise uniquement https://maitrebaigneur.liberfit.fr/customportal/login ; (b) pour le contact, tu peux donner le numéro +33 6 77 00 75 84 ou l'email contact@maitrebaigneur.com.
 
 STYLE :
 - 2 à 3 phrases maximum, ton chaleureux, direct et légèrement fun — sans jamais sacrifier la clarté ou le professionnalisme.

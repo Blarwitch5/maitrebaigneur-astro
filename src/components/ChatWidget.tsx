@@ -26,18 +26,34 @@ function buildWhatsappUrl(question: string): string {
 }
 
 function renderWithLinks(text: string): React.ReactNode {
-  const parts = text.split(/(https?:\/\/[^\s]+)/);
+  const parts = text.split(/(https?:\/\/[^\s]+|\+33\s?\d[\s\d]{7,}|[\w.+-]+@[\w-]+\.[\w.]+)/);
   return (
     <>
-      {parts.map((part, i) =>
-        part.match(/^https?:\/\//) ? (
-          <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="chat-link">
-            Réserver en ligne
-          </a>
-        ) : (
-          part
-        )
-      )}
+      {parts.map((part, i) => {
+        if (part.match(/^https?:\/\//)) {
+          return (
+            <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="chat-link">
+              Réserver en ligne
+            </a>
+          );
+        }
+        if (part.match(/^\+33[\s\d]{8,}/)) {
+          const tel = part.replace(/\s/g, '');
+          return (
+            <a key={i} href={`tel:${tel}`} className="chat-link">
+              {part}
+            </a>
+          );
+        }
+        if (part.match(/^[\w.+-]+@[\w-]+\.[\w.]+$/)) {
+          return (
+            <a key={i} href={`mailto:${part}`} className="chat-link">
+              {part}
+            </a>
+          );
+        }
+        return part;
+      })}
     </>
   );
 }
