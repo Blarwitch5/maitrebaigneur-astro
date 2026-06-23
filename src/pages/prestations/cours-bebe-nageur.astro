@@ -21,7 +21,7 @@ import bebenageur5 from '@assets/images/bebe-nageur/bebe-nageur-5.jpg';
 //data
 const page = {
   metaTitle: 'Cours bébé nageur à Aix-en-Provence dès 3 mois',
-  description: 'Cours bébé nageur à Aix-en-Provence dès 3 mois avec Maître Baigneur. Séances en petit groupe le week-end, encadrées par un maître-nageur diplômé d\'État.',
+  description: "Cours bébé nageur à Aix-en-Provence dès 3 mois avec Maître Baigneur. Séances en petit groupe le week-end, encadrées par un maître-nageur diplômé d'État.",
   title: 'Cours bébé nageur',
 
   image: {
@@ -51,9 +51,30 @@ const page = {
     },
   ],
 };
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cours bébé nageur",
+  "description": page.description,
+  "url": "https://maitrebaigneur.com/prestations/cours-bebe-nageur",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Maître Baigneur",
+    "url": "https://maitrebaigneur.com"
+  },
+  "areaServed": { "@type": "City", "name": "Aix-en-Provence" },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Bébés de 3 à 36 mois"
+  }
+};
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
@@ -68,6 +89,7 @@ const page = {
             <p>
               Offrez à votre bébé un moment privilégié d'éveil et de motricité dans une eau chaude
               et une ambiance ludique. Nos cours de bébé nageur sont conçus pour :
+            </p>
               <ul>
                 <li>Favoriser le bien-être et l'amusement de votre enfant</li>
                 <li>Respecter notre pédagogie axée sur la découverte</li>
@@ -75,7 +97,7 @@ const page = {
                 <li>Proposer une ambiance propice au développement</li>
                 <li>Accompagner les parents et le bébé dans une expérience unique de complicité</li>
               </ul>
-
+            <p>
               Nos éducateurs spécialisés sont formés pour vous accompagner dans cette nouvelle
               expérience. Découvrez dès maintenant notre programme pour le développement de votre
               bébé dans une ambiance propice à l'épanouissement.

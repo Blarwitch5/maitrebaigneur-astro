@@ -32,9 +32,30 @@ const page = {
     alt: 'Enfant passant en nageant dans un cerceau aux côtés du maître nageur',
   },
 };
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cours de natation",
+  "description": page.description,
+  "url": "https://maitrebaigneur.com/prestations/cours-de-natation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Maître Baigneur",
+    "url": "https://maitrebaigneur.com"
+  },
+  "areaServed": { "@type": "City", "name": "Aix-en-Provence" },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Enfants et adultes, tous niveaux, dès 3 ans"
+  }
+};
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />

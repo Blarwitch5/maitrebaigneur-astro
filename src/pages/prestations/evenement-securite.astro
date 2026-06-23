@@ -17,7 +17,7 @@ import evenement from '@assets/images/page-title/page_surveillance.jpg';
 const page = {
   metaTitle: 'Surveillance de piscine pour événements privés à Aix-en-Provence',
   description:
-    'Maître Baigneur assure la surveillance de piscine pour vos événements privés à Aix-en-Provence : baptêmes, mariages, anniversaires. Maîtres-nageurs diplômés d\'État pour la sécurité de vos invités.',
+    "Maître Baigneur assure la surveillance de piscine pour vos événements privés à Aix-en-Provence : baptêmes, mariages, anniversaires. Maîtres-nageurs diplômés d'État pour la sécurité de vos invités.",
   title: 'Événements et sécurité',
 
   image: {
@@ -25,9 +25,26 @@ const page = {
     alt: "Couple de mariés se jetant à l'eau dans une piscine",
   },
 };
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Surveillance d'événements aquatiques",
+  "description": page.description,
+  "url": "https://maitrebaigneur.com/prestations/evenement-securite",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Maître Baigneur",
+    "url": "https://maitrebaigneur.com"
+  },
+  "areaServed": { "@type": "City", "name": "Aix-en-Provence" }
+};
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />

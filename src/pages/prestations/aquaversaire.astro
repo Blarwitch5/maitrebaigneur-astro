@@ -25,9 +25,26 @@ const page = {
     alt: "Groupe de jeunes gens assis sur une bouée et s'amusant dans une piscine lors d'un anniversaire",
   },
 };
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Aquaversaire",
+  "description": page.description,
+  "url": "https://maitrebaigneur.com/prestations/aquaversaire",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Maître Baigneur",
+    "url": "https://maitrebaigneur.com"
+  },
+  "areaServed": { "@type": "City", "name": "Aix-en-Provence" }
+};
 ---
 
 <BaseLayout title={page.metaTitle} description={page.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
   <SkipToContent />
   <Header />
   <PageTitle pageTitle={page.title} pageImagePath={page.image.path} pageImageAlt={page.image.alt} />
