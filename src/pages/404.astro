@@ -2,7 +2,7 @@
 const page = {
   metaTitle: 'Page introuvable',
   description:
-    "Nous sommes désolés, mais il semblerait que vous ayez nagé un peu trop loin et que vous soyez arrivé(e) dans les profondeurs de notre site web, où la page que vous cherchez a été emportée par les vagues. Sur cette page, vous trouverez un message sympathique et humoristique pour vous rassurer, vous faire sourire et vous guider vers la sécurité. En effet, notre équipe de sauvetage de pages web est toujours prête à vous ramener à bon port ! N'oubliez pas que chez Maître-Biagneur, nous proposons d'excellents cours de natation et des services de bébé nageur pour tous",
+    "Cette page n'existe pas ou a été déplacée. Retrouvez nos cours de natation, bébé nageur et aquaversaire sur le site Maître Baigneur.",
   title: '404',
 };
 import Favicon from '@components/head/Favicon.astro';
@@ -28,7 +28,9 @@ const babySwimming = services.find((service) => service.name.includes('bébé'))
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
 
-    <title>{page.metaTitle}</title>
+    <title>{page.metaTitle} | Maître Baigneur</title>
+    <meta name="description" content={page.description} />
+    <meta name="robots" content="noindex" />
 
     <!-- FAVICON -->
     <Favicon />

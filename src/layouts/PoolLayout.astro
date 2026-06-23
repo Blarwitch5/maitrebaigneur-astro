@@ -78,6 +78,8 @@ const {
   openGraphImage,
   openGraphImageAlt,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -90,6 +92,7 @@ const {
     <SEO
       title={`${title} | ${siteTitle}`}
       description={description}
+      canonical={canonical.toString()}
       openGraph={{
         basic: {
           type: openGraphType ? openGraphType : "website",
